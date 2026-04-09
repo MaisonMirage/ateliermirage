@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Maison Mirage — Haute Pâtisserie</title>
+  <title>Atelier Mirage — Haute Pâtisserie</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -1951,7 +1951,7 @@
     <a href="#philosophy" class="mobile-nav-item">Savoir-faire</a>
     <a href="#boutique"   class="mobile-nav-item">Commander</a>
     <div class="mobile-overlay-footer">
-      <p>© 2026 Maison Mirage</p>
+      <p>© 2026 Atelier Mirage</p>
       <div class="mobile-social-links">
         <a href="#">Instagram</a>
         <a href="#">Pinterest</a>
@@ -1965,7 +1965,7 @@
 
   <nav id="navbar">
     <a href="#" class="nav-brand" aria-label="Retour à l'accueil">
-      <img src="img/maison_mirage_logo_beige.png" alt="Maison Mirage" class="brand-logo" />
+      <img src="img/maison_mirage_logo_beige.png" alt="Atelier Mirage" class="brand-logo" />
     </a>
     <div class="nav-links">
       <a href="#boutique" class="nav-link">Collection</a>
@@ -2006,7 +2006,7 @@
     </div>
     <div class="hero-right">
       <div class="hero-right-bg"></div>
-      <img src="img/hero-flatlay.jpg" alt="Collection complète Maison Mirage — 9 trompe-l'œil" class="hero-img-main" id="heroMain"/>
+      <img src="img/hero-flatlay.jpg" alt="Collection complète Atelier Mirage — 9 trompe-l'œil" class="hero-img-main" id="heroMain"/>
     </div>
   </header>
 
@@ -2094,8 +2094,8 @@
       </p>
     </div>
     <div class="philosophy-visual reveal">
-      <div class="phil-img-a"><img src="img/peche.png" alt="La Pêche — Maison Mirage"/></div>
-      <div class="phil-img-b"><img src="img/citron.png" alt="Le Citron — Maison Mirage"/></div>
+      <div class="phil-img-a"><img src="img/peche.png" alt="La Pêche — Atelier Mirage"/></div>
+      <div class="phil-img-b"><img src="img/citron.png" alt="Le Citron — Atelier Mirage"/></div>
       <div class="phil-stats">
         <div class="phil-stats-val">09</div>
         <div class="phil-stats-label">Créations<br>exclusives</div>
@@ -2374,7 +2374,7 @@
 
   <footer>
     <div class="footer-logo-wrap">
-      <img src="img/maison_mirage_logo_beige.png" alt="Maison Mirage" style="height:42px;width:auto;filter:brightness(0) saturate(100%);" />
+      <img src="img/maison_mirage_logo_beige.png" alt="Atelier Mirage" style="height:42px;width:auto;filter:brightness(0) saturate(100%);" />
     </div>
     <div class="footer-tagline">Haute Pâtisserie · Marseille</div>
 
@@ -2412,7 +2412,7 @@
     </div>
 
     <div class="footer-bottom">
-      <span>© 2026 Maison Mirage</span>
+      <span>© 2026 Atelier Mirage</span>
       <a href="#">Mentions légales</a>
       <a href="#">CGV</a>
       <a href="#">Confidentialité</a>
@@ -2797,8 +2797,8 @@
     if (isLocal) {
       const recap = cart.map(i => `• ${i.name} x${i.qty} — ${(i.price * i.qty).toFixed(2)}€`).join('\n');
       const total = cart.reduce((s, i) => s + i.price * i.qty, 0).toFixed(2);
-      const body = `Bonjour Maison Mirage,\n\nJe souhaite commander :\n\n${recap}\n\nTotal : ${total}€\n\nCordialement`;
-      window.location.href = `mailto:bonjour@maison-mirage.fr?subject=${encodeURIComponent('Commande Maison Mirage')}&body=${encodeURIComponent(body)}`;
+      const body = `Bonjour Atelier Mirage,\n\nJe souhaite commander :\n\n${recap}\n\nTotal : ${total}€\n\nCordialement`;
+      window.location.href = `mailto:bonjour@maison-mirage.fr?subject=${encodeURIComponent('Commande Atelier Mirage')}&body=${encodeURIComponent(body)}`;
       return;
     }
 
@@ -2873,7 +2873,7 @@
     const numeroWhatsapp = "33612345678"; // À remplacer par ton numéro pro
     
     // Construction du bon de commande parfait
-    let message = `Bonjour Maison Mirage, je souhaite valider ma commande.\n\n`;
+    let message = `Bonjour Atelier Mirage, je souhaite valider ma commande.\n\n`;
     message += `🛍️ *MON PANIER :*\n`;
     cart.forEach(item => {
       message += `▪ ${item.qty}x ${item.name} (${(item.price * item.qty).toFixed(2).replace('.',',')} €)\n`;
@@ -3205,7 +3205,7 @@
         <div class="chat-header">
           <div class="chat-header-avatar"><img src="img/maison_mirage_logo_beige.png" alt="M" style="width:1.2rem;height:auto;"/></div>
           <div class="chat-header-info">
-            <div class="chat-header-name">Maison Mirage</div>
+            <div class="chat-header-name">Atelier Mirage</div>
             <div class="chat-header-status"><div class="chat-status-dot"></div>En ligne</div>
           </div>
         </div>

@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier Mirage — Bible de Conquête · Avril 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root{--cream:#FAF5EF;--cream-2:#F5F0EA;--cream-3:#EDE8E2;--ink:#1A1714;--ink-soft:#2C2824;--ink-muted:#6B6560;--gold:#A8895C;--gold-light:#C9AA7C;--gold-pale:#E8D5B8;--gold-shimmer:#D4B896;--white:#FFFFFF;--success:#4A7C59;--urgent:#8C3A3A}
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Outfit',sans-serif;background:var(--cream);color:var(--ink);line-height:1.7}
+        .container{max-width:900px;margin:0 auto;padding:60px 40px}
+
+        /* HEADER */
+        .header{display:flex;align-items:center;justify-content:space-between;padding-bottom:16px;border-bottom:1px solid var(--gold);margin-bottom:40px}
+        .header-left{display:flex;align-items:center;gap:12px}
+        .header-logo{width:30px}
+        .header-label{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
+        .header-right{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold)}
+
+        /* HERO */
+        .hero{text-align:center;margin-bottom:50px;padding:40px 20px}
+        .hero-pre{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold);margin-bottom:16px}
+        .hero h1{font-family:'Cormorant Garamond',serif;font-size:52px;font-weight:400;color:var(--ink);line-height:1.15;margin-bottom:10px}
+        .hero h1 em{font-style:italic;color:var(--gold)}
+        .hero-sub{font-size:16px;color:var(--ink-muted);max-width:580px;margin:0 auto}
+
+        /* SECTION */
+        .section{margin-bottom:50px}
+        .section-num{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.2em;color:var(--gold);margin-bottom:6px}
+        .section h2{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:400;color:var(--ink);margin-bottom:4px}
+        .section-sub{font-size:14px;color:var(--ink-muted);margin-bottom:22px}
+        .section p{font-size:15px;color:var(--ink-soft);margin-bottom:12px;line-height:1.8}
+        .section p strong{color:var(--ink)}
+
+        /* DARK BOX */
+        .dark-box{background:var(--ink);border-radius:12px;padding:32px 36px;margin-bottom:40px}
+        .dark-box h2{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:400;color:var(--gold-light);margin-bottom:12px}
+        .dark-box p{font-size:15px;color:rgba(250,245,239,.8);line-height:1.8}
+        .dark-box p strong{color:var(--gold-light)}
+
+        /* COMPARISON */
+        .comparison{display:grid;grid-template-columns:1fr 36px 1fr;gap:0;margin:22px 0;align-items:stretch}
+        .comp-side{padding:22px;border-radius:10px}
+        .comp-before{background:var(--cream-3)}
+        .comp-after{background:var(--ink)}
+        .comp-arrow{display:flex;align-items:center;justify-content:center;font-size:20px;color:var(--gold)}
+        .comp-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px}
+        .comp-before .comp-label{color:var(--ink-muted)}
+        .comp-after .comp-label{color:var(--gold)}
+        .comp-text{font-family:'Cormorant Garamond',serif;font-size:17px;font-weight:400;line-height:1.6}
+        .comp-before .comp-text{color:var(--ink-muted)}
+        .comp-after .comp-text{color:var(--cream)}
+
+        /* TAGLINE OPTIONS */
+        .tag-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:20px 0}
+        .tag-card{background:var(--white);border-radius:10px;border:1px solid var(--gold-pale);padding:20px;text-align:center}
+        .tag-card.rec{border-color:var(--gold);box-shadow:0 4px 20px rgba(168,137,92,.12)}
+        .tag-rec{font-family:'JetBrains Mono',monospace;font-size:7px;letter-spacing:.15em;text-transform:uppercase;color:var(--white);background:var(--gold);padding:2px 8px;border-radius:3px;display:inline-block;margin-bottom:8px}
+        .tag-logo{width:32px;margin:0 auto 6px;display:block}
+        .tag-brand{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--ink);letter-spacing:.15em;margin-bottom:2px}
+        .tag-text{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+        .tag-ctx{font-size:11px;color:var(--ink-muted);margin-top:8px;line-height:1.5}
+
+        /* PITCH CARD */
+        .pitch{background:var(--ink);border-radius:12px;padding:28px;margin:20px 0}
+        .pitch-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:12px}
+        .pitch-text{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--cream);line-height:1.75;font-style:italic}
+        .pitch-note{font-family:'Outfit',sans-serif;font-size:12px;color:rgba(250,245,239,.4);margin-top:14px;font-style:normal;line-height:1.6}
+
+        /* MESSAGE CARD */
+        .msg{background:var(--white);border-radius:12px;border:1px solid var(--gold-pale);margin-bottom:20px;overflow:hidden}
+        .msg-head{display:flex;align-items:center;justify-content:space-between;padding:14px 22px;background:var(--cream-2);border-bottom:1px solid var(--gold-pale)}
+        .msg-target{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+        .msg-channel{font-size:11px;color:var(--ink-muted);background:var(--cream);padding:3px 10px;border-radius:20px}
+        .msg-body{padding:22px}
+        .msg-ctx{font-size:12px;color:var(--ink-muted);font-style:italic;margin-bottom:14px;padding-bottom:12px;border-bottom:1px dashed var(--gold-pale)}
+        .msg-txt{font-size:14.5px;color:var(--ink-soft);line-height:1.85;white-space:pre-line}
+
+        /* KIT GRID */
+        .kit-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin:18px 0}
+        .kit-item{background:var(--white);border-radius:10px;padding:20px 16px;border:1px solid var(--gold-pale);text-align:center}
+        .kit-item.must{border-color:var(--gold);box-shadow:0 3px 14px rgba(168,137,92,.1)}
+        .kit-tag{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;padding:2px 7px;border-radius:3px;display:inline-block;margin-bottom:8px}
+        .kit-tag.must{background:var(--ink);color:var(--gold-light)}
+        .kit-tag.bonus{background:var(--cream-2);color:var(--ink-muted)}
+        .kit-emoji{font-size:28px;margin-bottom:8px}
+        .kit-item h4{font-size:13px;font-weight:600;color:var(--ink);margin-bottom:6px}
+        .kit-item p{font-size:12px;color:var(--ink-muted);line-height:1.5}
+
+        /* SCENARIO */
+        .scenario{background:var(--white);border-radius:12px;border:1px solid var(--gold-pale);margin-bottom:18px;overflow:hidden}
+        .scenario-head{padding:14px 22px;background:var(--cream-2);border-bottom:1px solid var(--gold-pale)}
+        .scenario-target{font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--gold)}
+        .scenario-body{padding:22px}
+        .scenario-body p{font-size:14px;color:var(--ink-soft);line-height:1.8;margin-bottom:10px}
+        .scenario-body p strong{color:var(--ink)}
+
+        /* OBJECTION */
+        .obj-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+        .obj-card{background:var(--white);border-radius:10px;border:1px solid var(--gold-pale);padding:20px}
+        .obj-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--success);margin-bottom:8px}
+        .obj-card p{font-size:14px;color:var(--ink-soft);line-height:1.7}
+
+        /* MOVE CARD */
+        .move{display:grid;grid-template-columns:50px 1fr;gap:20px;margin-bottom:32px}
+        .move-num{width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;flex-shrink:0}
+        .move-num.crit{background:var(--ink);color:var(--gold-light)}
+        .move-num.high{background:var(--gold);color:var(--white)}
+        .move-head{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+        .move h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--ink)}
+        .move-when{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.12em;text-transform:uppercase;padding:3px 8px;border-radius:20px}
+        .when-now{background:var(--ink);color:var(--gold-light)}
+        .when-week{background:var(--gold);color:var(--white)}
+        .when-month{background:var(--cream-3);color:var(--ink-muted)}
+        .move p{font-size:14px;color:var(--ink-soft);line-height:1.75}
+
+        /* TIP */
+        .tip{background:rgba(74,124,89,.08);border-left:3px solid var(--success);border-radius:0 8px 8px 0;padding:16px 20px;margin:16px 0}
+        .tip-label{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--success);margin-bottom:4px}
+        .tip p{font-size:13px;color:var(--ink-soft);line-height:1.7}
+
+        /* TIMELINE */
+        .timeline{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:14px;margin:18px 0}
+        .week{background:var(--white);border-radius:10px;padding:18px 16px;border:1px solid var(--gold-pale)}
+        .week.active{border-color:var(--gold);box-shadow:0 3px 16px rgba(168,137,92,.12)}
+        .week-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.2em;color:var(--gold);text-transform:uppercase;margin-bottom:8px}
+        .week h4{font-family:'Cormorant Garamond',serif;font-size:16px;font-weight:600;color:var(--ink);margin-bottom:6px}
+        .week p{font-size:12px;color:var(--ink-muted);line-height:1.5}
+        .week .target{margin-top:8px;font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--success);font-weight:600}
+
+        /* CHECKLIST */
+        .checklist{background:var(--white);border-radius:12px;padding:26px;border:1px solid var(--gold-pale);margin:18px 0}
+        .checklist h3{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--ink);margin-bottom:14px}
+        .check{display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid var(--cream-2);font-size:14px;color:var(--ink-soft)}
+        .check:last-child{border-bottom:none}
+        .check-box{width:20px;height:20px;border:2px solid var(--gold-pale);border-radius:4px;flex-shrink:0}
+
+        /* SEPARATOR */
+        .sep{height:1px;background:var(--gold-pale);margin:10px 0 50px}
+
+        /* FOOTER */
+        .footer{text-align:center;padding-top:24px;border-top:1px solid var(--gold-pale);margin-top:20px}
+        .footer p{font-family:'JetBrains Mono',monospace;font-size:8px;letter-spacing:.15em;color:var(--gold);text-transform:uppercase}
+
+        @media print{
+            .container{padding:30px}
+            .msg,.scenario,.move,.pitch,.dark-box,.checklist{break-inside:avoid}
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+
+    <div class="header">
+        <div class="header-left">
+            <img src="../img/logo-am-ink.png" class="header-logo" alt="AM">
+            <span class="header-label">Atelier Mirage</span>
+        </div>
+        <span class="header-right">Bible de conquête · Avril 2026</span>
+    </div>
+
+    <div class="hero">
+        <div class="hero-pre">Document unique</div>
+        <h1>Bible de <em>Conquête</em></h1>
+        <div class="hero-sub">Positionnement, messages, terrain, actions. Tout ce qu'il faut pour passer de la reprise post-Ramadan à une base pro doublée en 3 mois.</div>
+    </div>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- 01 — POSITIONNEMENT                          -->
+    <!-- ════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-num">01</div>
+        <h2>Ton vrai positionnement</h2>
+        <div class="section-sub">Tu ne vends pas des pâtisseries. Tu vends un accélérateur de business.</div>
+
+        <div class="dark-box">
+            <h2>Le shift fondamental</h2>
+            <p>Tes clients n'achètent pas un dessert. Ils achètent <strong>du contenu Instagram gratuit</strong> (les clients filment), <strong>+30% de ticket moyen</strong> (dessert spectaculaire à 12-14€), et <strong>un sujet de conversation</strong> qui fait revenir les gens. Tu es un partenaire business, pas un fournisseur de gâteaux.</p>
+        </div>
+
+        <div class="comparison">
+            <div class="comp-side comp-before">
+                <div class="comp-label">Avant</div>
+                <div class="comp-text">"Je fais de la pâtisserie trompe-l'œil, livrée prête à servir dès 5,50€."</div>
+            </div>
+            <div class="comp-arrow">→</div>
+            <div class="comp-side comp-after">
+                <div class="comp-label">Maintenant</div>
+                <div class="comp-text">"Je transforme votre carte desserts en machine à contenu et en accélérateur de ticket moyen. Sans chef pâtissier."</div>
+            </div>
+        </div>
+
+        <p><strong>La tagline :</strong> Ajoute sous ton logo, partout — polo, site, carte de visite, signature WhatsApp :</p>
+
+        <div class="tag-grid">
+            <div class="tag-card rec">
+                <div class="tag-rec">Recommandé</div>
+                <img src="../img/logo-am-ink.png" class="tag-logo" alt="AM">
+                <div class="tag-brand">ATELIER MIRAGE</div>
+                <div class="tag-text">L'art du dessert</div>
+                <div class="tag-ctx">Court, mémorable, intrigue. Fonctionne partout.</div>
+            </div>
+            <div class="tag-card">
+                <img src="../img/logo-am-ink.png" class="tag-logo" alt="AM" style="margin-top:20px">
+                <div class="tag-brand">ATELIER MIRAGE</div>
+                <div class="tag-text">Le dessert qui fait parler</div>
+                <div class="tag-ctx">Orienté résultat. Parle directement au restaurateur.</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- 02 — MESSAGES DE PROSPECTION                 -->
+    <!-- ════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-num">02</div>
+        <h2>Messages de prospection</h2>
+        <div class="section-sub">Copie-colle, adapte le prénom, ajoute lamaisonmirage.com, envoie.</div>
+
+        <!-- PITCH UNIVERSEL -->
+        <div class="pitch">
+            <div class="pitch-label">Pitch terrain — 30 secondes</div>
+            <div class="pitch-text">"Je m'appelle Karim, je dirige Atelier Mirage. On crée des desserts trompe-l'œil pour les restaurants — le genre de pièce que vos clients prennent en photo avant de manger. Mes partenaires ont vu leur ticket moyen dessert augmenter de 30%, et chaque service génère du contenu sur les réseaux sans dépenser un centime en pub. Tout est livré prêt à servir, zéro chef pâtissier requis. Goûtez."</div>
+            <div class="pitch-note">Parle de LEUR résultat avant de parler de TON produit. Le "Goûtez." sec à la fin + ouverture de la boîte = le produit prend le relais.</div>
+        </div>
+
+        <!-- RESTAURANT -->
+        <div class="msg">
+            <div class="msg-head">
+                <span class="msg-target">Restaurant / Bistro</span>
+                <span class="msg-channel">WhatsApp</span>
+            </div>
+            <div class="msg-body">
+                <div class="msg-ctx">Contact récupéré via Google Maps ou recommandation d'un client.</div>
+                <div class="msg-txt">Salut [Prénom], je suis Karim de Atelier Mirage. Nos partenaires restaurateurs à Marseille ont augmenté leur ticket moyen dessert de 30% avec un dessert que leurs clients filment et partagent à chaque service — sans pâtissier en cuisine.
+
+Dès 5,50€ la pièce, vous la revendez 12-14€ facile. Livraison prête à servir 6j/7.
+
+Je vous offre une dégustation pour voir si ça colle chez vous : lamaisonmirage.com</div>
+            </div>
+        </div>
+
+        <!-- TRAITEUR -->
+        <div class="msg">
+            <div class="msg-head">
+                <span class="msg-target">Traiteur · Événementiel</span>
+                <span class="msg-channel">WhatsApp · Téléphone</span>
+            </div>
+            <div class="msg-body">
+                <div class="msg-ctx">La saison mariages démarre en mai. Contacte-les MAINTENANT pour qu'ils t'intègrent dans leurs devis.</div>
+                <div class="msg-txt">Bonjour [Prénom], je me permets de vous contacter car la saison événements arrive.
+
+Je suis pâtissier spécialisé en trompe-l'œil à Marseille — des desserts spectaculaires qui font l'unanimité sur un buffet. L'avantage pour vous : pas de production à gérer (je livre prêt à servir en chambre froide) et un effet "wow" garanti qui valorise votre prestation.
+
+À 5€/pièce dès 100 unités. Voyez nos créations : lamaisonmirage.com
+
+On se voit 20 minutes cette semaine ? Je vous apporte des échantillons.</div>
+            </div>
+        </div>
+
+        <!-- HÔTEL -->
+        <div class="msg">
+            <div class="msg-head">
+                <span class="msg-target">Hôtel 4-5 étoiles</span>
+                <span class="msg-channel">Email</span>
+            </div>
+            <div class="msg-body">
+                <div class="msg-ctx">Vise le directeur F&B. Ton plus formel.</div>
+                <div class="msg-txt">Bonjour [Prénom],
+
+Je dirige Atelier Mirage, un atelier spécialisé dans l'art du dessert trompe-l'œil à Marseille. Nous fournissons plusieurs établissements haut de gamme de la région.
+
+Nos créations transforment le moment dessert en expérience partageable — les clients filment, publient, en parlent. C'est une publicité permanente pour votre F&B, sans investissement.
+
+Livraison prête à servir 6j/7 · 5 jours de conservation · Zéro chef pâtissier requis · Création signature exclusive possible.
+
+Je serais ravi de vous faire parvenir quelques pièces pour dégustation.
+
+Karim · Atelier Mirage
+lamaisonmirage.com · +33 6 22 35 65 75</div>
+            </div>
+        </div>
+
+        <!-- COFFEE SHOP -->
+        <div class="msg">
+            <div class="msg-head">
+                <span class="msg-target">Coffee shop · Brunch · Wedding Planner</span>
+                <span class="msg-channel">WhatsApp · Sur place</span>
+            </div>
+            <div class="msg-body">
+                <div class="msg-txt">Hey [Prénom] ! J'adore l'ambiance de [Nom du lieu].
+
+Je fais des pâtisseries trompe-l'œil à Marseille — des desserts qui ressemblent à des citrons, des galets, des trucs improbables. Chaque client sort son téléphone avant de manger, c'est du contenu organique pour vous sans rien faire.
+
+Livraison prête à servir, 5 jours de conservation. Regardez : lamaisonmirage.com
+
+Je vous en dépose quelques-uns pour tester ? C'est offert 🙌</div>
+            </div>
+        </div>
+
+        <!-- RELANCES -->
+        <div class="msg">
+            <div class="msg-head">
+                <span class="msg-target">Relance J+3</span>
+                <span class="msg-channel">WhatsApp</span>
+            </div>
+            <div class="msg-body">
+                <div class="msg-txt">Salut [Prénom], je me permets de revenir vers vous — je sais que c'est chargé.
+
+Je suis dans le coin [jour] et je peux passer vous déposer 2-3 pièces à goûter, sans engagement. 5 minutes.
+
+Sinon pas de souci du tout 🙏</div>
+            </div>
+        </div>
+
+        <div class="msg">
+            <div class="msg-head">
+                <span class="msg-target">Relance J+7 — Dernier message</span>
+                <span class="msg-channel">WhatsApp</span>
+            </div>
+            <div class="msg-body">
+                <div class="msg-txt">Re [Prénom], dernier message — si un jour vous cherchez un dessert qui sort de l'ordinaire pour votre carte ou un événement, pensez à Atelier Mirage. Belle continuation !</div>
+            </div>
+        </div>
+
+        <!-- RECO -->
+        <div class="msg">
+            <div class="msg-head">
+                <span class="msg-target">Demande de recommandation — Clients existants</span>
+                <span class="msg-channel">WhatsApp · Après livraison</span>
+            </div>
+            <div class="msg-body">
+                <div class="msg-txt">Salam / Salut [Prénom], j'espère que la reprise se passe bien. Écoute, est-ce que tu connais un resto ou un traiteur dans le coin qui cherche à pimper sa carte desserts ?
+
+Je suis en train d'élargir ma clientèle, si t'as un nom ça me rendrait un grand service. Je te fais goûter mes dernières créations en remerciement 😉</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- 03 — GUIDE TERRAIN                           -->
+    <!-- ════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-num">03</div>
+        <h2>Guide terrain</h2>
+        <div class="section-sub">Look, kit, scénarios, objections.</div>
+
+        <p><strong>Le look :</strong> Smart casual soigné — polo noir Atelier Mirage (ou chemise unie), chino propre, baskets blanches minimalistes. Mains soignées, parfum léger. Tu es un artisan haut de gamme, pas un commercial en costard.</p>
+
+        <div class="kit-grid">
+            <div class="kit-item must">
+                <div class="kit-tag must">Indispensable</div>
+                <div class="kit-emoji">🎁</div>
+                <h4>3-4 pièces trompe-l'œil</h4>
+                <p>Dans une belle boîte. Un gérant qui goûte = 50% de chances. Sans dégustation = 5%.</p>
+            </div>
+            <div class="kit-item must">
+                <div class="kit-tag must">Indispensable</div>
+                <div class="kit-emoji">❄️</div>
+                <h4>Sac isotherme propre</h4>
+                <p>Avec pain de glace. Montre que tu maîtrises la chaîne du froid.</p>
+            </div>
+            <div class="kit-item must">
+                <div class="kit-tag must">Indispensable</div>
+                <div class="kit-emoji">🪪</div>
+                <h4>Cartes de visite + tel chargé</h4>
+                <p>lamaisonmirage.com ouvert sur ton tel. Vidéos de créations dans la galerie.</p>
+            </div>
+        </div>
+
+        <!-- SCÉNARIO PRINCIPAL -->
+        <div class="scenario">
+            <div class="scenario-head">
+                <span class="scenario-target">Visite à froid — entre 14h30 et 17h, jamais pendant le service</span>
+            </div>
+            <div class="scenario-body">
+                <p><strong>À l'entrée :</strong> Demande le responsable ou le chef. Pas le serveur.</p>
+                <p><strong>Le pitch :</strong> <em>"Bonjour, excusez-moi de passer comme ça — je suis Karim de Atelier Mirage. Je fais quelque chose d'un peu particulier, des desserts trompe-l'œil. J'ai apporté quelques pièces à goûter si vous avez 2 minutes — c'est offert, sans engagement."</em></p>
+                <p><strong>Le geste :</strong> Ouvre ta boîte immédiatement. <strong>Ne parle pas pendant 5 secondes.</strong> Laisse le visuel faire le boulot.</p>
+                <p><strong>Après :</strong> <em>"Tout est livré prêt à servir, 6j/7. On peut faire un essai sur une semaine — je vous livre 20 pièces, vous testez la réaction de vos clients."</em></p>
+            </div>
+        </div>
+
+        <!-- OBJECTIONS -->
+        <div class="obj-grid">
+            <div class="obj-card">
+                <div class="obj-label">"Je vais réfléchir"</div>
+                <p><em>"Je comprends. Ce que je propose : un essai sans engagement — 20 pièces sur une semaine. Si ça marche pas, on arrête, zéro frais."</em></p>
+            </div>
+            <div class="obj-card">
+                <div class="obj-label">"J'ai déjà un pâtissier"</div>
+                <p><em>"C'est complémentaire — votre pâtissier fait les classiques, nous on apporte la pièce spectaculaire que les clients prennent en photo."</em></p>
+            </div>
+            <div class="obj-card">
+                <div class="obj-label">"C'est combien ?"</div>
+                <p><em>"Dès 5,50€/pièce. Vous la mettez à 12-14€ sur la carte, c'est plus de 100% de marge, sans rien à produire."</em></p>
+            </div>
+            <div class="obj-card">
+                <div class="obj-label">"C'est pas notre style"</div>
+                <p><em>"On fait aussi du sur-mesure, adapté à l'identité de votre établissement. On peut créer quelque chose qui colle parfaitement à votre univers."</em></p>
+            </div>
+        </div>
+
+        <div class="tip">
+            <div class="tip-label">Règles d'or</div>
+            <p><strong>Fais goûter avant de parler.</strong> Sois bref (10 min max). Propose toujours un essai concret. Note tout dans ton tel en sortant. Relance 3 jours après.</p>
+        </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- 04 — LES 5 ACTIONS                          -->
+    <!-- ════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-num">04</div>
+        <h2>Les 5 actions prioritaires</h2>
+        <div class="section-sub">Dans l'ordre, chaque action finance la suivante.</div>
+
+        <div class="move">
+            <div class="move-num crit">1</div>
+            <div>
+                <div class="move-head">
+                    <h3>Réactive tes clients existants</h3>
+                    <span class="move-when when-now">Aujourd'hui</span>
+                </div>
+                <p>WhatsApp à chacun de tes clients actuels : nouvelle création, nouveau parfum, "la reprise". 10× plus facile de relancer que de convaincre un inconnu. Profites-en pour demander une recommandation.</p>
+            </div>
+        </div>
+
+        <div class="move">
+            <div class="move-num crit">2</div>
+            <div>
+                <div class="move-head">
+                    <h3>Passe sur WhatsApp Business</h3>
+                    <span class="move-when when-now">Aujourd'hui</span>
+                </div>
+                <p>Gratuit, 20 min. Profil vérifié "Atelier Mirage — L'art du dessert", catalogue produit intégré, réponses automatiques. Crédibilité x3 sur chaque message.</p>
+            </div>
+        </div>
+
+        <div class="move">
+            <div class="move-num high">3</div>
+            <div>
+                <div class="move-head">
+                    <h3>Inscris-toi sur Google My Business</h3>
+                    <span class="move-when when-week">Cette semaine</span>
+                </div>
+                <p>Gratuit, 30 min. 10-15 photos de créations, lien site, numéro. Demande 5 avis 5 étoiles à tes clients. Un restaurateur qui tape "pâtissier fournisseur Marseille" te trouve tout seul.</p>
+            </div>
+        </div>
+
+        <div class="move">
+            <div class="move-num high">4</div>
+            <div>
+                <div class="move-head">
+                    <h3>Attaque les salons mariages</h3>
+                    <span class="move-when when-week">Cette semaine</span>
+                </div>
+                <p>La saison 2026 se prépare maintenant. Passe en visiteur avec ta boîte + cartes. Un salon = 20 contacts qualifiés en une après-midi. Recherche "salon du mariage Marseille PACA 2026".</p>
+            </div>
+        </div>
+
+        <div class="move">
+            <div class="move-num high">5</div>
+            <div>
+                <div class="move-head">
+                    <h3>Crée ta "Boîte Découverte Pro"</h3>
+                    <span class="move-when when-month">Ce mois-ci</span>
+                </div>
+                <p>6 pièces, 6 saveurs, packaging soigné. Ton arme terrain. "Je vous apporte notre Boîte Découverte" > "je vous offre une dégustation". Coût : ~15€. ROI : 1 client à 275€/semaine.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="sep"></div>
+
+    <!-- ════════════════════════════════════════════ -->
+    <!-- 05 — PLAN 4 SEMAINES                        -->
+    <!-- ════════════════════════════════════════════ -->
+    <div class="section">
+        <div class="section-num">05</div>
+        <h2>Plan 4 semaines + routine</h2>
+        <div class="section-sub">Du 6 avril au 2 mai 2026</div>
+
+        <div class="timeline">
+            <div class="week active">
+                <div class="week-label">Semaine 1</div>
+                <h4>Activer le réseau</h4>
+                <p>Relancer les clients existants. Demander des recos. Récolter des noms.</p>
+                <div class="target">→ 5 noms récoltés</div>
+            </div>
+            <div class="week">
+                <div class="week-label">Semaine 2</div>
+                <h4>Premier contact</h4>
+                <p>Envoyer les messages. Proposer la dégustation. Viser 3 RDV.</p>
+                <div class="target">→ 3 dégustations</div>
+            </div>
+            <div class="week">
+                <div class="week-label">Semaine 3</div>
+                <h4>Closer</h4>
+                <p>Faire les dégustations. Relancer ceux qui n'ont pas répondu.</p>
+                <div class="target">→ 2 premières commandes</div>
+            </div>
+            <div class="week">
+                <div class="week-label">Semaine 4</div>
+                <h4>Verrouiller</h4>
+                <p>Transformer les essais en récurrent. Élargir la prospection.</p>
+                <div class="target">→ 5 clients actifs</div>
+            </div>
+        </div>
+
+        <p><strong>Routine quotidienne — 30 min/jour :</strong> Le matin (15 min) → identifie 2 nouveaux prospects sur Google Maps. L'après-midi (15 min) → envoie 2 messages + 1 relance. C'est tout. 40 pros contactés/mois. À 10% de conversion = 4 nouveaux clients récurrents.</p>
+
+        <div class="checklist">
+            <h3>Checklist — Cette semaine</h3>
+            <div class="check"><div class="check-box"></div> Relancer tous tes clients existants par WhatsApp</div>
+            <div class="check"><div class="check-box"></div> Passer sur WhatsApp Business + créer le catalogue</div>
+            <div class="check"><div class="check-box"></div> Créer la fiche Google My Business + demander 5 avis</div>
+            <div class="check"><div class="check-box"></div> Identifier 5 restaurants/traiteurs sur Google Maps</div>
+            <div class="check"><div class="check-box"></div> Envoyer les 5 premiers messages de prospection</div>
+            <div class="check"><div class="check-box"></div> Contacter 3 traiteurs pour la saison mariages</div>
+            <div class="check"><div class="check-box"></div> Rechercher les prochains salons mariage Marseille/PACA</div>
+            <div class="check"><div class="check-box"></div> Commander les polos brodés (envoyer la spec au brodeur)</div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>Atelier Mirage · L'art du dessert · Bible de conquête · Avril 2026</p>
+    </div>
+
+</div>
+</body>
+</html>

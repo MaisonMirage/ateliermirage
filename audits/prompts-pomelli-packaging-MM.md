@@ -1,4 +1,4 @@
-# PROMPTS POMELLI — PACKAGING MAISON MIRAGE
+# PROMPTS POMELLI — PACKAGING ATELIER MIRAGE
 
 > **Règles transversales à TOUS les prompts :**
 > - Uploader le logo vectoriel noir ET or en image de référence à chaque génération
@@ -13,7 +13,7 @@
 ### PROMPT 1A — Écrin fermé, vue ¾, fond noir
 
 ```
-Product photography of a luxury rectangular cream-colored rigid cardboard gift box, matte soft-touch finish, sitting on a pure black reflective surface. The box is CLOSED. Dimensions ratio: approximately 3.5:1:1 (length is 3.5x the width). The exterior is a warm cream color (#FAF5EF), perfectly smooth matte texture. On the lid: a geometric gold hot-foil stamped logo centered — the logo is two interlocking V shapes forming a symmetrical M, with thick angular lines (reference image provided). Below the logo, the text "MAISON MIRAGE" in elegant widely-spaced serif capitals, also in gold foil. The box has a subtle gold line border running 5mm from the edges of the lid. Dramatic side lighting from the left at 45 degrees, creating a warm highlight on the gold foil elements. The soft-touch texture absorbs light while the gold catches it. Studio photography, 85mm lens, shallow depth of field on the background, product perfectly sharp. Luxury jewelry box aesthetic, Cartier-level minimalism.
+Product photography of a luxury rectangular cream-colored rigid cardboard gift box, matte soft-touch finish, sitting on a pure black reflective surface. The box is CLOSED. Dimensions ratio: approximately 3.5:1:1 (length is 3.5x the width). The exterior is a warm cream color (#FAF5EF), perfectly smooth matte texture. On the lid: a geometric gold hot-foil stamped logo centered — the logo is two interlocking V shapes forming a symmetrical M, with thick angular lines (reference image provided). Below the logo, the text "ATELIER MIRAGE" in elegant widely-spaced serif capitals, also in gold foil. The box has a subtle gold line border running 5mm from the edges of the lid. Dramatic side lighting from the left at 45 degrees, creating a warm highlight on the gold foil elements. The soft-touch texture absorbs light while the gold catches it. Studio photography, 85mm lens, shallow depth of field on the background, product perfectly sharp. Luxury jewelry box aesthetic, Cartier-level minimalism.
 ```
 
 ### PROMPT 1B — Écrin ouvert, vue ¾, fond noir, couvercle à 120°
@@ -37,7 +37,7 @@ Lifestyle product photography of an open luxury cream matte rectangular box on a
 ### PROMPT 1E — Écrin fermé + papier de soie, flat lay styling
 
 ```
-Overhead flat lay product photography on matte black surface. A CLOSED cream matte luxury rectangular box (ratio 3.5:1) in the center. To the left: a sheet of branded tissue paper laid flat, showing the all-over M monogram pattern printed in pale gold (#E8D5B8) on cream paper — the monogram is a simplified geometric M (two V shapes) repeated in a regular grid. To the right: a circular gold matte seal sticker (30mm). Below: a real fresh strawberry and a real fresh lemon for scale contrast with the trompe-l'oeil concept. The box has gold hot-foil stamped geometric M logo and "MAISON MIRAGE" text on the lid. Clean symmetrical composition, editorial styling, diffused overhead lighting. Luxury brand identity flat lay.
+Overhead flat lay product photography on matte black surface. A CLOSED cream matte luxury rectangular box (ratio 3.5:1) in the center. To the left: a sheet of branded tissue paper laid flat, showing the all-over M monogram pattern printed in pale gold (#E8D5B8) on cream paper — the monogram is a simplified geometric M (two V shapes) repeated in a regular grid. To the right: a circular gold matte seal sticker (30mm). Below: a real fresh strawberry and a real fresh lemon for scale contrast with the trompe-l'oeil concept. The box has gold hot-foil stamped geometric M logo and "ATELIER MIRAGE" text on the lid. Clean symmetrical composition, editorial styling, diffused overhead lighting. Luxury brand identity flat lay.
 ```
 
 ---
@@ -47,7 +47,7 @@ Overhead flat lay product photography on matte black surface. A CLOSED cream mat
 ### PROMPT 2A — Galerie fermée, vue ¾, fond noir
 
 ```
-Product photography of an ultra-long luxury cream-colored rigid gift box on a pure black reflective surface. The box is CLOSED. The proportions are extremely elongated: the length is 7x the width (like a jewelry train box or a long baguette box). Exterior: warm cream (#FAF5EF) matte soft-touch finish. On the lid top: a gold hot-foil stamped geometric M logo (two interlocking V shapes, thick angular — see reference) centered, with "MAISON MIRAGE" in widely-spaced serif capitals below. On the front long face of the lid: "MAISON MIRAGE" in small elegant gold capitals. The extreme length of the box is the visual hook — it looks unusual and intriguing. Dramatic studio lighting from the left, the gold foil catches a thin line of light along the lid. Black reflective surface mirrors the bottom edge. 85mm lens, product sharp, background pure black. Ultra-luxury minimalist aesthetic.
+Product photography of an ultra-long luxury cream-colored rigid gift box on a pure black reflective surface. The box is CLOSED. The proportions are extremely elongated: the length is 7x the width (like a jewelry train box or a long baguette box). Exterior: warm cream (#FAF5EF) matte soft-touch finish. On the lid top: a gold hot-foil stamped geometric M logo (two interlocking V shapes, thick angular — see reference) centered, with "ATELIER MIRAGE" in widely-spaced serif capitals below. On the front long face of the lid: "ATELIER MIRAGE" in small elegant gold capitals. The extreme length of the box is the visual hook — it looks unusual and intriguing. Dramatic studio lighting from the left, the gold foil catches a thin line of light along the lid. Black reflective surface mirrors the bottom edge. 85mm lens, product sharp, background pure black. Ultra-luxury minimalist aesthetic.
 ```
 
 ### PROMPT 2B — Galerie ouverte, couvercle-cloche soulevé, fond noir ★ MONEY SHOT
@@ -81,7 +81,7 @@ Overhead flat lay photography of a SQUARE luxury cream matte box, OPEN, on pure 
 ### PROMPT 3B — Coffret fermé, vue ¾, fond marbre blanc
 
 ```
-Product photography of a SQUARE luxury cream matte rigid box, CLOSED, on white Carrara marble surface. The box is perfectly square (1:1 ratio), warm cream (#FAF5EF) soft-touch matte exterior. On the lid: gold hot-foil stamped geometric M logo (two interlocking V shapes) centered, with "MAISON MIRAGE" in widely-spaced serif capitals below, and "HAUTE PÂTISSERIE TROMPE-L'ŒIL" in smaller sans-serif below that. A gold line border runs 5mm from the lid edges. The square format feels substantial and premium — like a jewelry box for a necklace. Natural daylight from the left, soft shadows on marble. The gold foil catches warm light. 50mm lens, clean bright aesthetic. Luxury gift box on marble, Cartier meets Ladurée.
+Product photography of a SQUARE luxury cream matte rigid box, CLOSED, on white Carrara marble surface. The box is perfectly square (1:1 ratio), warm cream (#FAF5EF) soft-touch matte exterior. On the lid: gold hot-foil stamped geometric M logo (two interlocking V shapes) centered, with "ATELIER MIRAGE" in widely-spaced serif capitals below, and "L'ART DU DESSERT" in smaller sans-serif below that. A gold line border runs 5mm from the lid edges. The square format feels substantial and premium — like a jewelry box for a necklace. Natural daylight from the left, soft shadows on marble. The gold foil catches warm light. 50mm lens, clean bright aesthetic. Luxury gift box on marble, Cartier meets Ladurée.
 ```
 
 ---
@@ -97,7 +97,7 @@ Product photography of a small CUBE luxury cream matte box with its CLOCHE LID l
 ### PROMPT 4B — Pièce fermée, vue ¾, fond ardoise
 
 ```
-Product photography of a small perfect CUBE luxury cream matte box on dark grey slate surface. The box is CLOSED, perfectly cubic proportions. Warm cream (#FAF5EF) soft-touch matte exterior. On the lid: a small gold hot-foil geometric M logo (two V shapes) centered. On the front face: "MAISON MIRAGE" in tiny gold serif capitals. On the bottom edge: "MARSEILLE" in minute monospace gold text. The small size (ring-box proportions) makes it look precious. Natural side lighting, the gold foil glints subtly. A fresh real strawberry sits next to the box for scale — the box is barely larger than the strawberry. Minimal composition, negative space, editorial luxury product photography. The "one precious piece" concept.
+Product photography of a small perfect CUBE luxury cream matte box on dark grey slate surface. The box is CLOSED, perfectly cubic proportions. Warm cream (#FAF5EF) soft-touch matte exterior. On the lid: a small gold hot-foil geometric M logo (two V shapes) centered. On the front face: "ATELIER MIRAGE" in tiny gold serif capitals. On the bottom edge: "MARSEILLE" in minute monospace gold text. The small size (ring-box proportions) makes it look precious. Natural side lighting, the gold foil glints subtly. A fresh real strawberry sits next to the box for scale — the box is barely larger than the strawberry. Minimal composition, negative space, editorial luxury product photography. The "one precious piece" concept.
 ```
 
 ---
@@ -117,13 +117,13 @@ Product photography of a small luxury rectangular cream matte box, OPEN at 110 d
 ### PROMPT 6A — Arche vue ¾, fond noir, style niche romane
 
 ```
-Product photography of an architectural luxury packaging shaped like a classical Roman NICHE or ARCADE on pure black reflective surface. The structure is made of cream-colored (#FAF5EF) rigid matte cardboard. It has two small columns on each side framing an arched opening. Through the arch: 3 hyper-realistic trompe-l'oeil fruit desserts (strawberry, cacao pod, lemon) are visible, sitting on a gold metallic shelf/tray. The top of the arch has a triangular pediment with a gold foil geometric M logo (two interlocking V shapes) centered. The text "MAISON MIRAGE" runs along the frieze below the pediment in tiny gold serif capitals. The whole structure is approximately 15cm tall, 12cm wide, 8cm deep — a miniature architectural monument. The cream matte exterior with gold accents creates a museum-piece feeling. Dramatic side lighting from the left, the gold elements glow. Studio photography, black background. This is a COLLECTOR'S ITEM — architectural packaging that becomes a decorative object. Neo-classical minimalism, not ornate.
+Product photography of an architectural luxury packaging shaped like a classical Roman NICHE or ARCADE on pure black reflective surface. The structure is made of cream-colored (#FAF5EF) rigid matte cardboard. It has two small columns on each side framing an arched opening. Through the arch: 3 hyper-realistic trompe-l'oeil fruit desserts (strawberry, cacao pod, lemon) are visible, sitting on a gold metallic shelf/tray. The top of the arch has a triangular pediment with a gold foil geometric M logo (two interlocking V shapes) centered. The text "ATELIER MIRAGE" runs along the frieze below the pediment in tiny gold serif capitals. The whole structure is approximately 15cm tall, 12cm wide, 8cm deep — a miniature architectural monument. The cream matte exterior with gold accents creates a museum-piece feeling. Dramatic side lighting from the left, the gold elements glow. Studio photography, black background. This is a COLLECTOR'S ITEM — architectural packaging that becomes a decorative object. Neo-classical minimalism, not ornate.
 ```
 
 ### PROMPT 6B — Arche vue frontale, fond blanc, style épuré
 
 ```
-Front-facing product photography of an architectural luxury packaging shaped like a minimalist arcade/portal on pure white background. Clean, simple arch shape in cream-colored matte cardboard. Inside the arch opening: 3 trompe-l'oeil fruit desserts visible (strawberry in center, cacao left, lemon right) on a gold shelf. Gold foil M logo at the top center of the arch. "MAISON MIRAGE" in small gold text below. The structure is clean and geometric — NOT ornate, NOT baroque. Think Donald Judd meets Cartier: a simple arch form with perfect proportions. Soft diffused lighting, no harsh shadows. White background for e-commerce/catalogue use. The architectural shape alone creates visual intrigue — it doesn't look like any food packaging. 50mm lens, straight-on angle, symmetrical composition.
+Front-facing product photography of an architectural luxury packaging shaped like a minimalist arcade/portal on pure white background. Clean, simple arch shape in cream-colored matte cardboard. Inside the arch opening: 3 trompe-l'oeil fruit desserts visible (strawberry in center, cacao left, lemon right) on a gold shelf. Gold foil M logo at the top center of the arch. "ATELIER MIRAGE" in small gold text below. The structure is clean and geometric — NOT ornate, NOT baroque. Think Donald Judd meets Cartier: a simple arch form with perfect proportions. Soft diffused lighting, no harsh shadows. White background for e-commerce/catalogue use. The architectural shape alone creates visual intrigue — it doesn't look like any food packaging. 50mm lens, straight-on angle, symmetrical composition.
 ```
 
 ---
@@ -165,7 +165,7 @@ Product photography of a COMPLETE RANGE of luxury cream matte packaging boxes ar
 ### PROMPT 9B — Gamme sur fond noir, composition éditorial
 
 ```
-Editorial product photography of the complete Maison Mirage packaging range arranged artfully on a pure black reflective surface. The ultra-long train box (La Galerie) is placed diagonally in the background, OPEN, showing 10 colorful trompe-l'oeil fruits. In the mid-ground: the square Coffret (9 pieces, OPEN, top-down showing the 3×3 grid) and the L'Écrin (5 pieces, OPEN at 120°). In the foreground: the small cube La Pièce (OPEN, one strawberry visible) and the La Dégustation (3 pieces, CLOSED with gold seal sticker on top). Scattered around: sheets of branded cream tissue paper with M monogram pattern, and 2-3 loose trompe-l'oeil fruits placed directly on the black surface. All boxes are cream matte exterior with gold accents. The black background makes the cream boxes and colorful fruits pop dramatically. Layered composition with depth, dramatic side lighting, editorial luxury photography. This image tells the whole story: range, quality, contrast, surprise.
+Editorial product photography of the complete Atelier Mirage packaging range arranged artfully on a pure black reflective surface. The ultra-long train box (La Galerie) is placed diagonally in the background, OPEN, showing 10 colorful trompe-l'oeil fruits. In the mid-ground: the square Coffret (9 pieces, OPEN, top-down showing the 3×3 grid) and the L'Écrin (5 pieces, OPEN at 120°). In the foreground: the small cube La Pièce (OPEN, one strawberry visible) and the La Dégustation (3 pieces, CLOSED with gold seal sticker on top). Scattered around: sheets of branded cream tissue paper with M monogram pattern, and 2-3 loose trompe-l'oeil fruits placed directly on the black surface. All boxes are cream matte exterior with gold accents. The black background makes the cream boxes and colorful fruits pop dramatically. Layered composition with depth, dramatic side lighting, editorial luxury photography. This image tells the whole story: range, quality, contrast, surprise.
 ```
 
 ---
@@ -185,7 +185,7 @@ Editorial product photography of the complete Maison Mirage packaging range arra
 
 ### Erreurs à éviter (identifiées dans l'audit)
 - **Logo M** : Pomelli tend à simplifier en simple "M" serif. Toujours uploader le logo comme référence et insister sur "two interlocking V shapes, thick angular lines, geometric, symmetrical"
-- **Texte** : Si le texte "MAISON MIRAGE" est mal rendu, retenter avec "no text on the box, clean surface" et ajouter le texte en post-production
+- **Texte** : Si le texte "ATELIER MIRAGE" est mal rendu, retenter avec "no text on the box, clean surface" et ajouter le texte en post-production
 - **Couleur crème** : Pomelli tire parfois vers le blanc pur. Insister sur "WARM cream, NOT white, hint of beige, #FAF5EF"
 - **Alvéoles** : Préciser "GOLD metallic thermoformed cavities" sinon Pomelli génère du carton brun
 - **Nombre de fruits** : Compter explicitement les fruits dans le prompt et les nommer un par un

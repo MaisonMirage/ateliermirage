@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit Equipement Video Premium · Atelier Mirage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --cream: #FAF5EF; --cream-2: #F5F0EA; --cream-3: #EDE8E2;
+            --ink: #1A1714; --ink-soft: #2C2824; --ink-muted: #6B6560;
+            --gold: #A8895C; --gold-light: #C9AA7C; --gold-pale: #E8D5B8;
+            --white: #FFFFFF; --success: #4A7C59; --error: #8C3A3A;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Outfit', system-ui, sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+            --shadow-sm: 0 2px 8px rgba(26,23,20,0.06);
+            --shadow-md: 0 4px 24px rgba(26,23,20,0.08);
+            --radius-sm: 0.75rem; --radius-md: 1.5rem;
+        }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body { font-family: var(--sans); color: var(--ink); background: var(--cream); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+        nav { position: sticky; top: 0; background: rgba(250,245,239,0.92); backdrop-filter: blur(16px); border-bottom: 1.5px solid var(--gold-pale); padding: 1rem 2rem; z-index: 1000; display: flex; justify-content: space-between; align-items: center; }
+        .nav-brand { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; }
+        .nav-brand span { color: var(--gold); }
+        .nav-links { display: flex; gap: 0.25rem; flex-wrap: wrap; }
+        .nav-links a { color: var(--ink-muted); text-decoration: none; font-size: 0.75rem; font-weight: 500; padding: 0.4rem 0.7rem; border-radius: 2rem; transition: all 0.2s; letter-spacing: 0.02em; text-transform: uppercase; }
+        .nav-links a:hover { background: var(--gold-pale); color: var(--ink); }
+
+        .hero { text-align: center; padding: 5rem 2rem 3rem; max-width: 900px; margin: 0 auto; }
+        .hero-badge { display: inline-block; font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); border: 1px solid var(--gold-pale); padding: 0.4rem 1.2rem; border-radius: 2rem; margin-bottom: 2rem; }
+        .hero h1 { font-family: var(--serif); font-size: clamp(2.5rem, 5vw, 4rem); font-weight: 700; line-height: 1.15; margin-bottom: 1.5rem; }
+        .hero h1 em { font-style: italic; color: var(--gold); }
+        .hero p { font-size: 1.05rem; color: var(--ink-muted); max-width: 620px; margin: 0 auto 2rem; line-height: 1.8; }
+
+        .verdict { max-width: 800px; margin: 0 auto 2rem; padding: 0 2rem; }
+        .verdict-box { background: var(--ink); border-radius: var(--radius-md); padding: 2.5rem 3rem; text-align: center; position: relative; overflow: hidden; }
+        .verdict-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, var(--gold), var(--gold-light), var(--gold)); }
+        .verdict-label { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--gold); margin-bottom: 1rem; }
+        .verdict-title { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--cream); margin-bottom: 0.5rem; }
+        .verdict-sub { font-size: 0.9rem; color: var(--gold-pale); margin-bottom: 1.5rem; }
+        .verdict-price { display: inline-flex; align-items: center; gap: 1rem; background: rgba(168,137,92,0.15); padding: 0.75rem 2rem; border-radius: 3rem; border: 1px solid rgba(168,137,92,0.3); }
+        .verdict-price .label { font-family: var(--mono); font-size: 0.75rem; color: var(--gold-pale); letter-spacing: 0.05em; }
+        .verdict-price .amount { font-family: var(--serif); font-size: 1.6rem; font-weight: 700; color: var(--gold-light); }
+
+        .audit-badge { max-width: 800px; margin: 0 auto 2rem; padding: 0 2rem; text-align: center; }
+        .audit-badge p { font-family: var(--mono); font-size: 0.7rem; color: var(--success); letter-spacing: 0.08em; background: rgba(74,124,89,0.08); display: inline-block; padding: 0.5rem 1.5rem; border-radius: 2rem; border: 1px solid rgba(74,124,89,0.2); }
+
+        .philosophy { max-width: 800px; margin: 0 auto; padding: 2rem 2rem 3rem; }
+        .philosophy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+        .philosophy-card { background: var(--white); border: 1px solid var(--cream-3); border-radius: var(--radius-sm); padding: 1.75rem; text-align: center; }
+        .philosophy-card .number { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--gold); margin-bottom: 0.5rem; }
+        .philosophy-card h3 { font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.5rem; }
+        .philosophy-card p { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.6; }
+
+        .why-banner { max-width: 800px; margin: 0 auto 3rem; padding: 0 2rem; }
+        .why-banner-inner { background: var(--cream-2); border: 1px solid var(--cream-3); border-radius: var(--radius-sm); padding: 2rem 2.5rem; }
+        .why-banner-inner h2 { font-family: var(--serif); font-size: 1.3rem; margin-bottom: 1rem; }
+        .why-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .why-item { font-size: 0.85rem; line-height: 1.6; color: var(--ink-soft); }
+        .why-item strong { display: block; color: var(--ink); font-weight: 600; margin-bottom: 0.15rem; }
+        .why-item .tag { font-family: var(--mono); font-size: 0.65rem; color: var(--gold); letter-spacing: 0.06em; }
+
+        .section { max-width: 1000px; margin: 0 auto; padding: 3rem 2rem; }
+        .section-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1.5px solid var(--gold-pale); }
+        .section-number { font-family: var(--serif); font-size: 2.5rem; font-weight: 700; color: var(--gold-pale); line-height: 1; }
+        .section-title { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; }
+        .section-subtitle { font-size: 0.85rem; color: var(--ink-muted); font-weight: 400; margin-top: 0.25rem; }
+
+        .equipment-grid { display: grid; gap: 1.5rem; }
+        .equipment-card { background: var(--white); border: 1px solid var(--cream-3); border-radius: var(--radius-sm); overflow: hidden; transition: all 0.3s; }
+        .equipment-card:hover { box-shadow: var(--shadow-md); border-color: var(--gold-pale); }
+        .equipment-card.primary { border: 2px solid var(--gold); position: relative; }
+        .equipment-card.primary::before { content: 'LE CHOIX'; position: absolute; top: 1rem; right: 1rem; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; background: var(--gold); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 2rem; z-index: 2; }
+        .card-body { padding: 2rem; }
+        .card-top { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; }
+        .card-name { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; line-height: 1.3; }
+        .card-price { font-family: var(--mono); font-size: 1.1rem; font-weight: 500; color: var(--gold); white-space: nowrap; background: rgba(168,137,92,0.08); padding: 0.3rem 0.8rem; border-radius: 2rem; }
+        .card-desc { color: var(--ink-muted); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+        .card-specs { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .spec-tag { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.04em; background: var(--cream-2); color: var(--ink-soft); padding: 0.35rem 0.75rem; border-radius: 2rem; }
+        .spec-tag.highlight { background: rgba(168,137,92,0.12); color: var(--gold); border: 1px solid var(--gold-pale); }
+        .card-why { background: var(--cream); padding: 1.25rem 2rem; border-top: 1px solid var(--cream-3); }
+        .card-why p { font-size: 0.85rem; color: var(--ink-soft); line-height: 1.6; }
+        .card-why strong { color: var(--gold); font-weight: 600; }
+
+        .vs-box { background: var(--cream-2); border: 1px dashed var(--gold-pale); border-radius: var(--radius-sm); padding: 1.5rem 2rem; margin-top: 1rem; }
+        .vs-label { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 0.75rem; }
+        .vs-grid { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: start; }
+        .vs-col h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
+        .vs-col p { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.5; }
+        .vs-col .winner { font-family: var(--mono); font-size: 0.6rem; background: var(--gold); color: var(--white); padding: 0.2rem 0.5rem; border-radius: 2rem; display: inline-block; margin-bottom: 0.5rem; }
+        .vs-divider { width: 1px; background: var(--gold-pale); align-self: stretch; }
+
+        .alternative { background: var(--cream-2); border: 1px dashed var(--cream-3); border-radius: var(--radius-sm); padding: 1.25rem 1.75rem; margin-top: 1rem; }
+        .alt-label { font-family: var(--mono); font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin-bottom: 0.5rem; }
+        .alt-name { font-weight: 600; font-size: 0.95rem; margin-bottom: 0.25rem; }
+        .alt-name .alt-price { color: var(--gold); font-family: var(--mono); font-size: 0.85rem; margin-left: 0.5rem; }
+        .alt-desc { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.6; }
+
+        .recap { max-width: 800px; margin: 2rem auto; padding: 0 2rem; }
+        .recap-table { background: var(--white); border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--cream-3); }
+        .recap-row { display: flex; justify-content: space-between; align-items: center; padding: 1rem 1.75rem; border-bottom: 1px solid var(--cream-2); font-size: 0.9rem; }
+        .recap-row:last-child { border-bottom: none; }
+        .recap-row .cat { color: var(--ink-muted); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; min-width: 70px; }
+        .recap-row .item { font-weight: 500; flex: 1; margin-left: 1rem; }
+        .recap-row .rprice { font-family: var(--mono); font-size: 0.9rem; color: var(--gold); text-align: right; min-width: 90px; }
+        .recap-total { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 1.75rem; background: var(--ink); color: var(--cream); }
+        .recap-total .label { font-weight: 600; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; }
+        .recap-total .total-price { font-family: var(--serif); font-size: 1.8rem; font-weight: 700; color: var(--gold-light); }
+
+        .priority { max-width: 800px; margin: 2rem auto 3rem; padding: 0 2rem; }
+        .priority h2 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 1.5rem; }
+        .priority-steps { display: grid; gap: 1rem; }
+        .priority-step { display: flex; gap: 1.25rem; align-items: flex-start; background: var(--white); border: 1px solid var(--cream-3); border-radius: var(--radius-sm); padding: 1.5rem; }
+        .step-num { font-family: var(--serif); font-size: 2rem; font-weight: 700; color: var(--gold-pale); line-height: 1; min-width: 2.5rem; }
+        .step-content h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.35rem; }
+        .step-content p { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.6; }
+        .step-content .step-price { font-family: var(--mono); font-size: 0.8rem; color: var(--gold); margin-top: 0.35rem; }
+
+        .tips { max-width: 800px; margin: 0 auto 4rem; padding: 0 2rem; }
+        .tips-box { background: var(--ink); color: var(--cream); border-radius: var(--radius-md); padding: 3rem; }
+        .tips-box h2 { font-family: var(--serif); font-size: 1.6rem; margin-bottom: 1.5rem; color: var(--gold-light); }
+        .tip-item { margin-bottom: 1.25rem; padding-left: 1.5rem; position: relative; }
+        .tip-item::before { content: ''; position: absolute; left: 0; top: 0.5rem; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+        .tip-item h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.25rem; color: var(--cream); }
+        .tip-item p { font-size: 0.85rem; color: var(--gold-pale); line-height: 1.6; }
+
+        .sources { max-width: 800px; margin: 0 auto 3rem; padding: 0 2rem; }
+        .sources h3 { font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-muted); margin-bottom: 1rem; }
+        .sources p { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.8; }
+
+        footer { text-align: center; padding: 2rem; font-size: 0.75rem; color: var(--ink-muted); border-top: 1px solid var(--cream-3); }
+        footer a { color: var(--gold); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .philosophy-grid { grid-template-columns: 1fr; }
+            .why-grid { grid-template-columns: 1fr; }
+            .vs-grid { grid-template-columns: 1fr; }
+            .vs-divider { display: none; }
+            .card-top { flex-direction: column; gap: 0.5rem; }
+            .recap-row .cat { display: none; }
+            nav { flex-direction: column; gap: 0.75rem; }
+            .nav-links { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="nav-brand">Atelier <span>Mirage</span></div>
+    <div class="nav-links">
+        <a href="#image">Boitier</a>
+        <a href="#optiques">Optiques</a>
+        <a href="#lumiere">Lumiere</a>
+        <a href="#son">Son</a>
+        <a href="#mouvement">Mouvement</a>
+        <a href="#support">Support</a>
+        <a href="#accessoires">Accessoires</a>
+        <a href="#post-prod">Post-prod</a>
+        <a href="#recap">Budget</a>
+        <a href="#priorite">Ordre d'achat</a>
+    </div>
+</nav>
+
+<section class="hero">
+    <div class="hero-badge">Setup video-first &middot; Audite, verifie, source</div>
+    <h1>Le setup qui <em>change tout</em></h1>
+    <p>Equipement video-first pour du contenu food trompe-l'oeil. Chaque prix verifie avril 2026. Chaque choix base sur les forums pro, Reddit r/videography, r/SonyAlpha, retours de createurs food.</p>
+</section>
+
+<section class="verdict">
+    <div class="verdict-box">
+        <div class="verdict-label">Le verdict</div>
+        <div class="verdict-title">Sony A7S III + 24-70 GM II + 90mm Macro</div>
+        <div class="verdict-sub">Rolling shutter 8.7ms. 4K 120fps crop 1.1x. Venice S-Log3. Slider motorise + gimbal.</div>
+        <div class="verdict-price">
+            <span class="label">INVESTISSEMENT TOTAL</span>
+            <span class="amount">~7 600 EUR</span>
+        </div>
+    </div>
+</section>
+
+<div class="audit-badge">
+    <p>PRIX VERIFIES AVRIL 2026 &middot; SPECS CROSS-CHECKEES &middot; CONSENSUS COMMUNAUTE</p>
+</div>
+
+<section class="philosophy">
+    <div class="philosophy-grid">
+        <div class="philosophy-card">
+            <div class="number">60%</div>
+            <h3>Lumiere</h3>
+            <p>Conseil Reddit unanime : "Un panneau mousse blanc a 3 EUR bien place bat un LED a 300 EUR." La lumiere fait le resultat.</p>
+        </div>
+        <div class="philosophy-card">
+            <div class="number">30%</div>
+            <h3>Optique</h3>
+            <p>Le verre dure 10 ans. Un boitier, 3-4. En video-first : le zoom f/2.8 bat les primes pour le workflow.</p>
+        </div>
+        <div class="philosophy-card">
+            <div class="number">10%</div>
+            <h3>Capteur</h3>
+            <p>TikTok = 1080p. 12MP ou 33MP, zero difference. Ce qui compte : rolling shutter, slow-mo, dynamic range.</p>
+        </div>
+    </div>
+</section>
+
+<section class="why-banner">
+    <div class="why-banner-inner">
+        <h2>Pourquoi ce setup et pas un autre</h2>
+        <div class="why-grid">
+            <div class="why-item">
+                <span class="tag">A7S III vs A7V</span>
+                <strong>Rolling shutter 8.7ms vs ~15ms</strong>
+                Chaque pan slider ou gimbal est plus propre. Visible immediatement. Source : CineD lab test.
+            </div>
+            <div class="why-item">
+                <span class="tag">A7S III vs A7V</span>
+                <strong>4K 120fps crop 1.1x vs 1.5x</strong>
+                Tes slow-mo gardent le meme cadrage. Pas de recadrage force. Source : B&H specs.
+            </div>
+            <div class="why-item">
+                <span class="tag">ZOOM vs PRIMES</span>
+                <strong>Pas de changement d'objectif en plein tournage</strong>
+                Les pros food en video tournent au 24-70 f/2.8. Jessica Hirsch, Downshiftology — meme combo.
+            </div>
+            <div class="why-item">
+                <span class="tag">SCIENCE COULEUR</span>
+                <strong>Venice S-Log3</strong>
+                Heritee de la camera cinema Sony. Le grading donne des tons caramel et fruit rouge impossibles autrement.
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 01 · BOITIER ── -->
+<section class="section" id="image">
+    <div class="section-header">
+        <div class="section-number">01</div>
+        <div>
+            <div class="section-title">Boitier</div>
+            <div class="section-subtitle">Le moteur video</div>
+        </div>
+    </div>
+    <div class="equipment-grid">
+        <div class="equipment-card primary">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Sony A7S III</div>
+                    <div class="card-price">~2 100 EUR</div>
+                </div>
+                <div class="card-desc">Full-frame 12.1MP, specialiste video. 4K 120fps crop 1.1x (verifie CineD), rolling shutter 8.7ms (meilleur de sa generation, verifie CineD lab test), dual ISO natif 640/12800, S-Log3 Venice, 10-bit 4:2:2 interne, Full HD 240fps. Sorti en 2020 mais toujours en production, firmware v5.0 fevrier 2026. Pas de successeur annonce — Sony redirige la gamme S vers le FX3 (cinema).</div>
+                <div class="card-specs">
+                    <span class="spec-tag highlight">4K 120fps (1.1x crop)</span>
+                    <span class="spec-tag highlight">Rolling shutter 8.7ms</span>
+                    <span class="spec-tag highlight">Venice S-Log3</span>
+                    <span class="spec-tag">12.1 MP Full-Frame</span>
+                    <span class="spec-tag">Dual ISO natif</span>
+                    <span class="spec-tag">10-bit 4:2:2</span>
+                    <span class="spec-tag">1080p 240fps</span>
+                    <span class="spec-tag">IBIS 5 axes</span>
+                </div>
+            </div>
+            <div class="card-why">
+                <p><strong>Pourquoi pas le A7V ?</strong> Le A7V (2025) a un meilleur AF IA et un meilleur IBIS. Mais sur des sujets statiques (desserts sur table), l'AF n'est pas un facteur. Le rolling shutter 2x meilleur et le 4K 120fps quasi sans crop font la difference visible. A ~2 100 EUR neuf, il est aussi 900 EUR moins cher que le A7V. Le choix video-first logique.</p>
+            </div>
+        </div>
+        <div class="vs-box">
+            <div class="vs-label">Pourquoi A7S III et pas...</div>
+            <div class="vs-grid">
+                <div class="vs-col">
+                    <h4>Sony A7V (~3 000 EUR)</h4>
+                    <p>33MP, AI AF, meilleur IBIS. Mais rolling shutter 15ms, 4K 120fps croppe 1.5x. Meilleur en 50/50 photo-video.</p>
+                </div>
+                <div class="vs-divider"></div>
+                <div class="vs-col">
+                    <h4>Sony FX3 (~3 600 EUR)</h4>
+                    <p>Meme capteur 12MP, ventilation active (pas de surchauffe), S-Cinetone. Mais plus cher et pas de viseur. A considerer si tu tournes des sessions longues (2h+).</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 02 · OPTIQUES ── -->
+<section class="section" id="optiques">
+    <div class="section-header">
+        <div class="section-number">02</div>
+        <div>
+            <div class="section-title">Optiques</div>
+            <div class="section-subtitle">Un zoom video + un macro signature</div>
+        </div>
+    </div>
+    <div class="equipment-grid">
+        <div class="equipment-card primary">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Sony FE 24-70mm f/2.8 GM II</div>
+                    <div class="card-price">~1 550 EUR</div>
+                </div>
+                <div class="card-desc">Ton objectif principal video. 695g (verifie). Ouverture constante f/2.8. Bague d'ouverture declick-able (verifie) pour transitions douces en video. Magnification 0.32x a 70mm (verifie DXOMark). Note : le claim "parfocal" est dispute — des tests montrent un leger shift de focus en zoomant de 70 vers 24mm. En pratique, l'AF continu du A7S III compense.</div>
+                <div class="card-specs">
+                    <span class="spec-tag highlight">24-70mm f/2.8</span>
+                    <span class="spec-tag highlight">695g verifie</span>
+                    <span class="spec-tag">G Master II</span>
+                    <span class="spec-tag">Click/declick</span>
+                    <span class="spec-tag">0.32x magnification</span>
+                </div>
+            </div>
+            <div class="card-why">
+                <p><strong>Le standard pro video food.</strong> Jessica Hirsch (@cheatdayeats) et Downshiftology tournent avec ce combo. En video, changer de prime = reequilibrer le slider/gimbal, recalibrer la lumiere, casser le rythme. Le zoom elimine tout ca.</p>
+            </div>
+        </div>
+
+        <div class="equipment-card primary">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Sony FE 90mm f/2.8 Macro G OSS</div>
+                    <div class="card-price">~850 EUR</div>
+                </div>
+                <div class="card-desc">Ton objectif signature pour les money shots. Macro 1:1, 602g (verifie), AF silencieux, OSS integre. Limitation connue : focus breathing significatif (~9% de perte de magnification en changeant de mise au point, source : Admiringlight). En video macro, utilise le focus manuel ou le focus peaking du A7S III pour contourner.</div>
+                <div class="card-specs">
+                    <span class="spec-tag highlight">Macro 1:1</span>
+                    <span class="spec-tag">f/2.8</span>
+                    <span class="spec-tag">AF + OSS</span>
+                    <span class="spec-tag">602g verifie</span>
+                </div>
+            </div>
+            <div class="card-why">
+                <p><strong>Point de transparence :</strong> la communaute Reddit est de plus en plus favorable au Sigma 105mm f/2.8 DG DN Macro Art (~700 EUR) — plus sharp en macro, moins cher. Mais pas d'OSS (tu relies sur l'IBIS du boitier seul) et plus lourd (715g). Le Sony 90mm reste le choix sur pour la video grace a l'OSS + AF + poids leger. Le Sigma est une alternative solide si tu privilegies la sharpness pure.</p>
+            </div>
+        </div>
+
+        <div class="alternative">
+            <div class="alt-label">Alternative zoom — prix verifie</div>
+            <div class="alt-name">Tamron 28-75mm f/2.8 Di III VXD G2 <span class="alt-price">~570 EUR</span></div>
+            <div class="alt-desc">80% de la qualite du GM II pour 37% du prix. AF rapide, compact, USB-C. Teste et approuve sur A7S III. Si tu veux economiser ~1 000 EUR sur le poste optique pour les reinvestir en lighting ou slider.</div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 03 · LUMIERE ── -->
+<section class="section" id="lumiere">
+    <div class="section-header">
+        <div class="section-number">03</div>
+        <div>
+            <div class="section-title">Lumiere</div>
+            <div class="section-subtitle">60% du resultat. Le poste ou tu ne laches rien.</div>
+        </div>
+    </div>
+    <div class="equipment-grid">
+        <div class="equipment-card primary">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Nanlite Forza 150B</div>
+                    <div class="card-price">~480 EUR</div>
+                </div>
+                <div class="card-desc">Ta key light. LED bicolor 150W, temperature 2700-6500K. Mode silencieux pour le food ASMR. CRI 96, TLCI 98 (verifie Nanlite specs). Monture FM native avec adaptateur Bowens inclus dans la boite (verifie). Puissance suffisante a travers une softbox pour un eclairage food directionnel.</div>
+                <div class="card-specs">
+                    <span class="spec-tag highlight">150W Bicolor</span>
+                    <span class="spec-tag">2700-6500K</span>
+                    <span class="spec-tag">FM Mount + adapt. Bowens</span>
+                    <span class="spec-tag">CRI 96 / TLCI 98</span>
+                    <span class="spec-tag">Mode silence</span>
+                </div>
+            </div>
+            <div class="card-why">
+                <p><strong>Bicolor = tout changer en un clic.</strong> Tons caramel a 3200K, fraicheur fraise a 5600K. Le mode silencieux est non-negociable si tu fais du food ASMR — le ventilateur d'une LED standard ruine l'audio.</p>
+            </div>
+        </div>
+
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Godox ML60Bi</div>
+                    <div class="card-price">~200 EUR</div>
+                </div>
+                <div class="card-desc">Fill light ou backlight. 60W bicolor, 770g (verifie). CRI 96+, TLCI 97+. Attention : monture Godox native, PAS Bowens — il te faut l'adaptateur Godox ML-GB (~25 EUR) ou un bracket S2 pour tes softbox Bowens. A l'oppose de la key, elle debouche les ombres et revele les textures.</div>
+                <div class="card-specs">
+                    <span class="spec-tag">60W Bicolor</span>
+                    <span class="spec-tag">2800-6500K</span>
+                    <span class="spec-tag">Monture Godox (adapt. requis)</span>
+                    <span class="spec-tag">CRI 96+</span>
+                    <span class="spec-tag">770g verifie</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Nanlite SB-FZ60 Softbox 60cm + Grid</div>
+                    <div class="card-price">~80 EUR</div>
+                </div>
+                <div class="card-desc">Parabolic softbox 16 faces avec grille nid d'abeille. Compatible Forza 150B (verifie Nanlite). Diffuse la key light pour un eclairage doux et directionnel.</div>
+                <div class="card-specs">
+                    <span class="spec-tag">60cm parabolic</span>
+                    <span class="spec-tag">Grid inclus</span>
+                    <span class="spec-tag">FM Mount</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Kit reflecteurs + panneaux mousse noir/blanc</div>
+                    <div class="card-price">~50 EUR</div>
+                </div>
+                <div class="card-desc">Reflecteur 5-en-1 (80cm) + 4 panneaux mousse A3. Le secret le mieux garde de la photo food pro. Un carton blanc a 3 EUR fait un fill naturel qui bat un LED mal placee.</div>
+                <div class="card-specs">
+                    <span class="spec-tag">5-en-1 80cm</span>
+                    <span class="spec-tag">Mousse noir x2</span>
+                    <span class="spec-tag">Mousse blanc x2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 04 · SON ── -->
+<section class="section" id="son">
+    <div class="section-header">
+        <div class="section-number">04</div>
+        <div>
+            <div class="section-title">Son</div>
+            <div class="section-subtitle">Le food ASMR fait 50% de l'engagement</div>
+        </div>
+    </div>
+    <div class="equipment-grid">
+        <div class="equipment-card primary">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Rode Wireless GO III</div>
+                    <div class="card-price">~300 EUR</div>
+                </div>
+                <div class="card-desc">La derniere generation (2025-2026). Enregistrement 32-bit float (le GO II etait en 24-bit) = impossible de clipper, meme si le craquement d'une coque est beaucoup plus fort que ta voix. Portee 260m (vs 200m GO II). 10h d'autonomie (vs 7h GO II). Dual-channel, backup interne sur chaque emetteur.</div>
+                <div class="card-specs">
+                    <span class="spec-tag highlight">32-bit float</span>
+                    <span class="spec-tag highlight">Dual Channel</span>
+                    <span class="spec-tag">260m portee</span>
+                    <span class="spec-tag">10h autonomie</span>
+                    <span class="spec-tag">Backup interne</span>
+                </div>
+            </div>
+            <div class="card-why">
+                <p><strong>Pourquoi le GO III et pas le GO II ?</strong> Le 32-bit float change tout pour le food ASMR. Tu n'as plus besoin de regler les niveaux avant de tourner — le micro capture toute la dynamique et tu ajustes en post. Un craquement de coque qui serait clippe en 24-bit est parfaitement propre en 32-bit. +40 EUR par rapport au GO II, ca vaut le coup.</p>
+            </div>
+        </div>
+
+        <div class="alternative">
+            <div class="alt-label">Alternative si budget ASMR pousse</div>
+            <div class="alt-name">DJI Mic 3 <span class="alt-price">~300 EUR</span></div>
+            <div class="alt-desc">Sorti aout 2025. 16g par emetteur (vs 32g Rode), supporte 4 emetteurs. Adaptive Gain Control. Alternative solide au Rode, meme gamme de prix.</div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 05 · MOUVEMENT ── -->
+<section class="section" id="mouvement">
+    <div class="section-header">
+        <div class="section-number">05</div>
+        <div>
+            <div class="section-title">Mouvement</div>
+            <div class="section-subtitle">Slider motorise en principal, gimbal en secondaire. Consensus pro food.</div>
+        </div>
+    </div>
+    <div class="equipment-grid">
+        <div class="equipment-card primary">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Edelkrone SliderONE v3</div>
+                    <div class="card-price">~530 EUR</div>
+                </div>
+                <div class="card-desc">Slider motorise compact. Course : 20cm (verifie). Charge max horizontale : 9kg (verifie) — ton setup de 1.4kg passe sans probleme. Mouvements programmables et repetables via l'app Edelkrone. Se pose sur table. Les pros food utilisent des sliders, pas des gimbals, comme outil principal — les mouvements lents et lineaires sont ce que le contenu food demande.</div>
+                <div class="card-specs">
+                    <span class="spec-tag highlight">Motorise programmable</span>
+                    <span class="spec-tag highlight">9kg charge verifie</span>
+                    <span class="spec-tag">20cm course</span>
+                    <span class="spec-tag">App control</span>
+                    <span class="spec-tag">Se pose sur table</span>
+                </div>
+            </div>
+            <div class="card-why">
+                <p><strong>Slider vs gimbal pour food :</strong> le gimbal = mouvement dynamique (marcher, vlogging). Le slider = mouvement lent, controle, repetable. La video food c'est du mouvement chirurgical. Tu programmes un travelling, tu appuies play, c'est parfait a chaque fois.</p>
+            </div>
+        </div>
+
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Edelkrone HeadONE v2</div>
+                    <div class="card-price">~370 EUR</div>
+                </div>
+                <div class="card-desc">Tete motorisee pan/tilt. Se monte sur le SliderONE (sync sans fil verifiee via app Edelkrone). Cree le mouvement "orbite" : le slider avance, la camera reste pointee sur le dessert. Charge pan 4.5kg, tilt 2.2kg (verifie). C'est le mouvement signature des pubs food premium.</div>
+                <div class="card-specs">
+                    <span class="spec-tag highlight">Orbite automatique</span>
+                    <span class="spec-tag">Pan + Tilt motorise</span>
+                    <span class="spec-tag">Sync sans fil slider</span>
+                    <span class="spec-tag">4.5kg/2.2kg charge</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">DJI RS 4 Mini</div>
+                    <div class="card-price">~410 EUR</div>
+                </div>
+                <div class="card-desc">Gimbal 3 axes secondaire. 2kg charge, 890g (verifie), 13h batterie marketing / ~10h reel (source : Gimbal Review test), verrous d'axe automatiques (verifie). Vertical natif pour TikTok/Reels. Pour les plans handheld dynamiques : approches, reveals, BTS.</div>
+                <div class="card-specs">
+                    <span class="spec-tag">Vertical natif</span>
+                    <span class="spec-tag">2kg charge</span>
+                    <span class="spec-tag">890g verifie</span>
+                    <span class="spec-tag">~10h reel</span>
+                    <span class="spec-tag">Auto axis lock</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="vs-box">
+            <div class="vs-label">Slider vs gimbal — quand utiliser quoi</div>
+            <div class="vs-grid">
+                <div class="vs-col">
+                    <span class="winner">SLIDER — 60% DES PLANS</span>
+                    <h4>Edelkrone SliderONE</h4>
+                    <p>Travelling lateral, approche lineaire, orbite (avec HeadONE), time-lapse. Plans produit, plans signature, plans pub.</p>
+                </div>
+                <div class="vs-divider"></div>
+                <div class="vs-col">
+                    <h4>DJI RS 4 Mini</h4>
+                    <p>Approche dynamique, reveal, BTS, plans avec collaborateurs. Mouvements organiques, handheld. Plans ambiance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 06 · SUPPORT ── -->
+<section class="section" id="support">
+    <div class="section-header">
+        <div class="section-number">06</div>
+        <div>
+            <div class="section-title">Support</div>
+            <div class="section-subtitle">Overhead + moniteur + stabilite</div>
+        </div>
+    </div>
+    <div class="equipment-grid">
+        <div class="equipment-card primary">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Manfrotto MT190XPRO3 + rotule MHXPRO-BHQ2</div>
+                    <div class="card-price">~300 EUR</div>
+                </div>
+                <div class="card-desc">Trepied pro avec colonne horizontale 90 degres (verifie). Charge max 7kg (verifie). LA feature food : colonne a l'horizontale pour les overhead. Aussi utilise pour les plans macro statiques avec le 90mm.</div>
+                <div class="card-specs">
+                    <span class="spec-tag highlight">Colonne 90 degres</span>
+                    <span class="spec-tag">7kg charge verifie</span>
+                    <span class="spec-tag">Aluminium</span>
+                    <span class="spec-tag">Quick Release</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Moniteur externe 5" (Atomos Shinobi ou Feelworld F5)</div>
+                    <div class="card-price">~150 EUR</div>
+                </div>
+                <div class="card-desc">Ecran 5" HDMI pour verifier le focus macro en temps reel. L'ecran 3" du A7S III est trop petit pour confirmer que le focus est exactement sur le bon detail du glacage. Focus peaking, zebra, waveform integres. Indispensable quand tu tournes au 90mm macro — un defaut de focus invisible sur l'ecran camera se voit immediatement sur un moniteur 5".</div>
+                <div class="card-specs">
+                    <span class="spec-tag highlight">5 pouces HDMI</span>
+                    <span class="spec-tag">Focus peaking</span>
+                    <span class="spec-tag">Waveform</span>
+                    <span class="spec-tag">Zebra</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">SmallRig Magic Arm 11" + Super Clamp</div>
+                    <div class="card-price">~50 EUR</div>
+                </div>
+                <div class="card-desc">Bras articule pour monter le moniteur, un second angle smartphone, ou une lumiere. Se clamp partout.</div>
+                <div class="card-specs">
+                    <span class="spec-tag">11"</span>
+                    <span class="spec-tag">Friction lock</span>
+                    <span class="spec-tag">3kg charge</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">2x pieds d'eclairage Neewer 200cm</div>
+                    <div class="card-price">~50 EUR</div>
+                </div>
+                <div class="card-desc">Pieds aluminium pour tes deux LED. Deux minimum pour un setup 2 lumieres.</div>
+                <div class="card-specs">
+                    <span class="spec-tag">200cm</span>
+                    <span class="spec-tag">x2</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 07 · ACCESSOIRES ── -->
+<section class="section" id="accessoires">
+    <div class="section-header">
+        <div class="section-number">07</div>
+        <div>
+            <div class="section-title">Accessoires</div>
+            <div class="section-subtitle">Les details qui font la difference</div>
+        </div>
+    </div>
+    <div class="equipment-grid">
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">2x Cartes SD Sony Tough 128Go V60</div>
+                    <div class="card-price">~100 EUR</div>
+                </div>
+                <div class="card-desc">Rapides pour le 4K 120fps 10-bit. Version Tough = resistantes a l'eau. Une par slot.</div>
+            </div>
+        </div>
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">2x batteries NP-FZ100 + chargeur dual</div>
+                    <div class="card-price">~100 EUR</div>
+                </div>
+                <div class="card-desc">Le A7S III consomme en 4K 120fps. Deux batteries + chargeur USB-C dual.</div>
+            </div>
+        </div>
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Disque dur externe SSD 1To (Samsung T7)</div>
+                    <div class="card-price">~90 EUR</div>
+                </div>
+                <div class="card-desc">Backup obligatoire. Le 4K S-Log3 genere des fichiers massifs. Un SSD 1To pour sauvegarder chaque session de tournage. USB-C, 1050Mo/s.</div>
+            </div>
+        </div>
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Datacolor SpyderCheckr 24</div>
+                    <div class="card-price">~55 EUR</div>
+                </div>
+                <div class="card-desc">Mire 24 patchs couleur pour calibrer tes videos dans DaVinci Resolve. Tes rouges fraise et tes jaunes mangue restent fideles d'une video a l'autre.</div>
+            </div>
+        </div>
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Fonds vinyle (marbre, bois, beton) + filtre ND 82mm</div>
+                    <div class="card-price">~140 EUR</div>
+                </div>
+                <div class="card-desc">3 fonds recto-verso 60x90cm. Grolet utilise du marbre blanc — choisis-en un comme fond signature. Filtre ND variable ND2-ND400 82mm (taille du 24-70 GM II) pour filmer a f/2.8 sous tes LED sans surexposer.</div>
+            </div>
+        </div>
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Kit food styling (pinces, spray, museum putty)</div>
+                    <div class="card-price">~40 EUR</div>
+                </div>
+                <div class="card-desc">Pinces de precision pour micro-ajustements, spray eau/huile pour le sheen sur les fruits, museum putty pour maintenir les pieces en place, cotons-tiges pour nettoyage. Pas glamour mais indispensable — les pros food considerent ces outils aussi importants que l'eclairage.</div>
+            </div>
+        </div>
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Adaptateur Bowens pour Godox ML60Bi</div>
+                    <div class="card-price">~25 EUR</div>
+                </div>
+                <div class="card-desc">La Godox ML60Bi a une monture Godox, PAS Bowens. Cet adaptateur (ML-GB ou bracket S2) te permet d'utiliser tes softbox Bowens avec les deux LED.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── 08 · POST-PRODUCTION ── -->
+<section class="section" id="post-prod">
+    <div class="section-header">
+        <div class="section-number">08</div>
+        <div>
+            <div class="section-title">Post-production</div>
+            <div class="section-subtitle">Le S-Log3 demande du grading. Voila les outils.</div>
+        </div>
+    </div>
+    <div class="equipment-grid">
+        <div class="equipment-card primary">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">DaVinci Resolve (version gratuite)</div>
+                    <div class="card-price">GRATUIT</div>
+                </div>
+                <div class="card-desc">Le logiciel de color grading et montage de reference. La version gratuite est professionnelle (pas une version "lite"). Montage, color grading, audio, effets — tout integre. C'est dans DaVinci que tu transformes le S-Log3 gris et plat en tons chauds Atelier Mirage. Consensus Reddit : "DaVinci Resolve gratuit est le meilleur logiciel de montage video point final."</div>
+                <div class="card-specs">
+                    <span class="spec-tag highlight">Gratuit</span>
+                    <span class="spec-tag highlight">Color grading pro</span>
+                    <span class="spec-tag">Montage</span>
+                    <span class="spec-tag">Audio</span>
+                    <span class="spec-tag">Windows/Mac</span>
+                </div>
+            </div>
+        </div>
+        <div class="equipment-card">
+            <div class="card-body">
+                <div class="card-top">
+                    <div class="card-name">Pack LUTs food (tons chauds)</div>
+                    <div class="card-price">~30-50 EUR</div>
+                </div>
+                <div class="card-desc">LUTs (Look-Up Tables) specifiques food : tons caramel, chocolat, fruit rouge. Tu appliques une LUT en un clic et tu ajustes. Ca divise par 10 le temps de color grading par video. Disponibles sur Etsy et les sites de coloristes pro.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── BUDGET ── -->
+<section class="recap" id="recap">
+    <div class="section-header" style="max-width:800px;margin:0 auto 2rem;">
+        <div class="section-number">$$</div>
+        <div>
+            <div class="section-title">Budget total — prix verifies avril 2026</div>
+        </div>
+    </div>
+    <div class="recap-table">
+        <div class="recap-row"><span class="cat">Boitier</span><span class="item">Sony A7S III</span><span class="rprice">2 100 EUR</span></div>
+        <div class="recap-row"><span class="cat">Optique</span><span class="item">Sony FE 24-70mm f/2.8 GM II</span><span class="rprice">1 550 EUR</span></div>
+        <div class="recap-row"><span class="cat">Optique</span><span class="item">Sony FE 90mm f/2.8 Macro G OSS</span><span class="rprice">850 EUR</span></div>
+        <div class="recap-row"><span class="cat">Lumiere</span><span class="item">Nanlite Forza 150B (key light)</span><span class="rprice">480 EUR</span></div>
+        <div class="recap-row"><span class="cat">Lumiere</span><span class="item">Godox ML60Bi + adaptateur Bowens</span><span class="rprice">225 EUR</span></div>
+        <div class="recap-row"><span class="cat">Lumiere</span><span class="item">Softbox 60cm + grid + reflecteurs + mousse</span><span class="rprice">130 EUR</span></div>
+        <div class="recap-row"><span class="cat">Son</span><span class="item">Rode Wireless GO III</span><span class="rprice">300 EUR</span></div>
+        <div class="recap-row"><span class="cat">Mvt</span><span class="item">Edelkrone SliderONE v3</span><span class="rprice">530 EUR</span></div>
+        <div class="recap-row"><span class="cat">Mvt</span><span class="item">Edelkrone HeadONE v2</span><span class="rprice">370 EUR</span></div>
+        <div class="recap-row"><span class="cat">Mvt</span><span class="item">DJI RS 4 Mini</span><span class="rprice">410 EUR</span></div>
+        <div class="recap-row"><span class="cat">Support</span><span class="item">Manfrotto 190XPRO3 + rotule BHQ2</span><span class="rprice">300 EUR</span></div>
+        <div class="recap-row"><span class="cat">Support</span><span class="item">Moniteur 5" + SmallRig Magic Arm + pieds x2</span><span class="rprice">250 EUR</span></div>
+        <div class="recap-row"><span class="cat">Access.</span><span class="item">Cartes SD x2, batteries x2, chargeur, SSD 1To</span><span class="rprice">290 EUR</span></div>
+        <div class="recap-row"><span class="cat">Access.</span><span class="item">SpyderCheckr + fonds + ND + food styling kit</span><span class="rprice">265 EUR</span></div>
+        <div class="recap-row"><span class="cat">Post</span><span class="item">DaVinci Resolve + LUTs food</span><span class="rprice">~40 EUR</span></div>
+        <div class="recap-total">
+            <span class="label">Investissement total</span>
+            <span class="total-price">~8 090 EUR</span>
+        </div>
+    </div>
+    <p style="text-align:center;margin-top:1.5rem;font-size:0.85rem;color:var(--ink-muted);">
+        Prix verifies avril 2026 &middot; Boitier + optiques en occasion MPB/Back Market : ~6 300 EUR total
+    </p>
+</section>
+
+<!-- ── ORDRE D'ACHAT ── -->
+<section class="priority" id="priorite">
+    <h2>Ordre d'achat — workflow video-first</h2>
+    <div class="priority-steps">
+        <div class="priority-step">
+            <div class="step-num">01</div>
+            <div class="step-content">
+                <h3>Le coeur : boitier + zoom + lumiere + slider + DaVinci</h3>
+                <p>Sony A7S III + 24-70 GM II + Nanlite Forza 150B + softbox + mousse + SliderONE v3 + DaVinci Resolve. Tu tournes du contenu pro des le jour 1. Le zoom fait 80% des plans, la key light fait le rendu, le slider fait les mouvements, DaVinci fait le grading.</p>
+                <div class="step-price">~5 310 EUR</div>
+            </div>
+        </div>
+        <div class="priority-step">
+            <div class="step-num">02</div>
+            <div class="step-content">
+                <h3>Le son + le macro + le trepied + le moniteur</h3>
+                <p>Rode GO III + Sony 90mm Macro + Manfrotto 190XPRO3 + moniteur 5". Le son debloque le food ASMR. Le macro debloque les money shots. Le trepied debloque l'overhead. Le moniteur confirme le focus macro.</p>
+                <div class="step-price">~1 600 EUR</div>
+            </div>
+        </div>
+        <div class="priority-step">
+            <div class="step-num">03</div>
+            <div class="step-content">
+                <h3>Le gimbal + la tete motorisee + fill light</h3>
+                <p>DJI RS 4 Mini + HeadONE v2 + Godox ML60Bi. Plans dynamiques + orbites automatiques + eclairage 2 sources complet.</p>
+                <div class="step-price">~1 005 EUR</div>
+            </div>
+        </div>
+        <div class="priority-step">
+            <div class="step-num">04</div>
+            <div class="step-content">
+                <h3>Les finitions</h3>
+                <p>Cartes, batteries, SSD, SpyderCheckr, fonds, ND, food styling kit, LUTs, SmallRig, pieds eclairage, adaptateur Bowens Godox.</p>
+                <div class="step-price">~675 EUR</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ── TIPS ── -->
+<section class="tips">
+    <div class="tips-box">
+        <h2>Regles d'or du setup food video</h2>
+        <div class="tip-item">
+            <h4>Tourne en S-Log3, grade dans DaVinci Resolve</h4>
+            <p>L'image est plate au tournage. En post, tu recuperes une latitude enorme pour tes tons signature. 2h de tuto YouTube suffisent pour demarrer. Gratuit.</p>
+        </div>
+        <div class="tip-item">
+            <h4>Le 24-70 sur le slider/gimbal, le 90mm sur le trepied</h4>
+            <p>Ne monte jamais le macro sur le gimbal. 90mm = chaque tremblement amplifie. Le 24-70 est fait pour le mouvement. Le 90mm pour les plans statiques chirurgicaux.</p>
+        </div>
+        <div class="tip-item">
+            <h4>Le moniteur externe pour le macro, toujours</h4>
+            <p>A 1:1, la profondeur de champ est de quelques millimetres. Sur l'ecran 3" du boitier, tu ne vois pas si le focus est sur la bonne couche du glacage. Sur le moniteur 5" avec focus peaking, tu le vois immediatement.</p>
+        </div>
+        <div class="tip-item">
+            <h4>Un seul fond signature</h4>
+            <p>Marbre blanc clair par defaut. Grolet utilise quasi-exclusivement du marbre blanc. La coherence visuelle de ton feed vaut plus que la variete.</p>
+        </div>
+        <div class="tip-item">
+            <h4>32-bit float = zero stress audio</h4>
+            <p>Avec le Rode GO III en 32-bit, tu n'as plus besoin de regler les niveaux avant de tourner. Tu ajustes tout en post. Un craquement de coque qui aurait clippe en 24-bit est parfait en 32-bit.</p>
+        </div>
+        <div class="tip-item">
+            <h4>Structure : process — reveal — reaction</h4>
+            <p>Chaque video suit cet arc. Process (mains qui travaillent). Reveal (produit fini ou decoupe). Reaction (degustation). Salur, Grolet, Guichon — tous le font.</p>
+        </div>
+        <div class="tip-item">
+            <h4>Boitier en occasion, optiques en neuf</h4>
+            <p>A7S III occasion "comme neuf" sur MPB : ~1 500-1 700 EUR. Les objectifs Sony G Master gardent leur valeur — achete-les neufs pour la garantie. LED et accessoires : toujours neuf.</p>
+        </div>
+    </div>
+</section>
+
+<section class="sources">
+    <h3>Sources et verification</h3>
+    <p>Prix : E-Infinity EU, Digixo FR, B&H Photo (converti EUR). Specs boitier : CineD lab tests, B&H FAQ, DPReview. Specs optiques : DXOMark, Dustin Abbott, Admiringlight, Cameralabs. Lighting : Nanlite US specs, Newsshooter review, Godox specs officielles. Audio : Rode officiel, SoundGuys GO III review, DJI specs. Mouvement : Edelkrone.com specs, Gimbal Review tests reels, DroneDJ comparatifs. Support : Manfrotto specs, Atomos specs. Communaute : Reddit r/videography, r/SonyAlpha, r/FoodPhotography, DPReview forums, Fstoppers, CineD. Createurs food references : Jessica Hirsch (@cheatdayeats), Downshiftology, Philip Lemoine, ASMR Phan.</p>
+</section>
+
+<footer>
+    <p>Atelier Mirage &middot; Kit Equipement Video Premium &middot; Document interne — Audite et verifie avril 2026</p>
+    <p style="margin-top:0.5rem;"><a href="https://lamaisonmirage.com">lamaisonmirage.com</a></p>
+</footer>
+
+</body>
+</html>

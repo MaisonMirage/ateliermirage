@@ -1,4 +1,4 @@
-# PROMPT AUDIT — PACKAGING MAISON MIRAGE
+# PROMPT AUDIT — PACKAGING ATELIER MIRAGE
 
 
 ---
@@ -16,7 +16,7 @@ Tu es un trinôme d'experts réunis en war room exclusivement dédiée au PACKAG
 
 LA MARQUE :
 
-Maison Mirage — Haute Pâtisserie Trompe-l'Œil, Marseille.
+Atelier Mirage — L'art du dessert, Marseille.
 Fondateur : Hamza Hamdi.
 
 PRODUIT : Des desserts individuels hyper-réalistes en trompe-l'œil. Chaque pièce ressemble à un vrai fruit ou aliment (fraise, citron, cabosse de cacao, mangue, cacahuète, fruit de la passion, framboise, pêche, vanille) mais c'est un dessert de haute pâtisserie à l'intérieur (mousse, crémeux, biscuit, glaçage). Les pièces sont fragiles, sphériques ou irrégulières, glacées (risque de transfert de gras), et doivent être conservées en chambre froide (0-4°C).
@@ -76,7 +76,7 @@ CONSIGNE : regarde chaque image attentivement. Note lesquelles sont les plus ré
 
 PACKAGING — BOÎTE RÉELLE EXISTANTE :
 → img/boite-trans.png
-C'est la VRAIE boîte actuelle de Maison Mirage (5 pièces). Compare-la avec les rendus IA : qu'est-ce qui est fidèle, qu'est-ce qui doit changer ?
+C'est la VRAIE boîte actuelle de Atelier Mirage (5 pièces). Compare-la avec les rendus IA : qu'est-ce qui est fidèle, qu'est-ce qui doit changer ?
 
 LOGO HAUTE RÉSOLUTION :
 → img/maison_mirage_logo_beigee.webp (version or/beige)
@@ -85,14 +85,14 @@ LOGO HAUTE RÉSOLUTION :
 BENCHMARK — TEMA'S CAKE (~10 images + 1 vidéo) :
 → Dossier "inspiration/"
 Captures TikTok montrant : box train ouverte avec trompe-l'œil et brownies (400K likes), mini boîte architecturale en forme de palais rose (148K likes), box brownie carrée avec papier de soie TC (15.9K likes), présentoir tea time 3 étages rose (14.5K likes), grande box trompe-l'œil carrée avec fleurs aquarelle (7K+ likes), boutique Tema's Cake, vidéo unboxing.
-CONSIGNE : analyse leur packaging frame par frame. Identifie précisément ce qui crée la viralité (format, couleur, moment de reveal, format de contenu). Puis évalue comment Maison Mirage peut capturer la même mécanique virale avec son ADN crème/or/noir.
+CONSIGNE : analyse leur packaging frame par frame. Identifie précisément ce qui crée la viralité (format, couleur, moment de reveal, format de contenu). Puis évalue comment Atelier Mirage peut capturer la même mécanique virale avec son ADN crème/or/noir.
 
 DOCUMENTS CONTEXTUELS :
 → audits/audit-packaging-da.docx — mon audit packaging précédent (direction artistique)
 → audits/strategie-packaging-prix.docx — mon analyse coût/prix vs Tema's Cake
 → DOCS/SSOT-Maison-Mirage-2026.xlsx — données de référence de la marque
 → grille-tarifaire-unifiee.pdf — grille de prix B2B
-→ "doc/Maison Mirage - Projet d'implantation.pdf" — dossier Klépierre (si présent)
+→ "doc/Atelier Mirage - Projet d'implantation.pdf" — dossier Klépierre (si présent)
 
 PRODUITS (pour comprendre les pièces qui vont dans les boîtes) :
 → img/ contient les photos de chaque trompe-l'œil : fraise, citron, cacao, mangue, cacahuète, passion, framboise, pêche, vanille — en version détourée (-trans.png), zoom (-zoom.png/.webp), et en coupe.
@@ -124,9 +124,9 @@ Analyse chaque image/vidéo du dossier "inspiration/" :
 - Décris le packaging visible
 - Identifie la mécanique virale précise (pourquoi CETTE vidéo a X likes)
 - Estime le coût de fabrication du packaging visible
-- Identifie ce que Maison Mirage peut emprunter (la mécanique, le format, l'idée) vs ce qu'elle doit éviter (la couleur, le style, le positionnement)
+- Identifie ce que Atelier Mirage peut emprunter (la mécanique, le format, l'idée) vs ce qu'elle doit éviter (la couleur, le style, le positionnement)
 
-Tableau comparatif final : Tema's Cake vs Maison Mirage sur 10 critères packaging.
+Tableau comparatif final : Tema's Cake vs Atelier Mirage sur 10 critères packaging.
 
 ---
 
