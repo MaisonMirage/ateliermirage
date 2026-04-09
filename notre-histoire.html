@@ -3,16 +3,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Notre Histoire — Maison Mirage · De Marseille au monde</title>
-  <meta name="description" content="L'histoire de Maison Mirage : comment un autodidacte obsessionnel a convaincu 15+ chefs et restaurateurs de Marseille par la seule force de son travail. 3 000 heures de R&amp;D, 100% de renouvellement." />
-  <meta property="og:title" content="Notre Histoire — Maison Mirage" />
-  <meta property="og:description" content="De la passion d'un artisan à une maison qui redéfinit le dessert. Découvrez l'histoire de Maison Mirage." />
+  <title>Notre Histoire — Atelier Mirage · De Marseille au monde</title>
+  <meta name="description" content="L'histoire d'Atelier Mirage : 3 000 heures de R&amp;D pour maîtriser l'art du trompe-l'œil pâtissier à Marseille. 15+ chefs partenaires, 100% de renouvellement." />
+  <meta property="og:title" content="Notre Histoire — Atelier Mirage" />
+  <meta property="og:description" content="De la passion d'un artisan à une maison qui redéfinit le dessert. Découvrez l'histoire de Atelier Mirage." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:image" content="https://www.lamaisonmirage.com/img/hamza-action.webp" />
-  <meta property="og:site_name" content="Maison Mirage" />
+  <meta property="og:site_name" content="Atelier Mirage" />
   <link rel="canonical" href="https://www.lamaisonmirage.com/notre-histoire.html" />
+  <link rel="icon" href="img/favicon.ico" sizes="48x48" />
   <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
   <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -66,19 +68,21 @@
       max-width: 55ch; margin: 0 auto; position: relative; z-index: 1;
     }
 
-    /* --- DUAL IMAGE HERO --- */
+    /* --- SINGLE IMAGE HERO --- */
     .story-portraits {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
-      width: 100%; max-width: 1000px; padding: 0 6vw;
+      display: flex; justify-content: center;
+      width: 100%; max-width: 600px; padding: 0 6vw;
       margin: 0 auto;
     }
     .story-portraits .portrait-wrap {
       border-radius: 2.5rem; overflow: hidden; aspect-ratio: 3/4;
       box-shadow: 0 40px 80px rgba(26,23,20,0.08);
       border: 1px solid rgba(26,23,20,0.05);
+      width: 100%;
     }
     .story-portraits img {
       width: 100%; height: 100%; object-fit: cover;
+      object-position: center center;
       transition: transform 1.2s cubic-bezier(0.2,0.8,0.2,1);
     }
     .story-portraits .portrait-wrap:hover img { transform: scale(1.04); }
@@ -241,7 +245,7 @@
 
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      .story-portraits { grid-template-columns: 1fr; max-width: 400px; }
+      .story-portraits { max-width: 400px; }
       .timeline-section::before { left: 1.5rem; }
       .timeline-item,
       .timeline-item:nth-child(odd),
@@ -271,7 +275,7 @@
     <a href="evenements.html" class="mobile-nav-item">Événements</a>
     <div class="mobile-nav-footer">
       <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a>
-      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+      <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
     </div>
   </div>
 
@@ -288,8 +292,8 @@
       <a href="notre-histoire.html">Notre Histoire</a>
     </div>
     <a href="index.html" class="nav-brand" aria-label="Retour à l'accueil">
-      <img src="img/maison_mirage_logo_beige.webp" alt="" class="brand-logo" width="36" height="36" />
-      <span class="brand-name">Maison Mirage</span>
+      <img src="img/logo-am-ink.png" alt="" class="brand-logo" width="36" height="36" />
+      <span class="brand-name"><span class="brand-atelier">Atelier</span><span class="brand-mirage">Mirage</span></span>
     </a>
     <!-- Desktop links — right of brand + CTA -->
     <div class="nav-links-right">
@@ -309,16 +313,13 @@
       <div class="visual-anchor"></div>
       <p class="eyebrow gs-reveal">Notre Histoire</p>
       <h1 class="gs-reveal">Née d'une<br><em>obsession.</em></h1>
-      <p class="subtitle gs-reveal">Pas de grande école. Pas de palace en guise de CV. Juste une obsession de 3 000 heures pour maîtriser un art que personne ne pratiquait à Marseille. Maison Mirage est née de cette certitude : quand le travail est irréprochable, ce sont les professionnels eux-mêmes qui valident.</p>
+      <p class="subtitle gs-reveal">Trois ans à perfectionner un art que personne ne pratiquait à Marseille. Chaque recette testée des dizaines de fois, chaque illusion poussée jusqu'à créer ce moment de doute chez les gens. Depuis le lancement, 15 établissements m'ont fait confiance en quelques mois — uniquement par le bouche-à-oreille.</p>
     </section>
 
-    <!-- DUAL PORTRAITS -->
+    <!-- PORTRAIT UNIQUE -->
     <section class="story-portraits gs-reveal">
       <div class="portrait-wrap">
-        <img src="img/hamza-portrait.webp" alt="Hamza Hamdi — Fondateur de Maison Mirage" loading="lazy" width="765" height="1150" />
-      </div>
-      <div class="portrait-wrap">
-        <img src="img/hamza-action.webp" alt="Hamza Hamdi en pleine création dans son atelier" loading="lazy" width="756" height="1344" />
+        <img src="img/atelier-hamza.webp" alt="Hamza Hamdi en pleine création dans son atelier" loading="lazy" width="768" height="1376" />
       </div>
     </section>
 
@@ -326,7 +327,7 @@
     <section class="story-kpis gs-reveal">
       <div class="story-kpi-item">
         <div class="kpi-number">3 000+</div>
-        <div class="kpi-label">Heures de R&amp;D<br>autodidacte</div>
+        <div class="kpi-label">Heures de R&amp;D<br>en atelier</div>
       </div>
       <div class="story-kpi-item">
         <div class="kpi-number">15+</div>
@@ -347,9 +348,9 @@
 
       <div class="timeline-item gs-reveal">
         <div class="timeline-side">
-          <div class="timeline-year">2021 — Le déclic</div>
-          <h3 class="timeline-title">Un fruit posé sur <em>une table.</em></h3>
-          <p class="timeline-desc">Hamza Hamdi tombe sur une vidéo : une pêche en chocolat, indistinguable du vrai fruit. Aucune formation ne l'y prépare. Il commande ses premiers moules, ses premiers ingrédients, et s'enferme dans sa cuisine. L'obsession commence.</p>
+          <div class="timeline-year">2021–2024 — L'obsession</div>
+          <h3 class="timeline-title">3 000 heures <em>dans l'ombre.</em></h3>
+          <p class="timeline-desc">Tout commence avec une vidéo : une pêche en chocolat qui ressemblait à s'y méprendre au vrai fruit. La fascination est immédiate. Pendant trois ans, je m'enferme dans ma cuisine. Moulage, glaçage miroir, peinture alimentaire — chaque technique apprise, testée, recommencée des dizaines de fois. Je ne cherchais pas à aller vite. Je cherchais la perfection.</p>
         </div>
         <div class="timeline-dot"></div>
         <div class="timeline-placeholder"></div>
@@ -359,37 +360,17 @@
         <div class="timeline-placeholder"></div>
         <div class="timeline-dot"></div>
         <div class="timeline-side">
-          <div class="timeline-year">2022 — 3 000 heures</div>
-          <h3 class="timeline-title">L'école, c'était <em>l'atelier.</em></h3>
-          <p class="timeline-desc">Pas de mentor. Des centaines de vidéos décortiquées, des dizaines de recettes ratées, des techniques de moulage, glaçage miroir et peinture alimentaire apprises par l'acharnement. Installation du premier laboratoire à Marseille. Chaque recette est testée des dizaines de fois jusqu'à obtenir l'illusion parfaite — ET le goût irréprochable. Ce que d'autres apprennent en école, Hamza l'a appris en recommençant.</p>
-        </div>
-      </div>
-
-      <div class="timeline-item gs-reveal">
-        <div class="timeline-side">
-          <div class="timeline-year">2023 — Les premiers partenaires</div>
+          <div class="timeline-year">Été 2025 — Le lancement</div>
           <h3 class="timeline-title">Le bouche-à-oreille <em>s'enflamme.</em></h3>
-          <p class="timeline-desc">Maison Mirage fournit ses premiers restaurants marseillais. L'effet est immédiat : les clients filment, partagent, reviennent. Les établissements voient leur ticket moyen dessert grimper de 30% en moyenne.</p>
-        </div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-placeholder"></div>
-      </div>
-
-      <div class="timeline-item gs-reveal">
-        <div class="timeline-placeholder"></div>
-        <div class="timeline-dot"></div>
-        <div class="timeline-side">
-          <div class="timeline-year">2024 — L'accélération</div>
-          <h3 class="timeline-title">15 partenaires, <em>0 chef requis.</em></h3>
-          <p class="timeline-desc">Le modèle se confirme : des desserts prêts à servir, livrés en chambre froide 6j/7, qui s'intègrent dans n'importe quelle carte sans mobiliser un pâtissier. Le réseau de partenaires s'étend au-delà de Marseille.</p>
+          <p class="timeline-desc">J'installe mon laboratoire à Marseille et je fournis mes premiers restaurants. L'effet est immédiat : les clients filment, partagent, reviennent. Mes partenaires voient leur ticket moyen dessert grimper. Le téléphone commence à sonner tout seul — 15 établissements en quelques mois, sans une seule pub.</p>
         </div>
       </div>
 
       <div class="timeline-item gs-reveal">
         <div class="timeline-side">
-          <div class="timeline-year">2025 — La vision</div>
-          <h3 class="timeline-title">De nouvelles <em>ambitions.</em></h3>
-          <p class="timeline-desc">Maison Mirage développe de nouvelles collections éphémères et explore de nouveaux canaux de distribution. L'objectif : rendre l'illusion accessible à tous, B2B comme B2C.</p>
+          <div class="timeline-year">2026 — L'ambition</div>
+          <h3 class="timeline-title">Toujours plus loin, <em>jamais plus vite.</em></h3>
+          <p class="timeline-desc">Je développe de nouvelles collections éphémères, j'étoffe ma gamme de signatures et je renforce mon réseau de partenaires. Mon exigence reste la même : chaque pièce qui sort de mon atelier doit être irréprochable. La croissance ne dicte pas le rythme — la qualité, si.</p>
         </div>
         <div class="timeline-dot"></div>
         <div class="timeline-placeholder"></div>
@@ -400,43 +381,43 @@
     <!-- PHILOSOPHY QUOTE -->
     <section class="philosophy-section gs-reveal">
       <blockquote>
-        Je n'ai pas de diplôme à montrer. J'ai 15 chefs et restaurateurs qui recommandent chez moi chaque semaine. C'est le seul diplôme qui compte.
+        J'ai passé trois ans dans ma cuisine avant de servir mon premier restaurant. Aujourd'hui, aucun de mes partenaires n'a arrêté après le premier mois. Quand ton travail parle pour toi, t'as plus besoin de te justifier.
       </blockquote>
-      <p class="quote-attr">Hamza Hamdi — Fondateur &amp; Autodidacte</p>
+      <p class="quote-attr">Hamza — Fondateur, Atelier Mirage</p>
     </section>
 
     <!-- LÉGITIMITÉ — Preuve par les pairs -->
     <section class="values-section" style="background: linear-gradient(145deg, var(--cream-2) 0%, var(--cream) 100%); padding: 5rem 6vw; max-width: 100%; border-top: 1px solid rgba(26,23,20,0.04); border-bottom: 1px solid rgba(26,23,20,0.04);">
       <p class="eyebrow gs-reveal">La preuve par les pairs</p>
-      <h2 class="gs-reveal">Son diplôme,<br><em>c'est vous.</em></h2>
+      <h2 class="gs-reveal">Ils me font<br><em>confiance.</em></h2>
       <div class="values-grid" style="margin-top:3rem;">
         <div class="value-card gs-reveal">
           <div class="value-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
           </div>
           <h3 class="value-title">Validé par des chefs</h3>
-          <p class="value-desc">Talip A., chef pâtissier chez Royal Pâtisserie, commande chaque semaine. Quand un professionnel formé en école met les créations d'un autodidacte sur sa propre carte — c'est la preuve ultime.</p>
+          <p class="value-desc">Talip A., chef pâtissier chez Royal Pâtisserie, me commande chaque semaine. Quand un professionnel met mes créations sur sa propre carte — j'ai pas besoin d'autre validation.</p>
         </div>
         <div class="value-card gs-reveal">
           <div class="value-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
           </div>
           <h3 class="value-title">100% de renouvellement</h3>
-          <p class="value-desc">Aucun partenaire n'a arrêté après le premier mois. Zéro. Dans un secteur où la rotation des fournisseurs est la norme, c'est un taux que les marques établies envient.</p>
+          <p class="value-desc">Aucun de mes partenaires n'a arrêté après le premier mois. Zéro. Dans un secteur où on change de fournisseur tous les trois mois, ça veut dire quelque chose.</p>
         </div>
         <div class="value-card gs-reveal">
           <div class="value-icon">
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <h3 class="value-title">Le réseau parle</h3>
-          <p class="value-desc">15+ établissements en 12 mois, acquis uniquement par le bouche-à-oreille. Pas de publicité, pas de démarchage agressif. Quand le produit est bon, les pros se passent le mot.</p>
+          <p class="value-desc">15+ établissements en quelques mois, acquis uniquement par le bouche-à-oreille. Je n'ai jamais démarché personne. Quand le produit est bon, les pros se passent le mot entre eux.</p>
         </div>
       </div>
     </section>
 
     <!-- VALUES -->
     <section class="values-section">
-      <p class="eyebrow gs-reveal">Ce qui nous guide</p>
+      <p class="eyebrow gs-reveal">Ce qui me guide</p>
       <h2 class="gs-reveal">Trois <em>convictions.</em></h2>
       <div class="values-grid">
         <div class="value-card gs-reveal">
@@ -444,7 +425,7 @@
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
           </div>
           <h3 class="value-title">L'émotion d'abord</h3>
-          <p class="value-desc">Un dessert réussi n'est pas seulement bon — il surprend. Nous concevons chaque pièce pour déclencher une réaction : le doute, l'émerveillement, puis le plaisir de la dégustation.</p>
+          <p class="value-desc">Un dessert réussi n'est pas seulement bon — il surprend. Je conçois chaque pièce pour déclencher une réaction : le doute, l'émerveillement, puis le plaisir de la dégustation.</p>
         </div>
         <div class="value-card gs-reveal">
           <div class="value-icon">
@@ -458,7 +439,7 @@
             <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
           </div>
           <h3 class="value-title">Le partenariat, pas la vente</h3>
-          <p class="value-desc">Nous ne livrons pas des desserts — nous intégrons une expérience dans votre établissement. Dégustation gratuite, suivi personnalisé, remplacement garanti. Votre succès est le nôtre.</p>
+          <p class="value-desc">Je ne livre pas des desserts — j'intègre une expérience dans votre établissement. Dégustation gratuite, suivi personnalisé, remplacement garanti. Votre succès, c'est le mien.</p>
         </div>
       </div>
     </section>
@@ -466,7 +447,7 @@
     <!-- VISION CTA -->
     <section class="vision-cta gs-reveal">
       <h2>Écrivons la suite<br><em>ensemble.</em></h2>
-      <p class="desc">Que vous soyez restaurateur, organisateur d'événements ou simplement curieux, il y a toujours une place à la table de Maison Mirage.</p>
+      <p class="desc">Que vous soyez restaurateur, organisateur d'événements ou simplement curieux — il y a toujours une place à ma table.</p>
       <div class="cta-row">
         <a href="partenaires.html" class="btn-primary">
           Devenir partenaire
@@ -483,8 +464,11 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-brand-text">Maison Mirage</div>
-    <div class="footer-tagline">Haute Pâtisserie · Marseille</div>
+    <div class="footer-brand-block">
+      <div class="footer-logo-wrap"><img src="img/logo-am-ink.png" alt="Atelier Mirage" class="footer-logo-img" width="52" height="52" /></div>
+      <div class="footer-brand-text"><span class="footer-atelier">Atelier</span><span class="footer-mirage">Mirage</span></div>
+      <div class="footer-tagline">L'art du dessert</div>
+    </div>
 
     <nav class="footer-nav">
       <a href="index.html#boutique">Le Catalogue</a>
@@ -496,25 +480,25 @@
     </nav>
     <div class="footer-contact">
       <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a><br/>
-      <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
+      <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
     </div>
     <p class="footer-address">Marseille, France · Lun–Sam 8h–18h</p>
 
     <!-- Réseaux sociaux -->
     <div class="footer-social">
-      <a href="https://www.instagram.com/maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="Instagram Maison Mirage">
+      <a href="https://www.instagram.com/maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="Instagram Atelier Mirage">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
       </a>
-      <a href="https://www.tiktok.com/@maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="TikTok Maison Mirage">
+      <a href="https://www.tiktok.com/@maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="TikTok Atelier Mirage">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.8a8.27 8.27 0 0 0 4.76 1.5v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
       </a>
-      <a href="mailto:contact@lamaisonmirage.com" aria-label="Email Maison Mirage">
+      <a href="mailto:contact@lamaisonmirage.com" aria-label="Email Atelier Mirage">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
     </div>
 
     <div class="footer-bottom">
-      <span>&copy; 2026 Maison Mirage</span>
+      <span>&copy; 2026 Atelier Mirage</span>
       <a href="mentions-legales.html">Mentions légales</a>
       <a href="cgv-pro.html">CGV Pro</a>
     </div>
@@ -550,6 +534,13 @@
       });
     });
   </script>
+
+  <!-- ═══════ STICKY WHATSAPP CTA ═══════ -->
+  <div style="position:fixed;bottom:2rem;right:2rem;z-index:800;">
+    <a href="https://wa.me/33759540410?text=Bonjour%20Atelier%20Mirage%2C%20je%20suis%20un%20professionnel%20int%C3%A9ress%C3%A9%20par%20un%20partenariat." target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:3.2rem;height:3.2rem;border-radius:50%;background:var(--ink);border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 32px rgba(26,23,20,0.18);transition:transform 0.3s,background 0.3s;" aria-label="WhatsApp" onclick="gtag('event','click_whatsapp',{event_category:'CTA',event_label:'Sticky WhatsApp - Notre Histoire'});">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+  </div>
 
 </body>
 </html>

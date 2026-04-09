@@ -1,0 +1,1489 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit Tournage Instagram — Atelier Mirage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #FAF5EF;
+            --cream-2: #F5F0EA;
+            --cream-3: #EDE8E2;
+            --ink: #1A1714;
+            --ink-soft: #2C2824;
+            --ink-muted: #6B6560;
+            --gold: #A8895C;
+            --gold-light: #C9AA7C;
+            --gold-pale: #E8D5B8;
+            --gold-shimmer: #D4B896;
+            --white: #FFFFFF;
+            --success: #4A7C59;
+            --error: #8C3A3A;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Outfit', system-ui, sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+            --shadow-sm: 0 2px 8px rgba(26,23,20,0.06);
+            --shadow-md: 0 4px 24px rgba(26,23,20,0.08);
+            --shadow-lg: 0 12px 48px rgba(26,23,20,0.1);
+            --shadow-gold: 0 8px 32px rgba(168,137,92,0.2);
+            --radius-sm: 0.75rem;
+            --radius-md: 1.5rem;
+            --radius-lg: 2rem;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: var(--sans);
+            color: var(--ink);
+            background-color: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250,245,239,0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1.5px solid var(--gold-pale);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: 0.5px;
+        }
+
+        .nav-brand span { color: var(--gold); }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--ink-muted);
+            text-decoration: none;
+            font-size: 0.82rem;
+            font-weight: 500;
+            padding: 0.4rem 0.8rem;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            border: 1px solid var(--gold-pale);
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 em {
+            font-style: italic;
+            color: var(--gold);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--ink-muted);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* ── SECTIONS ── */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ── PRODUCT CARDS ── */
+        .products-grid {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: var(--gold-pale);
+        }
+
+        .product-card.essential::before {
+            content: 'ESSENTIEL';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--gold);
+            color: var(--white);
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+        }
+
+        .product-card.premium::before {
+            content: 'PREMIUM';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--ink);
+            color: var(--gold-light);
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+        }
+
+        .product-card.bonus::before {
+            content: 'BONUS';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--success);
+            color: var(--white);
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 2px;
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+        }
+
+        .product-icon {
+            width: 48px;
+            height: 48px;
+            background: linear-gradient(135deg, var(--gold-pale) 0%, var(--cream-2) 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .product-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .product-name {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .product-price {
+            font-family: var(--mono);
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: var(--gold);
+            white-space: nowrap;
+        }
+
+        .product-desc {
+            color: var(--ink-muted);
+            font-size: 0.92rem;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .product-specs {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .spec-tag {
+            background: var(--cream-2);
+            color: var(--ink-soft);
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            letter-spacing: 0.5px;
+            padding: 0.35rem 0.75rem;
+            border-radius: 999px;
+        }
+
+        .product-why {
+            background: var(--cream);
+            border-left: 3px solid var(--gold);
+            padding: 1rem 1.25rem;
+            border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+        }
+
+        .product-why strong {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .product-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            margin-top: 1rem;
+            color: var(--gold);
+            font-size: 0.85rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .product-link:hover { color: var(--ink); }
+
+        /* ── SETUP SECTION ── */
+        .setup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .setup-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+        }
+
+        .setup-card h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--ink);
+        }
+
+        .setup-step {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.25rem;
+            align-items: flex-start;
+        }
+
+        .step-num {
+            min-width: 32px;
+            height: 32px;
+            background: var(--gold);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 0.9rem;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        .step-text strong { color: var(--ink); }
+
+        /* ── DIAGRAM ── */
+        .diagram-wrapper {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin: 2rem 0;
+        }
+
+        .diagram-title {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .diagram-scene {
+            position: relative;
+            background: var(--cream);
+            border-radius: var(--radius-md);
+            padding: 2.5rem 2rem;
+            min-height: 320px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .diagram-table {
+            width: 180px;
+            height: 120px;
+            background: linear-gradient(135deg, #D4A574 0%, #B8956A 100%);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 8px 24px rgba(180,140,90,0.25);
+        }
+
+        .diagram-table span {
+            color: var(--white);
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        .diagram-dessert {
+            position: absolute;
+            top: -15px;
+            font-size: 2rem;
+        }
+
+        .diagram-element {
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .diagram-element .icon {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border: 2px solid var(--gold-pale);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .diagram-element .label {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+            text-align: center;
+            max-width: 80px;
+        }
+
+        .diagram-element .sublabel {
+            font-size: 0.55rem;
+            color: var(--gold);
+            font-family: var(--mono);
+        }
+
+        .diagram-line {
+            position: absolute;
+            border: 1px dashed var(--gold-pale);
+        }
+
+        /* ── BUDGET TIERS ── */
+        .tiers-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .tier-card {
+            background: var(--white);
+            border: 1.5px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .tier-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tier-card.recommended {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .tier-card.recommended::after {
+            content: 'RECOMMANDÉ';
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: var(--white);
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            padding: 0.3rem 1rem;
+            border-radius: 999px;
+            white-space: nowrap;
+        }
+
+        .tier-icon {
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .tier-name {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.25rem;
+        }
+
+        .tier-price {
+            font-family: var(--mono);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .tier-price-note {
+            font-size: 0.78rem;
+            color: var(--ink-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        .tier-items {
+            list-style: none;
+            text-align: left;
+        }
+
+        .tier-items li {
+            padding: 0.55rem 0;
+            border-bottom: 1px solid var(--cream-2);
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+        }
+
+        .tier-items li:last-child { border-bottom: none; }
+
+        .tier-items li::before {
+            content: '✓';
+            color: var(--gold);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .tier-items li.inactive {
+            color: var(--ink-muted);
+            opacity: 0.4;
+        }
+
+        .tier-items li.inactive::before {
+            content: '—';
+            color: var(--ink-muted);
+        }
+
+        /* ── TIPS CARDS ── */
+        .tips-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .tip-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 1.75rem;
+        }
+
+        .tip-card h4 {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--ink);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tip-card p, .tip-card li {
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            line-height: 1.6;
+        }
+
+        .tip-card ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .tip-card ul li {
+            padding: 0.3rem 0;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .tip-card ul li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* ── CHECKLIST ── */
+        .checklist-section {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .checklist-title {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .checklist-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+        }
+
+        .checklist-col h4 {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--cream-3);
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .checklist-item input[type="checkbox"] {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold-pale);
+            border-radius: 4px;
+            flex-shrink: 0;
+            margin-top: 1px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            position: relative;
+        }
+
+        .checklist-item input[type="checkbox"]:checked {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .checklist-item input[type="checkbox"]:checked::after {
+            content: '✓';
+            color: var(--white);
+            font-size: 0.75rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .checklist-item label {
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            cursor: pointer;
+            transition: color 0.2s ease;
+        }
+
+        .checklist-item input:checked + label {
+            text-decoration: line-through;
+            color: var(--ink-muted);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--cream-3);
+            margin-top: 2rem;
+        }
+
+        footer p {
+            font-size: 0.82rem;
+            color: var(--ink-muted);
+        }
+
+        footer .brand {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        footer .brand span { color: var(--gold); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .setup-grid,
+            .tips-grid,
+            .checklist-grid { grid-template-columns: 1fr; }
+            .tiers-grid { grid-template-columns: 1fr; }
+            .tier-card.recommended { order: -1; }
+            .diagram-scene { min-height: 420px; padding: 2.5rem 1rem; }
+            .diagram-element .label { font-size: 0.55rem; }
+            .diagram-element .icon { width: 40px; height: 40px; font-size: 1rem; }
+            .diagram-table { width: 140px; height: 90px; }
+            nav { flex-direction: column; gap: 0.75rem; }
+            .nav-links { justify-content: center; }
+        }
+
+        /* ── PRINT ── */
+        @media print {
+            nav { position: static; }
+            .product-card:hover, .tier-card:hover { transform: none; box-shadow: none; }
+            body { font-size: 11pt; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ════════════════════ NAV ════════════════════ -->
+<nav>
+    <div class="nav-brand">Atelier <span>Mirage</span></div>
+    <div class="nav-links">
+        <a href="#equipement">Équipement</a>
+        <a href="#setup">Installation</a>
+        <a href="#diagram">Schéma</a>
+        <a href="#budgets">Budgets</a>
+        <a href="#tips">Conseils</a>
+        <a href="#workflow">Post-prod</a>
+        <a href="#checklist">Checklist</a>
+    </div>
+</nav>
+
+<!-- ════════════════════ HERO ════════════════════ -->
+<div class="hero">
+    <div class="hero-badge">📸 GUIDE COMPLET · AVRIL 2026</div>
+    <h1>Kit Tournage <em>Instagram</em></h1>
+    <p>Tout le matériel pour filmer tes trompe-l'œil comme un pro, directement depuis ton atelier à Marseille.</p>
+</div>
+
+<!-- ════════════════════ ÉQUIPEMENT ════════════════════ -->
+<section id="equipement">
+    <div class="container">
+        <div class="section-label">01 · Matériel</div>
+        <h2 class="section-title">L'arsenal complet</h2>
+        <p class="section-desc">Chaque pièce a été choisie pour le tournage food en atelier : angles overhead, lumière douce, son ASMR. Du minimum vital au setup premium.</p>
+
+        <div class="products-grid">
+
+            <!-- Trépied Overhead -->
+            <div class="product-card essential">
+                <div class="product-icon">📐</div>
+                <div class="product-header">
+                    <span class="product-name">Trépied Overhead SmallRig CT25</span>
+                    <span class="product-price">~100 €</span>
+                </div>
+                <p class="product-desc">Bras articulé dédié aux prises de vue plongeantes (flat-lay / top-down). Colonne horizontale qui surplombe ton plan de travail sans pied visible dans le cadre. Support jusqu'à 4 kg — largement suffisant pour un smartphone ou une petite caméra.</p>
+                <div class="product-specs">
+                    <span class="spec-tag">Overhead</span>
+                    <span class="spec-tag">Flat-lay</span>
+                    <span class="spec-tag">4 kg max</span>
+                    <span class="spec-tag">Réglable 55–170 cm</span>
+                </div>
+                <div class="product-why">
+                    <strong>Pourquoi celui-ci :</strong> L'overhead est LA signature visuelle de la food content. 80% de tes Reels Atelier Mirage seront en plongée totale — ce trépied est conçu exactement pour ça, là où un trépied classique ne peut pas aller.
+                </div>
+            </div>
+
+            <!-- Softbox -->
+            <div class="product-card essential">
+                <div class="product-icon">💡</div>
+                <div class="product-header">
+                    <span class="product-name">Neewer Kit 2× Softbox 50×70 cm</span>
+                    <span class="product-price">~70 €</span>
+                </div>
+                <p class="product-desc">Deux panneaux de lumière continue avec diffuseurs intégrés. Température 5500K (lumière du jour). Produit une lumière douce et uniforme qui élimine les ombres dures — essentiel pour révéler les textures de tes desserts.</p>
+                <div class="product-specs">
+                    <span class="spec-tag">5500K daylight</span>
+                    <span class="spec-tag">2× panneaux</span>
+                    <span class="spec-tag">Diffuseur inclus</span>
+                    <span class="spec-tag">Trépied inclus</span>
+                </div>
+                <div class="product-why">
+                    <strong>Pourquoi celui-ci :</strong> La lumière fait 70% de la qualité d'une photo food. Deux sources permettent un éclairage principal + fill qui reproduit la lumière de fenêtre — le gold standard de la photo culinaire. Et ça fonctionne de jour comme de nuit. <br><br><strong style="color: var(--error);">⚠️ Chaleur :</strong> Les ampoules CFL chauffent après 30-45 min. Fais une pause toutes les 40 min ou éloigne-les des desserts sensibles (chocolat, glaçage). Le Godox SL60 en premium chauffe beaucoup moins.
+                </div>
+            </div>
+
+            <!-- Fonds -->
+            <div class="product-card essential">
+                <div class="product-icon">🎨</div>
+                <div class="product-header">
+                    <span class="product-name">Fonds de shooting</span>
+                    <span class="product-price">25 – 90 €</span>
+                </div>
+                <p class="product-desc">Surfaces texturées pour poser tes créations. Option économique : rouleau de papier peint effet marbre/béton (~25€). Option pro : V-Flat World boards double-face (~90€) — un côté marbre blanc, un côté béton sombre.</p>
+                <div class="product-specs">
+                    <span class="spec-tag">60×90 cm min</span>
+                    <span class="spec-tag">Double face</span>
+                    <span class="spec-tag">Effet marbre</span>
+                    <span class="spec-tag">Effet béton</span>
+                </div>
+                <div class="product-why">
+                    <strong>Pourquoi :</strong> Ton atelier a du caractère, mais un fond neutre et texturé fait ressortir le trompe-l'œil. Le contraste entre le fond minéral et le réalisme du dessert crée le "wait… c'est un gâteau ?!" qui fait arrêter le scroll.
+                </div>
+            </div>
+
+            <!-- Micro ASMR -->
+            <div class="product-card essential">
+                <div class="product-icon">🎙️</div>
+                <div class="product-header">
+                    <span class="product-name">Boya BY-M1 — Micro Cravate</span>
+                    <span class="product-price">~22 €</span>
+                </div>
+                <p class="product-desc">Micro-cravate omnidirectionnel avec fil de 6m. Se branche directement sur le téléphone (adaptateur inclus). Bon pour voix off et captation générale. Pour l'ASMR food pur (découpe, textures), le Rode VideoMicro II en directionnel sera bien meilleur — mais le Boya reste un excellent backup et starter.</p>
+                <div class="product-specs">
+                    <span class="spec-tag">Omnidirectionnel</span>
+                    <span class="spec-tag">Jack 3.5mm + USB-C</span>
+                    <span class="spec-tag">6m de câble</span>
+                    <span class="spec-tag">Clip inclus</span>
+                </div>
+                <div class="product-why">
+                    <strong>Pourquoi celui-ci :</strong> Pour 22€ tu passes d'un son de téléphone à un vrai micro. Limite : l'omnidirectionnel capte aussi le frigo, la VMC, la rue. Si l'ASMR est ton pilier principal, monte direct au Rode VideoMicro II (directionnel). Le Boya reste top pour les voix off et comme micro de backup.
+                </div>
+            </div>
+
+            <!-- Phone Clamp -->
+            <div class="product-card essential">
+                <div class="product-icon">📱</div>
+                <div class="product-header">
+                    <span class="product-name">Adaptateur Téléphone Trépied (Phone Clamp)</span>
+                    <span class="product-price">~12 €</span>
+                </div>
+                <p class="product-desc">Pince universelle avec filetage 1/4-20 pour fixer ton smartphone sur le trépied overhead (et le Magic Arm). Le SmallRig CT25 a un filetage standard mais ne vient PAS avec un support téléphone — cet adaptateur est indispensable. Rotation 360° pour basculer entre portrait et paysage.</p>
+                <div class="product-specs">
+                    <span class="spec-tag">Universel 5.5-9 cm</span>
+                    <span class="spec-tag">Filetage 1/4"</span>
+                    <span class="spec-tag">Rotation 360°</span>
+                    <span class="spec-tag">Cold shoe inclus</span>
+                </div>
+                <div class="product-why">
+                    <strong>Pourquoi c'est essentiel :</strong> Sans lui, ton trépied overhead est inutile. C'est le connecteur entre ton téléphone et tout ton setup. Prends-en un avec cold shoe intégré pour pouvoir y clipper le Rode VideoMicro directement.
+                </div>
+            </div>
+
+            <!-- Godox Premium -->
+            <div class="product-card premium">
+                <div class="product-icon">☀️</div>
+                <div class="product-header">
+                    <span class="product-name">Godox SL60W + Diffuseur Parapluie</span>
+                    <span class="product-price">~160 €</span>
+                </div>
+                <p class="product-desc">LED continue professionnelle de 60W avec température réglable. Remplace ta key light (softbox gauche) par une source bien plus qualitative et modulable. Le diffuseur parapluie produit un rendu "golden hour" permanent. Garde toujours une 2ème source ou un réflecteur en fill — une seule source ne suffit jamais en food.</p>
+                <div class="product-specs">
+                    <span class="spec-tag">60W LED</span>
+                    <span class="spec-tag">CRI 95+</span>
+                    <span class="spec-tag">Bowens mount</span>
+                    <span class="spec-tag">Télécommande</span>
+                    <span class="spec-tag">Silencieux</span>
+                </div>
+                <div class="product-why">
+                    <strong>Pourquoi en premium :</strong> Upgrade ta key light principale. Le CRI 95+ signifie que les couleurs de tes desserts sont fidèles — crucial pour le trompe-l'œil. Garde une softbox ou un réflecteur en fill côté droit (ratio key:fill 2:1). Si tu investis dans un seul upgrade, c'est celui-ci.
+                </div>
+            </div>
+
+            <!-- Rode Premium -->
+            <div class="product-card premium">
+                <div class="product-icon">🎤</div>
+                <div class="product-header">
+                    <span class="product-name">Rode VideoMicro II</span>
+                    <span class="product-price">~65 €</span>
+                </div>
+                <p class="product-desc">Micro canon compact qui se fixe directement sur le téléphone (via adaptateur). Captation directionnelle qui isole le son du dessert et rejette le bruit ambiant de l'atelier. Qualité broadcast dans un format de 7 cm.</p>
+                <div class="product-specs">
+                    <span class="spec-tag">Directionnel (cardioïde)</span>
+                    <span class="spec-tag">Plug & play</span>
+                    <span class="spec-tag">Rycote anti-choc</span>
+                    <span class="spec-tag">Bonnette incluse</span>
+                </div>
+                <div class="product-why">
+                    <strong>Pourquoi en premium :</strong> Là où le Boya capte tout (y compris le frigo), le Rode isole chirurgicalement le son de ce que tu filmes. Résultat : un ASMR food beaucoup plus propre et immersif. Idéal si ton atelier est bruyant.
+                </div>
+            </div>
+
+            <!-- Magic Arm -->
+            <div class="product-card bonus">
+                <div class="product-icon">🦾</div>
+                <div class="product-header">
+                    <span class="product-name">SmallRig Magic Arm 11"</span>
+                    <span class="product-price">~45 €</span>
+                </div>
+                <p class="product-desc">Bras articulé avec rotule double verrouillage. Se fixe sur n'importe quelle surface (pince incluse) et permet des angles impossibles : vue latérale en contre-plongée, angle 45° stabilisé, plan de détail rapproché.</p>
+                <div class="product-specs">
+                    <span class="spec-tag">11 pouces</span>
+                    <span class="spec-tag">Rotule 360°</span>
+                    <span class="spec-tag">Pince Super Clamp</span>
+                    <span class="spec-tag">2 kg max</span>
+                </div>
+                <div class="product-why">
+                    <strong>Pourquoi en bonus :</strong> Offre un deuxième angle de caméra sans deuxième trépied. Tu peux filmer un Reel en splitscreen (overhead + latéral) avec juste ton tel principal + un vieux tel sur le Magic Arm. Double le contenu en un seul tournage.
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════ SETUP ════════════════════ -->
+<section id="setup" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">02 · Installation</div>
+        <h2 class="section-title">Transformer ton atelier en studio</h2>
+        <p class="section-desc">Pas besoin de 20m² dédiés. Un coin de 2×2m près d'une fenêtre suffit. Voici comment installer le setup en 10 minutes.</p>
+
+        <div class="setup-grid">
+
+            <div class="setup-card">
+                <h3>🎬 Positionnement du matériel</h3>
+                <div class="setup-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>Plan de travail dégagé</strong> — Libère une surface d'au moins 60×60 cm. Pose ton fond de shooting dessus (marbre ou béton).</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>Trépied overhead</strong> — Place-le derrière le plan de travail. Déplie le bras horizontal pour qu'il surplombe la zone de shooting. Fixe ton téléphone à l'horizontale, écran vers le bas.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>Lumière principale (key)</strong> — Softbox ou Godox à 45° sur la gauche, légèrement en hauteur. C'est ta source principale qui crée volume et texture.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text"><strong>Lumière d'appoint (fill)</strong> — Deuxième softbox à droite, plus éloignée ou à puissance réduite. Elle adoucit les ombres sans les éliminer. Ou : un simple réflecteur blanc (carton blanc).</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">5</div>
+                    <div class="step-text"><strong>Micro</strong> — Boya clippé au bord du plan de travail, le plus près possible de la zone d'action. Rode fixé sur le Magic Arm ou un mini-trépied, pointé vers le dessert.</div>
+                </div>
+            </div>
+
+            <div class="setup-card">
+                <h3>📱 Réglages du téléphone</h3>
+                <div class="setup-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>Résolution vidéo</strong> — 4K à 30fps pour les Reels standards. 1080p à 60fps pour les ralentis (glaçage, coulure, saupoudrage).</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>Mode Pro / Manuel</strong> — Active-le si dispo. Fixe la balance des blancs sur 5500K (correspond aux softbox). Verrouille l'exposition.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>Grille</strong> — Active la grille 3×3 pour cadrer en respectant la règle des tiers. Centre le dessert ou place-le sur un point de force.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text"><strong>Mode avion</strong> — Coupe les notifications. Rien de pire qu'un appel en plein Reel de 45 secondes.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">5</div>
+                    <div class="step-text"><strong>Stockage</strong> — Vérifie que tu as au moins 5 Go libres. Une session de tournage (20-30 clips) en 4K = ~3-4 Go.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════ DIAGRAM ════════════════════ -->
+<section id="diagram">
+    <div class="container">
+        <div class="section-label">03 · Schéma</div>
+        <h2 class="section-title">Vue d'ensemble du setup</h2>
+
+        <div class="diagram-wrapper">
+            <div class="diagram-title">Configuration Studio — Vue du dessus</div>
+            <div class="diagram-scene">
+
+                <!-- Table / Plan de travail -->
+                <div class="diagram-table">
+                    <div class="diagram-dessert">🎂</div>
+                    <span>Dessert + Fond</span>
+                </div>
+
+                <!-- Overhead (top) -->
+                <div class="diagram-element" style="top: 8px; left: 50%; transform: translateX(-50%);">
+                    <div class="icon">📱</div>
+                    <div class="label">Overhead</div>
+                    <div class="sublabel">SmallRig CT25</div>
+                </div>
+
+                <!-- Key Light (left) -->
+                <div class="diagram-element" style="left: 30px; top: 50%; transform: translateY(-50%);">
+                    <div class="icon">💡</div>
+                    <div class="label">Key Light</div>
+                    <div class="sublabel">45° gauche</div>
+                </div>
+
+                <!-- Fill Light (right) -->
+                <div class="diagram-element" style="right: 30px; top: 50%; transform: translateY(-50%);">
+                    <div class="icon">💡</div>
+                    <div class="label">Fill Light</div>
+                    <div class="sublabel">ou réflecteur</div>
+                </div>
+
+                <!-- Micro (bottom left) -->
+                <div class="diagram-element" style="bottom: 15px; left: 60px;">
+                    <div class="icon">🎙️</div>
+                    <div class="label">Micro</div>
+                    <div class="sublabel">près du sujet</div>
+                </div>
+
+                <!-- Magic Arm (bottom right) -->
+                <div class="diagram-element" style="bottom: 15px; right: 60px;">
+                    <div class="icon">📱</div>
+                    <div class="label">Angle 2</div>
+                    <div class="sublabel">Magic Arm</div>
+                </div>
+
+                <!-- Fenêtre (top right hint) -->
+                <div class="diagram-element" style="top: 10px; right: 20px;">
+                    <div class="icon">🪟</div>
+                    <div class="label">Fenêtre</div>
+                    <div class="sublabel">bonus naturel</div>
+                </div>
+
+            </div>
+            <p style="text-align: center; margin-top: 1.25rem; font-size: 0.82rem; color: var(--ink-muted);">Place le dessert au centre. Key light à 45° gauche. Fill à droite. Overhead au-dessus. Micro au plus près.</p>
+        </div>
+
+    </div>
+</section>
+
+<!-- ════════════════════ BUDGETS ════════════════════ -->
+<section id="budgets" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">04 · Budgets</div>
+        <h2 class="section-title">Trois tiers, un résultat pro</h2>
+        <p class="section-desc">Chaque tier produit du contenu de qualité supérieure à 95% des comptes food sur Instagram. La différence entre les tiers : confort et polyvalence.</p>
+
+        <div class="tiers-grid">
+
+            <!-- Tier 1: Minimum -->
+            <div class="tier-card">
+                <div class="tier-icon">🌱</div>
+                <div class="tier-name">Minimum</div>
+                <div class="tier-price">~230 €</div>
+                <div class="tier-price-note">investissement unique</div>
+                <ul class="tier-items">
+                    <li>SmallRig CT25 Overhead (~100€)</li>
+                    <li>Neewer 2× Softbox 50×70 (~70€)</li>
+                    <li>Papier peint effet marbre (~25€)</li>
+                    <li>Phone Clamp universel (~12€)</li>
+                    <li>Boya BY-M1 micro cravate (~22€)</li>
+                    <li class="inactive">Godox SL60W</li>
+                    <li class="inactive">Rode VideoMicro II</li>
+                    <li class="inactive">SmallRig Magic Arm</li>
+                </ul>
+            </div>
+
+            <!-- Tier 2: Confort -->
+            <div class="tier-card recommended">
+                <div class="tier-icon">⚡</div>
+                <div class="tier-name">Confort</div>
+                <div class="tier-price">~395 €</div>
+                <div class="tier-price-note">meilleur rapport qualité / contenu</div>
+                <ul class="tier-items">
+                    <li>SmallRig CT25 Overhead (~100€)</li>
+                    <li>Neewer 2× Softbox 50×70 (~70€)</li>
+                    <li>V-Flat boards double-face (~90€)</li>
+                    <li>Phone Clamp universel (~12€)</li>
+                    <li>Rode VideoMicro II (~65€)</li>
+                    <li>SmallRig Magic Arm 11" (~45€)</li>
+                    <li class="inactive">Godox SL60W (upgrade futur)</li>
+                </ul>
+            </div>
+
+            <!-- Tier 3: Premium -->
+            <div class="tier-card">
+                <div class="tier-icon">👑</div>
+                <div class="tier-name">Premium</div>
+                <div class="tier-price">~600 €</div>
+                <div class="tier-price-note">setup semi-pro complet</div>
+                <ul class="tier-items">
+                    <li>SmallRig CT25 Overhead (~100€)</li>
+                    <li>Godox SL60W + Diffuseur (~160€)</li>
+                    <li>Neewer Softbox en fill (~35€)</li>
+                    <li>V-Flat boards double-face (~90€)</li>
+                    <li>Phone Clamp universel (~12€)</li>
+                    <li>Rode VideoMicro II (~65€)</li>
+                    <li>SmallRig Magic Arm 11" (~45€)</li>
+                    <li>Boya BY-M1 en backup (~22€)</li>
+                    <li>Réflecteur 5-en-1 60cm (~20€)</li>
+                </ul>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════ TIPS ════════════════════ -->
+<section id="tips">
+    <div class="container">
+        <div class="section-label">05 · Conseils Pro</div>
+        <h2 class="section-title">Filmer comme un chef</h2>
+        <p class="section-desc">Le matos ne fait pas tout. Voici les techniques qui transforment un bon setup en contenu viral.</p>
+
+        <div class="tips-grid">
+
+            <div class="tip-card">
+                <h4>🎬 Le Reel "Reveal"</h4>
+                <p>Le format roi pour le trompe-l'œil. Structure en 3 temps :</p>
+                <ul>
+                    <li>0–2s : Plan serré du "vrai" objet (sac, chaussure, fruit…)</li>
+                    <li>2–5s : Main qui approche + découpe</li>
+                    <li>5–8s : Reveal intérieur = c'est un gâteau</li>
+                </ul>
+                <p style="margin-top: 0.5rem;">Hook : "Ça a l'air vrai, non ? 👀"</p>
+                <p style="margin-top: 0.5rem; padding: 0.5rem; background: var(--cream-2); border-radius: 6px; font-size: 0.82rem;"><strong style="color: var(--error);">Règle #1 :</strong> Commence TOUJOURS par le geste (couteau, cuillère, main qui casse la croûte). Jamais par toi qui parles. Les 2 premières secondes décident si le viewer reste ou scroll. Le reveal immédiat &gt; l'intro.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4>🔇 La règle du son off</h4>
+                <p><strong>85% des Reels sont regardés sans son</strong> au premier scroll. Tes textes overlay et sous-titres ne sont pas optionnels — c'est ta première ligne d'accroche.</p>
+                <ul>
+                    <li><strong>Sous-titres auto CapCut</strong> — Active-les systématiquement, même si tu ne parles pas (ils affichent les descriptions)</li>
+                    <li><strong>Texte overlay accrocheur</strong> — "C'est pas un vrai fruit…" en gros dès la seconde 1</li>
+                    <li><strong>L'ASMR = le bonus rewatch</strong> — Le son marche pour ceux qui activent l'audio et rewatchent (ça booste ton temps de visionnage moyen dans l'algo)</li>
+                    <li><strong>Emoji et flèches visuelles</strong> — Guide l'œil même sans le son (flèche vers la découpe, cercle sur le détail)</li>
+                </ul>
+                <p style="margin-top: 0.5rem; padding: 0.5rem; background: var(--cream-2); border-radius: 6px; font-size: 0.82rem;"><strong style="color: var(--gold);">Astuce :</strong> Regarde tes 3 derniers Reels en mode muet. Si tu ne comprends pas l'histoire sans le son → ajoute du texte overlay. Fais ce test avant chaque publication.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4>🔊 L'ASMR qui tue</h4>
+                <p>Séquences sonores qui performent le mieux :</p>
+                <ul>
+                    <li>Craquement de la coque chocolat</li>
+                    <li>Couteau qui tranche (lent, net)</li>
+                    <li>Coulée de glaçage / caramel</li>
+                    <li>Saupoudrage de cacao / sucre glace</li>
+                    <li>Grattage de zestes d'agrumes</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h4>📐 Angles qui marchent</h4>
+                <p>Varie entre 3 angles pour éviter la monotonie :</p>
+                <ul>
+                    <li><strong>Overhead (90°)</strong> — flat-lay, idéal pour le reveal</li>
+                    <li><strong>45° classique</strong> — montre le volume et la hauteur</li>
+                    <li><strong>Rasant (5-10°)</strong> — pour les textures et le bokeh</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h4>⏱️ Session type (2h)</h4>
+                <p>Optimise ton temps de tournage :</p>
+                <ul>
+                    <li>10 min — Installation du setup</li>
+                    <li>10 min — Réglages lumière + cadrage</li>
+                    <li>20 min — Shooting photo (8-12 plans)</li>
+                    <li>40 min — Tournage Reels (3-4 Reels)</li>
+                    <li>20 min — ASMR close-ups et B-roll</li>
+                    <li>10 min — Behind-the-scenes / Stories</li>
+                    <li>10 min — Rangement</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h4>🌈 Styling minimal</h4>
+                <p>Props discrets qui subliment sans voler la vedette :</p>
+                <ul>
+                    <li>Linge en lin froissé (beige, blanc cassé)</li>
+                    <li>Ustensiles en bois brut ou laiton</li>
+                    <li>Ingrédients bruts éparpillés (vanille, noisettes)</li>
+                    <li>Petites fleurs séchées (facultatif, très Mirage)</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h4>📱 Apps recommandées</h4>
+                <p>Outils gratuits qui changent tout :</p>
+                <ul>
+                    <li><strong>CapCut</strong> — Montage Reels (gratuit, pro)</li>
+                    <li><strong>Lightroom Mobile</strong> — Retouche photo (presets)</li>
+                    <li><strong>InShot</strong> — Redimensionnement rapide</li>
+                    <li><strong>Canva</strong> — Carrousels et covers</li>
+                    <li><strong>Epidemic Sound</strong> — Musiques libres (8€/mois)</li>
+                </ul>
+            </div>
+
+            <div class="tip-card">
+                <h4>⏰ Les 10 minutes en or (post-publication)</h4>
+                <p>L'algorithme Instagram booste les posts qui génèrent des conversations rapidement. <strong>Les 60 premières minutes sont critiques.</strong></p>
+                <ul>
+                    <li><strong>Poste quand tu es DISPO</strong> — Pas juste à "l'heure optimale". Si tu postes à 18h mais tu es occupé jusqu'à 20h, poste à 17h et reste présent</li>
+                    <li><strong>Réponds à CHAQUE commentaire</strong> dans les 60 premières minutes — même un emoji. Chaque réponse = un signal d'engagement × 2 pour l'algo</li>
+                    <li><strong>Envoie le post à 3-5 contacts proches</strong> dès la publication (amis, partenaires, famille). Les interactions rapides lancent la distribution</li>
+                    <li><strong>Commente 5-10 posts d'autres comptes food</strong> dans la demi-heure qui suit ta publication. L'algo te récompense quand tu es actif sur la plateforme</li>
+                    <li><strong>Partage en Story</strong> immédiatement avec un sticker question ("Vous auriez deviné ?") pour générer des réponses</li>
+                </ul>
+                <p style="margin-top: 0.5rem; padding: 0.5rem; background: var(--cream-2); border-radius: 6px; font-size: 0.82rem;"><strong style="color: var(--success);">Impact prouvé :</strong> Les créateurs food qui répondent aux commentaires dans la première heure voient en moyenne +40% de reach sur le même post vs ceux qui répondent le lendemain.</p>
+            </div>
+
+            <div class="tip-card">
+                <h4>🧠 Psychologie du trompe-l'œil viral</h4>
+                <p>Le trompe-l'œil fonctionne grâce à l'"expectation violation" — le cerveau adore être trompé. Données clés :</p>
+                <ul>
+                    <li><strong>Noémie Daunay</strong> — 27 ans, 1500 trompe-l'œil/semaine à 6-7€. Un seul TikTok à 300K vues → file d'attente la semaine suivante</li>
+                    <li><strong>Cédric Grolet</strong> — 12.7M followers. A prouvé que le trompe-l'œil pâtissier = format visuel le plus addictif de la food</li>
+                    <li><strong>"Is It Cake?"</strong> — Le phénomène continue de fasciner les algorithmes. Ton contenu a cet avantage structurel que 95% des food businesses n'ont pas</li>
+                    <li><strong>15-30 secondes</strong> — Les Reels de cette durée dominent l'engagement. Au-delà de 60s, le taux de complétion chute et l'algo pénalise</li>
+                </ul>
+                <p style="margin-top: 0.5rem; padding: 0.5rem; background: var(--cream-2); border-radius: 6px; font-size: 0.82rem;"><strong style="color: var(--gold);">Traduction :</strong> Chaque pièce que tu crées EST du contenu viral en puissance. Ne sous-estime jamais le reveal — c'est ton arme secrète.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════ WORKFLOW POST-TOURNAGE ════════════════════ -->
+<section id="workflow" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">06 · Après le tournage</div>
+        <h2 class="section-title">Workflow post-production</h2>
+        <p class="section-desc">Le tournage ne sert à rien sans un workflow de tri, rangement et montage. Voici comment transformer tes rushes en stock de contenu prêt à poster.</p>
+
+        <div class="setup-grid">
+
+            <div class="setup-card">
+                <h3>📁 Organisation des fichiers</h3>
+                <div class="setup-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>Nomenclature</strong> — Renomme chaque session : <code style="background: var(--cream-2); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--mono); font-size: 0.8rem;">2026-04-07_fraise-reveal</code>. Date + sujet. Toujours.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>Dossier par session</strong> — Dans un dossier Google Drive ou iCloud : <code style="background: var(--cream-2); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--mono); font-size: 0.78rem;">Mirage Content / 2026-04 / 07-fraise-reveal /</code> avec sous-dossiers <code style="background: var(--cream-2); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--mono); font-size: 0.78rem;">rushes/</code>, <code style="background: var(--cream-2); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--mono); font-size: 0.78rem;">photos/</code>, <code style="background: var(--cream-2); padding: 0.15rem 0.4rem; border-radius: 4px; font-family: var(--mono); font-size: 0.78rem;">montés/</code>.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>Tri immédiat</strong> — Juste après le tournage (pas demain), fais un tri rapide : supprime les ratés, marque les meilleurs clips en "favoris" sur ton téléphone. 10 min max.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text"><strong>Backup cloud</strong> — Active la sync automatique Google Photos ou iCloud. Tes rushes doivent exister en 2 endroits minimum. Perdre une session de tournage = perdre une semaine de contenu.</div>
+                </div>
+            </div>
+
+            <div class="setup-card">
+                <h3>✂️ Pipeline de montage</h3>
+                <div class="setup-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>Batch edit photos</strong> — Ouvre Lightroom Mobile, applique ton preset "Mirage", ajuste légèrement l'expo si besoin. Exporte les 8-12 meilleures photos. Temps : 15 min.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>Monte 3-4 Reels dans CapCut</strong> — Utilise les rushes triés. Un Reel = 5-10 min de montage max quand tu as ton template. Exporte en 1080×1920 (9:16). Temps : 30-40 min.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>Crée les carrousels Canva</strong> — Avec les photos éditées, monte 1-2 carrousels (template Mirage pré-fait). Exporte en PDF multi-pages puis en images. Temps : 15 min.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text"><strong>Planifie dans Later</strong> — Upload tout dans Later. Assigne chaque contenu à son jour dans le calendrier éditorial. Rédige les légendes + hashtags. Temps : 20 min. Tu as une semaine de contenu prête.</div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="background: var(--white); border: 1px solid var(--cream-3); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; margin-top: 1.5rem;">
+            <p style="font-size: 0.88rem; color: var(--ink-soft); margin: 0;"><strong style="color: var(--gold);">Le stock magique :</strong> Vise 15-20 Reels montés d'avance en permanence. Une session de 2h de tournage = ~3-4 Reels + 8-12 photos + B-roll pour Stories. Avec 2 sessions par mois, tu as de quoi alimenter tout le calendrier éditorial sans stress. Quand le stock descend sous 10, c'est le signal pour planifier la prochaine session.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════ CHECKLIST ════════════════════ -->
+<section id="checklist">
+    <div class="container">
+        <div class="section-label">07 · Avant de filmer</div>
+        <h2 class="section-title">Checklist de tournage</h2>
+        <p class="section-desc">Imprime-la ou coche directement ici avant chaque session.</p>
+
+        <div class="checklist-section">
+            <div class="checklist-grid">
+
+                <div class="checklist-col">
+                    <h4>Préparation</h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c1"><label for="c1">Batterie téléphone > 80%</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c2"><label for="c2">Espace de stockage > 5 Go</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c3"><label for="c3">Mode avion activé</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c4"><label for="c4">Fond de shooting propre et posé</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c5"><label for="c5">Trépied overhead installé et stable</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c6"><label for="c6">Lumières allumées et positionnées</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c7"><label for="c7">Micro branché et testé (enregistre 5s)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c8"><label for="c8">Balance des blancs vérifiée</label>
+                    </div>
+                </div>
+
+                <div class="checklist-col">
+                    <h4>Tournage</h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c9"><label for="c9">Filmer en 4K 30fps (ou 1080p 60fps ralenti)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c10"><label for="c10">Plan overhead — le dessert entier</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c11"><label for="c11">Plan 45° — volume et texture</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c12"><label for="c12">Plan serré — détail / close-up</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c13"><label for="c13">Séquence ASMR (découpe / glaçage)</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c14"><label for="c14">B-roll mains au travail</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c15"><label for="c15">Story behind-the-scenes</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c16"><label for="c16">Sauvegarde des fichiers après session</label>
+                    </div>
+                </div>
+
+                <div class="checklist-col">
+                    <h4>Post-montage (avant publication)</h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c17"><label for="c17">Test son off : le Reel est compréhensible en muet ?</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c18"><label for="c18">Sous-titres / texte overlay ajouté sur chaque Reel</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c19"><label for="c19">Le hook (2 premières sec) = geste, pas intro parlée</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c20"><label for="c20">Durée du Reel entre 15-30 secondes</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c21"><label for="c21">Légende rédigée + hashtags + CTA clair</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c22"><label for="c22">Planifié dans Later au bon créneau</label>
+                    </div>
+                </div>
+
+                <div class="checklist-col">
+                    <h4>Après publication (10 min en or)</h4>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c23"><label for="c23">Partagé en Story avec sticker question</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c24"><label for="c24">Envoyé à 3-5 contacts proches par DM</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c25"><label for="c25">Disponible 60 min pour répondre aux commentaires</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c26"><label for="c26">Commenté 5-10 posts d'autres comptes food</label>
+                    </div>
+                    <div class="checklist-item">
+                        <input type="checkbox" id="c27"><label for="c27">Envoyé aux prospects tièdes par WhatsApp (si B2B)</label>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ════════════════════ FOOTER ════════════════════ -->
+<footer>
+    <div class="brand">Atelier <span>Mirage</span></div>
+    <p>Guide équipement Instagram · Avril 2026</p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--ink-muted);">L'art du dessert trompe-l'œil · Marseille</p>
+</footer>
+
+<script>
+    // Smooth scroll for nav links
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+            // Update active state
+            document.querySelectorAll('.nav-links a').forEach(function(l) { l.classList.remove('active'); });
+            this.classList.add('active');
+        });
+    });
+
+    // Highlight nav on scroll
+    var sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', function() {
+        var scrollPos = window.scrollY + 100;
+        sections.forEach(function(section) {
+            if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                var id = section.getAttribute('id');
+                document.querySelectorAll('.nav-links a').forEach(function(l) {
+                    l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

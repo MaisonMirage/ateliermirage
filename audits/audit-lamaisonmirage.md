@@ -8,7 +8,7 @@
 
 ## 1. Impression générale
 
-Maison Mirage est un site vitrine B2B pour une maison de haute pâtisserie basée à Marseille, spécialisée dans les desserts trompe-l'œil (pâtisseries en forme de fruits et autres éléments naturels). Le positionnement est clairement luxe/artisanal et la cible principale est professionnelle (restaurants, concept stores, événements).
+Atelier Mirage est un site vitrine B2B pour une maison de haute pâtisserie basée à Marseille, spécialisée dans les desserts trompe-l'œil (pâtisseries en forme de fruits et autres éléments naturels). Le positionnement est clairement luxe/artisanal et la cible principale est professionnelle (restaurants, concept stores, événements).
 
 **Verdict global : Le site est visuellement très réussi et pose un univers de marque fort.** L'identité visuelle est cohérente, le produit est magnifiquement mis en valeur, et l'écriture a du caractère. Cependant, plusieurs axes d'amélioration importants existent, notamment sur la conversion, la structure de navigation, et l'expérience utilisateur.
 
@@ -73,7 +73,7 @@ Toute la navigation (Le Catalogue, L'Atelier, Savoir-faire) renvoie vers des anc
 
 ### F. SEO et contenu — Priorité moyenne
 
-**Problème :** Le titre de la page est "Maison Mirage — Haute Pâtisserie", ce qui est correct mais insuffisant. L'architecture one-page limite drastiquement le potentiel SEO. Il n'y a pas de blog, pas de contenu éducatif, pas de pages géo-ciblées.
+**Problème :** Le titre de la page est "Atelier Mirage — Haute Pâtisserie", ce qui est correct mais insuffisant. L'architecture one-page limite drastiquement le potentiel SEO. Il n'y a pas de blog, pas de contenu éducatif, pas de pages géo-ciblées.
 
 **Recommandation :** Créer des pages individuelles pour les produits, ajouter un blog (recettes, coulisses, tendances pâtisserie, conseils pour restaurateurs), et optimiser le title/meta pour des requêtes clés comme "pâtisserie trompe-l'œil Marseille", "dessert haut de gamme B2B", "fournisseur pâtisserie luxe". Ajouter une page Google My Business si ce n'est pas fait.
 
@@ -97,7 +97,7 @@ Toute la navigation (Le Catalogue, L'Atelier, Savoir-faire) renvoie vers des anc
 Permettre aux professionnels de composer virtuellement leur coffret (comme celui montré dans l'image de la boîte premium) en choisissant les pièces, la quantité, et le packaging. Cela gamifie l'expérience et augmente l'engagement.
 
 ### Galerie "Chez nos partenaires"
-Créer une section dédiée montrant les créations Maison Mirage servies dans les restaurants partenaires, en situation réelle. C'est un levier puissant de preuve sociale et d'inspiration pour les prospects B2B.
+Créer une section dédiée montrant les créations Atelier Mirage servies dans les restaurants partenaires, en situation réelle. C'est un levier puissant de preuve sociale et d'inspiration pour les prospects B2B.
 
 ### Calendrier saisonnier
 Puisque les fruits sont au cœur de l'offre, montrer une collection saisonnière qui évolue (fruits d'été, saveurs d'automne, collection fêtes). Cela donne une raison de revenir sur le site et crée un sentiment d'exclusivité.
@@ -141,4 +141,4 @@ Le design actuel est une excellente fondation. Il s'agit maintenant de la faire 
 
 ---
 
-*Maison Mirage a un produit exceptionnel et une direction artistique qui joue déjà dans la cour des grands. L'enjeu maintenant est de transformer cette belle vitrine en machine à convertir.*
+*Atelier Mirage a un produit exceptionnel et une direction artistique qui joue déjà dans la cour des grands. L'enjeu maintenant est de transformer cette belle vitrine en machine à convertir.*

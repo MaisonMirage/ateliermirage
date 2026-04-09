@@ -1,0 +1,1714 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scripts Réseaux Sociaux — Atelier Mirage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #FAF5EF;
+            --cream-2: #F5F0EA;
+            --cream-3: #EDE8E2;
+            --ink: #1A1714;
+            --ink-soft: #2C2824;
+            --ink-muted: #6B6560;
+            --gold: #A8895C;
+            --gold-light: #C9AA7C;
+            --gold-pale: #E8D5B8;
+            --gold-shimmer: #D4B896;
+            --white: #FFFFFF;
+            --success: #4A7C59;
+            --error: #8C3A3A;
+            --blue: #5B7EA8;
+            --purple: #7B6B8C;
+            --orange: #B8794A;
+            --tiktok: #010101;
+            --tiktok-pink: #FE2C55;
+            --tiktok-cyan: #25F4EE;
+            --insta-gradient: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Outfit', system-ui, sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+            --shadow-sm: 0 2px 8px rgba(26,23,20,0.06);
+            --shadow-md: 0 4px 24px rgba(26,23,20,0.08);
+            --shadow-lg: 0 12px 48px rgba(26,23,20,0.1);
+            --shadow-gold: 0 8px 32px rgba(168,137,92,0.2);
+            --radius-sm: 0.75rem;
+            --radius-md: 1.5rem;
+            --radius-lg: 2rem;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: var(--sans);
+            color: var(--ink);
+            background: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250,245,239,0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1.5px solid var(--gold-pale);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .nav-brand span { color: var(--gold); }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--ink-muted);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 0.4rem 0.7rem;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .nav-links a.tiktok:hover,
+        .nav-links a.tiktok.active {
+            background: var(--tiktok);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            border: 1px solid var(--gold-pale);
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 em { font-style: italic; color: var(--gold); }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--ink-muted);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ── CONTAINERS ── */
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section { padding: 4rem 0; }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ── SCRIPT CARDS ── */
+        .scripts-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .script-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .script-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .script-header {
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 1rem;
+            border-bottom: 1px solid var(--cream-3);
+        }
+
+        .script-header h3 {
+            font-family: var(--serif);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .script-header h3 span {
+            font-size: 1.5rem;
+            margin-right: 0.3rem;
+        }
+
+        .script-badges {
+            display: flex;
+            gap: 0.4rem;
+            flex-shrink: 0;
+        }
+
+        .badge {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 0.3rem 0.6rem;
+            border-radius: 999px;
+        }
+
+        .badge.reel {
+            background: linear-gradient(45deg, #f09433, #dc2743);
+            color: white;
+        }
+
+        .badge.tiktok {
+            background: var(--tiktok);
+            color: white;
+        }
+
+        .badge.asmr {
+            background: var(--success);
+            color: white;
+        }
+
+        .badge.carousel {
+            background: var(--blue);
+            color: white;
+        }
+
+        .badge.photo {
+            background: var(--gold);
+            color: white;
+        }
+
+        .badge.story {
+            background: var(--purple);
+            color: white;
+        }
+
+        .badge.duration {
+            background: var(--cream-2);
+            color: var(--ink-muted);
+            border: 1px solid var(--cream-3);
+        }
+
+        .script-body {
+            padding: 1.5rem 2rem;
+        }
+
+        .script-context {
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            margin-bottom: 1.25rem;
+            padding: 0.75rem 1rem;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--gold);
+        }
+
+        /* Timeline steps */
+        .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 0;
+        }
+
+        .timeline-step {
+            display: grid;
+            grid-template-columns: 70px 1fr;
+            gap: 1rem;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid var(--cream-2);
+        }
+
+        .timeline-step:last-child { border-bottom: none; }
+
+        .timeline-time {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--gold);
+            padding-top: 0.15rem;
+        }
+
+        .timeline-content {
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            line-height: 1.6;
+        }
+
+        .timeline-content strong {
+            color: var(--ink);
+        }
+
+        .text-overlay {
+            display: inline-block;
+            background: var(--ink);
+            color: var(--cream);
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            margin: 0.25rem 0;
+        }
+
+        .sound-cue {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            padding: 0.15rem 0.45rem;
+            border-radius: 4px;
+            margin: 0.15rem 0.15rem;
+        }
+
+        /* Script footer */
+        .script-footer {
+            padding: 1rem 2rem;
+            background: var(--cream);
+            border-top: 1px solid var(--cream-3);
+        }
+
+        .script-footer h4 {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.5rem;
+        }
+
+        .caption-text {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            line-height: 1.6;
+            white-space: pre-line;
+            margin-bottom: 0.75rem;
+        }
+
+        .hashtags {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            color: var(--blue);
+            line-height: 1.8;
+            word-break: break-all;
+        }
+
+        /* ── PLATFORM COMPARISON ── */
+        .platform-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .platform-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .platform-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+        }
+
+        .platform-card.instagram::before {
+            background: linear-gradient(90deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .platform-card.tiktok::before {
+            background: linear-gradient(90deg, var(--tiktok-cyan), var(--tiktok-pink));
+        }
+
+        .platform-card h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .platform-card ul {
+            list-style: none;
+        }
+
+        .platform-card li {
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--cream-2);
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .platform-card li:last-child { border-bottom: none; }
+
+        .platform-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        /* ── HASHTAG BANKS ── */
+        .hashtag-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .hashtag-bank {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem;
+        }
+
+        .hashtag-bank h4 {
+            font-family: var(--serif);
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--ink);
+        }
+
+        .hashtag-bank .tags {
+            font-family: var(--mono);
+            font-size: 0.68rem;
+            color: var(--blue);
+            line-height: 2;
+            word-break: break-all;
+        }
+
+        /* ── BIO TEMPLATES ── */
+        .bio-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .bio-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+        }
+
+        .bio-card h4 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .bio-text {
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.25rem;
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            line-height: 1.8;
+            white-space: pre-line;
+            border: 1px dashed var(--gold-pale);
+        }
+
+        /* ── CROSSPOST STRATEGY ── */
+        .crosspost-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .crosspost-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+        }
+
+        .crosspost-card h4 {
+            font-family: var(--serif);
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+
+        .crosspost-card p {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            line-height: 1.6;
+        }
+
+        /* ── SETUP CARDS (reusable) ── */
+        .setup-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .setup-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+        }
+
+        .setup-card h3 {
+            font-family: var(--serif);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .setup-step {
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .step-num {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            font-weight: 600;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--gold);
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            margin-top: 0.15rem;
+        }
+
+        .step-text {
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        /* ── ALERT/INFO BOXES ── */
+        .alert-box {
+            border-radius: var(--radius-sm);
+            padding: 1.25rem 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .alert-box.gold {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+        }
+
+        .alert-box.dark {
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        .alert-box.warning {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-left: 3px solid var(--error);
+        }
+
+        .alert-box p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .alert-box.dark p { color: var(--cream); }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--cream-3);
+        }
+
+        footer .brand {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        footer .brand span { color: var(--gold); }
+        footer p { font-size: 0.82rem; color: var(--ink-muted); margin-top: 0.3rem; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .platform-grid,
+            .bio-grid,
+            .setup-grid,
+            .crosspost-grid,
+            .hashtag-grid { grid-template-columns: 1fr; }
+            .script-header { flex-direction: column; }
+            .timeline-step { grid-template-columns: 55px 1fr; }
+            nav { flex-direction: column; gap: 0.75rem; }
+            .nav-links { justify-content: center; }
+        }
+
+        @media print {
+            nav { position: static; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav>
+    <div class="nav-brand">Atelier <span>Mirage</span></div>
+    <div class="nav-links">
+        <a href="#scripts">Scripts</a>
+        <a href="#tiktok" class="tiktok">TikTok</a>
+        <a href="#crosspost">Crosspost</a>
+        <a href="#bios">Bios</a>
+        <a href="#legendes">Légendes</a>
+        <a href="#hashtags">Hashtags</a>
+        <a href="#hooks">Hooks</a>
+    </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="hero">
+    <div class="hero-badge">🎬 INSTAGRAM + TIKTOK · SCRIPTS PRÊTS À FILMER</div>
+    <h1>Scripts <em>&</em> Contenus<br>Réseaux Sociaux</h1>
+    <p>10 scripts seconde par seconde, tes légendes prêtes à copier-coller, tes hashtags, ta stratégie TikTok, et tout ce qu'il faut pour que chaque vidéo performe — sur les deux plateformes.</p>
+</div>
+
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<section id="scripts">
+    <div class="container">
+        <div class="section-label">01 · Tes 10 premiers contenus</div>
+        <h2 class="section-title">Scripts seconde par seconde — prêts à filmer</h2>
+        <p class="section-desc">Chaque script est conçu pour Instagram Reels ET TikTok. Filme une seule fois, monte deux versions. Les textes overlay sont inclus.</p>
+
+        <div class="scripts-grid">
+
+            <!-- SCRIPT 1 -->
+            <div class="script-card">
+                <div class="script-header">
+                    <h3><span>🍓</span> Script 1 — Le Reveal Fraise</h3>
+                    <div class="script-badges">
+                        <span class="badge reel">Reel</span>
+                        <span class="badge tiktok">TikTok</span>
+                        <span class="badge duration">18s</span>
+                    </div>
+                </div>
+                <div class="script-body">
+                    <div class="script-context">
+                        <strong>Objectif :</strong> Premier contenu viral. Le classique "Is it real?" avec ta fraise bestseller. Format court, impact max. C'est ton contenu de lancement.
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-time">0–2s</div>
+                            <div class="timeline-content">
+                                <strong>Plan serré overhead</strong> — La fraise posée sur fond marbre. Immobile, parfaite, hyper-réaliste. Pas de mouvement.<br>
+                                <span class="text-overlay">C'est pas une fraise.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">2–5s</div>
+                            <div class="timeline-content">
+                                <strong>Main qui entre dans le cadre</strong> avec un couteau. Approche lente, presque cinématique. Le contraste main/dessert crée la tension.<br>
+                                <span class="sound-cue">ASMR ON</span> Son ambiant naturel
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">5–10s</div>
+                            <div class="timeline-content">
+                                <strong>La découpe — LENTE</strong>. Le couteau tranche, la coque rouge se fend, le confit de fraise coule. C'est LE moment. Filme au ralenti (60fps).<br>
+                                <span class="sound-cue">CRAQUEMENT</span> <span class="sound-cue">COULÉE</span><br>
+                                <span class="text-overlay">Confit gariguette × ganache vanille × biscuit amande</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">10–15s</div>
+                            <div class="timeline-content">
+                                <strong>Plan 45° sur la coupe</strong> — Montre les couches intérieures. Le coulis qui coule lentement. Hold 3 secondes sur cette image.<br>
+                                <span class="text-overlay">Fait main. Marseille.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">15–18s</div>
+                            <div class="timeline-content">
+                                <strong>Logo Atelier Mirage</strong> + texte de fin.<br>
+                                <span class="text-overlay">Atelier Mirage — L'art du dessert</span><br>
+                                <em style="font-size: 0.82rem; color: var(--ink-muted);">Musique : son trending dramatique OU full ASMR (teste les deux)</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="script-footer">
+                    <h4>Légende prête à copier</h4>
+                    <div class="caption-text">C'est pas une fraise. C'est un dessert.
+
+Confit de fraise gariguette, ganache montée vanille, biscuit amande moelleux — sous une coque qui trompe tout le monde.
+
+Chaque pièce sort de mon atelier à Marseille. Tout est fait à la main, rien n'est industriel.
+
+Professionnels : le lien est en bio.
+
+#AtelierMirage</div>
+                    <div class="hashtags">#trompeloeil #patisserieartisanale #isitcake #realisticcake #dessertmarseille #foodporn #pastryart #satisfying #asmrfood #marseillefood #patisserie #artisanat #fraise #reveal #cakedecorating #dessertlover #foodphotography #handmade #madeinfrance #gastronomie</div>
+                </div>
+            </div>
+
+            <!-- SCRIPT 2 -->
+            <div class="script-card">
+                <div class="script-header">
+                    <h3><span>🥜</span> Script 2 — "Touche pas à ma cacahuète"</h3>
+                    <div class="script-badges">
+                        <span class="badge reel">Reel</span>
+                        <span class="badge tiktok">TikTok</span>
+                        <span class="badge duration">15s</span>
+                    </div>
+                </div>
+                <div class="script-body">
+                    <div class="script-context">
+                        <strong>Objectif :</strong> Jouer sur l'hyper-réalisme de la cacahuète. Le format "devinette" pousse les commentaires et les saves — les deux métriques que l'algo adore.
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-time">0–3s</div>
+                            <div class="timeline-content">
+                                <strong>Plan macro sur la texture</strong> de la cacahuète. Tellement réaliste que personne ne peut deviner. Mouvement lent de rotation.<br>
+                                <span class="text-overlay">Vrai ou faux ?</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">3–5s</div>
+                            <div class="timeline-content">
+                                <strong>2 secondes de pause</strong> — Laisse le viewer deviner. Le suspense booste les commentaires.<br>
+                                <span class="text-overlay">Réponse dans 3… 2… 1…</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">5–12s</div>
+                            <div class="timeline-content">
+                                <strong>CRACK</strong> — Tu ouvres la cacahuète avec les doigts. L'intérieur se révèle : mousse, insert, craquant. Close-up sur les textures.<br>
+                                <span class="sound-cue">CRACK</span> <span class="sound-cue">CRAQUEMENT</span><br>
+                                <span class="text-overlay">C'est un dessert.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">12–15s</div>
+                            <div class="timeline-content">
+                                <strong>Plan final</strong> — La cacahuète ouverte posée artistiquement.<br>
+                                <span class="text-overlay">@ateliermirage · Marseille</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="script-footer">
+                    <h4>Légende prête à copier</h4>
+                    <div class="caption-text">Vrai ou faux ?
+
+C'est pas une cacahuète. C'est un dessert entier dissimulé sous chaque nervure, chaque détail de la coque.
+
+Le trompe-l'œil, c'est l'art de tromper les sens — avant de les régaler.
+
+En commentaire : t'avais deviné ?</div>
+                    <div class="hashtags">#trompeloeil #isitreal #patisserie #cacahuete #realisticcake #foodart #dessertmarseille #satisfying #asmr #reveal #artisanatfrancais #AtelierMirage #handmade #peanut #pastryart #marseille #foodporn #cakeartist #luxurydessert #surprise</div>
+                </div>
+            </div>
+
+            <!-- SCRIPT 3 -->
+            <div class="script-card">
+                <div class="script-header">
+                    <h3><span>🎨</span> Script 3 — Le Glaçage ASMR</h3>
+                    <div class="script-badges">
+                        <span class="badge asmr">ASMR</span>
+                        <span class="badge tiktok">TikTok</span>
+                        <span class="badge duration">22s</span>
+                    </div>
+                </div>
+                <div class="script-body">
+                    <div class="script-context">
+                        <strong>Objectif :</strong> Contenu ASMR pur. Zéro musique, zéro voix. Juste les sons satisfaisants du glaçage. Le format le plus rewatch d'Instagram — et TikTok l'adore aussi. Basé sur ta photo du glaçage rouge.
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-time">0–3s</div>
+                            <div class="timeline-content">
+                                <strong>Plan serré sur le bol de glaçage rouge</strong>. Brillant, lisse, hypnotique. Léger mouvement de la surface.<br>
+                                <span class="sound-cue">SILENCE</span> puis léger bruissement<br>
+                                <span class="text-overlay">Monte le son.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">3–10s</div>
+                            <div class="timeline-content">
+                                <strong>Trempage — la pièce plonge dans le glaçage</strong>. Plan 45°. La fraise (sur pic) descend lentement, s'immerge, remonte. Le glaçage coule en filet. C'est hypnotique.<br>
+                                <span class="sound-cue">PLOP</span> <span class="sound-cue">FILET QUI COULE</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">10–16s</div>
+                            <div class="timeline-content">
+                                <strong>La pièce terminée qui sèche</strong> — Macro sur les gouttes qui perlent, la surface qui lisse. Rotation lente.<br>
+                                <span class="text-overlay">Glaçage miroir. Fait main.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">16–22s</div>
+                            <div class="timeline-content">
+                                <strong>3-4 pièces alignées</strong>, toutes parfaitement glacées. Plan overhead du résultat final.<br>
+                                <span class="text-overlay">Atelier Mirage · L'art du dessert</span><br>
+                                <em style="font-size: 0.82rem; color: var(--ink-muted);">ZÉRO musique. Full ASMR uniquement.</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="script-footer">
+                    <h4>Légende prête à copier</h4>
+                    <div class="caption-text">Monte le son.
+
+Glaçage miroir, pièce par pièce. Chaque fruit passe par cette étape avant de devenir un trompe-l'œil parfait.
+
+Le geste derrière l'illusion.
+
+Sauvegarde si tu veux le revoir.</div>
+                    <div class="hashtags">#asmr #asmrfood #glazing #satisfying #patisserie #mirrorglaze #trompeloeil #process #handmade #marseille #foodasmr #oddlysatisfying #AtelierMirage #pastryprocess #artisan #dessert #cakedecorating #foodporn #hypnotizing #craftmanship</div>
+                </div>
+            </div>
+
+            <!-- SCRIPT 4 -->
+            <div class="script-card">
+                <div class="script-header">
+                    <h3><span>🍫</span> Script 4 — Le Cacao "Grand Cru"</h3>
+                    <div class="script-badges">
+                        <span class="badge reel">Reel</span>
+                        <span class="badge tiktok">TikTok</span>
+                        <span class="badge duration">20s</span>
+                    </div>
+                </div>
+                <div class="script-body">
+                    <div class="script-context">
+                        <strong>Objectif :</strong> Mettre en avant la fève de cacao. Jouer sur le côté "nature morte" et le contraste texture extérieure brute vs intérieur onctueux.
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-time">0–3s</div>
+                            <div class="timeline-content">
+                                <strong>Plan macro sur la texture de la fève</strong>. Les nervures, le brillant mat du chocolat. Tellement réaliste.<br>
+                                <span class="text-overlay">Cette fève de cacao cache quelque chose.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">3–8s</div>
+                            <div class="timeline-content">
+                                <strong>Deux mains qui ouvrent la fève</strong> en deux. Mouvement lent et net. L'intérieur se révèle : mousse au chocolat noir, insert praliné.<br>
+                                <span class="sound-cue">SNAP</span> <span class="sound-cue">ONCTUEUX</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">8–15s</div>
+                            <div class="timeline-content">
+                                <strong>Cuillère qui plonge dans l'intérieur</strong>. Close-up sur la texture crémeuse. La cuillère remonte avec un mouvement "string".<br>
+                                <span class="text-overlay">Mousse chocolat noir 70% × praliné noisette</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">15–20s</div>
+                            <div class="timeline-content">
+                                <strong>Retour plan large</strong> — La fève ouverte + une fève entière côte à côte. La comparaison choque.<br>
+                                <span class="text-overlay">Grand Cru · Atelier Mirage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="script-footer">
+                    <h4>Légende prête à copier</h4>
+                    <div class="caption-text">Cette fève cache un secret.
+
+Mousse au chocolat noir 70%, insert praliné noisette — le tout sous une coque qui reproduit chaque nervure d'une vraie fève de cacao.
+
+Le Cacao, Grand Cru. Quand le dessert devient de l'art.
+
+Professionnels : cette pièce change la donne dessert. Lien en bio.</div>
+                    <div class="hashtags">#cacao #chocolat #trompeloeil #grandcru #patisserieartisanale #chocolatenoir #praline #dessertart #foodporn #satisfying #reveal #marseille #AtelierMirage #luxurydessert #artisan #pastryart #chocolatelover #cakeartist #handmade #gastronomie</div>
+                </div>
+            </div>
+
+            <!-- SCRIPT 5 -->
+            <div class="script-card">
+                <div class="script-header">
+                    <h3><span>⏱️</span> Script 5 — Timelapse "De la pâte au produit fini"</h3>
+                    <div class="script-badges">
+                        <span class="badge reel">Reel</span>
+                        <span class="badge tiktok">TikTok</span>
+                        <span class="badge duration">25s</span>
+                    </div>
+                </div>
+                <div class="script-body">
+                    <div class="script-context">
+                        <strong>Objectif :</strong> Montrer le savoir-faire. Le timelapse fascine et éduque. Basé sur ta photo de pochage en atelier — les mains avec les gants noirs, la poche à douille, les moules silicone.
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-time">0–3s</div>
+                            <div class="timeline-content">
+                                <strong>Moules vides sur le plan de travail</strong>. Propre, organisé, pro.<br>
+                                <span class="text-overlay">60 secondes. De la pâte au produit fini.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">3–8s</div>
+                            <div class="timeline-content">
+                                <strong>Timelapse ×4 : pochage</strong> — Tes mains (gants noirs, veste bleue) remplissent les moules. Mouvement fluide et rapide.<br>
+                                <em style="font-size: 0.82rem;">Musique : beat dynamique, tempo croissant</em>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">8–13s</div>
+                            <div class="timeline-content">
+                                <strong>Timelapse ×4 : démoulage + finition</strong> — Les pièces sortent du moule, tu les sculptes, peins à l'aérographe.<br>
+                                <span class="text-overlay">Tout est fait main.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">13–20s</div>
+                            <div class="timeline-content">
+                                <strong>Timelapse ×2 : glaçage + séchage</strong> — Le moment le plus visuel. La pièce prend vie.<br>
+                                <span class="text-overlay">De la matière première au trompe-l'œil</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">20–25s</div>
+                            <div class="timeline-content">
+                                <strong>Vitesse normale : la pièce finie</strong> en main, rotation lente. Comparaison avec le vrai fruit à côté.<br>
+                                <span class="text-overlay">Lequel est le vrai ?</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="script-footer">
+                    <h4>Légende prête à copier</h4>
+                    <div class="caption-text">60 secondes. De la pâte au trompe-l'œil.
+
+Pochage, démoulage, sculpture, glaçage, peinture à l'aérographe — chaque étape à la main.
+
+C'est ça l'artisanat. Pas de raccourcis. Pas de moules industriels. Juste des mains et du savoir-faire.
+
+Atelier Mirage, Marseille.</div>
+                    <div class="hashtags">#timelapse #process #patisserie #behindthescenes #artisan #trompeloeil #satisfying #handmade #marseille #pastryart #AtelierMirage #cakeprocess #making #dessertmaking #foodie #artisanat #madeinfrance #bakery #foodporn #howitssmade</div>
+                </div>
+            </div>
+
+            <!-- SCRIPT 6 -->
+            <div class="script-card">
+                <div class="script-header">
+                    <h3><span>🎪</span> Script 6 — La Collection Complète</h3>
+                    <div class="script-badges">
+                        <span class="badge reel">Reel</span>
+                        <span class="badge tiktok">TikTok</span>
+                        <span class="badge duration">20s</span>
+                    </div>
+                </div>
+                <div class="script-body">
+                    <div class="script-context">
+                        <strong>Objectif :</strong> Montrer l'étendue de ta gamme. Le flatlay de toute la collection (fraise, pêche, mangue, citron, cacao, cacahuète, framboise, vanille, passion) est PARFAIT pour ça. Effet "wow c'est TOUT des desserts ?!"
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-time">0–3s</div>
+                            <div class="timeline-content">
+                                <strong>Plan overhead du flatlay complet</strong> — Toute la collection alignée. On dirait un étal de fruits au marché.<br>
+                                <span class="text-overlay">Un de ces fruits est un dessert.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">3–5s</div>
+                            <div class="timeline-content">
+                                <strong>Pause dramatique</strong> — Hold sur le plan.<br>
+                                <span class="text-overlay">En fait, ils le sont tous.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">5–18s</div>
+                            <div class="timeline-content">
+                                <strong>Découpe rapide de chaque fruit</strong> — Montage cut rapide : fraise CRACK, mangue SLICE, cacahuète SNAP, cacao BREAK, citron CUT. 2-3 secondes par fruit.<br>
+                                <span class="sound-cue">CRACK</span> <span class="sound-cue">SLICE</span> <span class="sound-cue">SNAP</span><br>
+                                Chaque coupe révèle un intérieur différent. C'est le montage le plus satisfaisant possible.
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">18–20s</div>
+                            <div class="timeline-content">
+                                <strong>Retour au flatlay</strong> — Tous coupés, tous ouverts. Le contraste avant/après est dingue.<br>
+                                <span class="text-overlay">9 desserts. 0 vrais fruits. · Atelier Mirage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="script-footer">
+                    <h4>Légende prête à copier</h4>
+                    <div class="caption-text">Neuf fruits. Zéro vrais.
+
+Fraise, citron, mangue, pêche, framboise, passion, cacahuète, cacao, vanille — chaque pièce est un dessert complet dissimulé sous une coque hyper-réaliste.
+
+La collection Atelier Mirage. Fait main, Marseille.
+
+Ce que vous voyez n'est jamais ce que vous goûtez.</div>
+                    <div class="hashtags">#collection #trompeloeil #isitcake #fruits #dessert #patisserie #realisticcake #satisfying #foodart #artisan #marseille #AtelierMirage #reveal #compilation #pastryart #foodporn #handmade #amazingfood #cakeartist #musttry</div>
+                </div>
+            </div>
+
+            <!-- SCRIPT 7 -->
+            <div class="script-card">
+                <div class="script-header">
+                    <h3><span>🏛️</span> Script 7 — "Une journée d'artisan trompe-l'œil"</h3>
+                    <div class="script-badges">
+                        <span class="badge reel">Reel</span>
+                        <span class="badge tiktok">TikTok</span>
+                        <span class="badge duration">30s</span>
+                    </div>
+                </div>
+                <div class="script-body">
+                    <div class="script-context">
+                        <strong>Objectif :</strong> Humaniser la marque. Les gens followent des personnes, pas des marques. Ce format "day in the life" fonctionne massivement sur TikTok et donne un visage à Atelier Mirage.
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-time">0–3s</div>
+                            <div class="timeline-content">
+                                <strong>Plan de ta rue / ton atelier le matin</strong>. Lumière naturelle, ambiance calme.<br>
+                                <span class="text-overlay">5h du mat. Mon atelier. Marseille.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">3–8s</div>
+                            <div class="timeline-content">
+                                <strong>Séquence rapide :</strong> tu allumes la lumière, enfiles les gants, prépares les moules. Montage cut dynamique.<br>
+                                <em style="font-size: 0.82rem;">Musique : lo-fi chill ou trending "morning routine"</em>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">8–18s</div>
+                            <div class="timeline-content">
+                                <strong>Process complet en accéléré :</strong> pochage → moulage → démoulage → peinture → glaçage. Plan rapproché sur tes mains.<br>
+                                <span class="text-overlay">De la pâte au trompe-l'œil en une matinée</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">18–25s</div>
+                            <div class="timeline-content">
+                                <strong>Tu charges les boîtes dans ta voiture</strong>. Les pièces empaquetées, les boîtes alignées. Le côté "je gère tout seul" qui inspire.<br>
+                                <span class="text-overlay">Livraison du jour. 45 pièces.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">25–30s</div>
+                            <div class="timeline-content">
+                                <strong>Le client qui ouvre la boîte</strong>. Sa réaction. Sourire, surprise. C'est la payoff émotionnelle.<br>
+                                <span class="text-overlay">C'est pour ça que je fais ce métier.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="script-footer">
+                    <h4>Légende prête à copier</h4>
+                    <div class="caption-text">5h du mat. Atelier. Marseille.
+
+Pochage, moulage, glaçage. 45 pièces emballées à la main. Livraison en direct chez mes partenaires. Et cette réaction qui vaut tout l'effort.
+
+Je suis Karim, j'ai lancé Atelier Mirage pour prouver que l'artisanat peut surprendre autant qu'il régale.
+
+La suite arrive.</div>
+                    <div class="hashtags">#dayinthelife #artisan #patissier #entrepreneur #smallbusiness #marseille #trompeloeil #behindthescenes #morningroutine #AtelierMirage #bakerylife #foodie #motivation #hustle #handmade #madeinfrance #youngentrepreneur #dessert #pastrylife #grind</div>
+                </div>
+            </div>
+
+            <!-- SCRIPT 8 -->
+            <div class="script-card">
+                <div class="script-header">
+                    <h3><span>🎉</span> Script 8 — La Table Événement</h3>
+                    <div class="script-badges">
+                        <span class="badge reel">Reel</span>
+                        <span class="badge tiktok">TikTok</span>
+                        <span class="badge duration">18s</span>
+                    </div>
+                </div>
+                <div class="script-body">
+                    <div class="script-context">
+                        <strong>Objectif :</strong> Contenu B2B + événementiel. Ta photo de table avec les pampas, bougies et toute la collection alignée est PARFAITE. Ce contenu cible les wedding planners, traiteurs et hôtels.
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-time">0–5s</div>
+                            <div class="timeline-content">
+                                <strong>Plan large qui se rapproche lentement</strong> de la table décorée. Pampas, bougies, lumières douces. On dirait un shooting mariage.<br>
+                                <span class="text-overlay">Ce dessert bar n'est pas ce que vous pensez.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">5–10s</div>
+                            <div class="timeline-content">
+                                <strong>Plans détails</strong> — Travelling le long de la table. Chaque fruit en macro. Les invités (ou toi) qui prennent une pièce.<br>
+                                <span class="sound-cue">ASMR AMBIANT</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">10–15s</div>
+                            <div class="timeline-content">
+                                <strong>Quelqu'un croque</strong> — La réaction. "Attends c'est un GÂTEAU ?!" Le moment de surprise.<br>
+                                <span class="text-overlay">Chaque pièce est un dessert complet.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">15–18s</div>
+                            <div class="timeline-content">
+                                <strong>Retour plan large</strong> de la table complète. Effet "wow".<br>
+                                <span class="text-overlay">Atelier Mirage · Événements sur mesure</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="script-footer">
+                    <h4>Légende prête à copier</h4>
+                    <div class="caption-text">Imaginez ça à votre prochain événement.
+
+Un bar à desserts où chaque fruit est en réalité un dessert artisanal complet. L'effet de surprise est immédiat — vos invités n'en reviennent pas.
+
+Mariages, corporate, soirées privées. L'expérience est créée sur mesure.
+
+Atelier Mirage, Marseille. Lien en bio.</div>
+                    <div class="hashtags">#evenement #mariage #weddingdessert #dessertbar #trompeloeil #traiteur #marseille #weddingplanner #event #luxurywedding #AtelierMirage #cateringsolutions #finedinning #pastryart #uniquedessert #weddingfood #corporateevents #partyplanning #dessertable #wow</div>
+                </div>
+            </div>
+
+            <!-- SCRIPT 9 -->
+            <div class="script-card">
+                <div class="script-header">
+                    <h3><span>📊</span> Script 9 — Carrousel "5 raisons d'ajouter le trompe-l'œil à ta carte"</h3>
+                    <div class="script-badges">
+                        <span class="badge carousel">Carrousel</span>
+                        <span class="badge duration">8 slides</span>
+                    </div>
+                </div>
+                <div class="script-body">
+                    <div class="script-context">
+                        <strong>Objectif :</strong> Contenu B2B éducatif. Cible les restaurateurs et pâtissiers. Le carrousel est le format le plus "saveable" sur Instagram — et les saves boostent ta distribution.
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-time">Slide 1</div>
+                            <div class="timeline-content">
+                                <strong>Cover accrocheur</strong> — Photo produit en fond. Texte : "5 raisons d'ajouter le trompe-l'œil à ta carte" · Logo Atelier Mirage<br>
+                                <em style="font-size: 0.82rem;">Couleurs Mirage : fond cream, texte ink, accents gold</em>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">Slide 2</div>
+                            <div class="timeline-content">
+                                <strong>Raison 1 :</strong> "L'effet WOW instantané" — "Tes clients filment, partagent, reviennent. C'est du marketing gratuit sur chaque table."<br>
+                                <em style="font-size: 0.82rem;">Photo : réaction client qui filme</em>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">Slide 3</div>
+                            <div class="timeline-content">
+                                <strong>Raison 2 :</strong> "+30 à 45% de panier moyen" — "Nos partenaires constatent une hausse immédiate du panier moyen dessert. Le trompe-l'œil crée l'envie."<br>
+                                <em style="font-size: 0.82rem;">Graphique simple avec la hausse</em>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">Slide 4</div>
+                            <div class="timeline-content">
+                                <strong>Raison 3 :</strong> "Zéro risque financier" — "Tu paies après la vente. Pas de stock, pas d'invendus. On livre frais, tu vends, tu paies."<br>
+                                <em style="font-size: 0.82rem;">Icône de cycle : livraison → vente → paiement</em>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">Slide 5</div>
+                            <div class="timeline-content">
+                                <strong>Raison 4 :</strong> "Différenciation immédiate" — "Aucun de tes concurrents ne propose ça. Tu deviens la destination dessert de ton quartier."<br>
+                                <em style="font-size: 0.82rem;">Photo : vitrine avec trompe-l'œil</em>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">Slide 6</div>
+                            <div class="timeline-content">
+                                <strong>Raison 5 :</strong> "Contenu Instagram offert" — "On te fournit les photos pro de chaque produit. Tu postes, tes clients partagent, l'effet boule de neige commence."<br>
+                                <em style="font-size: 0.82rem;">Screenshot de posts Instagram partenaires</em>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">Slide 7</div>
+                            <div class="timeline-content">
+                                <strong>Témoignage partenaire</strong> — Citation d'un partenaire actuel avec photo. "Depuis qu'on a les trompe-l'œil, les clients reviennent exprès pour le dessert." — [Nom du partenaire]
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">Slide 8</div>
+                            <div class="timeline-content">
+                                <strong>CTA de clôture</strong> — "Demande ton kit dégustation gratuit" + "Lien en bio" + logo + WhatsApp<br>
+                                <em style="font-size: 0.82rem;">Fond gold, texte cream, bouton visuel</em>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="script-footer">
+                    <h4>Légende prête à copier</h4>
+                    <div class="caption-text">Restaurateurs, pâtissiers, traiteurs à Marseille.
+
+5 raisons de proposer le trompe-l'œil à vos clients — en swipant.
+
+Le résumé : l'effet de surprise transforme votre carte dessert. +30-45% de panier moyen. Zéro risque — paiement après vente. Différenciation immédiate. Photos pro fournies.
+
+On travaille déjà avec 15 établissements à Marseille et en BDR.
+
+DM "PARTENAIRE" pour recevoir un kit dégustation gratuit.</div>
+                    <div class="hashtags">#b2b #restaurateur #patissier #partenariat #trompeloeil #marseille #business #restauration #foodbusiness #AtelierMirage #paniermoyens #horeca #partnership #dessertpro #fournisseur #artisan #qualite #traiteur #hotellerie #opportunite</div>
+                </div>
+            </div>
+
+            <!-- SCRIPT 10 -->
+            <div class="script-card">
+                <div class="script-header">
+                    <h3><span>🤔</span> Script 10 — "Devinez lequel est vrai"</h3>
+                    <div class="script-badges">
+                        <span class="badge reel">Reel</span>
+                        <span class="badge tiktok">TikTok</span>
+                        <span class="badge duration">15s</span>
+                    </div>
+                </div>
+                <div class="script-body">
+                    <div class="script-context">
+                        <strong>Objectif :</strong> Le format interactif ultime. Tu poses une vraie fraise à côté de ta fraise trompe-l'œil. L'audience doit deviner. Les commentaires explosent → l'algo adore. Fonctionne sur les deux plateformes.
+                    </div>
+                    <div class="timeline">
+                        <div class="timeline-step">
+                            <div class="timeline-time">0–5s</div>
+                            <div class="timeline-content">
+                                <strong>Plan overhead</strong> — Deux fraises côte à côte. Une vraie, une trompe-l'œil. Impossible de distinguer.<br>
+                                <span class="text-overlay">Gauche ou droite ?</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">5–7s</div>
+                            <div class="timeline-content">
+                                <strong>Zoom lent</strong> sur chaque fraise. Détails, texture, feuilles. Le doute est total.<br>
+                                <span class="text-overlay">Commente ta réponse avant de voir la suite.</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">7–12s</div>
+                            <div class="timeline-content">
+                                <strong>Tu coupes les deux</strong> — La vraie fraise se coupe normalement. La fausse révèle la mousse, le confit, le biscuit.<br>
+                                <span class="sound-cue">CRUNCH</span> <span class="sound-cue">REVEAL</span>
+                            </div>
+                        </div>
+                        <div class="timeline-step">
+                            <div class="timeline-time">12–15s</div>
+                            <div class="timeline-content">
+                                <strong>Les deux coupées côte à côte</strong>. Le contraste est spectaculaire.<br>
+                                <span class="text-overlay">T'avais deviné ? · @ateliermirage</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="script-footer">
+                    <h4>Légende prête à copier</h4>
+                    <div class="caption-text">Gauche ou droite ?
+
+L'une est une vraie fraise. L'autre est un dessert complet — confit gariguette, ganache vanille, biscuit amande.
+
+Commente G ou D, puis regarde la suite.
+
+La plupart des gens se trompent.</div>
+                    <div class="hashtags">#devinez #trompeloeil #realvsfake #isitcake #quiz #interactive #fraise #dessert #patisserie #satisfying #reveal #foodart #AtelierMirage #marseille #challenge #foodporn #pastryart #cakeartist #guesswhich #comment</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ STRATÉGIE TIKTOK ═══════════════════ -->
+<section id="tiktok" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">02 · TikTok</div>
+        <h2 class="section-title">Stratégie TikTok — ton deuxième levier</h2>
+        <p class="section-desc">TikTok n'est pas "Instagram pour les jeunes". C'est une machine à viralité différente avec ses propres règles. Voici comment l'exploiter pour Atelier Mirage.</p>
+
+        <div class="platform-grid">
+            <div class="platform-card instagram">
+                <h3>📸 Instagram — Ce qui reste pareil</h3>
+                <ul>
+                    <li><strong>Ta base de contenu</strong> — Tous les scripts ci-dessus marchent sur les deux plateformes</li>
+                    <li><strong>Ton audience B2B</strong> — Les restaurateurs et pâtissiers sont plus actifs sur Instagram</li>
+                    <li><strong>Le feed cohérent</strong> — Ton grid visuel bien tenu reste ta "carte de visite" pour les prospects</li>
+                    <li><strong>Les carrousels éducatifs</strong> — Format exclusif Instagram, très "saveable", parfait pour B2B</li>
+                    <li><strong>Les DM de prospection</strong> — Instagram DM reste le canal #1 pour le B2B food local</li>
+                    <li><strong>Stories interactives</strong> — Sondages, quiz, Q&A — Instagram est meilleur que TikTok pour ça</li>
+                </ul>
+            </div>
+
+            <div class="platform-card tiktok">
+                <h3>🎵 TikTok — Ce qui change</h3>
+                <ul>
+                    <li><strong>L'algo favorise les NOUVEAUX comptes</strong> — TikTok pousse tes premières vidéos plus qu'Instagram. C'est le moment de se lancer</li>
+                    <li><strong>Le son est ROI</strong> — Contrairement à Instagram (85% muet), TikTok = 70% avec son. L'ASMR et les sons trending sont essentiels</li>
+                    <li><strong>Les trends sont obligatoires</strong> — Chaque semaine, adapte un audio trending au trompe-l'œil. Un Reel "evergreen" sur Insta peut être un flop sur TikTok s'il n'est pas dans la trend</li>
+                    <li><strong>La durée idéale est plus courte</strong> — 7-15 secondes performe mieux que 20-30s sur TikTok. Tes reveals doivent être plus rapides</li>
+                    <li><strong>Les commentaires SONT le contenu</strong> — Réponds aux commentaires en vidéo ("Reply to @user"). C'est un format gratuit qui génère du contenu en boucle</li>
+                    <li><strong>Le texte en haut</strong> — Sur TikTok, les overlays doivent être dans la zone safe (pas trop bas, pas sur les boutons). Différent d'Instagram</li>
+                    <li><strong>Pas de "link in bio" aussi puissant</strong> — TikTok Shop existe mais c'est B2C. Pour B2B, redirige vers ton Instagram dans ta bio TikTok</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="alert-box dark" style="margin-top: 2rem;">
+            <p><strong style="color: var(--gold-light);">La stratégie crosspost simplifiée :</strong> Filme UNE FOIS pour les deux plateformes. Monte DEUX versions : une version Instagram (15-30s, sous-titrée, musique trending Instagram) et une version TikTok (7-15s, plus punchy, son trending TikTok, texte en zone safe). C'est 10 min de montage supplémentaire pour doubler ton reach.</p>
+        </div>
+
+        <!-- TikTok specific setup -->
+        <div class="setup-grid" style="margin-top: 2rem;">
+            <div class="setup-card">
+                <h3>🚀 Setup TikTok (jour 1)</h3>
+                <div class="setup-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>Crée un compte TikTok Business</strong> — @ateliermirage (même handle qu'Instagram pour la cohérence)</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>Bio :</strong> copie le template de la section Bios ci-dessous. Ajoute le lien vers ton Instagram (pas ton site — TikTok est ton funnel vers Insta qui est ton funnel vers WhatsApp)</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>Poste tes 3 meilleures vidéos</strong> le même jour. L'algo TikTok teste agressivement les nouveaux comptes — donne-lui du contenu de qualité dès le départ</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text"><strong>Rythme : 1 vidéo/jour pendant 2 semaines</strong> puis 4-5/semaine. TikTok récompense la régularité plus qu'Instagram. Si tu dois choisir entre qualité et régularité sur TikTok, choisis la régularité</div>
+                </div>
+            </div>
+
+            <div class="setup-card">
+                <h3>📈 Formats TikTok qui performent en food</h3>
+                <div class="setup-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>"Is it cake?"</strong> — Le format classique. Toujours pertinent en 2026. Met un vrai objet à côté de ton trompe-l'œil</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>"Reply to comment"</strong> — Réponds en vidéo aux questions. "Comment tu fais la texture de la cacahuète ?" → vidéo process. C'est gratuit et l'algo pousse les réponses vidéo</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>POV :</strong> — "POV: tu commandes un café et le sucre est un dessert" / "POV: tu ouvres la boîte de ton client". Le format POV engage sur TikTok</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text"><strong>ASMR pur</strong> — TikTok ADORE l'ASMR food plus qu'Instagram. Tes découpes, glaçages, craquements = contenu natif TikTok</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">5</div>
+                    <div class="step-text"><strong>Storytime :</strong> — "J'ai 24 ans et je fabrique des fruits en dessert" / "Comment j'ai lancé mon business trompe-l'œil". Le storytelling perso performe massivement sur TikTok</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ CROSSPOST ═══════════════════ -->
+<section id="crosspost">
+    <div class="container">
+        <div class="section-label">03 · Crosspost</div>
+        <h2 class="section-title">Une session, deux plateformes</h2>
+        <p class="section-desc">Tu n'as pas le temps de créer du contenu séparé pour chaque plateforme. Voici comment filmer une fois et publier partout intelligemment.</p>
+
+        <div class="crosspost-grid">
+            <div class="crosspost-card">
+                <h4>📹 Au tournage</h4>
+                <p>Filme TOUJOURS en 9:16 (vertical). Pas de différence entre Insta et TikTok au tournage. Par contre, filme 2 versions de chaque intro : une version "hook parlé" (pour TikTok — tu parles à la caméra) et une version "texte overlay silencieux" (pour Instagram — le hook est écrit).</p>
+            </div>
+            <div class="crosspost-card">
+                <h4>✂️ Au montage</h4>
+                <p><strong>Version Instagram (15-30s) :</strong> Sous-titres CapCut, musique via Instagram directement (meilleur pour l'algo), texte overlay centré, logo fin.<br><strong>Version TikTok (7-15s) :</strong> Même rushes mais montage plus court, son trending TikTok, texte en zone safe (pas dans les 15% du bas), pas de watermark Instagram.</p>
+            </div>
+            <div class="crosspost-card">
+                <h4>⏰ À la publication</h4>
+                <p><strong>Instagram :</strong> 18h (ton créneau peak). <strong>TikTok :</strong> 12h ou 19h-21h (les heures food performent le soir sur TikTok). Ne poste PAS au même moment — espace de 2-3h minimum. Et surtout : ne poste JAMAIS une vidéo avec le watermark TikTok sur Instagram (et vice versa). L'algo la pénalise.</p>
+            </div>
+            <div class="crosspost-card">
+                <h4>🔄 Le recyclage intelligent</h4>
+                <p><strong>Un Reel Instagram qui marche bien (&gt;500 vues) :</strong> Re-monte en version TikTok courte 1-2 jours plus tard.<br><strong>Un TikTok qui explose (&gt;5K vues) :</strong> Adapte en Reel Instagram avec sous-titres + boost Meta Ads.<br><strong>Un carrousel Instagram :</strong> Adapte en vidéo "list" sur TikTok (voix off + texte).</p>
+            </div>
+        </div>
+
+        <div class="alert-box warning">
+            <p><strong style="color: var(--error);">Les 3 erreurs fatales du crosspost :</strong> 1) Poster une vidéo avec le logo TikTok sur Instagram → -30% de reach. 2) Utiliser la même musique trending sur les deux → elle ne trend pas forcément sur l'autre plateforme. 3) Copier-coller la même légende → les hashtags Instagram ne marchent pas sur TikTok (et inversement).</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ BIOS ═══════════════════ -->
+<section id="bios" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">04 · Identité</div>
+        <h2 class="section-title">Bios Instagram & TikTok — prêtes à coller</h2>
+        <p class="section-desc">Ta bio est ta première impression. Elle doit dire qui tu es, ce que tu fais, et pourquoi on devrait suivre — en 150 caractères.</p>
+
+        <div class="bio-grid">
+            <div class="bio-card">
+                <h4>📸 Bio Instagram</h4>
+                <div class="bio-text">L'art du dessert trompe-l'œil.
+Chaque fruit cache un dessert complet.
+Fait main · Marseille
+Pros : kit dégustation gratuit ↓
+lamaisonmirage.com/partenaires</div>
+                <p style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--ink-muted);"><strong>Nom affiché :</strong> Atelier Mirage | Desserts Trompe-l'œil (le nom est searchable — mets des mots-clés)</p>
+            </div>
+
+            <div class="bio-card">
+                <h4>🎵 Bio TikTok</h4>
+                <div class="bio-text">C'est pas un fruit. C'est un dessert.
+Artisan trompe-l'œil · Marseille
+Chaque pièce, 100% fait main.
+Plus sur Instagram → @ateliermirage</div>
+                <p style="margin-top: 0.75rem; font-size: 0.82rem; color: var(--ink-muted);"><strong>Lien TikTok :</strong> Redirige vers ton Instagram (pas ton site). TikTok → Instagram → WhatsApp → Partenaire. C'est ton funnel.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ LÉGENDES TEMPLATES ═══════════════════ -->
+<section id="legendes">
+    <div class="container">
+        <div class="section-label">05 · Templates</div>
+        <h2 class="section-title">Structures de légendes — à réutiliser à l'infini</h2>
+        <p class="section-desc">Tu n'as pas besoin de réinventer ta légende à chaque post. Voici 5 structures qui marchent — remplis les blancs avec le produit du jour.</p>
+
+        <div class="scripts-grid">
+
+            <div class="script-card">
+                <div class="script-header">
+                    <h3>Structure 1 — Le Reveal</h3>
+                    <div class="script-badges"><span class="badge reel">Reels</span></div>
+                </div>
+                <div class="script-body">
+                    <div class="caption-text">C'est pas [un/une OBJET]. C'est un dessert.
+
+[Ingrédient 1, ingrédient 2, ingrédient 3] — sous une coque qui trompe tout le monde.
+
+Fait main. Marseille.
+
+[CTA sobre : question ou "lien en bio"]
+
+#AtelierMirage</div>
+                </div>
+            </div>
+
+            <div class="script-card">
+                <div class="script-header">
+                    <h3>Structure 2 — Le Process</h3>
+                    <div class="script-badges"><span class="badge reel">Timelapse</span></div>
+                </div>
+                <div class="script-body">
+                    <div class="caption-text">[DURÉE]. De [matière] au [produit fini].
+
+[Étape 1]. [Étape 2]. [Étape 3]. Chaque geste à la main.
+
+C'est ça l'artisanat. Pas de raccourcis.
+
+Atelier Mirage, Marseille.</div>
+                </div>
+            </div>
+
+            <div class="script-card">
+                <div class="script-header">
+                    <h3>Structure 3 — L'Interaction</h3>
+                    <div class="script-badges"><span class="badge reel">Quiz/Devinette</span></div>
+                </div>
+                <div class="script-body">
+                    <div class="caption-text">[Question : Vrai ou faux ? / Gauche ou droite ? / Lequel est le vrai ?]
+
+[Explication courte du produit]
+
+Commente ta réponse, puis regarde la suite.
+
+La plupart se trompent.</div>
+                </div>
+            </div>
+
+            <div class="script-card">
+                <div class="script-header">
+                    <h3>Structure 4 — Le B2B</h3>
+                    <div class="script-badges"><span class="badge carousel">Carrousel</span></div>
+                </div>
+                <div class="script-body">
+                    <div class="caption-text">[Métier] à [ville].
+
+[X raisons / problème résolu] — en swipant.
+
+[Point 1]. [Point 2]. [Point 3].
+
+On travaille déjà avec [type de clients] à [ville].
+
+DM "[MOT-CLÉ]" pour recevoir [offre gratuite].</div>
+                </div>
+            </div>
+
+            <div class="script-card">
+                <div class="script-header">
+                    <h3>Structure 5 — Le Storytelling perso</h3>
+                    <div class="script-badges"><span class="badge tiktok">TikTok</span><span class="badge reel">Reel</span></div>
+                </div>
+                <div class="script-body">
+                    <div class="caption-text">[Moment de la journée]. [Lieu].
+
+[Description courte du process du jour]. [Détail 1]. [Détail 2]. [Moment émotionnel].
+
+Je suis [prénom]. J'ai lancé [marque] pour [mission].
+
+La suite arrive.</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ HASHTAGS ═══════════════════ -->
+<section id="hashtags" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">06 · Hashtags</div>
+        <h2 class="section-title">Banques de hashtags — copie-colle par catégorie</h2>
+        <p class="section-desc">Utilise 20-25 hashtags par post Instagram (max 30). Sur TikTok, utilise 3-5 hashtags max (les 2-3 plus importants). Mélange : 5 gros + 10 moyens + 5-10 niches.</p>
+
+        <div class="hashtag-grid">
+            <div class="hashtag-bank">
+                <h4>🍓 Produit / Reveal</h4>
+                <div class="tags">#trompeloeil #isitcake #realisticcake #cakeartist #pastryart #dessertart #reveal #satisfying #foodart #cakedecorating #patisserie #patisserieartisanale #artisanat #handmade #madeinfrance #luxurydessert #dessertlover #foodporn #amazingcake #cakesofinstagram</div>
+            </div>
+
+            <div class="hashtag-bank">
+                <h4>🎵 ASMR / Satisfying</h4>
+                <div class="tags">#asmr #asmrfood #oddlysatisfying #satisfyingvideos #foodasmr #cakeasmr #mirrorglaze #glazing #crunch #cuttingcake #satisfying #hypnotizing #relaxing #sensory #texturasmr #cookingasmr #bakingtiktok #satisfyingfood #sensorycontent #zenmoment</div>
+            </div>
+
+            <div class="hashtag-bank">
+                <h4>📍 Local Marseille</h4>
+                <div class="tags">#marseille #marseillefood #bonnesadressesmarseille #marseillegourmande #foodpornmarseille #restaurantmarseille #patisseriemarseille #madeinsud #suddefrance #provencefood #marseillecity #igersmarseille #topmarseille #marseillelife #marselha #bouchemdurhole #paca #southoffrance #frenchriviera #marseillerestaurant</div>
+            </div>
+
+            <div class="hashtag-bank">
+                <h4>🤝 B2B / Partenaires</h4>
+                <div class="tags">#b2b #restaurateur #horeca #fournisseur #partenariat #restauration #foodbusiness #hotellerie #traiteur #patissier #professionnelrestauration #cheflife #chefsofinstagram #finedinning #gastronomie #cuisinepro #entrepreneurfood #foodservice #partnership #businessfood</div>
+            </div>
+
+            <div class="hashtag-bank">
+                <h4>🎬 Process / Behind the scenes</h4>
+                <div class="tags">#behindthescenes #process #timelapse #howitssmade #pastryprocess #bakingprocess #cakeprocess #makingof #artisanlife #dayinthelife #entrepreneurlife #smallbusiness #bakerylife #pastrylife #atelier #workshop #craftmanship #handcraft #fromscratch #baking</div>
+            </div>
+
+            <div class="hashtag-bank">
+                <h4>🎵 TikTok Only (3-5 par vidéo)</h4>
+                <div class="tags">#isitcake #foodtiktok #tiktokfood #asmrfood #satisfying #fyp #foryou #viral #trending #dessert #trompeloeil #marseille #artisan #smallbusiness #patisserie</div>
+                <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--ink-muted);">Sur TikTok : max 3-5 hashtags. Priorise #fyp + 1-2 niches + #AtelierMirage</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ HOOKS ═══════════════════ -->
+<section id="hooks">
+    <div class="container">
+        <div class="section-label">07 · Hooks</div>
+        <h2 class="section-title">30 hooks d'ouverture — tes 2 premières secondes</h2>
+        <p class="section-desc">Le hook décide si on regarde ou si on scroll. Voici 30 accroches testées pour le trompe-l'œil food. Utilise-les comme texte overlay OU en voix off (TikTok).</p>
+
+        <div class="setup-grid">
+            <div class="setup-card">
+                <h3>🔥 Hooks Reveal (les plus forts)</h3>
+                <div class="setup-step"><div class="step-num">1</div><div class="step-text">"C'est pas une fraise."</div></div>
+                <div class="setup-step"><div class="step-num">2</div><div class="step-text">"C'est pas ce que tu crois."</div></div>
+                <div class="setup-step"><div class="step-num">3</div><div class="step-text">"Regarde bien. C'est un dessert."</div></div>
+                <div class="setup-step"><div class="step-num">4</div><div class="step-text">"Tout le monde se fait avoir."</div></div>
+                <div class="setup-step"><div class="step-num">5</div><div class="step-text">"Tu me crois si je te dis que c'est un gâteau ?"</div></div>
+                <div class="setup-step"><div class="step-num">6</div><div class="step-text">"Celui qui devine a droit à un dessert gratuit."</div></div>
+                <div class="setup-step"><div class="step-num">7</div><div class="step-text">"Le serveur m'a dit 'c'est un fruit'. J'ai dit 'goûte.'"</div></div>
+                <div class="setup-step"><div class="step-num">8</div><div class="step-text">"POV : ton dessert trompe tout le restaurant."</div></div>
+            </div>
+
+            <div class="setup-card">
+                <h3>🤔 Hooks Question (poussent les commentaires)</h3>
+                <div class="setup-step"><div class="step-num">9</div><div class="step-text">"Vrai ou faux ?"</div></div>
+                <div class="setup-step"><div class="step-num">10</div><div class="step-text">"Gauche ou droite ?"</div></div>
+                <div class="setup-step"><div class="step-num">11</div><div class="step-text">"T'aurais deviné ?"</div></div>
+                <div class="setup-step"><div class="step-num">12</div><div class="step-text">"Lequel tu manges en premier ?"</div></div>
+                <div class="setup-step"><div class="step-num">13</div><div class="step-text">"Combien tu mettrais pour ce dessert ?"</div></div>
+                <div class="setup-step"><div class="step-num">14</div><div class="step-text">"Quel fruit tu veux qu'on fasse en prochain trompe-l'œil ?"</div></div>
+                <div class="setup-step"><div class="step-num">15</div><div class="step-text">"Qui mérite de recevoir cette boîte ?"</div></div>
+            </div>
+
+            <div class="setup-card">
+                <h3>🎬 Hooks Process (fascination)</h3>
+                <div class="setup-step"><div class="step-num">16</div><div class="step-text">"60 secondes. De la pâte au produit fini."</div></div>
+                <div class="setup-step"><div class="step-num">17</div><div class="step-text">"De la pâte à un fruit parfait."</div></div>
+                <div class="setup-step"><div class="step-num">18</div><div class="step-text">"Le process que personne ne voit."</div></div>
+                <div class="setup-step"><div class="step-num">19</div><div class="step-text">"5h du mat. Mon atelier. Marseille."</div></div>
+                <div class="setup-step"><div class="step-num">20</div><div class="step-text">"Chaque pièce prend 45 minutes."</div></div>
+                <div class="setup-step"><div class="step-num">21</div><div class="step-text">"Monte le son pour celui-là."</div></div>
+                <div class="setup-step"><div class="step-num">22</div><div class="step-text">"Le détail qui rend le trompe-l'œil parfait."</div></div>
+            </div>
+
+            <div class="setup-card">
+                <h3>💼 Hooks B2B (ciblent les pros)</h3>
+                <div class="setup-step"><div class="step-num">23</div><div class="step-text">"Ce dessert fait +30% de panier moyen."</div></div>
+                <div class="setup-step"><div class="step-num">24</div><div class="step-text">"Tes clients filment ce dessert sans qu'on leur demande."</div></div>
+                <div class="setup-step"><div class="step-num">25</div><div class="step-text">"Tu paies après la vente. Pas avant."</div></div>
+                <div class="setup-step"><div class="step-num">26</div><div class="step-text">"Ce que ça fait quand tu ajoutes le trompe-l'œil à ta carte."</div></div>
+                <div class="setup-step"><div class="step-num">27</div><div class="step-text">"J'ai livré 45 pièces ce matin. Regarde la réaction."</div></div>
+                <div class="setup-step"><div class="step-num">28</div><div class="step-text">"Le dessert que tous les restos de Marseille veulent."</div></div>
+                <div class="setup-step"><div class="step-num">29</div><div class="step-text">"Un restaurateur m'a dit que ses clients reviennent exprès pour ça."</div></div>
+                <div class="setup-step"><div class="step-num">30</div><div class="step-text">"Marketing gratuit : quand tes clients filment pour toi."</div></div>
+            </div>
+        </div>
+
+        <div class="alert-box dark" style="margin-top: 1.5rem;">
+            <p><strong style="color: var(--gold-light);">Règle d'or des hooks :</strong> Le texte overlay doit apparaître à la SECONDE 0. Pas à la seconde 1, pas en fondu. IMMÉDIAT. Sur TikTok, tu peux aussi le dire en voix off — les deux combinés (texte + voix) = rétention maximale. Et rappel : le hook est toujours accompagné d'un GESTE visuel (couteau, main, découpe). Jamais de plan statique.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+    <div class="brand">Atelier <span>Mirage</span></div>
+    <p>Scripts & Contenus Réseaux Sociaux · Avril 2026</p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--ink-muted);">L'art du dessert trompe-l'œil · Marseille</p>
+</footer>
+
+<script>
+    // Nav smooth scroll + active state
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelectorAll('.nav-links a').forEach(function(l) { l.classList.remove('active'); });
+            this.classList.add('active');
+        });
+    });
+
+    var sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', function() {
+        var scrollPos = window.scrollY + 120;
+        sections.forEach(function(section) {
+            if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                var id = section.getAttribute('id');
+                document.querySelectorAll('.nav-links a').forEach(function(l) {
+                    l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

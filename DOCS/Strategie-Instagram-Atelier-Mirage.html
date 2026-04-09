@@ -1,0 +1,1529 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stratégie Instagram - Atelier Mirage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF5EF;
+            --ink: #1A1714;
+            --gold: #A8895C;
+            --gold-light: #C9AA7C;
+            --serif: 'Cormorant Garamond', serif;
+            --sans: 'Outfit', sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--sans);
+            color: var(--ink);
+            background-color: var(--cream);
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            position: sticky;
+            top: 0;
+            background: var(--cream);
+            border-bottom: 2px solid var(--gold-light);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 8px rgba(26, 23, 20, 0.08);
+        }
+
+        .nav-brand {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--ink);
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--ink);
+            font-weight: 500;
+            transition: color 0.3s ease;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        /* Header */
+        .hero {
+            background: linear-gradient(135deg, var(--cream) 0%, #f5f0e8 100%);
+            padding: 4rem 2rem;
+            text-align: center;
+            border-bottom: 3px solid var(--gold);
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: 3rem;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            color: var(--gold);
+            font-weight: 500;
+            margin-bottom: 1rem;
+        }
+
+        .hero-subtitle {
+            color: var(--ink);
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        /* Sections */
+        section {
+            margin-bottom: 4rem;
+            background: white;
+            padding: 3rem;
+            border-left: 6px solid var(--gold);
+            box-shadow: 0 4px 16px rgba(26, 23, 20, 0.06);
+            page-break-inside: avoid;
+        }
+
+        section h2 {
+            font-family: var(--serif);
+            font-size: 2.2rem;
+            color: var(--ink);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid var(--gold-light);
+            padding-bottom: 1rem;
+        }
+
+        section h3 {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            color: var(--gold);
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        section h4 {
+            font-family: var(--sans);
+            font-size: 1.1rem;
+            color: var(--ink);
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Profile Setup */
+        .profile-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .profile-card {
+            background: linear-gradient(135deg, var(--cream) 0%, #f9f3eb 100%);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--gold);
+        }
+
+        .profile-card strong {
+            color: var(--gold);
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .profile-card p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Content Pillars */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .pillar {
+            background: var(--cream);
+            padding: 2rem;
+            border-radius: 8px;
+            border-top: 5px solid var(--gold);
+            text-align: center;
+            page-break-inside: avoid;
+        }
+
+        .pillar h4 {
+            color: var(--ink);
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .pillar-emoji {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .pillar p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Editorial Calendar */
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .calendar-table thead {
+            background-color: var(--gold);
+            color: white;
+        }
+
+        .calendar-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+        }
+
+        .calendar-table td {
+            padding: 1rem;
+            border-bottom: 1px solid var(--gold-light);
+        }
+
+        .calendar-table tbody tr:nth-child(odd) {
+            background-color: rgba(250, 245, 239, 0.5);
+        }
+
+        .calendar-table tbody tr:hover {
+            background-color: rgba(168, 137, 92, 0.05);
+        }
+
+        .day-label {
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 0.9rem;
+        }
+
+        .post-type {
+            display: inline-block;
+            background: var(--gold-light);
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Reels Strategy */
+        .reels-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .reel-item {
+            background: linear-gradient(135deg, var(--cream) 0%, #f9f3eb 100%);
+            padding: 1.5rem;
+            border-left: 4px solid var(--gold);
+            border-radius: 4px;
+        }
+
+        .reel-item h4 {
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .reel-item p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+        }
+
+        .duration {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            padding: 0.25rem 0.6rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Hashtag Strategy */
+        .hashtag-category {
+            margin-bottom: 2rem;
+        }
+
+        .hashtag-category h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .hashtag-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .hashtag {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: var(--mono);
+            transition: transform 0.2s ease;
+        }
+
+        .hashtag:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(168, 137, 92, 0.3);
+        }
+
+        /* DM Templates */
+        .dm-template {
+            background: var(--cream);
+            padding: 1.5rem;
+            border-left: 4px solid var(--gold);
+            margin-bottom: 2rem;
+            border-radius: 4px;
+            page-break-inside: avoid;
+        }
+
+        .dm-template h4 {
+            color: var(--ink);
+            margin-bottom: 1rem;
+        }
+
+        .dm-content {
+            background: white;
+            padding: 1.2rem;
+            border-radius: 4px;
+            font-family: var(--mono);
+            font-size: 0.9rem;
+            line-height: 1.8;
+            color: var(--ink);
+            border: 1px solid var(--gold-light);
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        /* UGC Strategy */
+        .ugc-steps {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .ugc-step {
+            background: linear-gradient(135deg, var(--cream) 0%, #f9f3eb 100%);
+            padding: 1.5rem;
+            border-left: 4px solid var(--gold);
+            border-radius: 4px;
+            counter-increment: step-counter;
+        }
+
+        .ugc-step::before {
+            content: counter(step-counter);
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 32px;
+            font-weight: 700;
+            margin-right: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .ugc-step h4 {
+            display: inline;
+            color: var(--ink);
+            font-size: 1.05rem;
+        }
+
+        .ugc-step p {
+            margin-top: 0.8rem;
+            margin-left: 48px;
+            font-size: 0.95rem;
+        }
+
+        /* KPI Dashboard */
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .kpi-box {
+            background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .kpi-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: var(--mono);
+            margin-bottom: 0.5rem;
+        }
+
+        .kpi-description {
+            font-size: 0.85rem;
+            line-height: 1.4;
+        }
+
+        /* Metrics Table */
+        .metrics-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .metrics-table thead {
+            background-color: var(--gold-light);
+            color: white;
+        }
+
+        .metrics-table th {
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metrics-table td {
+            padding: 0.9rem 1rem;
+            border-bottom: 1px solid var(--gold-light);
+        }
+
+        .metrics-table tbody tr:nth-child(odd) {
+            background-color: rgba(250, 245, 239, 0.5);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 3rem 2rem;
+            text-align: center;
+            border-top: 3px solid var(--gold);
+            margin-top: 4rem;
+        }
+
+        footer h3 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+            font-family: var(--serif);
+        }
+
+        footer p {
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Print Styles */
+        @media print {
+            nav {
+                position: static;
+                box-shadow: none;
+            }
+
+            section {
+                page-break-inside: avoid;
+                box-shadow: none;
+                border: 1px solid var(--gold-light);
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            a {
+                color: var(--gold);
+                text-decoration: none;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .profile-grid,
+            .pillars-grid,
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .calendar-table,
+            .metrics-table {
+                font-size: 0.85rem;
+            }
+
+            .calendar-table th,
+            .calendar-table td,
+            .metrics-table th,
+            .metrics-table td {
+                padding: 0.75rem;
+            }
+
+            section {
+                padding: 2rem 1.5rem;
+            }
+
+            section h2 {
+                font-size: 1.8rem;
+            }
+        }
+
+        .back-to-top {
+            display: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: var(--gold);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(168, 137, 92, 0.3);
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            font-size: 1.5rem;
+            z-index: 999;
+        }
+
+        .back-to-top.show {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-brand">ATELIER MIRAGE</div>
+        <ul class="nav-links">
+            <li><a href="#profil">Profil</a></li>
+            <li><a href="#pilliers">Pilliers</a></li>
+            <li><a href="#calendrier">Calendrier</a></li>
+            <li><a href="#reels">Reels</a></li>
+            <li><a href="#hashtags">Hashtags</a></li>
+            <li><a href="#prospection">Prospection</a></li>
+            <li><a href="#ugc">UGC</a></li>
+            <li><a href="#kpi">KPI</a></li>
+        </ul>
+    </nav>
+
+    <div class="hero">
+        <h1>Stratégie Instagram</h1>
+        <p>Atelier Mirage</p>
+        <p class="hero-subtitle">L'art du dessert • Trompe-l'oeil • Marseille</p>
+        <p class="hero-subtitle" style="margin-top: 1rem; font-size: 0.9rem;">Budget mensuel: 500-1500€ | Cible B2B | #MomentMirage</p>
+    </div>
+
+    <div class="container">
+        <!-- PROFILE SETUP -->
+        <section id="profil">
+            <h2>1. Configuration du Profil Instagram</h2>
+
+            <h3>Handle Recommandé</h3>
+            <p style="font-size: 1.1rem; margin-bottom: 1.5rem;">
+                <strong style="color: var(--gold); font-family: var(--mono);">@ateliermirage.marseille</strong> ou <strong style="color: var(--gold); font-family: var(--mono);">@ateliermirage</strong>
+            </p>
+
+            <h3>Bio Instagram</h3>
+            <div class="profile-card">
+                <strong>Bio Optimisée (150 caractères max)</strong>
+                <p>
+                    🍓 Trompe-l'oeil dessert laboratory<br>
+                    🎨 Le dessert que vos clients filment avant de manger<br>
+                    ✨ B2B • Restaurants • Bakeries • Concept Stores<br>
+                    📍 Marseille 🇫🇷<br>
+                    💼 contact: [email/phone]
+                </p>
+            </div>
+
+            <h3>Photo de Profil</h3>
+            <div class="profile-grid">
+                <div class="profile-card">
+                    <strong>Option 1: Logo Mark</strong>
+                    <p>Un logo carré isolé avec la fraise trompe-l'oeil sur fond crème ou or. Très lisible à la taille d'une photo de profil (1080px x 1080px).</p>
+                </div>
+                <div class="profile-card">
+                    <strong>Option 2: Fruit Détail</strong>
+                    <p>Macro d'une fraise trompe-l'oeil en coupe montrant l'intérieur du dessert. Plus impactant et storytelling.</p>
+                </div>
+            </div>
+
+            <h3>Highlights de Profil</h3>
+            <div class="profile-grid">
+                <div class="profile-card">
+                    <strong>Highlight 1: MOMENT MIRAGE</strong>
+                    <p>Les vidéos de révélation les plus engageantes. Stockez 5-7 meilleurs Reels du mois.</p>
+                </div>
+                <div class="profile-card">
+                    <strong>Highlight 2: CHEZ NOS PARTNERS</strong>
+                    <p>Stories de restaurants/bakeries utilisant vos desserts. Preuve sociale et témoignages visuels.</p>
+                </div>
+                <div class="profile-card">
+                    <strong>Highlight 3: COULISSES</strong>
+                    <p>Processus de création, fabrication, atelier. Behind-the-scenes exclusif.</p>
+                </div>
+                <div class="profile-card">
+                    <strong>Highlight 4: OFFRES & PROMO</strong>
+                    <p>Réductions B2B, offres saisonnières, nouveaux produits, appels à l'action.</p>
+                </div>
+            </div>
+
+            <h3>Style de Profil Recommandé</h3>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>Palette couleur:</strong> Crème, encre, or. Cohérence maximale avec votre identité.</li>
+                <li><strong>Filtres:</strong> Utiliser des filtres VSCO vintage ou un filtre custom maison (chaud, légèrement élevé en contraste).</li>
+                <li><strong>Grille visuelle:</strong> Alternance Reels/Carousel/Stories pour variation. Cadrage serré et aéré alternativement.</li>
+                <li><strong>Ratio posts:</strong> 40% Reels | 30% Carousel | 20% Stories | 10% Singles</li>
+            </ul>
+        </section>
+
+        <!-- CONTENT PILLARS -->
+        <section id="pilliers">
+            <h2>2. 4 Pilliers de Contenu</h2>
+
+            <p style="margin-bottom: 2rem;">Une stratégie multi-pilier assure la diversité, la rétention, et l'engagement des prospects B2B.</p>
+
+            <div class="pillars-grid">
+                <div class="pillar">
+                    <span class="pillar-emoji">🎬</span>
+                    <h4>Moment Mirage</h4>
+                    <p><strong>Objectif:</strong> Révéler le contraste fruit/dessert</p>
+                    <p style="margin-top: 0.8rem; font-size: 0.9rem;">Videos de coupe, ASMR, reaction faces à la révélation. Viral & storytelling émotionnel. <strong>40% du contenu</strong></p>
+                </div>
+
+                <div class="pillar">
+                    <span class="pillar-emoji">🍽️</span>
+                    <h4>Chez Nos Partenaires</h4>
+                    <p><strong>Objectif:</strong> Preuve sociale B2B</p>
+                    <p style="margin-top: 0.8rem; font-size: 0.9rem;">UGC de restaurants, bakeries, snacks. Clients qui repostent. Testimonials visuels. <strong>30% du contenu</strong></p>
+                </div>
+
+                <div class="pillar">
+                    <span class="pillar-emoji">🔨</span>
+                    <h4>Coulisses Atelier</h4>
+                    <p><strong>Objectif:</strong> Humaniser la marque</p>
+                    <p style="margin-top: 0.8rem; font-size: 0.9rem;">Process, fabrication, équipe, raw footage. Authenticity & craft. <strong>20% du contenu</strong></p>
+                </div>
+
+                <div class="pillar">
+                    <span class="pillar-emoji">📊</span>
+                    <h4>Résultats Business</h4>
+                    <p><strong>Objectif:</strong> Conversion prospects</p>
+                    <p style="margin-top: 0.8rem; font-size: 0.9rem;">Stats, testimonials texte, offres, CTA, case studies. Direct response. <strong>10% du contenu</strong></p>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDITORIAL CALENDAR -->
+        <section id="calendrier">
+            <h2>3. Calendrier Éditorial 30 Jours</h2>
+
+            <p style="margin-bottom: 1.5rem;">Plan d'action jour par jour pour 30 jours. Ajustable et cyclique (répéter chaque mois).</p>
+
+            <h3>Conventions</h3>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><span class="post-type">Reel</span> = Video court (15-60sec)</li>
+                <li><span class="post-type">Carousel</span> = 3-5 slides</li>
+                <li><span class="post-type">Single</span> = 1 image</li>
+                <li><span class="post-type">Story</span> = 1-3 stories (pas sur le feed principal)</li>
+            </ul>
+
+            <table class="calendar-table">
+                <thead>
+                    <tr>
+                        <th>Jour</th>
+                        <th>Type</th>
+                        <th>Pilier</th>
+                        <th>Concept</th>
+                        <th>Template Caption</th>
+                        <th>Hashtags</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="day-label">J1</td>
+                        <td><span class="post-type">Reel</span></td>
+                        <td>Moment Mirage</td>
+                        <td>Coupe fraise trompe-l'oeil (ASMR knife sounds)</td>
+                        <td>"Le moment où tout bascule 🍓✨ Découvrez le secret qui rend vos clients accros. #MomentMirage"</td>
+                        <td>#MomentMirage #TrompeL'oeil #DessertLab</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J2</td>
+                        <td><span class="post-type">Carousel</span></td>
+                        <td>Coulisses Atelier</td>
+                        <td>5 étapes de création (macro + process)</td>
+                        <td>"De la pâte au magic 🎨 Chaque détail compte. Comment on crée la révélation parfaite..."</td>
+                        <td>#CoulissesAtelier #Pastry #Handmade</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J3</td>
+                        <td><span class="post-type">Story</span></td>
+                        <td>Chez Nos Partenaires</td>
+                        <td>Behind-the-scenes préparation livraison</td>
+                        <td>[Sticker question] Qui gouterait en premier?</td>
+                        <td>N/A (Stories)</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J4</td>
+                        <td><span class="post-type">Single</span></td>
+                        <td>Résultats Business</td>
+                        <td>Photo produit en plateau (3-4 fruits, stylisé)</td>
+                        <td>"5€/pièce en gros. Marges garanties. Parlez-en à vos clients. 🎯 DM pour tarifs partenaire."</td>
+                        <td>#B2B #Wholesale #Marseille</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J5</td>
+                        <td><span class="post-type">Reel</span></td>
+                        <td>Moment Mirage</td>
+                        <td>Reaction video (tasting, cutting moment)</td>
+                        <td>"Ce qu'on aime chez Atelier Mirage? Les faces de vos clients quand ils découvrent. Vous êtes team sucre ou team surprise? 😂"</td>
+                        <td>#MomentMirage #FoodReaction #Dessert</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J6</td>
+                        <td><span class="post-type">Story</span></td>
+                        <td>Chez Nos Partenaires</td>
+                        <td>Poll: "Quel goût pour le prochain batch?"</td>
+                        <td>[Sticker Poll] Pistachio? Framboise?</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J7</td>
+                        <td><span class="post-type">Carousel</span></td>
+                        <td>Chez Nos Partenaires</td>
+                        <td>Client spotlight (3 restaurants utilisant Atelier Mirage)</td>
+                        <td>"Nos partenaires, nos héros 🌟 Voyez comment [Restaurant X] a intégré Moment Mirage à leur menu..."</td>
+                        <td>#PartenaireAtelier #LocalLove #Marseille</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J8</td>
+                        <td><span class="post-type">Reel</span></td>
+                        <td>Moment Mirage</td>
+                        <td>Time-lapse création (sped up, music, 30sec)</td>
+                        <td>"60 secondes pour créer une révélation magique ✨🍓 Comment on crée le buzz parfait..."</td>
+                        <td>#TimeLapse #DessertArt #Atelier</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J9</td>
+                        <td><span class="post-type">Single</span></td>
+                        <td>Coulisses Atelier</td>
+                        <td>Portrait artisan/chef (noir & blanc ou or)</td>
+                        <td>"Les mains derrière la magie 👐 Rencontrez [Name], pastry artist chez Atelier Mirage..."</td>
+                        <td>#Artisan #Chef #Marseille</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J10</td>
+                        <td><span class="post-type">Story</span></td>
+                        <td>Résultats Business</td>
+                        <td>Testimonial texte (client quote)</td>
+                        <td>[Text sticker] "Atelier Mirage booste notre taux de reprise de 40%!" - Restaurant X</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J11</td>
+                        <td><span class="post-type">Reel</span></td>
+                        <td>Moment Mirage</td>
+                        <td>Macro detail shot (couteau traverse fruit, gros plan textures)</td>
+                        <td>"Un moment de pure perfection 🎬 Le détail fait la différence. Pourquoi vos clients adorent?"</td>
+                        <td>#MacroFood #Detail #PerfectionIn</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J12</td>
+                        <td><span class="post-type">Carousel</span></td>
+                        <td>Coulisses Atelier</td>
+                        <td>Evolution produit (ancienne version → nouvelle version)</td>
+                        <td>"On n'arrête jamais d'améliorer 🔧 Voyez comment on a affiné le secret. Version 2.0 du Moment Mirage!"</td>
+                        <td>#Evolution #Innovation #Dessert</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J13</td>
+                        <td><span class="post-type">Single</span></td>
+                        <td>Chez Nos Partenaires</td>
+                        <td>UGC repost (client photo, avec permission)</td>
+                        <td>"Merci @[client_handle] pour cette photo! 📸 Vos clients filent comme vous aussi avec le Moment Mirage?"</td>
+                        <td>#UGC #PartenaireContent #Repost</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J14</td>
+                        <td><span class="post-type">Story</span></td>
+                        <td>Résultats Business</td>
+                        <td>Promo spéciale (10% off commandes 50+ pièces)</td>
+                        <td>[Countdown sticker] 48h pour bénéficier de l'offre spéciale. DM pour détails!</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J15</td>
+                        <td><span class="post-type">Reel</span></td>
+                        <td>Moment Mirage</td>
+                        <td>Rapid montage (coupe, réaction face, bouchée) - musique dynamique</td>
+                        <td>"Moment Mirage en 15 secondes 🎬 Vous sentez la tension? #MomentMirage"</td>
+                        <td>#MomentMirage #QuickWin #Viral</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J16</td>
+                        <td><span class="post-type">Carousel</span></td>
+                        <td>Résultats Business</td>
+                        <td>Case study visuel (avant/après menu d'un client)</td>
+                        <td>"De + ventes à ++ visibilité 📈 Voyez comment l'ajout du Moment Mirage a transformé..."</td>
+                        <td>#CaseStudy #ROI #Business</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J17</td>
+                        <td><span class="post-type">Story</span></td>
+                        <td>Coulisses Atelier</td>
+                        <td>Commande en cours (peek at production line)</td>
+                        <td>[Video] Production du jour! 100+ pièces pour livraison mercredi.</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J18</td>
+                        <td><span class="post-type">Single</span></td>
+                        <td>Moment Mirage</td>
+                        <td>Overhead plating (3-4 fruits, ready to serve)</td>
+                        <td>"Prêt à révéler 🍽️ Comment vous servez le Moment Mirage à votre bar/restau?"</td>
+                        <td>#PlatingInspo #Foodstagram #Dessert</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J19</td>
+                        <td><span class="post-type">Reel</span></td>
+                        <td>Chez Nos Partenaires</td>
+                        <td>Client testimonial video (10-15 sec, chef/owner parlant)</td>
+                        <td>"Parlons franchement: comment le Moment Mirage a changé le jeu 🎯 Interview [Partner Name]"</td>
+                        <td>#Testimonial #Partner #Interview</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J20</td>
+                        <td><span class="post-type">Story</span></td>
+                        <td>Résultats Business</td>
+                        <td>Question sticker (Engagement ask)</td>
+                        <td>[Sticker] "Quel fruit voulez-vous voir en version Moment Mirage?"</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J21</td>
+                        <td><span class="post-type">Carousel</span></td>
+                        <td>Coulisses Atelier</td>
+                        <td>Spotlight matériel/ingrédients (sourcing, qualité)</td>
+                        <td>"On utilise que le meilleur 🌾 Découvrez nos partenaires en ingrédients et comment on garantit la qualité..."</td>
+                        <td>#Quality #Ingredients #Local</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J22</td>
+                        <td><span class="post-type">Reel</span></td>
+                        <td>Moment Mirage</td>
+                        <td>Slow-motion knife through (cinematic, ASMR)</td>
+                        <td>"La satisfaction visuelle du Moment Mirage 😍 Quel est votre partie préférée?"</td>
+                        <td>#ASMR #SlowMo #Satisfying</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J23</td>
+                        <td><span class="post-type">Single</span></td>
+                        <td>Chez Nos Partenaires</td>
+                        <td>Collab visual (2 partner logos + fruit combo)</td>
+                        <td>"Partenariat magique 🤝 Retrouvez le Moment Mirage chez [Partner 1] et [Partner 2]..."</td>
+                        <td>#Collab #Partenariat #Distribution</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J24</td>
+                        <td><span class="post-type">Story</span></td>
+                        <td>Moment Mirage</td>
+                        <td>Behind-the-scenes tasting session</td>
+                        <td>[Video] Tasting panel du nouveau goût! Qui gagne?</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J25</td>
+                        <td><span class="post-type">Reel</span></td>
+                        <td>Résultats Business</td>
+                        <td>Stats/metrics visual (motion graphics, 15 sec)</td>
+                        <td>"Les chiffres parlent 📊 X restaurants, Y clients touchés, Z Moments Mirage révélés ce mois. Vous serez le prochain?"</td>
+                        <td>#Metrics #Growth #Success</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J26</td>
+                        <td><span class="post-type">Carousel</span></td>
+                        <td>Moment Mirage</td>
+                        <td>Variation flavors (4-5 slides, une fraise par saveur)</td>
+                        <td>"Au menu ce mois 🍓 Fraise, Pistachio, Framboise, Rose... Laquelle vous tente?"</td>
+                        <td>#Menu #Flavors #Variety</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J27</td>
+                        <td><span class="post-type">Single</span></td>
+                        <td>Coulisses Atelier</td>
+                        <td>Workspace/atelier shot (moody, artistic)</td>
+                        <td>"L'endroit où la magie opère 🎨 Bienvenue à l'Atelier Mirage. Marseille, France 🇫🇷"</td>
+                        <td>#Atelier #Workspace #Marseille</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J28</td>
+                        <td><span class="post-type">Story</span></td>
+                        <td>Résultats Business</td>
+                        <td>Promo/CTA forte (limited time offer)</td>
+                        <td>[Button] "Demander un échantillon" → contact info</td>
+                        <td>N/A</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J29</td>
+                        <td><span class="post-type">Reel</span></td>
+                        <td>Chez Nos Partenaires</td>
+                        <td>Partner montage (3-4 restaurants quick clips)</td>
+                        <td>"Où retrouver le Moment Mirage ce weekend 📍 Suivez la carte de nos partenaires..."</td>
+                        <td>#PartnerList #Wheretoeat #Marseille</td>
+                    </tr>
+                    <tr>
+                        <td class="day-label">J30</td>
+                        <td><span class="post-type">Carousel</span></td>
+                        <td>Résultats Business</td>
+                        <td>Month wrap-up + highlights recap</td>
+                        <td>"Récap' du mois 🏆 Merci à tous nos partenaires. Prêts pour le mois prochain? #MomentMirage"</td>
+                        <td>#Recap #Monthly #MomentMirage</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 2.5rem;">Fréquence de Publication</h3>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>Feed posts (Reel + Carousel + Single):</strong> 5-6x par semaine (lundi-samedi)</li>
+                <li><strong>Stories:</strong> Quotidiennement (2-3x par jour)</li>
+                <li><strong>Meilleure heure de publication:</strong> 18h-20h (apéro/dinner time)</li>
+                <li><strong>Meilleurs jours:</strong> Mercredi-vendredi (engagement peak), dimanche (planning)</li>
+            </ul>
+        </section>
+
+        <!-- REELS STRATEGY -->
+        <section id="reels">
+            <h2>4. Stratégie Reels Top 5 Formats</h2>
+
+            <p style="margin-bottom: 2rem;">Les Reels sont la priorité absolue. 60% du budget création doit aller aux Reels. Voici les 5 formats qui cartonneront pour Atelier Mirage:</p>
+
+            <div class="reels-grid">
+                <div class="reel-item">
+                    <h4>Format 1: Cutting Fruit Reveal</h4>
+                    <p><strong>Description:</strong> Gros plan d'une fraise trompe-l'oeil, couteau coupe lentement, révélation du dessert à l'intérieur. ASMR ou musique crescendo.</p>
+                    <p><strong>Durée:</strong> <span class="duration">15-30 secondes</span></p>
+                    <p><strong>Engagement:</strong> ⭐⭐⭐⭐⭐ (Viral potentiel max) - Satisfying, curiosity-driven, shockable moment</p>
+                    <p><strong>Hook:</strong> "Attendez la fin 🍓" ou "C'est pas ce que vous pensez..."</p>
+                    <p><strong>Music suggestions:</strong> Dramatic orchestral sting, or ASMR knife sounds (no music)</p>
+                    <p><strong>Fréquence:</strong> 3x par semaine minimum</p>
+                </div>
+
+                <div class="reel-item">
+                    <h4>Format 2: ASMR Unboxing/Tasting</h4>
+                    <p><strong>Description:</strong> Boîte Atelier Mirage s'ouvre, fraises arrangées, couteau coupe, fourchette pique, bouchée, reaction face close-up. Ambiance spa/asmr.</p>
+                    <p><strong>Durée:</strong> <span class="duration">30-45 secondes</span></p>
+                    <p><strong>Engagement:</strong> ⭐⭐⭐⭐ (Hypnotic, repeat-watch-worthy) - ASMR audiencе adores this format</p>
+                    <p><strong>Hook:</strong> "Qui a faim? 🤤" ou "L'unboxing qui apaise 🧘"</p>
+                    <p><strong>Music suggestions:</strong> Lo-fi ASMR, binaural sounds, or ambient electronic</p>
+                    <p><strong>Fréquence:</strong> 2x par semaine</p>
+                </div>
+
+                <div class="reel-item">
+                    <h4>Format 3: Time-Lapse Fabrication</h4>
+                    <p><strong>Description:</strong> Process complet en 30 sec (malaxage → moulage → décor → emballage). Sped up 4-8x. Musique dynamique, pouvez montrer craftsmanship.</p>
+                    <p><strong>Durée:</strong> <span class="duration">20-30 secondes</span></p>
+                    <p><strong>Engagement:</strong> ⭐⭐⭐⭐ (Educational, build brand trust) - People love seeing the magic behind</p>
+                    <p><strong>Hook:</strong> "60 secondes pour créer la magie ✨" ou "Le process secret"</p>
+                    <p><strong>Music suggestions:</strong> Upbeat indie, synthwave, or motivational soundtrack</p>
+                    <p><strong>Fréquence:</strong> 2x par semaine</p>
+                </div>
+
+                <div class="reel-item">
+                    <h4>Format 4: Reaction Videos</h4>
+                    <p><strong>Description:</strong> Split-screen ou montage: Vos équipe + Partner reactions quand ils découvrent le dessert. Genuine shock/joy faces. 3-4 cut reactions rapides.</p>
+                    <p><strong>Durée:</strong> <span class="duration">15-30 secondes</span></p>
+                    <p><strong>Engagement:</strong> ⭐⭐⭐⭐⭐ (Human connection, relatability) - Audiences love seeing real emotions</p>
+                    <p><strong>Hook:</strong> "Regardez ses faces 😂" ou "Real reactions to Moment Mirage"</p>
+                    <p><strong>Music suggestions:</strong> Trending audio, funny/dramatic music, or no music (let reactions speak)</p>
+                    <p><strong>Fréquence:</strong> 2-3x par semaine</p>
+                </div>
+
+                <div class="reel-item">
+                    <h4>Format 5: Before/After Kitchen</h4>
+                    <p><strong>Description:</strong> Split-screen: Avant (fraise normale) vs Après (fraise révélée, dessert visible). Simple visual transformation avec text overlay "Before/After le secret".</p>
+                    <p><strong>Durée:</strong> <span class="duration">10-20 secondes</span></p>
+                    <p><strong>Engagement:</strong> ⭐⭐⭐⭐ (Contrast-driven, shareable) - Transformation content always performs</p>
+                    <p><strong>Hook:</strong> "Swipe pour voir la transformation 👉" ou "Avant/Après le Moment Mirage"</p>
+                    <p><strong>Music suggestions:</strong> Dramatic transition sound, or trending audio</p>
+                    <p><strong>Fréquence:</strong> 1-2x par semaine</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2rem;">Production Schedule Reels</h3>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>Batch production:</strong> Tournez 3-4 Reels en une seule session (15-20 min de setup, 30 min de tournage)</li>
+                <li><strong>Equipment minimal:</strong> Smartphone (iPhone 14+) + ring light + tripod. Budget: 200€ once-and-done</li>
+                <li><strong>Editing:</strong> Reels app (native) ou CapCut (gratis). 5-10 min per Reel.</li>
+                <li><strong>Stockage:</strong> Gardez un bank de 15-20 Reels pré-produits. Postez sélectivement selon le calendrier.</li>
+            </ul>
+
+            <h3>Viral Triggers for Reels</h3>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>Curiosity gap:</strong> "Attendez la fin" - Le public veut découvrir le secret</li>
+                <li><strong>ASMR satisfaction:</strong> Sons des couteaux, mastication, crunch → hypnotic</li>
+                <li><strong>Genuine emotion:</strong> Vraies réactions de choc/joie, pas fake</li>
+                <li><strong>Contrast:</strong> Fraise normale ↔ Dessert révélé = Visual shock</li>
+                <li><strong>Speed variations:</strong> Slow-mo cuts + fast-paced montage = Dynamic viewing</li>
+            </ul>
+        </section>
+
+        <!-- HASHTAG STRATEGY -->
+        <section id="hashtags">
+            <h2>5. Stratégie Hashtags Complet</h2>
+
+            <p style="margin-bottom: 2rem;">Stratégie en 3 tiers: Branded (5), Niche (15), Local (10), Broad (10). Total: ~40 hashtags par post.</p>
+
+            <h3>Tier 1: Branded Hashtags (5)</h3>
+            <div class="hashtag-category">
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">Ces hashtags créent un moat autour de votre marque et sont toujours inclus:</p>
+                <div class="hashtag-list">
+                    <span class="hashtag">#MomentMirage</span>
+                    <span class="hashtag">#AtelierMirage</span>
+                    <span class="hashtag">#TrompeL'oeil</span>
+                    <span class="hashtag">#DessertLab</span>
+                    <span class="hashtag">#L'ArtDuDessert</span>
+                </div>
+            </div>
+
+            <h3>Tier 2: Niche Hashtags (15)</h3>
+            <div class="hashtag-category">
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">Ciblent les pastry chefs, food creators, et food lovers francophones:</p>
+                <div class="hashtag-list">
+                    <span class="hashtag">#PastryArt</span>
+                    <span class="hashtag">#DessertInnovation</span>
+                    <span class="hashtag">#FoodTiktok</span>
+                    <span class="hashtag">#FoodAsmr</span>
+                    <span class="hashtag">#FoodCreators</span>
+                    <span class="hashtag">#BakeryLife</span>
+                    <span class="hashtag">#PastryChef</span>
+                    <span class="hashtag">#DessertPorn</span>
+                    <span class="hashtag">#FoodInstagram</span>
+                    <span class="hashtag">#CulinaryArt</span>
+                    <span class="hashtag">#FineFood</span>
+                    <span class="hashtag">#GourmetDessert</span>
+                    <span class="hashtag">#FoodPhotography</span>
+                    <span class="hashtag">#FoodStyling</span>
+                    <span class="hashtag">#CreativeFood</span>
+                </div>
+            </div>
+
+            <h3>Tier 3: Local Hashtags (10)</h3>
+            <div class="hashtag-category">
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">Ciblent la région Marseille/PACA et les restaurants locaux:</p>
+                <div class="hashtag-list">
+                    <span class="hashtag">#Marseille</span>
+                    <span class="hashtag">#MarseilleFood</span>
+                    <span class="hashtag">#ExploreMarseille</span>
+                    <span class="hashtag">#MarseilleFoodies</span>
+                    <span class="hashtag">#PACA</span>
+                    <span class="hashtag">#SouthOfFrance</span>
+                    <span class="hashtag">#RestaurantMarseille</span>
+                    <span class="hashtag">#LocalBusiness</span>
+                    <span class="hashtag">#SupportLocal</span>
+                    <span class="hashtag">#MadeInMarseille</span>
+                </div>
+            </div>
+
+            <h3>Tier 4: Broad Hashtags (10)</h3>
+            <div class="hashtag-category">
+                <p style="font-size: 0.95rem; margin-bottom: 1rem;">High-volume, viral potential (use sparingly on top posts):</p>
+                <div class="hashtag-list">
+                    <span class="hashtag">#FoodTrending</span>
+                    <span class="hashtag">#FoodTok</span>
+                    <span class="hashtag">#Satisfying</span>
+                    <span class="hashtag">#SatisfyingVideos</span>
+                    <span class="hashtag">#Viral</span>
+                    <span class="hashtag">#Trending</span>
+                    <span class="hashtag">#SmallBusiness</span>
+                    <span class="hashtag">#SupportSmallBiz</span>
+                    <span class="hashtag">#WholesaleFood</span>
+                    <span class="hashtag">#B2B</span>
+                </div>
+            </div>
+
+            <h3>Hashtag Deployment Strategy</h3>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>Always include:</strong> All 5 Branded tags (builds brand equity)</li>
+                <li><strong>Reels (top priority):</strong> 5 Branded + 8-10 Niche + 5-7 Broad = 18-22 total (high reach play)</li>
+                <li><strong>Carousel:</strong> 5 Branded + 10 Niche + 5 Local = 20 total (specific audience targeting)</li>
+                <li><strong>Single photo:</strong> 5 Branded + 6 Niche + 5 Local = 16 total (balance)</li>
+                <li><strong>Instagram limit:</strong> Max 30 hashtags, mais 18-25 est optimal (trop de hashtags = spammy)</li>
+                <li><strong>Hashtag placement:</strong> First comment (not caption) pour cleaner aesthetic</li>
+            </ul>
+
+            <h3>Hashtag Monitoring</h3>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>Monthly audit:</strong> Check which hashtags drive most engagement (Instagram Insights)</li>
+                <li><strong>Rotate underperformers:</strong> Si un hashtag ne performe pas, remplacez-le</li>
+                <li><strong>Track #MomentMirage:</strong> Encourage UGC tagging with this hashtag (community building)</li>
+                <li><strong>Watch trending:</strong> Ajoutez hashtags trending locaux (ex: #VillaMediteranee si exposition populaire)</li>
+            </ul>
+        </section>
+
+        <!-- PROSPECTION DM -->
+        <section id="prospection">
+            <h2>6. DM Prospection: 3 Templates Chauds</h2>
+
+            <p style="margin-bottom: 2rem;">Les DMs froids ne marchent pas. Ces templates sont "warm" — ils commencent par rapport genuine ou value add. Envoyez après avoir engagé avec le contenu du prospect.</p>
+
+            <h3>Template 1: Restaurant/Fine Dining</h3>
+            <p style="font-size: 0.9rem; color: var(--gold); margin-bottom: 1rem;"><strong>Quand l'utiliser:</strong> Restaurants 50+ couverts, avec plats sophistiqués, mention desserts premium</p>
+            <div class="dm-template">
+                <h4>Message DM</h4>
+                <div class="dm-content">Salut [First Name]! 👋
+
+J'ai vu votre dernière création [plat/menu item] — c'est du craft sérieux.
+
+On crée des trompe-l'oeil desserts hyper impactants (fruits qui cachent un dessert à l'intérieur). Clients filmez avant de manger = contenu gratuit + buzz.
+
+On fourni déjà [2-3 restaurants locaux connus]. Intéressé par une dégustation sans engagement?
+
+@ateliermirage.marseille
+
+À bientôt!</div>
+            </div>
+
+            <h3>Template 2: Bakery/Pastry Shop</h3>
+            <p style="font-size: 0.9rem; color: var(--gold); margin-bottom: 1rem;"><strong>Quand l'utiliser:</strong> Boulangeries, pâtisseries indépendantes, avec focus sur quality</p>
+            <div class="dm-template">
+                <h4>Message DM</h4>
+                <div class="dm-content">Coucou [Name]! 🍓
+
+Votre vitrine desserts est dingue — on voit que vous priorisez la qualité.
+
+On fabrique des fruits trompe-l'oeil (pâtisserie dedans). C'est un best-seller pour les pâtisseries qui veulent du différent + des marges saines.
+
+5€/pièce en gros. Vos clients vont les filmer et parler de vous (marketing organic).
+
+Ça vous dit un échantillon gratuit pour goûter?
+
+DM pour détails 👈
+
+Merci!</div>
+            </div>
+
+            <h3>Template 3: Concept Store/Snack Bar</h3>
+            <p style="font-size: 0.9rem; color: var(--gold); margin-bottom: 1rem;"><strong>Quand l'utiliser:</strong> Concept stores, snack bars, coffee shops, lieux instagrammables</p>
+            <div class="dm-template">
+                <h4>Message DM</h4>
+                <div class="dm-content">Hey [Name]! ✨
+
+Votre spot respire l'innovation (votre vibe sur [detail du lieu] m'a parlé).
+
+Question rapide: vos clients filment leurs commandes avant de manger?
+
+Si oui — on a un produit fait pour vous. Trompe-l'oeil desserts ultra-photogéniques. On appelle ça le "Moment Mirage" (le moment ils découvrent le secret).
+
+Intéressé d'en parler? Je peux passer avec un échantillon jeudi/vendredi.
+
+@ateliermirage.marseille</div>
+            </div>
+
+            <h3>Prospection Workflow</h3>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>Step 1 (Day 1):</strong> Follow prospect's account, like 3-5 recent posts (genuine engagement)</li>
+                <li><strong>Step 2 (Day 2-3):</strong> Envoyez le DM template adapté à leur niche</li>
+                <li><strong>Step 3 (Day 5-7):</strong> Si pas de réponse, follow-up léger: "Au cas où vous l'auriez manqué — courte dégustation jeudi?"</li>
+                <li><strong>Step 4 (Day 10+):</strong> Move on, try another prospect. Ne pas harceler.</li>
+                <li><strong>Cadence:</strong> 10-15 DMs par semaine (manageable, pas spam)</li>
+                <li><strong>Taux de conversion réaliste:</strong> 5-10% de réponses positives (3-4 rendezvous/mois = 1 partenariat)</li>
+            </ul>
+
+            <h3>Variantes de Suivi</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 1rem;">Après envoi du DM initial, si silence:</p>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li>"Hé [Name], juste pour vérifier — vous avez reçu mon message? Pas de pression, promis 😊"</li>
+                <li>Ou un DM plus court: "Pensez à nous si vous cherchez un coup de boost dessert! 🍓"</li>
+                <li>Ou laisser tomber et revenez dans 3 mois (ils se souviendront de votre approche respectueuse)</li>
+            </ul>
+        </section>
+
+        <!-- UGC STRATEGY -->
+        <section id="ugc">
+            <h2>7. Stratégie UGC: Faire Créer Vos Partenaires</h2>
+
+            <p style="margin-bottom: 2rem;">Le meilleur contenu vient de vos partenaires (restaurateurs, pâtissiers). Voici comment les encourager à créer + tagger Atelier Mirage.</p>
+
+            <div class="ugc-steps" style="counter-reset: step-counter;">
+                <div class="ugc-step">
+                    <h4>Créez un Brief Visuel Simple</h4>
+                    <p>Envoyez à chaque nouveau partenaire un PDF avec: 3-4 styles de photos (ASMR, service en assiette, coupe détail) + exemples de hashtags #MomentMirage #AtelierMirage. Make it easy pour eux.</p>
+                </div>
+
+                <div class="ugc-step">
+                    <h4>Offrez Réductions/Incentives</h4>
+                    <p>Exemple: "Créez 2 posts/mois taggant Atelier Mirage = 10% de réduction sur votre commande". Économie + engagement partagé.</p>
+                </div>
+
+                <div class="ugc-step">
+                    <h4>Feature Their Content Weekly</h4>
+                    <p>Chaque mercredi: repostez le meilleur UGC partner avec "@[partner] utilise Moment Mirage et vos clients adorent! 🌟". Ils adorent la visibilité, vous adorez le contenu gratuit.</p>
+                </div>
+
+                <div class="ugc-step">
+                    <h4>Crée un Hashtag Community</h4>
+                    <p>#MomentMirage = hub où partners et customers postent leurs reveals. Monthly prize: "Best Moment Mirage of the month" wins [free dessert box / discount]. Gamification = engagement.</p>
+                </div>
+
+                <div class="ugc-step">
+                    <h4>Share Their Content Sur Stories</h4>
+                    <p>Post UGC partner en Story daily (tag them). Ils sentent l'amour, followers voient "live proof" que restaurants utilisent vous. Win-win-win.</p>
+                </div>
+
+                <div class="ugc-step">
+                    <h4>Request Video Testimonials</h4>
+                    <p>Once par trimestre: "Hey [partner], pouviez-vous filmer 30sec disant comment Atelier Mirage a aidé votre menu/ventes?" 80% vont dire oui si vous ask nicely.</p>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2.5rem;">UGC Content Types à Encourager</h3>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>Coupe Reveal:</strong> Partner cuts Moment Mirage on camera (ASMR gold)</li>
+                <li><strong>Plating Shot:</strong> Final presentation in their restaurant/bakery setting</li>
+                <li><strong>Customer Reaction:</strong> Clip of actual customer's face when they taste/see the reveal</li>
+                <li><strong>Menu Feature:</strong> Photo de votre fruit dans leur menu board/Instagram grid</li>
+                <li><strong>Testimonial Video:</strong> Partner talks about impact on business/customers</li>
+                <li><strong>Behind-the-Scenes:</strong> How they store/prepare Moment Mirage in their kitchen</li>
+            </ul>
+
+            <h3>Template Briefing Document à Envoyer aux Partners</h3>
+            <p style="font-size: 0.9rem; background: var(--cream); padding: 1rem; border-left: 4px solid var(--gold); border-radius: 4px;">
+                <strong>Subject:</strong> "Créez du contenu ensemble — on crée la magie, vous filmez" 📸<br><br>
+                Salut [Partner Name],<br><br>
+                On adore travailler avec vous, et vos clients adorent le Moment Mirage. Pourquoi pas créer du contenu ensemble?<br><br>
+                📱 <strong>Ideas simples</strong> (5-10 min cada):<br>
+                1. Slow-mo knife cutting through fruit (close-up)<br>
+                2. Plating shot (fruit on plate/board)<br>
+                3. Quick testimonial ("Why we love Atelier Mirage")<br>
+                4. Customer reaction video (genuine)<br><br>
+                📸 <strong>Tagging:</strong> Always tag @ateliermirage.marseille + use #MomentMirage<br>
+                🎁 <strong>Bonus:</strong> Every 2 posts = 10% off next order + feature on our page<br><br>
+                Facile? Envoyez vos meilleures vidéos en DM! Merci 🙏<br><br>
+                Atelier Mirage Team
+            </p>
+        </section>
+
+        <!-- KPI DASHBOARD -->
+        <section id="kpi">
+            <h2>8. KPI Dashboard: Métriques Hebdomadaires</h2>
+
+            <p style="margin-bottom: 2rem;">Suivez ces 10 KPIs chaque semaine (lundi matin). Instagram Insights native est suffisant (gratuit).</p>
+
+            <h3>Weekly Metrics à Tracker</h3>
+            <table class="metrics-table">
+                <thead>
+                    <tr>
+                        <th>KPI</th>
+                        <th>Objectif Hebdo</th>
+                        <th>Comment Mesurer</th>
+                        <th>Insight/Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Reach</strong></td>
+                        <td>3,000-5,000</td>
+                        <td>Instagram Insights → Posts → Total Reach</td>
+                        <td>Si < 2,000: hashtags underperforming ou timing mauvais. Test différente heure.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Impressions</strong></td>
+                        <td>8,000-12,000</td>
+                        <td>Instagram Insights → Posts → Impressions</td>
+                        <td>Higher impressions = algorithm showing your content. Bon signe.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Engagement Rate</strong></td>
+                        <td>5-8%</td>
+                        <td>(Total Likes + Comments + Saves) / Impressions × 100</td>
+                        <td>Si < 3%: content résonne pas. Analyze top performers et replicate.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Follower Growth</strong></td>
+                        <td>+50-100/week</td>
+                        <td>Total followers (prev week vs this week)</td>
+                        <td>Si plateau: boost with Reels strategy. Follower growth = audience expansion.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Clicks to Bio Link</strong></td>
+                        <td>20-50</td>
+                        <td>Instagram Insights → Website Clicks</td>
+                        <td>Track in Stories link or Bio. Mesure if CTA working (DM contact link).</td>
+                    </tr>
+                    <tr>
+                        <td><strong>DM Response Rate</strong></td>
+                        <td>5-10 new inquiries</td>
+                        <td>Manual count: DM from prospects NOT in your network</td>
+                        <td>High quality metric. Prospects interested in partnership = priority.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Reel Views</strong></td>
+                        <td>5,000-10,000 per Reel</td>
+                        <td>Instagram Insights → Reels → Views per Reel</td>
+                        <td>Reels should outperform Carousel/Singles by 3-5x. If not, format needs tweak.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Story Completion Rate</strong></td>
+                        <td>50-60%</td>
+                        <td>Instagram Insights → Stories → Replies/Views</td>
+                        <td>Si < 40%: story cadence too high or content boring. Trim or sharpen angle.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Saves (Bookmarks)</strong></td>
+                        <td>50-100 per week</td>
+                        <td>Instagram Insights → Posts → Saves</td>
+                        <td>High saves = content perceived as valuable. Recipe for rewatch/reshare.</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Partner Mentions</strong></td>
+                        <td>10-15 new tags/mentions</td>
+                        <td>Manual: check who tagged @ateliermirage.marseille or #MomentMirage</td>
+                        <td>UGC & community growth. Highest trust signal. Repost to amplify.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 2.5rem;">Monthly KPI Review (End of Month)</h3>
+
+            <div class="kpi-grid">
+                <div class="kpi-box">
+                    <div class="kpi-label">Followers Acquired</div>
+                    <div class="kpi-value">200-400</div>
+                    <div class="kpi-description">Goal: 200+ net new followers/month. If below, increase Reel volume or sharability.</div>
+                </div>
+
+                <div class="kpi-box">
+                    <div class="kpi-label">New Partnership Leads</div>
+                    <div class="kpi-value">5-10</div>
+                    <div class="kpi-description">Goal: 5+ serious leads via DM or website. Conversion: 20-30% close rate.</div>
+                </div>
+
+                <div class="kpi-box">
+                    <div class="kpi-label">Avg Engagement %</div>
+                    <div class="kpi-value">5-8%</div>
+                    <div class="kpi-description">Higher than industry avg (2-3%). Shows strong audience alignment.</div>
+                </div>
+
+                <div class="kpi-box">
+                    <div class="kpi-label">UGC Content Pieces</div>
+                    <div class="kpi-value">15-25</div>
+                    <div class="kpi-description">Partner-created content. Goal: repost 3-4/week (free content + social proof).</div>
+                </div>
+            </div>
+
+            <h3 style="margin-top: 2.5rem;">Dashboard Setup (Simple Spreadsheet)</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">Create a simple Google Sheet with tabs:</p>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>Tab 1 - Weekly Stats:</strong> Date | Followers | Reach | Impressions | Engagement % | DMs | Top Post</li>
+                <li><strong>Tab 2 - Monthly Summary:</strong> Month | Follower Growth | Total Reach | Total Engagement | Leads Generated | Revenue Attributed</li>
+                <li><strong>Tab 3 - Content Performance:</strong> Post Date | Type | Caption | Hashtags | Views | Likes | Comments | Saves | Notes</li>
+                <li><strong>Tab 4 - Partner Tracking:</strong> Partner Name | First Contact | Status | Posts Created | Tags/Mentions | Revenue</li>
+            </ul>
+
+            <h3>Budget Allocation Recommendation</h3>
+            <p style="font-size: 0.95rem; margin-bottom: 1.5rem;">Votre budget mensuel: <strong>500-1,500€</strong>. Voici l'allocation proposée:</p>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>Content Creation (40%):</strong> 200-600€ — Freelance videographer (2 shoots/month) ou smartphone + lighting upgrade</li>
+                <li><strong>Instagram Ads (30%):</strong> 150-450€ — Boost top 3-4 Reels + lead generation ads</li>
+                <li><strong>UGC Incentives (20%):</strong> 100-300€ — Discounts for partner content creation</li>
+                <li><strong>Tools/Management (10%):</strong> 50-150€ — Later.com (scheduling) + stat tracking</li>
+            </ul>
+
+            <h3 style="margin-top: 2rem;">When to Pivot/Adjust Strategy</h3>
+            <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 1.8;">
+                <li><strong>If DMs < 3/week:</strong> Increase CTA visibility, add "DM for sample" to captions</li>
+                <li><strong>If Engagement Rate drops:</strong> Analyze top 5 posts of past month, replicate format/topic</li>
+                <li><strong>If Reach plateaus:</strong> Experiment with new Reel format or posting time</li>
+                <li><strong>If UGC content drops:</strong> Send friendly reminder emails to partners, offer incentive boost</li>
+                <li><strong>If Ad ROI < 3:1:</strong> Cut underperforming ad sets, double down on winners</li>
+            </ul>
+        </section>
+
+        <!-- SUCCESS METRICS -->
+        <section>
+            <h2>Success Criteria: Objectifs 3 Mois</h2>
+
+            <p style="margin-bottom: 2rem;">Voici les métriques qui indiquent votre stratégie Instagram cartonne:</p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <div style="background: var(--cream); padding: 1.5rem; border-left: 4px solid var(--gold); border-radius: 4px;">
+                    <h4 style="color: var(--ink); margin-bottom: 1rem;">Métriques Community</h4>
+                    <ul style="font-size: 0.95rem; line-height: 1.8;">
+                        <li>✓ 1,000+ followers</li>
+                        <li>✓ 5-8% engagement rate</li>
+                        <li>✓ 20+ UGC pieces created by partners</li>
+                        <li>✓ 10-15 Reels with 5k+ views each</li>
+                    </ul>
+                </div>
+
+                <div style="background: var(--cream); padding: 1.5rem; border-left: 4px solid var(--gold); border-radius: 4px;">
+                    <h4 style="color: var(--ink); margin-bottom: 1rem;">Métriques Business</h4>
+                    <ul style="font-size: 0.95rem; line-height: 1.8;">
+                        <li>✓ 15-20 qualified B2B leads</li>
+                        <li>✓ 5-8 new partnerships closed</li>
+                        <li>✓ 100+ units sold via Instagram leads</li>
+                        <li>✓ 3+ case study testimonials (video)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUICK START CHECKLIST -->
+        <section>
+            <h2>Quick Start: Checklist Premières 2 Semaines</h2>
+
+            <p style="margin-bottom: 2rem;">Voici l'ordre exact pour lancer votre stratégie Instagram:</p>
+
+            <div style="background: var(--cream); padding: 2rem; border-radius: 8px;">
+                <h4 style="color: var(--gold); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">Semaine 1</h4>
+                <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 2;">
+                    <li><input type="checkbox"> Setup profil Instagram: handle, bio, photo profil, highlights</li>
+                    <li><input type="checkbox"> Create 5 Moment Mirage Reels (use phone + ring light)</li>
+                    <li><input type="checkbox"> Create 3 Behind-the-Scenes Carousels (process photos)</li>
+                    <li><input type="checkbox"> Setup Google Sheet KPI tracker</li>
+                    <li><input type="checkbox"> Research + list 20 restaurant prospects (Marseille area)</li>
+                </ul>
+
+                <h4 style="color: var(--gold); margin-top: 2rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">Semaine 2</h4>
+                <ul style="margin-left: 1.5rem; font-size: 0.95rem; line-height: 2;">
+                    <li><input type="checkbox"> Publish 5 feed posts (follow 30-day calendar)</li>
+                    <li><input type="checkbox"> Daily Stories (2-3/day, behind-scenes or CTAs)</li>
+                    <li><input type="checkbox"> Start DM prospection (10-15 targeted restaurants)</li>
+                    <li><input type="checkbox"> Send UGC brief to first partners (if acquired)</li>
+                    <li><input type="checkbox"> Analyze first week's metrics, note top performers</li>
+                    <li><input type="checkbox"> Book 1-2 DM meetings/tastings</li>
+                </ul>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <h3>Atelier Mirage</h3>
+        <p><strong>L'art du dessert</strong> — Trompe-l'oeil dessert laboratory</p>
+        <p>Marseille, France</p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.8;">
+            Document créé pour stratégie Instagram B2B<br>
+            Budget: 500-1,500€/mois | Cible: Restaurants, Bakeries, Concept Stores<br>
+            #MomentMirage — Le dessert que vos clients filment avant de manger
+        </p>
+    </footer>
+
+    <div class="back-to-top" id="backToTop">↑</div>
+
+    <script>
+        // Back to top button
+        const backToTopBtn = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('show');
+            } else {
+                backToTopBtn.classList.remove('show');
+            }
+        });
+
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+
+        // Print optimization
+        window.addEventListener('beforeprint', () => {
+            document.querySelectorAll('input[type="checkbox"]').forEach(cb => {
+                cb.disabled = true;
+            });
+        });
+    </script>
+</body>
+</html>

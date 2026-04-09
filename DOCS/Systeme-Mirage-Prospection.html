@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Système Mirage - Prospection Atelier Mirage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cream: #FAF5EF;
+            --ink: #1A1714;
+            --gold: #A8895C;
+            --gold-light: #C9AA7C;
+            --error: #D85252;
+            --success: #6B8B3E;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--cream);
+            color: var(--ink);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            color: var(--ink);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            border-bottom: 3px solid var(--gold);
+            padding-bottom: 0.8rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        h4 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        /* STICKY NAV */
+        nav.sticky {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: var(--ink);
+            color: var(--cream);
+            padding: 0.8rem 2rem;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav.sticky .logo {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--gold-light);
+        }
+
+        nav.sticky ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav.sticky a {
+            color: var(--cream);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+        }
+
+        nav.sticky a:hover {
+            color: var(--gold-light);
+        }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, var(--ink) 0%, #2d2620 100%);
+            color: var(--cream);
+            padding: 8rem 2rem 6rem;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            color: var(--gold-light);
+            margin-bottom: 0.5rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .hero .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .stat-card {
+            background: rgba(200, 170, 124, 0.1);
+            border: 2px solid var(--gold-light);
+            padding: 1.5rem;
+            border-radius: 4px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            color: var(--gold-light);
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* MAIN LAYOUT */
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        /* STEP CARDS */
+        .steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .step-card {
+            background: white;
+            border-left: 5px solid var(--gold);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .step-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+        }
+
+        .step-number {
+            display: inline-block;
+            background: var(--gold);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .step-card h4 {
+            margin-top: 0;
+        }
+
+        .step-card p {
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .step-card ul {
+            margin: 1rem 0 0 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        .step-card li {
+            margin-bottom: 0.5rem;
+            line-height: 1.6;
+        }
+
+        /* SCRIPTS SECTION */
+        .scripts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .script-box {
+            background: #fafaf8;
+            border: 1px solid #e8e3d8;
+            border-radius: 4px;
+            padding: 1.5rem;
+            overflow: hidden;
+        }
+
+        .script-box h4 {
+            color: var(--gold);
+            margin-bottom: 1rem;
+        }
+
+        .script-content {
+            background: white;
+            padding: 1rem;
+            border-radius: 2px;
+            border-left: 3px solid var(--gold-light);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.6;
+            overflow-x: auto;
+            margin-bottom: 1rem;
+        }
+
+        .script-content code {
+            display: block;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+
+        .script-note {
+            background: #fff9f5;
+            border-left: 3px solid var(--error);
+            padding: 0.8rem;
+            font-size: 0.85rem;
+            margin-top: 0.8rem;
+        }
+
+        /* OBJECTIONS */
+        .objections {
+            display: grid;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .objection-item {
+            background: white;
+            border: 1px solid #e8e3d8;
+            border-radius: 4px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        .objection-header {
+            background: linear-gradient(90deg, #fff5ef 0%, #f5efeb 100%);
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e8e3d8;
+        }
+
+        .objection-header:hover {
+            background: linear-gradient(90deg, #ffead8 0%, #f5e8e0 100%);
+        }
+
+        .objection-title {
+            font-weight: 600;
+            color: var(--ink);
+            font-size: 1rem;
+        }
+
+        .objection-toggle {
+            color: var(--gold);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .objection-content {
+            padding: 1.5rem;
+            display: none;
+        }
+
+        .objection-content.open {
+            display: block;
+        }
+
+        .objection-problem {
+            font-weight: 600;
+            color: var(--error);
+            margin-bottom: 0.5rem;
+        }
+
+        .objection-response {
+            background: #f5faf2;
+            border-left: 3px solid var(--success);
+            padding: 1rem;
+            margin-top: 0.8rem;
+            font-size: 0.95rem;
+            border-radius: 2px;
+        }
+
+        /* FICHE PROSPECT */
+        .fiche-template {
+            background: white;
+            border: 2px solid var(--gold);
+            padding: 2rem;
+            margin: 2rem 0;
+            page-break-inside: avoid;
+            border-radius: 4px;
+        }
+
+        .fiche-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 1rem;
+        }
+
+        .fiche-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .fiche-field {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fiche-label {
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 0.85rem;
+            margin-bottom: 0.4rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .fiche-input {
+            border: 1px solid #ddd;
+            padding: 0.6rem;
+            background: #fafaf8;
+            font-size: 0.9rem;
+            border-radius: 2px;
+            min-height: 28px;
+        }
+
+        .fiche-full {
+            grid-column: 1 / -1;
+        }
+
+        .fiche-status {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid #e8e3d8;
+        }
+
+        .status-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+        }
+
+        .status-option input[type="radio"] {
+            cursor: pointer;
+        }
+
+        /* TABLEAU SUIVI */
+        .tableau-suivi {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            background: white;
+            border: 1px solid var(--gold);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .tableau-suivi th {
+            background: var(--ink);
+            color: var(--cream);
+            padding: 1rem;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .tableau-suivi td {
+            padding: 1rem;
+            border-bottom: 1px solid #e8e3d8;
+        }
+
+        .tableau-suivi tr:hover {
+            background: #fafaf8;
+        }
+
+        .tableau-suivi tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* REFERRAL PROGRAM */
+        .referral-card {
+            background: linear-gradient(135deg, var(--ink) 0%, #2d2620 100%);
+            color: var(--cream);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 2rem 0;
+            text-align: center;
+            border: 2px dashed var(--gold-light);
+            page-break-inside: avoid;
+        }
+
+        .referral-card h3 {
+            color: var(--gold-light);
+            font-size: 2rem;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .referral-offer {
+            font-size: 1.1rem;
+            margin: 1rem 0;
+            background: rgba(200, 170, 124, 0.2);
+            padding: 1rem;
+            border-radius: 4px;
+        }
+
+        .referral-contact {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+
+        /* ZONES */
+        .zones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .zone-card {
+            background: white;
+            border: 2px solid var(--gold-light);
+            padding: 2rem;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+        }
+
+        .zone-number {
+            display: inline-block;
+            background: var(--gold-light);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .zone-card h4 {
+            margin-top: 0;
+            color: var(--ink);
+        }
+
+        .zone-priority {
+            font-weight: 600;
+            color: var(--gold);
+            font-size: 0.85rem;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+        }
+
+        /* KIT DEGUSTSTATION */
+        .kit-checklist {
+            background: white;
+            border: 1px solid #e8e3d8;
+            border-radius: 4px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .kit-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #f5f0eb;
+        }
+
+        .kit-item:last-child {
+            border-bottom: none;
+        }
+
+        .kit-checkbox {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--gold);
+            border-radius: 3px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .kit-checkbox:hover {
+            background: #f5f0eb;
+        }
+
+        .kit-item input[type="checkbox"] {
+            display: none;
+        }
+
+        .kit-text {
+            flex: 1;
+            font-size: 0.95rem;
+        }
+
+        /* UTILITY CLASSES */
+        .highlight {
+            background: #fffaed;
+            border-left: 4px solid var(--gold);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .highlight-title {
+            font-weight: 700;
+            color: var(--ink);
+            margin-bottom: 0.5rem;
+        }
+
+        .highlight p {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .warning {
+            background: #fff5f5;
+            border-left: 4px solid var(--error);
+            padding: 1.5rem;
+            border-radius: 4px;
+            margin: 1.5rem 0;
+        }
+
+        .warning-title {
+            font-weight: 700;
+            color: var(--error);
+            margin-bottom: 0.5rem;
+        }
+
+        .success-badge {
+            display: inline-block;
+            background: var(--success);
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            margin: 0.2rem;
+        }
+
+        .contact-block {
+            background: linear-gradient(135deg, var(--ink) 0%, #2d2620 100%);
+            color: var(--cream);
+            padding: 2rem;
+            border-radius: 4px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-block h3 {
+            color: var(--gold-light);
+            margin-top: 0;
+        }
+
+        .contact-item {
+            margin: 1rem 0;
+            font-size: 1.1rem;
+        }
+
+        .contact-item strong {
+            color: var(--gold-light);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--ink);
+            color: var(--cream);
+            text-align: center;
+            padding: 3rem 2rem;
+            margin-top: 5rem;
+            border-top: 3px solid var(--gold);
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        footer .footer-highlight {
+            color: var(--gold-light);
+            font-weight: 600;
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            nav.sticky {
+                display: none;
+            }
+
+            body {
+                background: white;
+            }
+
+            section {
+                page-break-inside: avoid;
+                page-break-after: auto;
+            }
+
+            .step-card, .zone-card, .script-box {
+                page-break-inside: avoid;
+            }
+
+            a {
+                color: var(--ink);
+                text-decoration: none;
+            }
+        }
+
+        /* MOBILE RESPONSIVE */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            nav.sticky {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav.sticky ul {
+                gap: 1rem;
+                font-size: 0.85rem;
+            }
+
+            .hero {
+                padding: 5rem 1.5rem 3rem;
+                margin-top: 120px;
+            }
+
+            .steps, .zones-grid, .scripts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fiche-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .fiche-full {
+                grid-column: 1;
+            }
+
+            .fiche-status {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            main {
+                padding: 2rem 1rem;
+            }
+
+            .step-card, .zone-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* PRINT FRIENDLY */
+        @page {
+            size: A4;
+            margin: 1cm;
+        }
+    </style>
+</head>
+<body>
+    <!-- STICKY NAVIGATION -->
+    <nav class="sticky">
+        <div class="logo">⚜️ MIRAGE</div>
+        <ul>
+            <li><a href="#process">Process</a></li>
+            <li><a href="#scripts">Scripts</a></li>
+            <li><a href="#fiche">Fiche</a></li>
+            <li><a href="#tableau">Tableau</a></li>
+            <li><a href="#referral">Réseau</a></li>
+            <li><a href="#zones">Zones</a></li>
+            <li><a href="#kit">Kit</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>LE SYSTÈME MIRAGE</h1>
+        <p class="subtitle">L'art du dessert trompe-l'oeil</p>
+        <p style="font-size: 1.1rem; margin-bottom: 2rem;">Manuel complet de prospection pour conquérir Marseille en 6 mois</p>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-number">~10</div>
+                <div class="stat-label">Partenaires actuels</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">25</div>
+                <div class="stat-label">Objectif (6 mois)</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">100%</div>
+                <div class="stat-label">Taux de renouvellement</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">80+</div>
+                <div class="stat-label">Pièces/semaine (top partner)</div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <!-- SECTION 1: LE PROCESS EN 5 ÉTAPES -->
+        <section id="process">
+            <h2>Le Process en 5 Étapes</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">Suivez cette roadmap éprouvée de la découverte à la signature. Pas de détours. Pas de fioriture. Du résultat.</p>
+
+            <div class="steps">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h4>Cartographie</h4>
+                    <p>Construisez votre liste de prospects méthodiquement :</p>
+                    <ul>
+                        <li><strong>Google Maps :</strong> "Restaurants Marseille", "Pâtisserie Marseille", "Concept Store Marseille" — noter adresse, téléphone, email quand disponible</li>
+                        <li><strong>Instagram :</strong> Chercher #marseille + secteur (ex: #restaurantmarseille, #boulangeriemarseille) — classer par zone</li>
+                        <li><strong>À pied :</strong> Parcourir les zones prioritaires, identifier les vitrines, les points de desserts visibles</li>
+                        <li><strong>Spreadsheet :</strong> Noter nom, adresse, contact, Instagram handle, zone — le document est votre bible</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h4>Warm-up Digital</h4>
+                    <p>Rendez-vous visible sans vendre. Durée : 1 semaine avant le contact.</p>
+                    <ul>
+                        <li><strong>Suivre :</strong> Chaque prospect identifié sur Instagram — ne pas commenter tout d'un coup</li>
+                        <li><strong>Engager :</strong> Liker 2-3 posts (pas toujours les plus récents, montrer qu'on regarde vraiment)</li>
+                        <li><strong>Observer :</strong> Voir comment ils partagent leurs produits, leurs clients, leur style</li>
+                        <li><strong>Attendre :</strong> 7 jours. Puis le DM. L'algorithme aura noté qu'on existe.</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h4>Prise de Contact</h4>
+                    <p>3 canaux, en cascarde. Priorisez selon le prospect.</p>
+                    <ul>
+                        <li><strong>Ordre :</strong> DM Instagram → WhatsApp → Visite directe</li>
+                        <li><strong>DM :</strong> Court, personnel, spécifique (voir templates plus bas)</li>
+                        <li><strong>WhatsApp :</strong> Si pas de réponse en 2 jours — toujours plus percutant qu'un DM Instagram</li>
+                        <li><strong>Visite :</strong> Si pas de réponse en 3 jours. Le cold-call masqué : présentez-vous en personne</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <h4>Dégustation Terrain</h4>
+                    <p>C'est le moment. Venez avec le kit parfait, la présentation fluide, la confiance.</p>
+                    <ul>
+                        <li><strong>Timing :</strong> 14h-15h ou 17h-18h (éviter le rush)</li>
+                        <li><strong>Personne :</strong> Chercher le gérant/le pâtissier, pas la caisse</li>
+                        <li><strong>Pitch :</strong> 30 secondes max (voir script plus bas)</li>
+                        <li><strong>Dégustation :</strong> Laisser goûter. Écouter la réaction. Ne pas parler.</li>
+                        <li><strong>Offre :</strong> Présentez le deal — "Première livraison gratuite. Payez après avoir vendu."</li>
+                    </ul>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">5</div>
+                    <h4>Relance & Closing</h4>
+                    <p>La patience systématique. Les "peut-être" deviennent des "oui".</p>
+                    <ul>
+                        <li><strong>Jour 1 :</strong> Message de remerciement (même day, 1h après)</li>
+                        <li><strong>Jour 4 :</strong> Premier relance douce ("Comment ça s'est vendu ?") — si oui, passer à l'étape 6 (onboarding)</li>
+                        <li><strong>Jour 10 :</strong> Deuxième relance — proposer une nouvelle dégustation ou une nouvelle saveur</li>
+                        <li><strong>Jour 21 :</strong> Test — proposer une livraison test sans engagement</li>
+                        <li><strong>Au-delà :</strong> Monthly check-in, propositions nouvelles saveurs, référral ask</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <div class="highlight-title">✓ La Règle d'Or</div>
+                <p>Pas de prospect oublié. Chaque "non, merci" devient un "peut-être plus tard". Et "plus tard" est dans 3 mois. Vous appelez de nouveau. Parce qu'entre-temps, leur pâtissier a peut-être arrêté. Ou le client demande du nouveau. Vous êtes systématique. C'est votre arme.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2: SCRIPTS & TEMPLATES -->
+        <section id="scripts">
+            <h2>Scripts & Templates</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">Prêts à copier-coller. Adaptez le prénom/établissement. C'est tout.</p>
+
+            <h3>📱 Templates Instagram DM</h3>
+
+            <div class="scripts-grid">
+                <div class="script-box">
+                    <h4>Pour Restaurants</h4>
+                    <div class="script-content"><code>Yo [Prénom],
+
+Je crée des desserts trompe-l'oeil depuis Marseille — genre que le client regarde deux fois avant de manger.
+
+J'ai vu votre assiette minimaliste et je pense que ça irait bien. Dégustation free, après vous payez si ça vend.
+
+Disponible [jour] ou [jour]?
+
+Karim
++33759540410</code></div>
+                    <div class="script-note">Α NE PAS DIRE : "Je viens vous présenter mes produits" — trop formel. Trop lourd.</div>
+                </div>
+
+                <div class="script-box">
+                    <h4>Pour Pâtisseries / Boulangeries</h4>
+                    <div class="script-content"><code>[Prénom],
+
+C'est l'occasion d'ajouter une ligne de produits qui vend sans effort.
+
+J'envoie une sélection de 5 pièces. Vous les vérifiez, vous les aimez (ou pas).
+
+Si oui → C'est gratuit pour la première livraison.
+
+On en parle?
+
+Karim
++33759540410</code></div>
+                    <div class="script-note">Astuce : les pâtissiers veulent pas apprendre — ils veulent juste ajouter du chiffre.</div>
+                </div>
+
+                <div class="script-box">
+                    <h4>Pour Concept Stores / Lounges</h4>
+                    <div class="script-content"><code>[Prénom],
+
+Vous cherchez un produit qui crée de la conversation en salle?
+
+J'ai exactement ça — desserts qui donnent l'impression que c'est un mini-art.
+
+5 minutes, une dégustation, et vous décidez.
+
+Quand êtes-vous là?
+
+Karim
++33759540410</code></div>
+                    <div class="script-note">Ces lieux achètent l'expérience. Montrez que vous créez de la magie.</div>
+                </div>
+            </div>
+
+            <h3>📲 Templates WhatsApp</h3>
+
+            <div class="scripts-grid">
+                <div class="script-box">
+                    <h4>Premier Contact</h4>
+                    <div class="script-content"><code>Yo [Prénom] 👋
+
+C'est Karim d'Atelier Mirage.
+
+Vos desserts, je pense que vous les cherchez pas au mauvais endroit, mais vous pouvez les améliorer de 30% en 2 semaines.
+
+Je passe demain?
+
+Merci,
+Karim</code></div>
+                    <div class="script-note">Court. Direct. Pas de "Bonjour". Pas de "Je me permets". Pas de palabres.</div>
+                </div>
+
+                <div class="script-box">
+                    <h4>Post-Dégustation (Suivi Immédiat)</h4>
+                    <div class="script-content"><code>Salut [Prénom],
+
+Merci pour ce moment.
+
+J'ai bien vu que tu as trouvé ça cool (ou tu as trouvé un truc à améliorer lol).
+
+Première livraison, c'est gratuit. Deuxième, c'est 5€ la pièce, tu me paies après la vente.
+
+On lance?</code></div>
+                    <div class="script-note">Léger. Confident. Vous avez de l'énergie, pas du doute.</div>
+                </div>
+
+                <div class="script-box">
+                    <h4>Demande de Parrainage</h4>
+                    <div class="script-content"><code>[Prénom],
+
+Ça marche bien avec vous.
+
+Y a un restau / bar / pâtisserie que tu connais qui aurait les mêmes clients qu'ici?
+
+Je les envoie une dégustation, je leur dis que c'est toi qui m'as chaud dessus — et vous recevez une livraison gratuite tous les deux.
+
+Qui je dois appeler?</code></div>
+                    <div class="script-note">Les clients heureux c'est votre source #1 de nouveaux clients.</div>
+                </div>
+            </div>
+
+            <h3>📧 Template Email (Hôtels / Établissements Formels)</h3>
+
+            <div class="script-box" style="grid-column: 1 / -1;">
+                <h4>Pour les Établissements Haut de Gamme</h4>
+                <div class="script-content"><code>Madame, Monsieur [Nom],
+
+Atelier Mirage propose une ligne de desserts trompe-l'oeil, réalisés artisanalement, livrés prêts à servir 6 jours par semaine à Marseille.
+
+Nos partenaires actuels incluent [noms de 2-3 établissements locaux si possible].
+
+Nos modèles :
+— Dégustation gratuite (aucun engagement)
+— Livraison gratuite première commande
+— Paiement après la vente uniquement
+— Remplacement gratuit si endommagé
+
+Disponibilités de rendez-vous : [dates précises]
+
+Cordialement,
+Karim Farid
+Founder, Atelier Mirage
++33759540410
+WhatsApp Business: même numéro</code></div>
+                <div class="script-note">Professionnel mais pas ennuyeux. Chiffres. Processus clair.</div>
+            </div>
+
+            <h3>🎤 Cold Visit Opening Script (30 secondes)</h3>
+
+            <div class="highlight">
+                <div class="highlight-title">À dire en entrant</div>
+                <p><strong>"Bonjour, je suis Karim d'Atelier Mirage. Je crée des desserts trompe-l'oeil et je pense que ça collera bien avec votre concept. Vous avez 5 minutes pour une dégustation? Pas d'engagement, aucun paperasse — juste pour voir si c'est votre truc."</strong></p>
+                <p style="margin-top: 1rem; font-size: 0.9rem;"><em>Puis : fermer ta gueule et attend la réaction. Le silence, ça vend. Pas le bavardage.</em></p>
+            </div>
+
+            <h3>🚫 Guide Objections & Réponses</h3>
+
+            <div class="objections">
+                <div class="objection-item">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"C'est trop cher à 5€"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-problem">Pourquoi c'est dit :</div>
+                        <p>Réflexe de coût. Pas de compréhension de la marge.</p>
+                        <div class="objection-response">
+                            <strong>Votre réponse :</strong><br>
+                            "En fait, vous les vendez combien chez vous? [Écouter]. OK donc à 12€, t'as 60% de marge. C'est mieux qu'une pâtisserie classique, non? Et en plus c'est toi qui vends, pas moi. Une pièce = une vente assurée parce que c'est nouveau."<br><br>
+                            <strong>Si ça marche pas :</strong><br>
+                            "Première livraison, on essaie sans engagement. Si ça ne se vend pas, on arrête."
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"On a déjà un pâtissier/on fait nos propres desserts"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-problem">Pourquoi c'est dit :</div>
+                        <p>Ils ont un processus établi. Peur du changement.</p>
+                        <div class="objection-response">
+                            <strong>Votre réponse :</strong><br>
+                            "Je comprends. Vous gardez vos desserts. Moi je viens juste vous ajouter une ligne qui n'existe que chez vous. Ça ne remplace rien, ça ajoute juste une option pour les clients qui cherchent quelque chose de différent. Genre un plus."<br><br>
+                            <strong>L'angle :</strong> Vous ne menacez pas. Vous complétez. C'est la clé.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"C'est juste du gimmick, ça va passer"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-problem">Pourquoi c'est dit :</div>
+                        <p>Ils pensent que c'est une tendance. Pas un produit durable.</p>
+                        <div class="objection-response">
+                            <strong>Votre réponse :</strong><br>
+                            "Peut-être, mais en attendant, c'est vos clients qui achètent. Vous avez des partenaires qui en achètent 80+ par semaine depuis [durée]. Ce n'est plus un gimmick, c'est un produit. Et vous, vous êtes en retard."<br><br>
+                            <strong>Ou, plus soft :</strong><br>
+                            "Première commande c'est gratuit. Si ça ne marche pas, zéro risque. Si ça marche, vous remercierez plus tard."
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"Faut que je parle à [patron/chef/directeur]"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-problem">Pourquoi c'est dit :</div>
+                        <p>Pas d'autonomie décisionnelle. Peut-être du désintérêt masqué.</p>
+                        <div class="objection-response">
+                            <strong>Votre réponse :</strong><br>
+                            "Parfait. Il est là maintenant? Je fais la dégustation avec lui du coup. C'est plus rapide que de rapporter."<br><br>
+                            <strong>Si pas dispo :</strong><br>
+                            "D'accord. Il est là quand? Je repass[e] [jour] vers [heure], ça vous convient?"<br><br>
+                            <strong>Ne pas :</strong> Laisser votre dégustation sans témoin. Vous reviendrez.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objection-item">
+                    <div class="objection-header" onclick="toggleObjection(this)">
+                        <span class="objection-title">"Il faut que je réfléchisse"</span>
+                        <span class="objection-toggle">+</span>
+                    </div>
+                    <div class="objection-content">
+                        <div class="objection-problem">Pourquoi c'est dit :</div>
+                        <p>Code pour "non" souvent. Ou vraiment une décision à peser.</p>
+                        <div class="objection-response">
+                            <strong>Votre réponse :</strong><br>
+                            "Bien sûr. De quoi tu dois réfléchir? De la marge? Du goût? De la logistique?"<br><br>
+                            <strong>Puis :</strong> Adressez le point spécifique ou proposez une dégustation test.<br><br>
+                            <strong>Point clé :</strong> Dans 3 jours, relancer. "Ça avance ta réflexion?" Si oui, passez à l'action. Si non, attendez 10 jours et relancez. Les gens disent non, puis changent d'avis.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: FICHE PROSPECT -->
+        <section id="fiche">
+            <h2>Fiche Prospect</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">À imprimer ou remplir numérique. Un prospect = une fiche. À jour = succès garantis.</p>
+
+            <div class="fiche-template">
+                <div class="fiche-header">
+                    <h3 style="margin: 0; color: var(--gold);">FICHE PROSPECT</h3>
+                    <p style="margin: 0.5rem 0 0 0; font-size: 0.9rem; opacity: 0.8;">Atelier Mirage - Marseille</p>
+                </div>
+
+                <div class="fiche-grid">
+                    <div class="fiche-field">
+                        <span class="fiche-label">Établissement</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field">
+                        <span class="fiche-label">Type</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field">
+                        <span class="fiche-label">Contact (nom)</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field">
+                        <span class="fiche-label">Téléphone</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field">
+                        <span class="fiche-label">Email</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field">
+                        <span class="fiche-label">Instagram Handle</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field">
+                        <span class="fiche-label">Adresse</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field">
+                        <span class="fiche-label">Zone Marseille</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field fiche-full">
+                        <span class="fiche-label">Date 1er Contact</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field fiche-full">
+                        <span class="fiche-label">Canal Contact (DM / WhatsApp / Visite)</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field fiche-full">
+                        <span class="fiche-label">Date Dégustation</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field fiche-full">
+                        <span class="fiche-label">Réaction Dégustation</span>
+                        <div class="fiche-input" contenteditable="true"></div>
+                    </div>
+
+                    <div class="fiche-field fiche-full">
+                        <span class="fiche-label">Notes / Objections / Points clés</span>
+                        <div class="fiche-input" contenteditable="true" style="min-height: 80px;"></div>
+                    </div>
+                </div>
+
+                <div class="fiche-status">
+                    <div class="status-option">
+                        <input type="radio" name="status" id="s1" value="prospect">
+                        <label for="s1">Prospect</label>
+                    </div>
+                    <div class="status-option">
+                        <input type="radio" name="status" id="s2" value="contact">
+                        <label for="s2">Contacté</label>
+                    </div>
+                    <div class="status-option">
+                        <input type="radio" name="status" id="s3" value="tasting">
+                        <label for="s3">Dégustation OK</label>
+                    </div>
+                    <div class="status-option">
+                        <input type="radio" name="status" id="s4" value="client">
+                        <label for="s4">Client</label>
+                    </div>
+                </div>
+
+                <div style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #e8e3d8; text-align: center; font-size: 0.85rem; color: #999;">
+                    <p>Prochaine action : __________________ | Date prévue : __________________</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: TABLEAU DE SUIVI -->
+        <section id="tableau">
+            <h2>Tableau de Suivi Hebdomadaire</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">À remplir tous les lundis. C'est votre feedback loop. Ça vous dit si vous progressez.</p>
+
+            <div style="overflow-x: auto;">
+                <table class="tableau-suivi">
+                    <thead>
+                        <tr>
+                            <th>Semaine du</th>
+                            <th>Nouveaux Prospects Identifiés</th>
+                            <th>Premiers Contacts (DM/WhatsApp)</th>
+                            <th>Dégustations Réalisées</th>
+                            <th>Conversions (Nouveaux Clients)</th>
+                            <th>Relances en Cours</th>
+                            <th>Demandes de Parrainage</th>
+                            <th>Notes</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                        <tr>
+                            <td contenteditable="true"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true" style="text-align: center;"></td>
+                            <td contenteditable="true"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="highlight" style="margin-top: 2rem;">
+                <div class="highlight-title">📊 Objectif par Semaine (pour atteindre 25 partenaires en 6 mois)</div>
+                <p><strong>Semaines 1-4 :</strong> 15-20 prospects identifiés/semaine | 8-10 contacts | 3-4 dégustations | 1-2 conversions</p>
+                <p><strong>Semaines 5-12 :</strong> 10-15 prospects identifiés/semaine | 6-8 contacts | 2-3 dégustations | 1-2 conversions (+ relances anciennes)</p>
+                <p><strong>Semaines 13-26 :</strong> 5-10 prospects identifiés/semaine | 4-6 contacts | 2-3 dégustations | 1 conversion (+ parrainage, + fidélisation)</p>
+            </div>
+        </section>
+
+        <!-- SECTION 5: RÉSEAU MIRAGE -->
+        <section id="referral">
+            <h2>Programme de Parrainage "Réseau Mirage"</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">Vos clients actuels sont votre meilleure force de vente. Activez-les.</p>
+
+            <div class="referral-card">
+                <h3>Réseau Mirage</h3>
+                <p style="margin: 0.5rem 0;">Programme de Parrainage</p>
+                <div class="referral-offer">
+                    Recommandez un établissement → Vous recevez une livraison gratuite<br>
+                    <strong style="font-size: 1.15rem;">(Valeur 50-100€)</strong>
+                </div>
+                <div class="referral-contact">
+                    Dites-nous le nom, on les appelle, on vous remercie.
+                </div>
+            </div>
+
+            <h3>Comment Activer le Parrainage</h3>
+
+            <div class="highlight">
+                <div class="highlight-title">Moment idéal</div>
+                <p>Après la 3ème livraison réussie, quand c'est devenu une routine pour eux et que vous voyez que ça se vend bien.</p>
+            </div>
+
+            <h4>Script d'Activation (WhatsApp)</h4>
+            <div class="script-content" style="max-width: 100%; margin: 1.5rem 0;"><code>Yo [Prénom],
+
+Ça marche super bien chez vous. Vos clients les adorent.
+
+Y a un endroit (resto, café, bar, pâtisserie) que tu fréquentes ou que tu connais bien où tu penses qu'ils aimeraient?
+
+Je les envoie une dégustation, je dis que c'est toi qui m'as chaud dessus — et vous recevez une livraison gratuite (genre 50-100€) tous les deux.
+
+Gagnant-gagnant. Intéressé?</code></div>
+
+            <h4>Conception Carte de Parrainage Physique</h4>
+            <div class="fiche-template" style="max-width: 600px;">
+                <div style="text-align: center; padding: 2rem;">
+                    <h4 style="margin-top: 0; color: var(--gold);">VOUS CONNAISSEZ UN BON SPOT?</h4>
+                    <p style="font-size: 0.9rem; margin: 1rem 0;">Dites-le à Karim.</p>
+                    <div style="background: var(--ink); color: var(--cream); padding: 1.5rem; border-radius: 4px; margin: 1.5rem 0;">
+                        <p style="margin: 0.5rem 0;"><strong>VOUS GAGNEZ</strong></p>
+                        <p style="margin: 0 0 1rem 0; font-size: 1.1rem; color: var(--gold-light);">1 Livraison Gratuite</p>
+                        <p style="margin: 0.5rem 0; opacity: 0.9; font-size: 0.85rem;">Valeur 50-100€</p>
+                    </div>
+                    <p style="font-size: 0.9rem; margin-bottom: 1rem;"><strong>Contactez Karim :</strong></p>
+                    <p style="font-size: 1.1rem; margin: 0.5rem 0;">+33 7 59 54 04 10</p>
+                    <p style="font-size: 0.8rem; opacity: 0.7;">WhatsApp: même numéro</p>
+                </div>
+            </div>
+
+            <p style="margin-top: 2rem; font-style: italic; opacity: 0.8;">Design concept: À imprimer en petit format (10x15cm) et à laisser sur les tables ou le comptoir de vos clients.</p>
+
+            <div class="warning" style="margin-top: 2rem;">
+                <div class="warning-title">Tracking Parrainage</div>
+                <p>À chaque parrainage qui convertit :</p>
+                <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                    <li>Noter le nom du parrain et du filleul</li>
+                    <li>Créer une "dette" gratuite pour le parrain</li>
+                    <li>Créditer la livraison gratuite à la prochaine commande</li>
+                    <li>Envoyer un message de remerciement (WhatsApp) — montrer que c'est documenté</li>
+                </ul>
+            </div>
+
+            <h3>Cadence</h3>
+            <p>Demander un parrainage tous les 4-6 semaines à chaque client stable. Ne pas harceler. Ça doit être naturel.</p>
+        </section>
+
+        <!-- SECTION 6: ZONAGE MARSEILLE -->
+        <section id="zones">
+            <h2>Zonage Marseille - Priorités de Prospection</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">Commencez par Zone 1. Puis Zone 2. Puis seulement alors les autres. C'est la densité qui compte.</p>
+
+            <div class="zones-grid">
+                <div class="zone-card">
+                    <div class="zone-number">ZONE 1 — TOP PRIORITÉ</div>
+                    <h4>Vieux-Port / Opéra / Cours Julien</h4>
+                    <div class="zone-priority">Densité: ★★★★★ | Impact: ★★★★★</div>
+                    <p><strong>Pourquoi d'abord :</strong> Concentration maximale. Restaurants tendance. Bonne densité Instagram. Clients paient.</p>
+                    <p><strong>À cibler :</strong> Restaurants gastronomiques, concept stores, lounges, bars à tapas, pâtisseries haut de gamme</p>
+                    <p><strong>Estimation :</strong> 50-80 établissements pertinents</p>
+                    <p style="margin-top: 1rem; background: #fffaed; padding: 1rem; border-radius: 2px;"><strong>Tactique :</strong> Marche à pied Vieux-Port jusqu'à Cours Julien 2x par semaine. DM Instagram + visite directe en même temps.</p>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-number">ZONE 2 — HAUTE PRIORITÉ</div>
+                    <h4>Joliette / Euromed / La Major</h4>
+                    <div class="zone-priority">Densité: ★★★★☆ | Impact: ★★★★☆</div>
+                    <p><strong>Pourquoi ensuite :</strong> Quartier business. Hôtels. Restaurants d'affaires. Clients de passage = chiffre stable.</p>
+                    <p><strong>À cibler :</strong> Hôtels, restaurants business, brasseries, galeries, salons</p>
+                    <p><strong>Estimation :</strong> 30-50 établissements pertinents</p>
+                    <p style="margin-top: 1rem; background: #fffaed; padding: 1rem; border-radius: 2px;"><strong>Tactique :</strong> Prospection une fois bien établi en Zone 1. Emails formels + appels directs.</p>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-number">ZONE 3 — PRIORITÉ MOYENNE</div>
+                    <h4>Prado / Castellane / Préfecture</h4>
+                    <div class="zone-priority">Densité: ★★★☆☆ | Impact: ★★★★☆</div>
+                    <p><strong>Pourquoi plus tard :</strong> Quartier résidentiel haut standing. Clients riches mais moins concentrés.</p>
+                    <p><strong>À cibler :</strong> Petits restaurants chics, bars de luxe, pâtisseries premium, salon de thé haut de gamme</p>
+                    <p><strong>Estimation :</strong> 20-35 établissements pertinents</p>
+                    <p style="margin-top: 1rem; background: #fffaed; padding: 1rem; border-radius: 2px;"><strong>Tactique :</strong> Prospection dans les 2 derniers mois du plan. Focus sur dégustation + relation personnelle.</p>
+                </div>
+
+                <div class="zone-card">
+                    <div class="zone-number">ZONE 4 — BONUS</div>
+                    <h4>Plan de Cuques / Allauch / Marignane</h4>
+                    <div class="zone-priority">Densité: ★★☆☆☆ | Impact: ★★★☆☆</div>
+                    <p><strong>Pourquoi dernier :</strong> Moins concentré. Plus éloigné. Moins de compétition mais aussi moins de chiffre par établissement.</p>
+                    <p><strong>À cibler :</strong> Snacks, petits restaurants de quartier, pâtisseries locales, bars de voisinage</p>
+                    <p><strong>Estimation :</strong> 20-30 établissements pertinents</p>
+                    <p style="margin-top: 1rem; background: #fffaed; padding: 1rem; border-radius: 2px;"><strong>Tactique :</strong> Prospection bonus si vous avez du temps. Pas prioritaire.</p>
+                </div>
+            </div>
+
+            <div class="highlight">
+                <div class="highlight-title">✓ La Math Simple</div>
+                <p><strong>Zone 1 + 2 = 80-130 prospects potentiels.</strong> Si vous convertissez 20-30%, vous arrivez à votre objectif de 25 partenaires. Oubliez Zone 3 et 4 jusque-là. Vous pouvez les ajouter APRÈS.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 7: KIT DÉGUSTATION -->
+        <section id="kit">
+            <h2>Le Kit Dégustation Parfait</h2>
+            <p style="font-size: 1.05rem; margin-bottom: 2rem;">Ce que vous apportez à la dégustation. Ça doit être parfait. Pas improvisé.</p>
+
+            <h3>Composition du Kit</h3>
+
+            <div class="kit-checklist">
+                <div class="kit-item">
+                    <div class="kit-checkbox">✓</div>
+                    <div class="kit-text"><strong>4-5 pièces (mélange de bestsellers)</strong> — ex: 2 classiques, 1 nouvelle saveur, 1 saisonnière. Jamais identique. Chaque prospect a un kit légèrement différent selon le concept.</div>
+                </div>
+
+                <div class="kit-item">
+                    <div class="kit-checkbox">✓</div>
+                    <div class="kit-text"><strong>Assiette ou packaging premium</strong> — Pas de barquette plastique. Ça doit ressembler à du sérieux. Boîte noire et or si possible.</div>
+                </div>
+
+                <div class="kit-item">
+                    <div class="kit-checkbox">✓</div>
+                    <div class="kit-text"><strong>One-pager visuel (carte de visite ou flyer A6)</strong> — Photo des pièces + 3 infos clés: "Trompe-l'oeil artisanal", "5€/pièce", "Livraison Marseille 6j/7". Pas de texte lourd.</div>
+                </div>
+
+                <div class="kit-item">
+                    <div class="kit-checkbox">✓</div>
+                    <div class="kit-text"><strong>Carte de visite (Karim)</strong> — Téléphone bien lisible. WhatsApp mention.</div>
+                </div>
+
+                <div class="kit-item">
+                    <div class="kit-checkbox">✓</div>
+                    <div class="kit-text"><strong>Carte de parrainage "Réseau Mirage"</strong> — Pour qu'ils le donnent à leurs amis restaurants.</div>
+                </div>
+
+                <div class="kit-item">
+                    <div class="kit-checkbox">✓</div>
+                    <div class="kit-text"><strong>Petit mot manuscrit</strong> — Genre "À toi, Karim" ou juste un smiley. Ça humanise. C'est bête, ça marche.</div>
+                </div>
+
+                <div class="kit-item">
+                    <div class="kit-checkbox">✓</div>
+                    <div class="kit-text"><strong>Serviette premium ou plateau</strong> — Pour la présentation physique. Pas de main nue avec les pièces.</div>
+                </div>
+            </div>
+
+            <h3>Préparation Avant Visite</h3>
+
+            <div class="highlight">
+                <div class="highlight-title">24h Avant</div>
+                <ul style="margin-left: 1.5rem; margin-bottom: 1rem;">
+                    <li>Préparer les pièces (frais, pas défraîchies)</li>
+                    <li>Préparer le packaging (propre, aucun débris)</li>
+                    <li>Imprimer les one-pagers et cartes de parrainage</li>
+                    <li>Écrire le petit mot</li>
+                    <li>Assembler le kit</li>
+                    <li>Tester le pitch 3 fois à voix haute (min 30 sec, max 60 sec)</li>
+                </ul>
+            </div>
+
+            <h3>Pendant la Dégustation</h3>
+
+            <div class="objection-item">
+                <div class="objection-header" style="border: none; background: none; cursor: default; padding: 0;">
+                    <span class="objection-title" style="font-weight: 700; color: var(--ink);">Votre Routine</span>
+                </div>
+            </div>
+
+            <div style="background: white; border: 1px solid #e8e3d8; border-radius: 4px; padding: 2rem; margin-top: 1rem;">
+                <ol style="margin-left: 1.5rem; line-height: 2;">
+                    <li><strong>Présentation :</strong> "Trompe-l'oeil. Ça ressemble à une chose, c'est une autre. Tes clients vont adorer, c'est sûr." (30 sec max)</li>
+                    <li><strong>Placement :</strong> Poser le kit sur le comptoir/la table. Pas dans la main.</li>
+                    <li><strong>La Dégustation :</strong> Laisser goûter. Ne pas parler pendant.</li>
+                    <li><strong>Observation :</strong> Regarder la réaction. Silence. C'est VOTRE feedback.</li>
+                    <li><strong>Questions ouvertes (après) :</strong> "Alors?" ou "Comment tu trouves?" — Écouter 2 minutes sans l'interrompre.</li>
+                    <li><strong>L'Offre (si réaction positive) :</strong> "Première livraison, c'est gratuit. Après c'est 5€ la pièce, tu me paies une fois qu'elles sont vendues. On lance quand?"</li>
+                    <li><strong>L'Offre (si réaction neutre/négative) :</strong> "Je comprends. Peut-être pas maintenant. Mais garde mon numéro, on essaie dans 3 mois? Les trucs qui ne plaisent pas aujourd'hui, ça plaît souvent d'ici là."</li>
+                </ol>
+            </div>
+
+            <h3>Après la Visite</h3>
+
+            <p><strong>Même jour, 1h après :</strong> Message WhatsApp</p>
+
+            <div class="script-content" style="max-width: 100%; margin: 1.5rem 0;"><code>Salut [Prénom],
+
+Merci pour ce moment. J'ai bien senti que tu trouvais ça cool.
+
+Première livraison, c'est gratuit. Dis-moi simplement quand tu es prêt.
+
+Karim</code></div>
+
+            <p><strong style="margin-top: 1.5rem;">Jour 4 :</strong> Message #2</p>
+
+            <div class="script-content" style="max-width: 100%; margin: 1.5rem 0;"><code>Hey,
+
+Comment ça avance? T'as goûté encore ou tu as oublié? 😄
+
+Aucune pression, juste pour checker.</code></div>
+
+            <p><strong style="margin-top: 1.5rem;">Jour 10 :</strong> Proposition nouvelle commande ou nouvelle saveur</p>
+
+            <div class="warning">
+                <div class="warning-title">Ce qu'il NE FAUT PAS FAIRE</div>
+                <ul style="margin-left: 1.5rem; margin-top: 0.8rem; margin-bottom: 0;">
+                    <li>Ne pas vendre pendant la visite. Écouter.</li>
+                    <li>Ne pas laisser un kit sans explications — ça finit à la poubelle</li>
+                    <li>Ne pas partir avant d'avoir le WhatsApp/téléphone du contact</li>
+                    <li>Ne pas faire la dégustation pendant le rush (14h ou 19h) — ils seront stressés, pas réceptifs</li>
+                    <li>Ne pas faire deux dégustations le même jour chez deux lieux très proches — ça paraît peu professionnel, moins de freshness</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- SECTION 8: CONTACT -->
+        <section id="contact">
+            <h2>Besoin d'Aide? Contact Direct</h2>
+
+            <div class="contact-block">
+                <h3 style="margin-top: 0;">Karim Farid</h3>
+                <p style="margin-bottom: 1.5rem; opacity: 0.9;">Founder, Atelier Mirage</p>
+
+                <div class="contact-item">
+                    <strong>Téléphone / WhatsApp Business :</strong> +33 7 59 54 04 10
+                </div>
+
+                <div class="contact-item">
+                    <strong>Instagram :</strong> @ateliermirage_marseille
+                </div>
+
+                <p style="margin-top: 2rem; opacity: 0.8; font-size: 0.9rem;">Questions sur un prospect? Objection complexe? Problème de livraison? Appelle ou WhatsApp. Pas d'email. Réponse en moins de 2h.</p>
+            </div>
+
+            <div class="highlight" style="margin-top: 3rem;">
+                <div class="highlight-title">La Philosophie du Système</div>
+                <p>Ce système fonctionne parce qu'il est <strong>systématique</strong>, pas parce qu'il est parfait. Vous allez faire des erreurs. C'est pas grave. Tant que vous contactez 5-10 nouveaux prospects par semaine, tant que vous faites 2-3 dégustations par semaine, tant que vous relancez régulièrement — les conversions suivront. Les chiffres ne mentent pas.</p>
+                <p style="margin-top: 1rem;"><strong>Votre seul job : exécution. Tous les jours. Même ceux où c'est dur.</strong></p>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        <p><span class="footer-highlight">LE SYSTÈME MIRAGE</span> — Manuel de Prospection Officiel</p>
+        <p>Atelier Mirage | L'art du dessert trompe-l'oeil</p>
+        <p style="margin-top: 1.5rem; font-size: 0.9rem;">Version 1.0 | Avril 2026 | Pour usage interne et partenaires</p>
+        <p style="margin-top: 2rem; font-size: 0.85rem; opacity: 0.8;">Imprimable en haute qualité | Print-ready PDF | Distributable</p>
+    </footer>
+
+    <script>
+        function toggleObjection(header) {
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.objection-toggle');
+
+            content.classList.toggle('open');
+            toggle.textContent = content.classList.contains('open') ? '−' : '+';
+        }
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('nav a').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+
+        // Print optimization
+        window.addEventListener('beforeprint', () => {
+            document.querySelectorAll('.objection-content').forEach(content => {
+                content.classList.add('open');
+            });
+        });
+    </script>
+</body>
+</html>

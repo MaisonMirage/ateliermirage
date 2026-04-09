@@ -1,4 +1,4 @@
-# PROMPTS POMELLI — BOUTIQUE MAISON MIRAGE
+# PROMPTS POMELLI — BOUTIQUE ATELIER MIRAGE
 ## Vitrine · Façade · Intérieur · Route de la Gavotte, Marseille 15ème
 ### Version Award-Winner — Chaque choix a une raison.
 
@@ -64,7 +64,7 @@ THE DETAIL THAT MAKES IT: on the glass itself, at eye level, a single line in sm
 "CE NE SONT PAS DES FRUITS."
 This is the HOOK — it stops the pedestrian. They read it, they look at the fruits, their brain glitches. They MUST push the door.
 
-ABOVE THE VITRINE — the enseigne: a rectangular cream (#FAF5EF) panel with thin gold border. Gold geometric M logo (brushed brass, 20cm, two V shapes). Below: "MAISON MIRAGE" in dark ink (#1A1714), widely-spaced Cormorant Garamond serif capitals. Below: "HAUTE PÂTISSERIE TROMPE-L'ŒIL" in smaller Outfit sans-serif. Subtle warm LED backlighting — the sign glows gently.
+ABOVE THE VITRINE — the enseigne: a rectangular cream (#FAF5EF) panel with thin gold border. Gold geometric M logo (brushed brass, 20cm, two V shapes). Below: "ATELIER MIRAGE" in dark ink (#1A1714), widely-spaced Cormorant Garamond serif capitals. Below: "L'ART DU DESSERT" in smaller Outfit sans-serif. Subtle warm LED backlighting — the sign glows gently.
 
 THE BLACK AWNING: sleek, fixed, black fabric with thin brass edge — the ONE bold dark element on the facade, anchoring the composition.
 
@@ -164,7 +164,7 @@ RIGHT WALL (the "Cabinet of Curiosities"):
 
 BACK WALL (the "Altar"):
 - Center: the brushed BRASS geometric M logo (50cm tall), mounted on standoffs from the cream wall, backlit with warm LED — creates a soft golden HALO on the cream plaster behind. This is the room's spiritual anchor.
-- Below: "MAISON MIRAGE" in dark ink (#1A1714), Cormorant Garamond, widely spaced
+- Below: "ATELIER MIRAGE" in dark ink (#1A1714), Cormorant Garamond, widely spaced
 - Below that: "MARSEILLE" in small Outfit sans-serif
 
 THE COUNTER:
@@ -206,8 +206,8 @@ Photorealistic interior photography of the back wall and counter area. Camera fa
 THE BACK WALL — "L'Autel":
 - Warm cream lime plaster (#FAF5EF), subtle texture
 - Center: brushed BRASS geometric M logo (50cm tall) — two interlocking V shapes, thick angular — on standoffs, backlit with warm LED creating a golden HALO GLOW on the cream plaster. The halo is soft, organic, like a sunset reflection — not a hard ring.
-- Below: "MAISON MIRAGE" in dark ink, Cormorant Garamond, wide spacing
-- Below: "HAUTE PÂTISSERIE TROMPE-L'ŒIL · MARSEILLE" in smaller Outfit
+- Below: "ATELIER MIRAGE" in dark ink, Cormorant Garamond, wide spacing
+- Below: "L'ART DU DESSERT · MARSEILLE" in smaller Outfit
 
 THE COUNTER — "Le Rituel d'Achat":
 - 1.3m wide, cream-painted wood front with thin brass edge
@@ -219,7 +219,7 @@ THE COUNTER — "Le Rituel d'Achat":
 THE SHELVING — "La Bibliothèque":
 - Floating brushed BRASS shelves flanking the M logo, 4 tiers on each side
 - LEFT shelves: CLOSED cream boxes neatly stacked — La Pièce cubes (top), La Dégustation (second), L'Écrin (third), Le Coffret (bottom). Each shelf holds 3-4 boxes, precisely aligned.
-- RIGHT shelves: same organization, spines facing out showing gold foil "MAISON MIRAGE" text
+- RIGHT shelves: same organization, spines facing out showing gold foil "ATELIER MIRAGE" text
 - Cream boxes on brass shelves on cream wall = tone-on-tone luxury. The brass shelf edges and gold foil text are the ONLY contrast — it's like a library of precious cream volumes
 - Subtle warm LED strip under each shelf — boxes glow from below
 
@@ -368,8 +368,8 @@ THE GROUND FLOOR FACADE:
 ENSEIGNE:
 - A cream (#FAF5EF) panel with thin brass border, flush-mounted above the storefront
 - Brushed BRASS geometric M logo (20cm), two interlocking V shapes, thick angular lines — 3D metal letters, not flat
-- "MAISON MIRAGE" in dark ink (#1A1714), Cormorant Garamond, widely-spaced serif capitals, approximately 6cm
-- "HAUTE PÂTISSERIE TROMPE-L'ŒIL" in smaller Outfit sans-serif
+- "ATELIER MIRAGE" in dark ink (#1A1714), Cormorant Garamond, widely-spaced serif capitals, approximately 6cm
+- "L'ART DU DESSERT" in smaller Outfit sans-serif
 - Subtle warm LED backlighting — the cream panel glows softly in the evening
 
 AWNING:

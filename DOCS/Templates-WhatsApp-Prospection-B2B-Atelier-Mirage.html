@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Templates WhatsApp — Prospection B2B · Atelier Mirage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #FAF5EF;
+            --cream-2: #F5F0EA;
+            --cream-3: #EDE8E2;
+            --ink: #1A1714;
+            --ink-soft: #2C2824;
+            --ink-muted: #6B6560;
+            --gold: #A8895C;
+            --gold-light: #C9AA7C;
+            --gold-pale: #E8D5B8;
+            --white: #FFFFFF;
+            --success: #4A7C59;
+            --error: #8C3A3A;
+            --whatsapp: #25D366;
+            --whatsapp-dark: #128C7E;
+            --whatsapp-light: #DCF8C6;
+            --whatsapp-bg: #ECE5DD;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Outfit', system-ui, sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+            --shadow-sm: 0 2px 8px rgba(26,23,20,0.06);
+            --shadow-md: 0 4px 24px rgba(26,23,20,0.08);
+            --radius-sm: 0.75rem;
+            --radius-md: 1.5rem;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: var(--sans);
+            color: var(--ink);
+            background: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250,245,239,0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1.5px solid var(--gold-pale);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .nav-brand span { color: var(--gold); }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--ink-muted);
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 500;
+            padding: 0.4rem 0.7rem;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        .nav-links a.wa:hover,
+        .nav-links a.wa.active {
+            background: var(--whatsapp-dark);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            border: 1px solid var(--gold-pale);
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--whatsapp-dark);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 em { font-style: italic; color: var(--gold); }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--ink-muted);
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        /* ── CONTAINERS ── */
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section { padding: 4rem 0; }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ── TEMPLATE CARDS ── */
+        .templates-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2.5rem;
+        }
+
+        .template-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .template-header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--cream-3);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .template-header h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        .template-badges {
+            display: flex;
+            gap: 0.4rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            padding: 0.3rem 0.7rem;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        .badge.cold { background: #E8F0FE; color: #3B6CB4; }
+        .badge.warm { background: #FFF3E0; color: #B8794A; }
+        .badge.hot { background: #FFEBEE; color: #8C3A3A; }
+        .badge.close { background: #E8F5E9; color: #4A7C59; }
+        .badge.funnel { background: var(--cream-2); color: var(--gold); }
+        .badge.insta { background: linear-gradient(135deg, #fdf497 0%, #fd5949 40%, #d6249f 60%, #285AEB 100%); color: white; }
+
+        .template-body {
+            padding: 2rem;
+        }
+
+        .template-context {
+            font-size: 0.88rem;
+            color: var(--ink-muted);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            padding: 1rem 1.25rem;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+            border-left: 3px solid var(--gold);
+        }
+
+        .template-context strong { color: var(--ink-soft); }
+
+        /* ── WHATSAPP BUBBLE ── */
+        .wa-preview {
+            background: var(--whatsapp-bg);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+            position: relative;
+        }
+
+        .wa-preview::before {
+            content: 'Aperçu WhatsApp';
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--whatsapp-dark);
+            position: absolute;
+            top: -0.5rem;
+            left: 1.5rem;
+            background: var(--whatsapp-bg);
+            padding: 0 0.5rem;
+        }
+
+        .wa-bubble {
+            background: var(--whatsapp-light);
+            border-radius: 0 12px 12px 12px;
+            padding: 1rem 1.25rem;
+            max-width: 85%;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: var(--ink);
+            white-space: pre-line;
+            position: relative;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.08);
+        }
+
+        .wa-bubble::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -8px;
+            width: 0;
+            height: 0;
+            border-style: solid;
+            border-width: 0 8px 8px 0;
+            border-color: transparent var(--whatsapp-light) transparent transparent;
+        }
+
+        .wa-bubble .wa-time {
+            font-size: 0.65rem;
+            color: rgba(0,0,0,0.4);
+            text-align: right;
+            margin-top: 0.5rem;
+        }
+
+        /* ── RESPONSE BUBBLE (from prospect) ── */
+        .wa-bubble.response {
+            background: var(--white);
+            margin-left: auto;
+            margin-top: 0.75rem;
+            border-radius: 12px 0 12px 12px;
+        }
+
+        .wa-bubble.response::before {
+            left: auto;
+            right: -8px;
+            border-width: 0 0 8px 8px;
+            border-color: transparent transparent transparent var(--white);
+        }
+
+        /* ── VARIANTS ── */
+        .variants {
+            margin-top: 1.5rem;
+        }
+
+        .variants h4 {
+            font-family: var(--sans);
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--ink-soft);
+            margin-bottom: 0.75rem;
+        }
+
+        .variant-item {
+            padding: 0.75rem 1rem;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            line-height: 1.6;
+            margin-bottom: 0.5rem;
+            border: 1px dashed var(--cream-3);
+            white-space: pre-line;
+        }
+
+        .variant-label {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        /* ── TIPS ── */
+        .tip-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .tip-card h3 {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .tip-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .tip-item {
+            padding: 1rem 1.25rem;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+        }
+
+        .tip-item strong {
+            display: block;
+            font-size: 0.85rem;
+            margin-bottom: 0.25rem;
+        }
+
+        .tip-item p {
+            font-size: 0.82rem;
+            color: var(--ink-muted);
+            line-height: 1.5;
+        }
+
+        /* ── FUNNEL VISUAL ── */
+        .funnel-visual {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .funnel-step {
+            text-align: center;
+            padding: 1rem 1.5rem;
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-sm);
+        }
+
+        .funnel-step .step-label {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--ink-muted);
+        }
+
+        .funnel-step .step-name {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .funnel-step.active {
+            background: var(--ink);
+            border-color: var(--ink);
+        }
+
+        .funnel-step.active .step-label { color: var(--gold-light); }
+        .funnel-step.active .step-name { color: var(--cream); }
+
+        .funnel-arrow {
+            font-family: var(--mono);
+            font-size: 1.2rem;
+            color: var(--gold);
+        }
+
+        /* ── ALERT BOX ── */
+        .alert-box {
+            border-radius: var(--radius-sm);
+            padding: 1.25rem 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .alert-box.gold {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-left: 3px solid var(--gold);
+        }
+
+        .alert-box.dark {
+            background: var(--ink);
+            color: var(--cream);
+        }
+
+        .alert-box.warning {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-left: 3px solid var(--error);
+        }
+
+        .alert-box p {
+            font-size: 0.88rem;
+            line-height: 1.6;
+            margin: 0;
+        }
+
+        .alert-box.dark p { color: var(--cream); }
+
+        /* ── SEQUENCE TIMELINE ── */
+        .sequence-timeline {
+            position: relative;
+            padding-left: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .sequence-timeline::before {
+            content: '';
+            position: absolute;
+            left: 0.5rem;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--gold), var(--success));
+        }
+
+        .seq-step {
+            position: relative;
+            padding: 1rem 0 1.5rem;
+        }
+
+        .seq-step::before {
+            content: '';
+            position: absolute;
+            left: -1.65rem;
+            top: 1.35rem;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--gold);
+            border: 2px solid var(--cream);
+        }
+
+        .seq-step.done::before { background: var(--success); }
+
+        .seq-label {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.25rem;
+        }
+
+        .seq-step.done .seq-label { color: var(--success); }
+
+        .seq-title {
+            font-family: var(--sans);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--ink);
+            margin-bottom: 0.25rem;
+        }
+
+        .seq-desc {
+            font-size: 0.82rem;
+            color: var(--ink-muted);
+            line-height: 1.5;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--cream-3);
+        }
+
+        footer .brand {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+
+        footer .brand span { color: var(--gold); }
+        footer p { font-size: 0.82rem; color: var(--ink-muted); margin-top: 0.3rem; }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 768px) {
+            .tip-grid { grid-template-columns: 1fr; }
+            .funnel-visual { flex-direction: column; }
+            .funnel-arrow { transform: rotate(90deg); }
+            nav { flex-direction: column; gap: 0.75rem; }
+            .nav-links { justify-content: center; }
+            .template-header { flex-direction: column; align-items: flex-start; }
+        }
+
+        @media print {
+            nav { position: static; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav>
+    <div class="nav-brand">Atelier <span>Mirage</span></div>
+    <div class="nav-links">
+        <a href="#funnel">Funnel</a>
+        <a href="#premier-contact" class="wa">1er Contact</a>
+        <a href="#relance">Relance</a>
+        <a href="#degustation">Dégustation</a>
+        <a href="#closing">Closing</a>
+        <a href="#insta-leads">Leads Insta</a>
+        <a href="#apres-vente">Après-vente</a>
+        <a href="#regles">Règles</a>
+    </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="hero">
+    <div class="hero-badge">WHATSAPP B2B · TEMPLATES DE PROSPECTION</div>
+    <h1>Messages <em>WhatsApp</em><br>Prospection B2B</h1>
+    <p>Chaque message est prêt à copier-coller. Du premier contact au closing, en passant par la relance et le suivi après dégustation. Adapte le prénom et le nom de l'établissement, envoie.</p>
+</div>
+
+<!-- ═══════════════════ FUNNEL ═══════════════════ -->
+<section id="funnel">
+    <div class="container">
+        <div class="section-label">00 · Le parcours</div>
+        <h2 class="section-title">Le funnel WhatsApp — du prospect au partenaire</h2>
+        <p class="section-desc">Chaque message correspond à une étape précise. Ne grille pas les étapes. Un prospect froid ne reçoit pas le même message qu'un gérant qui vient de goûter tes pièces.</p>
+
+        <div class="funnel-visual">
+            <div class="funnel-step">
+                <div class="step-label">Étape 1</div>
+                <div class="step-name">Premier contact</div>
+            </div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">
+                <div class="step-label">Étape 2</div>
+                <div class="step-name">Relance</div>
+            </div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step active">
+                <div class="step-label">Étape 3</div>
+                <div class="step-name">Dégustation</div>
+            </div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step">
+                <div class="step-label">Étape 4</div>
+                <div class="step-name">Suivi</div>
+            </div>
+            <div class="funnel-arrow">→</div>
+            <div class="funnel-step" style="border-color: var(--success);">
+                <div class="step-label">Étape 5</div>
+                <div class="step-name">Closing</div>
+            </div>
+        </div>
+
+        <div class="sequence-timeline">
+            <div class="seq-step">
+                <div class="seq-label">J+0</div>
+                <div class="seq-title">Premier contact</div>
+                <div class="seq-desc">Message court + photo d'une pièce. Objectif : obtenir une réponse, pas vendre.</div>
+            </div>
+            <div class="seq-step">
+                <div class="seq-label">J+3 (si pas de réponse)</div>
+                <div class="seq-title">Relance douce</div>
+                <div class="seq-desc">Un message bref. Pas de pression. Rappelle juste que tu es là.</div>
+            </div>
+            <div class="seq-step">
+                <div class="seq-label">J+7 (si pas de réponse)</div>
+                <div class="seq-title">Relance finale</div>
+                <div class="seq-desc">Dernier essai. Si pas de réponse, passe au prospect suivant. Tu reviendras dans 2-3 mois.</div>
+            </div>
+            <div class="seq-step">
+                <div class="seq-label">Dès qu'il dit oui</div>
+                <div class="seq-title">Planification de la dégustation</div>
+                <div class="seq-desc">Tu proposes de passer avec le kit. Court, efficace, tu donnes 2 créneaux.</div>
+            </div>
+            <div class="seq-step">
+                <div class="seq-label">Lendemain de la dégustation</div>
+                <div class="seq-title">Suivi post-dégustation</div>
+                <div class="seq-desc">Le moment clé. Tu relances à chaud pendant qu'il a encore le goût en tête.</div>
+            </div>
+            <div class="seq-step done">
+                <div class="seq-label">Quand il est prêt</div>
+                <div class="seq-title">Closing + première commande</div>
+                <div class="seq-desc">Tu confirmes les pièces, les volumes, le jour de livraison. C'est parti.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ 1. PREMIER CONTACT ═══════════════════ -->
+<section id="premier-contact" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">01 · Premier contact</div>
+        <h2 class="section-title">Le premier message — court, visuel, sans pression</h2>
+        <p class="section-desc">Tu n'as jamais parlé à cette personne. Ton objectif : qu'elle réponde. Pas qu'elle commande. Joint toujours une photo de tes pièces.</p>
+
+        <div class="templates-grid">
+
+            <!-- TEMPLATE 1A : RESTAURATEUR -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Premier contact — Restaurateur</h3>
+                    <div class="template-badges">
+                        <span class="badge cold">Contact froid</span>
+                        <span class="badge funnel">+ Photo produit</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Tu as repéré un restaurant sur Instagram ou en passant devant. Tu ne connais pas le gérant. Envoie ce message avec une photo de la fraise coupée ou du flatlay complet.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Bonjour [Prénom],
+
+Je suis Karim, artisan pâtissier à Marseille. Je fabrique des desserts trompe-l'œil — des pièces qui ressemblent à de vrais fruits mais qui sont des desserts complets à l'intérieur.
+
+Je vous envoie une photo pour que vous voyiez de quoi il s'agit.
+
+Je travaille déjà avec une quinzaine d'établissements sur Marseille. Si ça vous parle, je peux passer vous faire goûter — c'est gratuit et sans engagement.
+
+Bonne journée.
+                            <div class="wa-time">18:02</div>
+                        </div>
+                    </div>
+
+                    <div class="variants">
+                        <h4>Variantes selon le contexte</h4>
+                        <div class="variant-item">
+                            <div class="variant-label">Si tu as vu son restaurant sur Instagram</div>
+                            Bonjour [Prénom],
+
+Je suis tombé sur [Nom du restaurant] sur Instagram — j'aime beaucoup ce que vous faites. Je suis Karim, artisan pâtissier trompe-l'œil à Marseille. Je fabrique des desserts qui ressemblent à des fruits mais qui sont de la haute pâtisserie à l'intérieur. Regardez la photo.
+
+Si ça peut coller avec votre carte, je peux passer vous en faire goûter. C'est gratuit. Dites-moi.
+                        </div>
+                        <div class="variant-item">
+                            <div class="variant-label">Si un partenaire actuel t'a recommandé</div>
+                            Bonjour [Prénom],
+
+C'est [Nom du partenaire] de [Établissement] qui m'a parlé de vous. Je suis Karim, je fabrique les desserts trompe-l'œil qu'il propose chez lui.
+
+Il m'a dit que ça pourrait vous intéresser. Je vous envoie une photo — si vous voulez goûter, je passe quand ça vous arrange.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TEMPLATE 1B : PÂTISSIER / BOULANGER -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Premier contact — Pâtissier / Boulanger</h3>
+                    <div class="template-badges">
+                        <span class="badge cold">Contact froid</span>
+                        <span class="badge funnel">+ Photo produit</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Le prospect est lui-même pâtissier. Le ton change : tu parles d'artisan à artisan. Pas besoin de sur-expliquer le métier. Envoie la photo de la coupe (fraise-coupe) pour montrer le niveau technique.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Bonjour [Prénom],
+
+Karim, artisan à Marseille. Je travaille le trompe-l'œil — des pièces individuelles qui imitent des fruits, avec un vrai travail de pâtisserie à l'intérieur (confit, ganache, biscuit, le tout sous une coque aérographée).
+
+Je sais que c'est un métier que vous connaissez, donc je vous laisse juger sur la photo. Plusieurs confrères sur Marseille les proposent en complément de leur vitrine.
+
+Si vous voulez goûter, je passe avec un kit dégustation. C'est sans engagement.
+                            <div class="wa-time">10:15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TEMPLATE 1C : HÔTEL / TRAITEUR -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Premier contact — Hôtel / Traiteur / Événementiel</h3>
+                    <div class="template-badges">
+                        <span class="badge cold">Contact froid</span>
+                        <span class="badge funnel">+ Photo événement</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Le prospect fait de l'événementiel (mariages, séminaires, cocktails). Envoie la photo de la table événement (pampas + bougies + collection complète).
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Bonjour [Prénom],
+
+Je suis Karim, artisan pâtissier trompe-l'œil à Marseille. Je crée des desserts individuels qui ressemblent à des fruits — l'effet de surprise est immédiat sur les invités.
+
+Je travaille déjà avec des traiteurs et des hôtels sur la région pour des mariages et des événements corporate. Je vous envoie une photo d'une mise en place récente.
+
+Si vous avez des événements à venir et que ça peut apporter quelque chose, je peux vous envoyer plus de détails ou passer vous faire goûter.
+                            <div class="wa-time">14:30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="alert-box gold">
+            <p><strong>Règle du premier message :</strong> Toujours court. Toujours avec une photo. Jamais de tarif dans le premier message — tu veux une conversation, pas un devis. Le prix viendra naturellement quand il aura goûté.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ 2. RELANCES ═══════════════════ -->
+<section id="relance">
+    <div class="container">
+        <div class="section-label">02 · Relances</div>
+        <h2 class="section-title">Les relances — sans insister, sans disparaître</h2>
+        <p class="section-desc">Les gens sont occupés. Un gérant de restaurant reçoit 50 messages par jour. Ta relance doit être brève et donner une raison de répondre maintenant.</p>
+
+        <div class="templates-grid">
+
+            <!-- RELANCE 1 (J+3) -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Relance J+3 — Premier rappel</h3>
+                    <div class="template-badges">
+                        <span class="badge warm">Relance douce</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> 3 jours après le premier message, pas de réponse. Pas de copier-coller du premier message. Juste un rappel naturel.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Bonjour [Prénom], c'est Karim — je vous avais envoyé un message la semaine dernière au sujet des desserts trompe-l'œil.
+
+Pas de souci si c'est pas le bon moment. Si jamais ça vous intéresse, je peux passer un jour qui vous arrange avec quelques pièces à goûter. Ça prend 10 minutes.
+
+Bonne semaine.
+                            <div class="wa-time">09:45</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RELANCE 2 (J+7) -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Relance J+7 — Dernier message</h3>
+                    <div class="template-badges">
+                        <span class="badge warm">Relance finale</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> 7 jours après le premier message. C'est ta dernière tentative. Si pas de réponse, tu notes le prospect et tu reviens dans 2-3 mois avec du nouveau (nouvelle pièce, vidéo qui a buzzé, nouveau partenaire dans son quartier).
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">[Prénom], je ne veux pas insister — juste vous dire que si un jour le sujet vous intéresse, je suis là.
+
+Je vous laisse tranquille. Bonne continuation avec [Nom du restaurant].
+                            <div class="wa-time">11:20</div>
+                        </div>
+                    </div>
+
+                    <div class="variants">
+                        <h4>Variante avec preuve sociale</h4>
+                        <div class="variant-item">
+                            <div class="variant-label">Si un de ses voisins/concurrents est partenaire</div>
+                            [Prénom], dernier message — je voulais juste vous dire qu'on a commencé à livrer [Nom établissement proche] cette semaine. Si vous voyez les pièces chez eux et que ça vous donne envie de tester, faites-moi signe. Bonne semaine.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RELANCE : RÉPONSE POSITIVE MAIS PAS DE SUITE -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Relance — Il avait dit "oui intéressé" mais plus de nouvelles</h3>
+                    <div class="template-badges">
+                        <span class="badge warm">Réactivation</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Le prospect avait répondu positivement ("oui ça m'intéresse", "envoyez-moi des infos") mais le silence est retombé. Ça arrive souvent. Relance avec un élément concret.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Bonjour [Prénom], on avait échangé il y a quelques semaines au sujet des trompe-l'œil. Je me doute que le quotidien reprend vite le dessus.
+
+Je passe sur votre secteur [jour]. Si vous avez 10 minutes, je peux déposer un kit dégustation directement — vous goûtez quand vous voulez, aucune obligation.
+
+Ça vous dit ?
+                            <div class="wa-time">17:15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ 3. DÉGUSTATION ═══════════════════ -->
+<section id="degustation" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">03 · Dégustation</div>
+        <h2 class="section-title">Le kit dégustation — avant, pendant, après</h2>
+        <p class="section-desc">La dégustation est le moment décisif. Personne ne dit non après avoir goûté. Ces messages encadrent l'expérience.</p>
+
+        <div class="templates-grid">
+
+            <!-- CONFIRMATION DÉGUSTATION -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Confirmation du rendez-vous dégustation</h3>
+                    <div class="template-badges">
+                        <span class="badge hot">Moment clé</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Parfait [Prénom]. Je passe [jour] vers [heure] avec le kit.
+
+Je vous apporte 3-4 pièces différentes pour que vous et votre équipe puissiez goûter. Ça prend 10-15 minutes.
+
+À [jour].
+                            <div class="wa-time">10:05</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RAPPEL J-1 -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Rappel la veille</h3>
+                    <div class="template-badges">
+                        <span class="badge hot">Moment clé</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> La veille du rendez-vous. Court. Confirme que c'est toujours bon.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">[Prénom], je confirme pour demain [heure] avec le kit dégustation. C'est toujours bon pour vous ?
+                            <div class="wa-time">18:30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUIVI POST-DÉGUSTATION -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Suivi post-dégustation — Le lendemain</h3>
+                    <div class="template-badges">
+                        <span class="badge hot">Moment clé</span>
+                        <span class="badge close">Vers le closing</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Le lendemain de la dégustation. Ton objectif : savoir quelles pièces l'ont convaincu et enchaîner sur la logistique. Ne laisse pas passer plus de 24h.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Bonjour [Prénom], j'espère que la dégustation vous a plu.
+
+Est-ce qu'il y a des pièces qui vous ont marqué plus que d'autres ? Je vous demande parce que chaque établissement a sa clientèle et certaines pièces fonctionnent mieux selon le type de carte.
+
+Si vous voulez avancer, on peut caler les détails très simplement — je m'adapte à votre rythme.
+                            <div class="wa-time">10:00</div>
+                        </div>
+                    </div>
+
+                    <div class="variants">
+                        <h4>Si la dégustation s'est très bien passée (il était enthousiaste)</h4>
+                        <div class="variant-item">
+                            <div class="variant-label">Version directe</div>
+                            [Prénom], content que les pièces vous aient plu.
+
+Pour lancer, c'est simple : vous me dites quelles pièces vous voulez et combien par semaine. Je livre en réfrigéré le jour qui vous arrange. Vous ne payez qu'après la vente.
+
+On commence quand vous voulez.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RÉPONSE AUX QUESTIONS PRIX -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Quand il demande le prix</h3>
+                    <div class="template-badges">
+                        <span class="badge hot">Négociation</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Il demande combien ça coûte. Le prix unique (5 euros HT par pièce) simplifie tout. L'argument clé : il revend entre 8 et 12 euros, ce qui lui fait une marge nette de 60-140% sans aucun travail en cuisine.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Le prix est le même pour toutes les pièces : 5 euros HT l'unité, quelle que soit la référence.
+
+La plupart de mes partenaires les revendent entre 8 et 12 euros. C'est de la marge nette — pas de main-d'œuvre, pas de matières premières, pas de perte. Je livre, vous servez.
+
+Et le paiement se fait après la vente, pas avant.
+                            <div class="wa-time">14:20</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ 4. CLOSING ═══════════════════ -->
+<section id="closing">
+    <div class="container">
+        <div class="section-label">04 · Closing</div>
+        <h2 class="section-title">Confirmation et première commande</h2>
+        <p class="section-desc">Le prospect est convaincu. Il faut maintenant transformer l'intention en première livraison. Sois concret : quelles pièces, combien, quel jour.</p>
+
+        <div class="templates-grid">
+
+            <!-- CLOSING -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Lancement du partenariat</h3>
+                    <div class="template-badges">
+                        <span class="badge close">Closing</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Parfait [Prénom]. Voilà ce que je vous propose pour commencer :
+
+Je vous livre [X pièces] ([liste des références choisies]) chaque [jour de livraison]. Livraison en réfrigéré directement chez vous le matin.
+
+Vous vendez, vous me réglez en fin de semaine pour les pièces écoulées. Les invendus, je les reprends.
+
+On commence [date] ? Je prépare la première livraison.
+                            <div class="wa-time">11:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- APRÈS PREMIÈRE LIVRAISON -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Suivi après la première livraison</h3>
+                    <div class="template-badges">
+                        <span class="badge close">Fidélisation</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Le soir ou le lendemain de la première livraison. Tu veux savoir comment ça s'est passé et tu ouvres la porte à un ajustement si besoin.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">[Prénom], comment s'est passée la mise en place ? Vos clients ont réagi comment ?
+
+Si vous voulez ajuster les quantités ou les références pour la prochaine livraison, dites-moi. Je m'adapte.
+                            <div class="wa-time">19:30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ 5. LEADS INSTAGRAM ═══════════════════ -->
+<section id="insta-leads" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">05 · Leads réseaux sociaux</div>
+        <h2 class="section-title">Quand le prospect vient à toi — DM Instagram et TikTok</h2>
+        <p class="section-desc">Un gérant voit ton Reel, regarde ton profil, t'envoie un DM. C'est un lead chaud. Il faut répondre vite et le basculer sur WhatsApp.</p>
+
+        <div class="templates-grid">
+
+            <!-- DM INSTAGRAM → WHATSAPP -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Réponse DM Instagram — "C'est quoi vos prix ?" / "Vous livrez où ?"</h3>
+                    <div class="template-badges">
+                        <span class="badge insta">Instagram DM</span>
+                        <span class="badge hot">Lead chaud</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Un pro t'écrit sur Instagram. Objectif : répondre en moins de 30 minutes et basculer sur WhatsApp. Instagram DM n'est pas fiable pour le business (messages qui se perdent, pas de confirmation de lecture fiable).
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Merci pour votre message. Je suis Karim, c'est moi qui fabrique tout.
+
+Oui je livre sur Marseille et la région, en réfrigéré. Le prix est unique : 5 euros HT par pièce quelle que soit la référence.
+
+Pour qu'on échange plus facilement, vous êtes sur WhatsApp ? Je vous envoie des photos et on voit si ça peut coller avec votre carte.
+
+Mon numéro : 07 59 54 04 10
+                            <div class="wa-time">18:45</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DM "C'EST TROP BEAU" / FAN -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Réponse DM — "C'est magnifique" / "Comment tu fais ça"</h3>
+                    <div class="template-badges">
+                        <span class="badge insta">Instagram DM</span>
+                        <span class="badge funnel">Qualifier</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Quelqu'un t'envoie un compliment sans contexte. Tu ne sais pas encore si c'est un pro ou un particulier. Qualifie d'abord avant de dérouler le pitch B2B.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Merci, ça fait plaisir. Tout est fait à la main dans mon atelier à Marseille.
+
+Vous êtes dans la restauration ou c'est juste par curiosité ? Parce que si vous avez un établissement, je peux vous faire goûter.
+                            <div class="wa-time">20:10</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COMMENTAIRE → DM -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Message après un commentaire d'un pro</h3>
+                    <div class="template-badges">
+                        <span class="badge insta">Instagram DM</span>
+                        <span class="badge cold">Proactif</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Un compte pro (restaurant, pâtisserie, traiteur) commente ou like un de tes posts. Tu prends l'initiative en DM. C'est pas du spam — il a interagi le premier.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">Salut [Prénom], merci pour le commentaire. J'ai vu que vous avez [nom de l'établissement] — bel endroit.
+
+Mes trompe-l'œil sont disponibles pour les pros sur Marseille. Si un jour ça vous intéresse de goûter, je peux passer. C'est gratuit et sans engagement.
+
+Bonne soirée.
+                            <div class="wa-time">21:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ 6. APRÈS-VENTE ═══════════════════ -->
+<section id="apres-vente">
+    <div class="container">
+        <div class="section-label">06 · Après-vente</div>
+        <h2 class="section-title">Fidélisation — garder tes partenaires actifs</h2>
+        <p class="section-desc">Un partenaire acquis vaut 10 prospects. Ces messages maintiennent la relation et augmentent les volumes.</p>
+
+        <div class="templates-grid">
+
+            <!-- CHECK-IN MENSUEL -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Check-in mensuel</h3>
+                    <div class="template-badges">
+                        <span class="badge close">Fidélisation</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="wa-preview">
+                        <div class="wa-bubble">[Prénom], comment ça se passe avec les pièces ce mois-ci ? Les clients accrochent toujours autant ?
+
+Si vous voulez tester une nouvelle référence, je peux vous en glisser une ou deux dans la prochaine livraison pour voir comment ça prend.
+                            <div class="wa-time">10:30</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NOUVELLE PIÈCE -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Annonce d'une nouvelle pièce</h3>
+                    <div class="template-badges">
+                        <span class="badge close">Upsell</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="wa-preview">
+                        <div class="wa-bubble">[Prénom], je viens de finaliser une nouvelle pièce : [nom + description courte]. Je vous envoie la photo.
+
+Je peux en ajouter quelques-unes à votre prochaine livraison pour que vous testiez avec vos clients. Même prix, même fonctionnement.
+
+Dites-moi si ça vous tente.
+                            <div class="wa-time">15:00</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DEMANDE DE TÉMOIGNAGE -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Demande de témoignage / contenu</h3>
+                    <div class="template-badges">
+                        <span class="badge close">Social proof</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Après 3-4 semaines de partenariat, quand tu sens que le gérant est satisfait. Son témoignage va sur ton site et tes réseaux — c'est ta preuve sociale.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">[Prénom], ça fait maintenant [X semaines] qu'on travaille ensemble et j'ai l'impression que ça fonctionne bien de votre côté.
+
+Si vous avez 30 secondes, est-ce que vous pourriez me dire en quelques mots ce que les trompe-l'œil ont changé chez vous ? Ça m'aiderait beaucoup pour mon site et mes réseaux.
+
+Même 2-3 phrases, c'est parfait.
+                            <div class="wa-time">11:45</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AUGMENTATION DE VOLUME -->
+            <div class="template-card">
+                <div class="template-header">
+                    <h3>Suggestion d'augmentation de volume</h3>
+                    <div class="template-badges">
+                        <span class="badge close">Croissance</span>
+                    </div>
+                </div>
+                <div class="template-body">
+                    <div class="template-context">
+                        <strong>Quand l'utiliser :</strong> Les pièces partent vite, il est en rupture avant la prochaine livraison. C'est le bon moment pour proposer plus.
+                    </div>
+                    <div class="wa-preview">
+                        <div class="wa-bubble">[Prénom], j'ai vu que les [X pièces] partent assez vite ces derniers temps. Vous voulez qu'on passe à [X+5/+10] par livraison pour voir si la demande suit ?
+
+Aucun risque — on ajuste à la hausse ou à la baisse selon ce qui se vend.
+                            <div class="wa-time">09:15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ 7. RÈGLES D'OR ═══════════════════ -->
+<section id="regles" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">07 · Discipline</div>
+        <h2 class="section-title">Les règles WhatsApp — ce qui fait la différence</h2>
+        <p class="section-desc">Le message ne suffit pas. C'est le timing, la discipline et la régularité qui transforment des conversations en partenariats.</p>
+
+        <div class="tip-card">
+            <h3>Le timing</h3>
+            <div class="tip-grid">
+                <div class="tip-item">
+                    <strong>Envoie entre 9h-11h ou 14h-16h</strong>
+                    <p>Évite le coup de feu (12h-14h) et la fin de service (18h-22h). Le gérant ne lira pas ton message en plein rush.</p>
+                </div>
+                <div class="tip-item">
+                    <strong>Réponds en moins de 30 minutes</strong>
+                    <p>Quand un prospect te répond, c'est maintenant qu'il est disponible. Pas dans 3 heures. La réactivité montre le professionnalisme.</p>
+                </div>
+                <div class="tip-item">
+                    <strong>Jamais le dimanche</strong>
+                    <p>Ni le samedi soir. WhatsApp pro, c'est du lundi au samedi matin. Le reste, c'est personnel.</p>
+                </div>
+                <div class="tip-item">
+                    <strong>La relance se fait toujours un jour différent</strong>
+                    <p>Si tu as envoyé le premier message un lundi à 10h, relance le jeudi à 14h. Pas le même jour, pas la même heure.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tip-card">
+            <h3>Le ton</h3>
+            <div class="tip-grid">
+                <div class="tip-item">
+                    <strong>Pas de "Cher Monsieur"</strong>
+                    <p>Tu parles à des restaurateurs, pas à des directeurs de banque. Prénom + vouvoiement, c'est le bon équilibre.</p>
+                </div>
+                <div class="tip-item">
+                    <strong>Pas de points d'exclamation en série</strong>
+                    <p>Un maximum par message. Le ton est posé, confiant. Tu proposes quelque chose de qualité, tu n'as pas besoin de crier.</p>
+                </div>
+                <div class="tip-item">
+                    <strong>Zéro émojis dans les messages pro</strong>
+                    <p>C'est cohérent avec l'image Atelier Mirage. Sobre, propre. Les émojis diluent le positionnement.</p>
+                </div>
+                <div class="tip-item">
+                    <strong>Toujours une sortie de secours</strong>
+                    <p>"Sans engagement", "pas de souci si c'est pas le moment", "je ne veux pas insister". Le prospect ne doit jamais se sentir piégé.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="tip-card">
+            <h3>La méthode</h3>
+            <div class="tip-grid">
+                <div class="tip-item">
+                    <strong>5 nouveaux contacts par semaine</strong>
+                    <p>C'est ton minimum. Repère les restaurants sur Instagram, Google Maps, en te baladant dans un quartier. Note le nom, le gérant, le WhatsApp.</p>
+                </div>
+                <div class="tip-item">
+                    <strong>Tiens un tableau de suivi</strong>
+                    <p>Nom, établissement, date du premier message, statut (en attente / relancé / dégustation planifiée / partenaire). Sans ça, tu perds des prospects.</p>
+                </div>
+                <div class="tip-item">
+                    <strong>Chaque message accompagne une photo</strong>
+                    <p>Une photo de la fraise coupée vaut plus que 500 mots. Le premier contact envoie le flatlay ou la coupe. La relance envoie la table événement ou un nouveau produit.</p>
+                </div>
+                <div class="tip-item">
+                    <strong>Le lien vers le site arrive en dernier</strong>
+                    <p>Pas dans le premier message. Le site confirme ta crédibilité une fois que le prospect est intéressé. Envoie lamaisonmirage.com/partenaires quand il pose des questions concrètes.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="alert-box dark" style="margin-top: 2rem;">
+            <p><strong style="color: var(--gold-light);">L'objectif de chaque message n'est pas de vendre — c'est d'obtenir le rendez-vous dégustation.</strong> Tout le reste (prix, volumes, logistique) se règle après qu'il a goûté. 100% de tes partenaires actuels ont signé après avoir goûté. C'est ton arme. Amène-les à la table.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+    <div class="brand">Atelier <span>Mirage</span></div>
+    <p>Templates WhatsApp · Prospection B2B · Avril 2026</p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem; color: var(--ink-muted);">L'art du dessert trompe-l'œil · Marseille</p>
+</footer>
+
+<script>
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelectorAll('.nav-links a').forEach(function(l) { l.classList.remove('active'); });
+            this.classList.add('active');
+        });
+    });
+
+    var sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', function() {
+        var scrollPos = window.scrollY + 120;
+        sections.forEach(function(section) {
+            if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                var id = section.getAttribute('id');
+                document.querySelectorAll('.nav-links a').forEach(function(l) {
+                    l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

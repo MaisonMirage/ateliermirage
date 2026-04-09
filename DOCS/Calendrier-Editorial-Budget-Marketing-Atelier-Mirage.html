@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendrier Éditorial & Budget Marketing — Atelier Mirage</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Outfit:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --cream: #FAF5EF;
+            --cream-2: #F5F0EA;
+            --cream-3: #EDE8E2;
+            --ink: #1A1714;
+            --ink-soft: #2C2824;
+            --ink-muted: #6B6560;
+            --gold: #A8895C;
+            --gold-light: #C9AA7C;
+            --gold-pale: #E8D5B8;
+            --gold-shimmer: #D4B896;
+            --white: #FFFFFF;
+            --success: #4A7C59;
+            --error: #8C3A3A;
+            --blue: #5B7EA8;
+            --purple: #7B6B8C;
+            --orange: #B8794A;
+            --serif: 'Cormorant Garamond', Georgia, serif;
+            --sans: 'Outfit', system-ui, sans-serif;
+            --mono: 'JetBrains Mono', monospace;
+            --shadow-sm: 0 2px 8px rgba(26,23,20,0.06);
+            --shadow-md: 0 4px 24px rgba(26,23,20,0.08);
+            --shadow-lg: 0 12px 48px rgba(26,23,20,0.1);
+            --shadow-gold: 0 8px 32px rgba(168,137,92,0.2);
+            --radius-sm: 0.75rem;
+            --radius-md: 1.5rem;
+            --radius-lg: 2rem;
+        }
+
+        html { scroll-behavior: smooth; font-size: 16px; }
+
+        body {
+            font-family: var(--sans);
+            color: var(--ink);
+            background: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* ── NAV ── */
+        nav {
+            position: sticky;
+            top: 0;
+            background: rgba(250,245,239,0.92);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-bottom: 1.5px solid var(--gold-pale);
+            padding: 1rem 2rem;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-brand {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .nav-brand span { color: var(--gold); }
+
+        .nav-links {
+            display: flex;
+            gap: 0.25rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: var(--ink-muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            font-weight: 500;
+            padding: 0.4rem 0.75rem;
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            background: var(--gold);
+            color: var(--white);
+        }
+
+        /* ── HERO ── */
+        .hero {
+            text-align: center;
+            padding: 5rem 2rem 4rem;
+            background: linear-gradient(180deg, var(--cream) 0%, var(--cream-2) 100%);
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 2px;
+            background: var(--gold);
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--white);
+            border: 1px solid var(--gold-pale);
+            padding: 0.5rem 1.2rem;
+            border-radius: 999px;
+            font-family: var(--mono);
+            font-size: 0.72rem;
+            font-weight: 500;
+            color: var(--gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 2rem;
+        }
+
+        .hero h1 {
+            font-family: var(--serif);
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.15;
+            margin-bottom: 1rem;
+        }
+
+        .hero h1 em { font-style: italic; color: var(--gold); }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: var(--ink-muted);
+            max-width: 620px;
+            margin: 0 auto;
+        }
+
+        /* ── CONTAINERS ── */
+        .container {
+            max-width: 1060px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        section { padding: 4rem 0; }
+
+        .section-label {
+            font-family: var(--mono);
+            font-size: 0.7rem;
+            font-weight: 500;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .section-title {
+            font-family: var(--serif);
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 700;
+            color: var(--ink);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1rem;
+            color: var(--ink-muted);
+            max-width: 650px;
+            margin-bottom: 2.5rem;
+        }
+
+        /* ── WEEK PLANNER ── */
+        .week-grid {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 0.75rem;
+        }
+
+        .day-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem 1rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .day-card:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+            border-color: var(--gold-pale);
+        }
+
+        .day-card.highlight {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .day-card.rest {
+            background: var(--cream-2);
+            border-style: dashed;
+            opacity: 0.7;
+        }
+
+        .day-name {
+            font-family: var(--mono);
+            font-size: 0.62rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .day-slot {
+            margin-bottom: 0.75rem;
+        }
+
+        .day-slot:last-child { margin-bottom: 0; }
+
+        .slot-time {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            color: var(--ink-muted);
+            margin-bottom: 0.2rem;
+        }
+
+        .slot-content {
+            font-size: 0.78rem;
+            color: var(--ink-soft);
+            line-height: 1.4;
+            padding: 0.5rem;
+            border-radius: 6px;
+            border-left: 3px solid var(--gold-pale);
+            background: var(--cream);
+        }
+
+        .slot-content.reel { border-left-color: var(--error); }
+        .slot-content.carousel { border-left-color: var(--blue); }
+        .slot-content.story { border-left-color: var(--purple); }
+        .slot-content.photo { border-left-color: var(--gold); }
+        .slot-content.asmr { border-left-color: var(--success); }
+        .slot-content.behind { border-left-color: var(--orange); }
+
+        .slot-type {
+            font-family: var(--mono);
+            font-size: 0.55rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-weight: 600;
+            margin-bottom: 0.15rem;
+            display: block;
+        }
+
+        .slot-type.reel { color: var(--error); }
+        .slot-type.carousel { color: var(--blue); }
+        .slot-type.story { color: var(--purple); }
+        .slot-type.photo { color: var(--gold); }
+        .slot-type.asmr { color: var(--success); }
+        .slot-type.behind { color: var(--orange); }
+
+        /* ── LEGEND ── */
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: var(--white);
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--cream-3);
+        }
+
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.75rem;
+            color: var(--ink-muted);
+        }
+
+        .legend-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 3px;
+        }
+
+        .legend-dot.reel { background: var(--error); }
+        .legend-dot.carousel { background: var(--blue); }
+        .legend-dot.story { background: var(--purple); }
+        .legend-dot.photo { background: var(--gold); }
+        .legend-dot.asmr { background: var(--success); }
+        .legend-dot.behind { background: var(--orange); }
+
+        /* ── TIMING CARD ── */
+        .timing-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .timing-card h3 {
+            font-family: var(--serif);
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+        }
+
+        .time-slots {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+        }
+
+        .time-slot {
+            text-align: center;
+            padding: 1rem;
+            background: var(--cream);
+            border-radius: var(--radius-sm);
+        }
+
+        .time-slot.best {
+            background: linear-gradient(135deg, var(--gold-pale) 0%, var(--cream-2) 100%);
+            border: 1px solid var(--gold);
+        }
+
+        .time-slot .hour {
+            font-family: var(--mono);
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .time-slot.best .hour { color: var(--gold); }
+
+        .time-slot .desc {
+            font-size: 0.75rem;
+            color: var(--ink-muted);
+            margin-top: 0.3rem;
+        }
+
+        .time-slot .perf {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            color: var(--success);
+            margin-top: 0.25rem;
+            font-weight: 600;
+        }
+
+        /* ── ROTATION SECTION ── */
+        .rotation-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .rotation-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+        }
+
+        .rotation-card h3 {
+            font-family: var(--serif);
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .week-label {
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            padding: 0.2rem 0.6rem;
+            background: var(--cream);
+            border-radius: 999px;
+            display: inline-block;
+            margin-bottom: 0.75rem;
+        }
+
+        .rotation-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.6rem 0;
+            border-bottom: 1px solid var(--cream-2);
+            font-size: 0.88rem;
+            color: var(--ink-soft);
+        }
+
+        .rotation-item:last-child { border-bottom: none; }
+
+        .rotation-item .day {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 1px;
+            color: var(--gold);
+            min-width: 30px;
+            font-weight: 600;
+            padding-top: 2px;
+        }
+
+        /* ── BUDGET SECTION ── */
+        .budget-overview {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .budget-tier {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .budget-tier:hover {
+            box-shadow: var(--shadow-md);
+            transform: translateY(-2px);
+        }
+
+        .budget-tier.active {
+            border-color: var(--gold);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .budget-tier.active::before {
+            content: 'TON BUDGET';
+            display: block;
+            font-family: var(--mono);
+            font-size: 0.6rem;
+            letter-spacing: 2px;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+
+        .budget-amount {
+            font-family: var(--serif);
+            font-size: 2.4rem;
+            font-weight: 700;
+            color: var(--ink);
+        }
+
+        .budget-amount span { color: var(--gold); font-size: 1.2rem; }
+
+        .budget-label {
+            font-size: 0.85rem;
+            color: var(--ink-muted);
+            margin-top: 0.25rem;
+        }
+
+        /* ── PIE / ALLOCATION ── */
+        .allocation-grid {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .pie-container {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .pie-wrapper {
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 1rem;
+        }
+
+        .pie-chart {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--gold) 0deg 144deg,
+                var(--blue) 144deg 234deg,
+                var(--success) 234deg 288deg,
+                var(--purple) 288deg 324deg,
+                var(--orange) 324deg 360deg
+            );
+            position: relative;
+        }
+
+        .pie-center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 90px;
+            height: 90px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pie-center .amount {
+            font-family: var(--mono);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .pie-center .label {
+            font-size: 0.6rem;
+            color: var(--ink-muted);
+        }
+
+        .alloc-list { list-style: none; }
+
+        .alloc-item {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-sm);
+            padding: 1.25rem 1.5rem;
+            margin-bottom: 0.75rem;
+            transition: all 0.3s ease;
+        }
+
+        .alloc-item:hover {
+            border-color: var(--gold-pale);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .alloc-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .alloc-name {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        .alloc-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 3px;
+            flex-shrink: 0;
+        }
+
+        .alloc-pct {
+            font-family: var(--mono);
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .alloc-amount {
+            font-family: var(--mono);
+            font-size: 0.78rem;
+            color: var(--ink-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .alloc-desc {
+            font-size: 0.82rem;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        .alloc-items {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .alloc-items li {
+            font-size: 0.8rem;
+            color: var(--ink-soft);
+            padding: 0.2rem 0;
+            padding-left: 1rem;
+            position: relative;
+        }
+
+        .alloc-items li::before {
+            content: '›';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+            font-weight: 700;
+        }
+
+        /* ── MONTH BY MONTH ── */
+        .month-timeline {
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .month-timeline::before {
+            content: '';
+            position: absolute;
+            left: 15px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gold-pale);
+        }
+
+        .month-block {
+            position: relative;
+            margin-bottom: 2rem;
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+        }
+
+        .month-block::before {
+            content: '';
+            position: absolute;
+            left: -33px;
+            top: 2rem;
+            width: 14px;
+            height: 14px;
+            background: var(--gold);
+            border-radius: 50%;
+            border: 3px solid var(--cream);
+        }
+
+        .month-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .month-name {
+            font-family: var(--serif);
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+
+        .month-budget {
+            font-family: var(--mono);
+            font-size: 1rem;
+            color: var(--gold);
+            font-weight: 600;
+            background: var(--cream);
+            padding: 0.3rem 0.8rem;
+            border-radius: 999px;
+        }
+
+        .month-goal {
+            font-size: 0.9rem;
+            color: var(--ink-muted);
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--cream-3);
+        }
+
+        .month-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+
+        .month-col h4 {
+            font-family: var(--mono);
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.6rem;
+        }
+
+        .month-col ul {
+            list-style: none;
+        }
+
+        .month-col ul li {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            padding: 0.35rem 0;
+            padding-left: 1rem;
+            position: relative;
+            line-height: 1.4;
+        }
+
+        .month-col ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--gold);
+        }
+
+        /* ── ROI CARD ── */
+        .roi-card {
+            background: var(--ink);
+            color: var(--cream);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            margin-top: 2rem;
+        }
+
+        .roi-card h3 {
+            font-family: var(--serif);
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        .roi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .roi-metric {
+            text-align: center;
+            padding: 1rem;
+            background: rgba(168,137,92,0.1);
+            border: 1px solid rgba(168,137,92,0.25);
+            border-radius: var(--radius-sm);
+        }
+
+        .roi-metric .value {
+            font-family: var(--serif);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold-light);
+        }
+
+        .roi-metric .label {
+            font-size: 0.75rem;
+            color: var(--gold-pale);
+            margin-top: 0.25rem;
+        }
+
+        .roi-note {
+            text-align: center;
+            margin-top: 1.5rem;
+            font-size: 0.82rem;
+            color: var(--gold-pale);
+            opacity: 0.8;
+        }
+
+        /* ── TOOLS TABLE ── */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .tool-card {
+            background: var(--white);
+            border: 1px solid var(--cream-3);
+            border-radius: var(--radius-sm);
+            padding: 1.5rem;
+        }
+
+        .tool-card h4 {
+            font-family: var(--serif);
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tool-card .price {
+            font-family: var(--mono);
+            font-size: 0.75rem;
+            color: var(--success);
+            background: rgba(74,124,89,0.1);
+            padding: 0.2rem 0.5rem;
+            border-radius: 999px;
+        }
+
+        .tool-card p {
+            font-size: 0.85rem;
+            color: var(--ink-soft);
+            line-height: 1.5;
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--cream-3);
+            margin-top: 2rem;
+        }
+
+        footer .brand {
+            font-family: var(--serif);
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        footer .brand span { color: var(--gold); }
+        footer p { font-size: 0.82rem; color: var(--ink-muted); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 900px) {
+            .week-grid { grid-template-columns: repeat(2, 1fr); }
+            .week-grid .day-card:nth-child(7) { grid-column: span 2; }
+        }
+
+        @media (max-width: 768px) {
+            .week-grid { grid-template-columns: 1fr; }
+            .week-grid .day-card:nth-child(7) { grid-column: span 1; }
+            .rotation-grid,
+            .tools-grid,
+            .month-grid,
+            .allocation-grid { grid-template-columns: 1fr; }
+            .budget-overview { grid-template-columns: 1fr; }
+            .time-slots { grid-template-columns: 1fr 1fr; }
+            .roi-grid { grid-template-columns: 1fr 1fr; }
+            nav { flex-direction: column; gap: 0.75rem; }
+            .nav-links { justify-content: center; }
+        }
+
+        @media print {
+            nav { position: static; }
+            .day-card:hover, .budget-tier:hover, .alloc-item:hover { transform: none; box-shadow: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav>
+    <div class="nav-brand">Atelier <span>Mirage</span></div>
+    <div class="nav-links">
+        <a href="#semaine">Semaine type</a>
+        <a href="#rotation">Rotation</a>
+        <a href="#horaires">Horaires</a>
+        <a href="#budget">Budget</a>
+        <a href="#mois">6 mois</a>
+        <a href="#kpis">KPIs</a>
+        <a href="#planb">Plan B</a>
+        <a href="#crosscanal">Cross-canal</a>
+        <a href="#veille">Veille</a>
+        <a href="#outils">Outils</a>
+    </div>
+</nav>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<div class="hero">
+    <div class="hero-badge">📅 STRATÉGIE COMPLÈTE · 500-1500€/MOIS</div>
+    <h1>Calendrier Éditorial <em>&</em> Budget Marketing</h1>
+    <p>Quoi poster, quel jour, à quelle heure — et comment répartir chaque euro de ton budget pour atteindre 25 partenaires en 6 mois.</p>
+</div>
+
+<!-- ═══════════════════ SEMAINE TYPE ═══════════════════ -->
+<section id="semaine">
+    <div class="container">
+        <div class="section-label">01 · Planning hebdomadaire</div>
+        <h2 class="section-title">La semaine type Atelier Mirage</h2>
+        <p class="section-desc">6 jours de publication, 1 jour off. Chaque jour a un rôle précis. Le rythme cible : 1 post feed par jour (18h-19h) + Stories quotidiennes.</p>
+
+        <div style="background: var(--white); border: 2px solid var(--gold); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; margin-bottom: 2rem;">
+            <p style="font-size: 0.88rem; color: var(--ink-soft); margin: 0;"><strong style="color: var(--gold);">⚡ Mode progressif (recommandé) :</strong> Ne démarre PAS à 6 posts/semaine. Tu es artisan solo — tu dois aussi produire, livrer, prospecter. <strong>Mois 1-2 : 4 posts/semaine</strong> (Lundi Reel + Mercredi ASMR + Vendredi Timelapse + Samedi Carrousel). <strong>Mois 3 : monte à 5</strong> (ajoute le Mardi Carrousel éducatif). <strong>Mois 4+ : 6 posts</strong> quand ton batch shooting est rodé et que l'UGC couvre 30% du contenu. Les Stories restent quotidiennes dès le départ — elles prennent 2 min avec le téléphone.</p>
+        </div>
+
+        <div class="week-grid">
+
+            <!-- LUNDI -->
+            <div class="day-card highlight">
+                <div class="day-name">Lundi</div>
+                <div class="day-slot">
+                    <div class="slot-time">18h00 — Feed</div>
+                    <div class="slot-content reel">
+                        <span class="slot-type reel">Reel Reveal</span>
+                        Le format signature. Objet trompe-l'œil → découpe → reveal. ASMR ou musique dramatique. Hook : "C'est pas ce que vous pensez…"
+                    </div>
+                </div>
+                <div class="day-slot">
+                    <div class="slot-time">10h + 14h — Stories</div>
+                    <div class="slot-content story">
+                        <span class="slot-type story">Stories ×2</span>
+                        Teaser du Reel du jour + sondage "Vrai ou faux ?" sur une création
+                    </div>
+                </div>
+            </div>
+
+            <!-- MARDI -->
+            <div class="day-card">
+                <div class="day-name">Mardi</div>
+                <div class="day-slot">
+                    <div class="slot-time">18h30 — Feed</div>
+                    <div class="slot-content carousel">
+                        <span class="slot-type carousel">Carrousel Éducatif</span>
+                        "5 raisons d'ajouter le trompe-l'œil à ta carte" / "Comment ça marche" / Avant-Après chez un partenaire. 5-8 slides.
+                    </div>
+                </div>
+                <div class="day-slot">
+                    <div class="slot-time">11h — Stories</div>
+                    <div class="slot-content behind">
+                        <span class="slot-type behind">Behind the scenes</span>
+                        Production du jour : préparation commandes, coulisses atelier
+                    </div>
+                </div>
+            </div>
+
+            <!-- MERCREDI -->
+            <div class="day-card highlight">
+                <div class="day-name">Mercredi</div>
+                <div class="day-slot">
+                    <div class="slot-time">18h00 — Feed</div>
+                    <div class="slot-content asmr">
+                        <span class="slot-type asmr">Reel ASMR</span>
+                        Full ASMR : découpe lente, textures, craquements, glaçage. Zéro musique, que du son. Format hypnotique, le plus rewatch.
+                    </div>
+                </div>
+                <div class="day-slot">
+                    <div class="slot-time">12h — Stories</div>
+                    <div class="slot-content story">
+                        <span class="slot-type story">Repost UGC</span>
+                        Repost du meilleur contenu partenaire de la semaine + mention + "merci 🤎"
+                    </div>
+                </div>
+            </div>
+
+            <!-- JEUDI -->
+            <div class="day-card">
+                <div class="day-name">Jeudi</div>
+                <div class="day-slot">
+                    <div class="slot-time">19h00 — Feed</div>
+                    <div class="slot-content photo">
+                        <span class="slot-type photo">Photo Produit</span>
+                        Belle photo overhead ou 45° d'une création. Fond marbre, styling minimal. Légende storytelling : l'histoire derrière la pièce.
+                    </div>
+                </div>
+                <div class="day-slot">
+                    <div class="slot-time">15h — Stories</div>
+                    <div class="slot-content story">
+                        <span class="slot-type story">Q&A / Sondage</span>
+                        "Quel trompe-l'œil vous voulez voir ?" / Quiz "Vrai fruit ou Mirage ?" / Slider emoji
+                    </div>
+                </div>
+            </div>
+
+            <!-- VENDREDI -->
+            <div class="day-card highlight">
+                <div class="day-name">Vendredi</div>
+                <div class="day-slot">
+                    <div class="slot-time">18h00 — Feed</div>
+                    <div class="slot-content reel">
+                        <span class="slot-type reel">Reel Timelapse</span>
+                        Process complet en 20-30s : de la matière brute au produit fini. Musique dynamique. "60 secondes pour créer la magie ✨"
+                    </div>
+                </div>
+                <div class="day-slot">
+                    <div class="slot-time">11h + 16h — Stories</div>
+                    <div class="slot-content behind">
+                        <span class="slot-type behind">Stories ×2</span>
+                        Préparation weekend + teaser des livraisons. "Demain on livre chez…"
+                    </div>
+                </div>
+            </div>
+
+            <!-- SAMEDI -->
+            <div class="day-card">
+                <div class="day-name">Samedi</div>
+                <div class="day-slot">
+                    <div class="slot-time">11h00 — Feed</div>
+                    <div class="slot-content carousel">
+                        <span class="slot-type carousel">Carrousel Social Proof</span>
+                        Témoignage partenaire en carrousel : photo vitrine + citation + résultats. Ou : "Top 3 des créations de la semaine".
+                    </div>
+                </div>
+                <div class="day-slot">
+                    <div class="slot-time">14h — Stories</div>
+                    <div class="slot-content story">
+                        <span class="slot-type story">Stories Weekend</span>
+                        Ambiance détente : inspiration, mood board, ce qui t'inspire cette semaine
+                    </div>
+                </div>
+            </div>
+
+            <!-- DIMANCHE -->
+            <div class="day-card rest">
+                <div class="day-name">Dimanche</div>
+                <div class="day-slot">
+                    <div class="slot-content" style="border-left-color: var(--ink-muted); text-align: center;">
+                        <span class="slot-type" style="color: var(--ink-muted);">Repos</span>
+                        Pas de publication. Préparation du contenu de la semaine suivante. Planification des posts dans l'outil de scheduling.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Légende -->
+        <div class="legend">
+            <div class="legend-item"><div class="legend-dot reel"></div>Reel (Reveal / ASMR / Timelapse)</div>
+            <div class="legend-item"><div class="legend-dot carousel"></div>Carrousel (Éducatif / Social Proof)</div>
+            <div class="legend-item"><div class="legend-dot photo"></div>Photo Produit</div>
+            <div class="legend-item"><div class="legend-dot story"></div>Stories / UGC / Q&A</div>
+            <div class="legend-item"><div class="legend-dot behind"></div>Behind the Scenes</div>
+            <div class="legend-item"><div class="legend-dot asmr"></div>ASMR</div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════ ROTATION 4 SEMAINES ═══════════════════ -->
+<section id="rotation" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">02 · Rotation mensuelle</div>
+        <h2 class="section-title">4 semaines, 4 thèmes</h2>
+        <p class="section-desc">Chaque semaine garde la même structure (Reel lundi, Carrousel mardi, etc.) mais le thème tourne pour éviter la répétition.</p>
+
+        <div class="rotation-grid">
+
+            <div class="rotation-card">
+                <div class="week-label">Semaine 1</div>
+                <h3>🍓 Produit Signature</h3>
+                <div class="rotation-item"><span class="day">LUN</span> Reel Reveal — Fraise trompe-l'œil (le best-seller)</div>
+                <div class="rotation-item"><span class="day">MAR</span> Carrousel — "Comment est faite une fraise Mirage" (5 étapes)</div>
+                <div class="rotation-item"><span class="day">MER</span> ASMR — Découpe fraise, son du couteau, intérieur crémeux</div>
+                <div class="rotation-item"><span class="day">JEU</span> Photo — Collection fraises sur marbre blanc, flat-lay</div>
+                <div class="rotation-item"><span class="day">VEN</span> Timelapse — De la pâte d'amande au produit fini</div>
+                <div class="rotation-item"><span class="day">SAM</span> Carrousel — Témoignage pâtissier client + photo vitrine</div>
+            </div>
+
+            <div class="rotation-card">
+                <div class="week-label">Semaine 2</div>
+                <h3>🤝 Partenaire Spotlight</h3>
+                <div class="rotation-item"><span class="day">LUN</span> Reel — "Un jour chez [partenaire]" : livraison → mise en vitrine</div>
+                <div class="rotation-item"><span class="day">MAR</span> Carrousel — "5 raisons d'ajouter le trompe-l'œil à ta carte"</div>
+                <div class="rotation-item"><span class="day">MER</span> ASMR — Client qui découpe un trompe-l'œil (réaction)</div>
+                <div class="rotation-item"><span class="day">JEU</span> Photo — Trompe-l'œil en situation (vitrine, table, assiette)</div>
+                <div class="rotation-item"><span class="day">VEN</span> Timelapse — Préparation d'une commande B2B complète</div>
+                <div class="rotation-item"><span class="day">SAM</span> Carrousel — Chiffres : "+30% de panier moyen chez [partenaire]"</div>
+            </div>
+
+            <div class="rotation-card">
+                <div class="week-label">Semaine 3</div>
+                <h3>✨ Nouveauté / Saison</h3>
+                <div class="rotation-item"><span class="day">LUN</span> Reel Reveal — Nouveau produit (tease → reveal spectaculaire)</div>
+                <div class="rotation-item"><span class="day">MAR</span> Carrousel — "Les tendances dessert du moment" (veille)</div>
+                <div class="rotation-item"><span class="day">MER</span> ASMR — Textures du nouveau produit (glaçage, saupoudrage)</div>
+                <div class="rotation-item"><span class="day">JEU</span> Photo — Shooting lifestyle du nouveau produit</div>
+                <div class="rotation-item"><span class="day">VEN</span> Timelapse — R&D en atelier, essais et tests</div>
+                <div class="rotation-item"><span class="day">SAM</span> Carrousel — Sondage "Quel nom pour cette création ?"</div>
+            </div>
+
+            <div class="rotation-card">
+                <div class="week-label">Semaine 4</div>
+                <h3>🎭 Coulisses & Artisanat</h3>
+                <div class="rotation-item"><span class="day">LUN</span> Reel — "Ma journée de pâtissier trompe-l'œil" (vlog court)</div>
+                <div class="rotation-item"><span class="day">MAR</span> Carrousel — "L'histoire d'Atelier Mirage" / valeurs / vision</div>
+                <div class="rotation-item"><span class="day">MER</span> ASMR — Sons de l'atelier : mixeur, batteur, moules</div>
+                <div class="rotation-item"><span class="day">JEU</span> Photo — Portrait artisan / détail mains au travail</div>
+                <div class="rotation-item"><span class="day">VEN</span> Timelapse — Rangement et préparation de l'atelier</div>
+                <div class="rotation-item"><span class="day">SAM</span> Carrousel — Récap du mois : best of, chiffres, remerciements</div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ HORAIRES ═══════════════════ -->
+<section id="horaires">
+    <div class="container">
+        <div class="section-label">03 · Timing optimal</div>
+        <h2 class="section-title">Quand poster pour maximiser la portée</h2>
+        <p class="section-desc">Données basées sur les audiences food B2B et B2C en France. Adapte après 2-3 semaines selon tes propres Insights.</p>
+
+        <div class="timing-card">
+            <h3>Créneaux de publication — Feed</h3>
+            <div class="time-slots">
+                <div class="time-slot">
+                    <div class="hour">7h-8h</div>
+                    <div class="desc">Matin pro</div>
+                    <div class="perf">B2B : restaurateurs qui scrollent avant le service</div>
+                </div>
+                <div class="time-slot best">
+                    <div class="hour">12h-13h</div>
+                    <div class="desc">Pause déjeuner</div>
+                    <div class="perf">PEAK B2C · +35% d'engagement</div>
+                </div>
+                <div class="time-slot best">
+                    <div class="hour">18h-19h</div>
+                    <div class="desc">Fin de journée</div>
+                    <div class="perf">PEAK GLOBAL · Meilleur créneau Reels</div>
+                </div>
+                <div class="time-slot">
+                    <div class="hour">21h-22h</div>
+                    <div class="desc">Soirée canapé</div>
+                    <div class="perf">B2C : scroll détente, bon pour ASMR</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="timing-card" style="margin-top: 1rem;">
+            <h3>Créneaux de publication — Stories</h3>
+            <div class="time-slots">
+                <div class="time-slot best">
+                    <div class="hour">9h-10h</div>
+                    <div class="desc">Story du matin</div>
+                    <div class="perf">Teaser du jour · Behind the scenes</div>
+                </div>
+                <div class="time-slot">
+                    <div class="hour">12h-13h</div>
+                    <div class="desc">Midi</div>
+                    <div class="perf">Sondage / Quiz pendant la pause</div>
+                </div>
+                <div class="time-slot best">
+                    <div class="hour">15h-16h</div>
+                    <div class="desc">Après-midi</div>
+                    <div class="perf">Coulisses atelier · UGC repost</div>
+                </div>
+                <div class="time-slot">
+                    <div class="hour">19h-20h</div>
+                    <div class="desc">Pré-soirée</div>
+                    <div class="perf">Rappel du post du jour · CTA</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: var(--white); border: 1px solid var(--cream-3); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; margin-top: 1.5rem;">
+            <p style="font-size: 0.88rem; color: var(--ink-soft); margin: 0;"><strong style="color: var(--gold);">Pro tip :</strong> Le lundi et le vendredi à 18h sont tes créneaux Reel. Les Reels postés en fin de semaine (mercredi-vendredi) ont historiquement 20-30% de reach en plus sur les comptes food français. Le samedi 11h fonctionne bien pour les carrousels car l'audience scroll plus lentement le weekend.</p>
+        </div>
+
+        <!-- Routine engagement post-publication -->
+        <div class="timing-card" style="margin-top: 1.5rem; border: 2px solid var(--gold); box-shadow: var(--shadow-gold);">
+            <h3 style="color: var(--gold);">Les 10 minutes en or — routine post-publication</h3>
+            <p style="font-size: 0.88rem; color: var(--ink-soft); margin-bottom: 1rem;">L'algorithme booste les posts qui génèrent des conversations rapidement. Bloque ces 10 min après CHAQUE publication — c'est un levier algorithmique gratuit.</p>
+            <div class="time-slots">
+                <div class="time-slot best">
+                    <div class="hour">T+0</div>
+                    <div class="desc">Partage en Story</div>
+                    <div class="perf">Immédiatement · Avec sticker question ("Vous auriez deviné ?") pour générer des réponses Story</div>
+                </div>
+                <div class="time-slot best">
+                    <div class="hour">T+0</div>
+                    <div class="desc">Envoie par DM</div>
+                    <div class="perf">À 3-5 contacts proches + 3 prospects tièdes par WhatsApp ("Regarde ce qu'on a fait 👀")</div>
+                </div>
+                <div class="time-slot best">
+                    <div class="hour">T+5min</div>
+                    <div class="desc">Commente d'autres comptes</div>
+                    <div class="perf">5-10 commentaires sur des posts food/resto. L'algo te récompense quand tu es actif</div>
+                </div>
+                <div class="time-slot best">
+                    <div class="hour">T+0→60min</div>
+                    <div class="desc">Réponds à TOUT</div>
+                    <div class="perf">CRITIQUE · Chaque réponse dans la 1ère heure = signal × 2 pour l'algo. Même un emoji compte</div>
+                </div>
+            </div>
+            <p style="font-size: 0.82rem; color: var(--ink-muted); margin-top: 0.75rem; font-style: italic;">Impact mesuré : +40% de reach sur le même post quand les commentaires sont répondus dans la première heure vs le lendemain. C'est la tactique gratuite la plus sous-estimée d'Instagram.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ BUDGET ═══════════════════ -->
+<section id="budget" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">04 · Répartition du budget</div>
+        <h2 class="section-title">Où va chaque euro</h2>
+        <p class="section-desc">Ton budget est de 500 à 1500€/mois. Voici comment le ventiler pour un impact maximal sur l'acquisition de partenaires B2B.</p>
+
+        <!-- Budget tiers -->
+        <div class="budget-overview">
+            <div class="budget-tier">
+                <div class="budget-amount">500<span>€/mois</span></div>
+                <div class="budget-label">Starter — Accélération organique</div>
+            </div>
+            <div class="budget-tier active">
+                <div class="budget-amount">900<span>€/mois</span></div>
+                <div class="budget-label">Sweet Spot — Croissance soutenue</div>
+            </div>
+            <div class="budget-tier">
+                <div class="budget-amount">1 500<span>€/mois</span></div>
+                <div class="budget-label">Accélérateur — Blitz acquisition</div>
+            </div>
+        </div>
+
+        <!-- Allocation détaillée -->
+        <div class="allocation-grid">
+
+            <div class="pie-container">
+                <h3 style="font-family: var(--serif); font-size: 1.2rem; margin-bottom: 1rem;">Répartition type (900€)</h3>
+                <div class="pie-wrapper">
+                    <div class="pie-chart">
+                        <div class="pie-center">
+                            <span class="amount">900€</span>
+                            <span class="label">/ mois</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="text-align: left; font-size: 0.75rem; color: var(--ink-muted);">
+                    <div style="display: flex; align-items: center; gap: 0.4rem; margin: 0.3rem 0;"><div style="width: 10px; height: 10px; background: var(--gold); border-radius: 2px;"></div> Meta Ads — 40%</div>
+                    <div style="display: flex; align-items: center; gap: 0.4rem; margin: 0.3rem 0;"><div style="width: 10px; height: 10px; background: var(--blue); border-radius: 2px;"></div> Prospection terrain — 25%</div>
+                    <div style="display: flex; align-items: center; gap: 0.4rem; margin: 0.3rem 0;"><div style="width: 10px; height: 10px; background: var(--success); border-radius: 2px;"></div> Kits dégustation — 15%</div>
+                    <div style="display: flex; align-items: center; gap: 0.4rem; margin: 0.3rem 0;"><div style="width: 10px; height: 10px; background: var(--purple); border-radius: 2px;"></div> Outils & Abonnements — 10%</div>
+                    <div style="display: flex; align-items: center; gap: 0.4rem; margin: 0.3rem 0;"><div style="width: 10px; height: 10px; background: var(--orange); border-radius: 2px;"></div> Micro-influence — 10%</div>
+                </div>
+            </div>
+
+            <ul class="alloc-list">
+
+                <li class="alloc-item">
+                    <div class="alloc-header">
+                        <div class="alloc-name"><div class="alloc-dot" style="background: var(--gold);"></div>Meta Ads (Instagram + Facebook)</div>
+                        <div class="alloc-pct">40%</div>
+                    </div>
+                    <div class="alloc-amount">200€ (starter) · 360€ (sweet spot) · 600€ (accélérateur)</div>
+                    <div class="alloc-desc">Le levier le plus direct pour toucher des pros. Budget réparti entre :</div>
+                    <ul class="alloc-items">
+                        <li><strong>60% — Boost de Reels performants</strong> (ceux qui font >500 vues organiques → boost à 5-10€/jour pendant 3-5 jours). Cible : restaurateurs, pâtissiers, traiteurs dans un rayon de 50km autour de Marseille</li>
+                        <li><strong>25% — Campagne "Partenaire"</strong> : annonce dédiée vers la page partenaires.html avec simulateur de marge. Audience lookalike de tes clients actuels</li>
+                        <li><strong>15% — Retargeting</strong> : relance les visiteurs du site qui n'ont pas converti. Pub avec témoignage partenaire + CTA "Demandez votre kit dégustation gratuit". Le coût par lead retargeting est 3-5× inférieur au cold — c'est ton arme secrète B2B</li>
+                    </ul>
+                    <div style="margin-top: 0.75rem; padding: 0.75rem; background: var(--cream); border-left: 3px solid var(--error); border-radius: 4px;">
+                        <p style="font-size: 0.82rem; color: var(--ink-soft); margin: 0;"><strong style="color: var(--error);">N'utilise JAMAIS le bouton "Boost" d'Instagram.</strong> Toujours passer par le Gestionnaire de publicités Meta (business.facebook.com/adsmanager). Le bouton Boost = audience trop large, zéro contrôle sur le ciblage pro. Le Gestionnaire te permet de cibler "restaurateurs à Marseille" avec précision. C'est 10 min de plus à configurer mais 3× plus de résultats par euro dépensé.</p>
+                    </div>
+                    <div style="margin-top: 0.5rem; padding: 0.75rem; background: var(--cream); border-left: 3px solid var(--gold); border-radius: 4px;">
+                        <p style="font-size: 0.82rem; color: var(--ink-soft); margin: 0;"><strong style="color: var(--gold);">Alerte créatives toutes les 4-6 semaines.</strong> Mets un rappel dans ton calendrier. L'audience fatigue vite sur les mêmes visuels → les performances chutent. Ton stock de 15-20 Reels d'avance sert aussi à ça : tu as toujours du contenu frais pour tes ads. Quand le coût/lead monte &gt;30€, c'est souvent un signe de fatigue créative — change le visuel avant de changer l'audience.</p>
+                    </div>
+                </li>
+
+                <li class="alloc-item">
+                    <div class="alloc-header">
+                        <div class="alloc-name"><div class="alloc-dot" style="background: var(--blue);"></div>Prospection terrain</div>
+                        <div class="alloc-pct">25%</div>
+                    </div>
+                    <div class="alloc-amount">125€ (starter) · 225€ (sweet spot) · 375€ (accélérateur)</div>
+                    <div class="alloc-desc">Déplacement, packaging prospection, et petits gestes commerciaux :</div>
+                    <ul class="alloc-items">
+                        <li><strong>Transport</strong> — Essence/transports pour tournées de prospection quartier par quartier (cf. zonage Marseille dans le Système Mirage)</li>
+                        <li><strong>Supports imprimés</strong> — Cartes de visite premium (200 pcs = ~40€), flyers A5 avec QR code vers le simulateur de marge (~60€/500 pcs)</li>
+                        <li><strong>Packaging prospection</strong> — Boîte de présentation 3 pièces avec carte personnalisée pour les visites (coût matière + emballage)</li>
+                    </ul>
+                </li>
+
+                <li class="alloc-item">
+                    <div class="alloc-header">
+                        <div class="alloc-name"><div class="alloc-dot" style="background: var(--success);"></div>Kits dégustation gratuits</div>
+                        <div class="alloc-pct">15%</div>
+                    </div>
+                    <div class="alloc-amount">75€ (starter) · 135€ (sweet spot) · 225€ (accélérateur)</div>
+                    <div class="alloc-desc">Le closer #1 en B2B food — goûter c'est adopter :</div>
+                    <ul class="alloc-items">
+                        <li><strong>3-5 kits/mois</strong> (starter) → <strong>8-12 kits/mois</strong> (accélérateur)</li>
+                        <li>Chaque kit = 3 pièces variées + carte de prix + fiche marge + QR code WhatsApp</li>
+                        <li>Coût de revient par kit : ~15-25€. ROI : taux de conversion kit → partenaire = ~40-50%</li>
+                    </ul>
+                </li>
+
+                <li class="alloc-item">
+                    <div class="alloc-header">
+                        <div class="alloc-name"><div class="alloc-dot" style="background: var(--purple);"></div>Outils & Abonnements</div>
+                        <div class="alloc-pct">10%</div>
+                    </div>
+                    <div class="alloc-amount">50€ (starter) · 90€ (sweet spot) · 150€ (accélérateur)</div>
+                    <div class="alloc-desc">Les outils qui font gagner du temps et de la qualité :</div>
+                    <ul class="alloc-items">
+                        <li><strong>Later ou Planoly</strong> (~15€/mois) — Programmation de posts + analytics avancés</li>
+                        <li><strong>Canva Pro</strong> (~12€/mois) — Templates carrousel, brand kit, arrière-plans</li>
+                        <li><strong>Epidemic Sound</strong> (~8€/mois) — Musiques libres de droit pour Reels</li>
+                        <li><strong>Lightroom Mobile</strong> (gratuit) — Presets photo food</li>
+                        <li><strong>WhatsApp Business</strong> (gratuit) — Déjà en place</li>
+                    </ul>
+                </li>
+
+                <li class="alloc-item">
+                    <div class="alloc-header">
+                        <div class="alloc-name"><div class="alloc-dot" style="background: var(--orange);"></div>Micro-influence locale</div>
+                        <div class="alloc-pct">10%</div>
+                    </div>
+                    <div class="alloc-amount">50€ (starter) · 90€ (sweet spot) · 150€ (accélérateur)</div>
+                    <div class="alloc-desc">Pas de gros influenceurs — des micro-locaux (1K-15K abonnés Marseille) :</div>
+                    <ul class="alloc-items">
+                        <li><strong>1-2 collabs/mois</strong> — Envoi produit gratuit + budget story/reel (~30-50€ de produit + 0-50€ cash selon le profil)</li>
+                        <li><strong>Comment les trouver</strong> : Recherche hashtags #marseilleFood #bonnesadressesmarseille #marseillegourmande #foodpornmarseille. Filtre : 1K-15K abonnés, taux d'engagement >3%, basé à Marseille/BDR. Regarde aussi les comptes qui follow tes partenaires actuels</li>
+                        <li><strong>Comment contacter</strong> : DM direct, ton et perso. "Salut [prénom] ! Je suis Karim, artisan pâtissier trompe-l'œil à Marseille. J'adore ton contenu, surtout [post récent précis]. J'aimerais t'envoyer un kit de mes créations — chaque pièce ressemble à un vrai fruit mais c'est un dessert. Ça te dit ?" — Pas de mail, pas de brief corporate</li>
+                        <li><strong>Comment mesurer le ROI</strong> : Lien tracké UTM dans ta bio pendant la collab (utm_source=influence&utm_campaign=nom_influenceur). Code promo dédié pour les partenaires B2B ("MIRAGE-[NOM]" = -10% première commande). Track les DM reçus dans les 48h post-publication</li>
+                        <li><strong>Format</strong> : Unboxing + dégustation en Story ou Reel. Tu reposts en UGC. Double bénéfice : reach + contenu. Demande-leur de filmer la découpe — le reveal est le moment viral</li>
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════ MOIS PAR MOIS ═══════════════════ -->
+<section id="mois">
+    <div class="container">
+        <div class="section-label">05 · Roadmap 6 mois</div>
+        <h2 class="section-title">De 10 à 25 partenaires, mois par mois</h2>
+        <p class="section-desc">Chaque mois a un objectif, un budget adapté, et des actions prioritaires. Le budget monte progressivement au fur et à mesure que le ROI se confirme.</p>
+
+        <div class="month-timeline">
+
+            <!-- MOIS 1 -->
+            <div class="month-block">
+                <div class="month-header">
+                    <div class="month-name">Mois 1 — Fondations</div>
+                    <div class="month-budget">500 €</div>
+                </div>
+                <div class="month-goal">Objectif : profil Instagram optimisé, premiers 30 posts, 2-3 nouveaux partenaires contactés.</div>
+                <div class="month-grid">
+                    <div class="month-col">
+                        <h4>Actions contenu</h4>
+                        <ul>
+                            <li>Setup profil Instagram complet (bio B2B, highlights, link in bio)</li>
+                            <li>Batch shooting : 15-20 Reels en stock</li>
+                            <li>Lancement rythme 6 posts/semaine</li>
+                            <li>Créer 3 presets Lightroom pour cohérence</li>
+                        </ul>
+                    </div>
+                    <div class="month-col">
+                        <h4>Actions budget</h4>
+                        <ul>
+                            <li>200€ Meta Ads — <strong>Semaine 1-2 :</strong> 50€ en test sur 3 audiences (restaurateurs Marseille, pâtissiers BDR, food lovers 25-45). <strong>Semaine 3-4 :</strong> 150€ concentrés sur l'audience qui performe + boost du meilleur Reel</li>
+                            <li>100€ Prospection terrain — Quartier Vieux-Port + Panier</li>
+                            <li>75€ Kits dégustation — 3-4 kits pour premières visites</li>
+                            <li>50€ Outils — Later + Canva Pro</li>
+                            <li>75€ Réserve / imprévus</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOIS 2 -->
+            <div class="month-block">
+                <div class="month-header">
+                    <div class="month-name">Mois 2 — Accélération</div>
+                    <div class="month-budget">700 €</div>
+                </div>
+                <div class="month-goal">Objectif : 500+ abonnés qualifiés, 2-3 nouveaux partenaires signés, premier UGC reçu.</div>
+                <div class="month-grid">
+                    <div class="month-col">
+                        <h4>Actions contenu</h4>
+                        <ul>
+                            <li>Premiers carrousels "social proof" avec partenaires actuels</li>
+                            <li>Lancer le format "Une journée chez [partenaire]"</li>
+                            <li>Premier collab micro-influence locale</li>
+                            <li>Analyser top 3 posts du mois 1 → doubler la mise</li>
+                        </ul>
+                    </div>
+                    <div class="month-col">
+                        <h4>Actions budget</h4>
+                        <ul>
+                            <li>280€ Meta Ads — Boost + première campagne "Partenaire"</li>
+                            <li>150€ Prospection — Quartiers Joliette + Castellane + Prado</li>
+                            <li>100€ Kits dégustation — 5-6 kits</li>
+                            <li>90€ Outils + Epidemic Sound</li>
+                            <li>80€ Premier micro-influenceur</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOIS 3 -->
+            <div class="month-block">
+                <div class="month-header">
+                    <div class="month-name">Mois 3 — Proof of Concept</div>
+                    <div class="month-budget">900 €</div>
+                </div>
+                <div class="month-goal">Objectif : 15 partenaires actifs, 1000+ abonnés, coût d'acquisition partenaire mesuré.</div>
+                <div class="month-grid">
+                    <div class="month-col">
+                        <h4>Actions contenu</h4>
+                        <ul>
+                            <li>Série "Avant/Après" chez partenaires (chiffres réels)</li>
+                            <li>Premier Reel viral ciblé (investir dans la prod du "hero content")</li>
+                            <li>Lancer les témoignages vidéo partenaires</li>
+                            <li>Programme de repost UGC systématique</li>
+                        </ul>
+                    </div>
+                    <div class="month-col">
+                        <h4>Actions budget</h4>
+                        <ul>
+                            <li>360€ Meta Ads — Campagne partenaire + retargeting activé</li>
+                            <li>225€ Prospection — Élargir aux quartiers Est + Nord</li>
+                            <li>135€ Kits — 7-8 kits (volume up)</li>
+                            <li>90€ Outils</li>
+                            <li>90€ 2ème collab micro-influence</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOIS 4 -->
+            <div class="month-block">
+                <div class="month-header">
+                    <div class="month-name">Mois 4 — Scale</div>
+                    <div class="month-budget">1 100 €</div>
+                </div>
+                <div class="month-goal">Objectif : 18 partenaires, affiner le funnel, lancer le programme parrainage.</div>
+                <div class="month-grid">
+                    <div class="month-col">
+                        <h4>Actions contenu</h4>
+                        <ul>
+                            <li>Lancement programme parrainage (partenaires existants recommandent)</li>
+                            <li>Contenu "case study" détaillé avec métriques</li>
+                            <li>Commencer les Reels "collab" avec partenaires</li>
+                            <li>Tests A/B sur les hooks de Reels</li>
+                        </ul>
+                    </div>
+                    <div class="month-col">
+                        <h4>Actions budget</h4>
+                        <ul>
+                            <li>440€ Meta Ads — Augmenter le budget retargeting</li>
+                            <li>275€ Prospection — Communes limitrophes (Aubagne, Aix, La Ciotat)</li>
+                            <li>165€ Kits — 8-10 kits</li>
+                            <li>110€ Outils + upgrade analytics</li>
+                            <li>110€ Micro-influence (2 collabs)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOIS 5 -->
+            <div class="month-block">
+                <div class="month-header">
+                    <div class="month-name">Mois 5 — Maturation</div>
+                    <div class="month-budget">1 300 €</div>
+                </div>
+                <div class="month-goal">Objectif : 22 partenaires, contenu quasi-autonome grâce à l'UGC, coût d'acquisition en baisse.</div>
+                <div class="month-grid">
+                    <div class="month-col">
+                        <h4>Actions contenu</h4>
+                        <ul>
+                            <li>UGC représente 30-40% du contenu (repost partenaires)</li>
+                            <li>Série mensuelle "Le trompe-l'œil du mois" (création événement)</li>
+                            <li>Premiers Reels >10K vues organiques récurrents</li>
+                            <li>Contenu saisonnier (été, événements Marseille)</li>
+                        </ul>
+                    </div>
+                    <div class="month-col">
+                        <h4>Actions budget</h4>
+                        <ul>
+                            <li>520€ Meta Ads — Focus lookalike audience + scaling ce qui marche</li>
+                            <li>300€ Prospection — Périphérie Marseille + premiers contacts hors BDR</li>
+                            <li>195€ Kits — 10-12 kits (taux de conversion affiné)</li>
+                            <li>130€ Outils</li>
+                            <li>155€ Micro-influence (2-3 collabs)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- MOIS 6 -->
+            <div class="month-block">
+                <div class="month-header">
+                    <div class="month-name">Mois 6 — Objectif atteint</div>
+                    <div class="month-budget">1 500 €</div>
+                </div>
+                <div class="month-goal">Objectif : 25 partenaires actifs. Passage en mode rétention + expansion.</div>
+                <div class="month-grid">
+                    <div class="month-col">
+                        <h4>Actions contenu</h4>
+                        <ul>
+                            <li>Machine à contenu rodée : batch shooting 1×/semaine, stock permanent</li>
+                            <li>Lancement d'une newsletter mensuelle pour les partenaires</li>
+                            <li>Récap vidéo "6 mois d'Atelier Mirage" (milestone content)</li>
+                            <li>Planification Q3 : nouveaux segments, événementiel, cours</li>
+                        </ul>
+                    </div>
+                    <div class="month-col">
+                        <h4>Actions budget</h4>
+                        <ul>
+                            <li>600€ Meta Ads — Campagne de notoriété élargie + maintien conversion</li>
+                            <li>375€ Prospection — Couverture complète BDR</li>
+                            <li>225€ Kits — Gros volume, négocier le coût matière</li>
+                            <li>150€ Outils</li>
+                            <li>150€ Micro-influence — 3 collabs dont 1 "plus gros" profil</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- ROI Card -->
+        <div class="roi-card" id="roi">
+            <h3>ROI estimé à 6 mois</h3>
+            <div class="roi-grid">
+                <div class="roi-metric">
+                    <div class="value">~6 000€</div>
+                    <div class="label">Budget total investi</div>
+                </div>
+                <div class="roi-metric">
+                    <div class="value">25</div>
+                    <div class="label">Partenaires actifs</div>
+                </div>
+                <div class="roi-metric">
+                    <div class="value">~240€</div>
+                    <div class="label">Coût acquisition / partenaire</div>
+                </div>
+                <div class="roi-metric">
+                    <div class="value">×3 à ×5</div>
+                    <div class="label">ROI estimé (LTV 12 mois)</div>
+                </div>
+            </div>
+            <p class="roi-note">Hypothèse : panier moyen partenaire ~200-400€/mois · LTV 12 mois = 2 400-4 800€ par partenaire.<br>15 nouveaux partenaires × 240€ d'acquisition = 3 600€ investis → 36 000-72 000€ de CA annuel potentiel.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ OUTILS ═══════════════════ -->
+<section id="outils" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">06 · Stack d'outils</div>
+        <h2 class="section-title">Les outils du quotidien</h2>
+        <p class="section-desc">Tout ce qu'il faut pour produire, planifier, publier et mesurer. Budget outils : 35-50€/mois max.</p>
+
+        <div class="tools-grid">
+
+            <div class="tool-card">
+                <h4>📅 Later <span class="price">~15€/mois</span></h4>
+                <p>Planification et programmation de tous tes posts Instagram. Vue calendrier visuelle, preview du feed, suggestions d'horaires optimaux, analytics de base. Alternative : Planoly ou Buffer.</p>
+            </div>
+
+            <div class="tool-card">
+                <h4>🎨 Canva Pro <span class="price">~12€/mois</span></h4>
+                <p>Templates de carrousels aux couleurs Mirage, brand kit avec tes fonts et couleurs, suppression d'arrière-plan, redimensionnement magique pour adapter un visuel à tous les formats.</p>
+            </div>
+
+            <div class="tool-card">
+                <h4>🎵 Epidemic Sound <span class="price">~8€/mois</span></h4>
+                <p>Musiques libres de droit pour tes Reels. Crucial pour éviter les strikes copyright. Catégories "dramatic", "chill", "inspiring" parfaites pour le food content. Son HQ.</p>
+            </div>
+
+            <div class="tool-card">
+                <h4>✂️ CapCut <span class="price">Gratuit</span></h4>
+                <p>Montage vidéo Reels. Transitions pro, speed ramp (accélérer/ralentir), sous-titres auto, templates trending. L'app de référence pour le montage mobile Reels.</p>
+            </div>
+
+            <div class="tool-card">
+                <h4>📸 Lightroom Mobile <span class="price">Gratuit</span></h4>
+                <p>Retouche photo et presets. Crée 3 presets "Mirage" (warm, clean, moody) et applique-les en un tap pour garder une cohérence visuelle sur tout le feed.</p>
+            </div>
+
+            <div class="tool-card">
+                <h4>📊 Meta Business Suite <span class="price">Gratuit</span></h4>
+                <p>Gestion des pubs Instagram + Facebook. Création d'audiences (restaurateurs Marseille), suivi des conversions, programmation de posts, inbox unifiée. Indispensable pour les Meta Ads.</p>
+            </div>
+
+            <div class="tool-card">
+                <h4>📱 WhatsApp Business <span class="price">Gratuit</span></h4>
+                <p>Déjà en place. Catalogue produit, réponses rapides pré-écrites, labels pour organiser les prospects (chaud / tiède / froid / partenaire), statistiques de messages.</p>
+            </div>
+
+            <div class="tool-card">
+                <h4>📈 Google Analytics 4 <span class="price">Gratuit</span></h4>
+                <p>Déjà configuré avec les events de conversion sur ton site. Mesure les visites depuis Instagram, les clics WhatsApp, les interactions simulateur, et les leads qualifiés.</p>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ KPIs HEBDO ═══════════════════ -->
+<section id="kpis">
+    <div class="container">
+        <div class="section-label">07 · Mesurer</div>
+        <h2 class="section-title">KPIs hebdomadaires — le lundi matin</h2>
+        <p class="section-desc">Chaque lundi matin avant de poster, ouvre Instagram Insights et note ces 8 chiffres. Pas de dashboard compliqué — un simple tableau dans Notes ou un Google Sheet suffit.</p>
+
+        <div class="tools-grid">
+            <div class="tool-card">
+                <h4>📊 Reach moyen / post <span class="price">Cible : +10%/sem</span></h4>
+                <p>Nombre de comptes uniques touchés par post cette semaine. Si ça baisse 2 semaines de suite, change de format ou d'horaire. Compare Reels vs Carrousels vs Photos.</p>
+            </div>
+            <div class="tool-card">
+                <h4>💬 Taux d'engagement <span class="price">Cible : >4%</span></h4>
+                <p>(Likes + commentaires + saves + shares) ÷ reach × 100. En food, >4% = très bon. Les saves et shares comptent 3× plus que les likes dans l'algo — priorise le contenu "saveable".</p>
+            </div>
+            <div class="tool-card">
+                <h4>👥 Croissance abonnés <span class="price">Cible : +50/sem</span></h4>
+                <p>Nouveaux followers nets (gains - pertes). En phase de lancement, vise +50/semaine. Pas de vanity metric : regarde le ratio de pros (comptes business) dans tes nouveaux followers.</p>
+            </div>
+            <div class="tool-card">
+                <h4>📩 DM reçus / semaine <span class="price">Cible : 3-5</span></h4>
+                <p>Nombre de DM entrants de pros intéressés. C'est TON indicateur #1 de conversion. Chaque DM = un lead chaud. Si les DM augmentent mais pas les partenaires → problème de closing, pas de contenu.</p>
+            </div>
+            <div class="tool-card">
+                <h4>🔗 Clics lien in bio <span class="price">Cible : +15%/mois</span></h4>
+                <p>Combien de personnes cliquent vers ton site (partenaires.html / simulateur). Tracked dans Instagram Insights + GA4. Si reach monte mais clics stagnent → améliore tes CTAs dans les légendes.</p>
+            </div>
+            <div class="tool-card">
+                <h4>🎬 Vues Reels (moy.) <span class="price">Cible : >500 org.</span></h4>
+                <p>Moyenne de vues sur tes Reels cette semaine. Un Reel qui dépasse 500 vues organiques = candidat au boost Meta Ads. Un qui dépasse 2000 = potentiel viral, boost immédiat à 10€/jour.</p>
+            </div>
+            <div class="tool-card">
+                <h4>💰 Coût / lead Meta Ads <span class="price">Cible : <30€</span></h4>
+                <p>Budget Meta Ads dépensé ÷ nombre de DM/formulaires reçus via les pubs. Si c'est au-dessus de 30€/lead, change l'audience ou le créatif. En dessous de 15€ = scaling time.</p>
+            </div>
+            <div class="tool-card">
+                <h4>🤝 Partenaires signés / mois <span class="price">Cible : 2-3</span></h4>
+                <p>Le KPI ultime. Tout le reste alimente celui-ci. Mois 1-2 : 2-3 nouveaux/mois. Mois 3-4 : 3-4. Mois 5-6 : 3-4 + parrainages. Si tu signes mais qu'ils ne repassent pas commande → problème produit, pas marketing.</p>
+            </div>
+        </div>
+
+        <div style="background: var(--ink); color: var(--cream); border-radius: var(--radius-sm); padding: 1.5rem; margin-top: 1.5rem;">
+            <p style="font-size: 0.88rem; margin: 0; line-height: 1.6;"><strong style="color: var(--gold-light);">Routine du lundi matin (15 min) :</strong> Ouvre Instagram Insights → note les 8 chiffres dans ton Google Sheet → compare avec la semaine précédente → identifie le post qui a le mieux marché → adapte le contenu de la semaine en conséquence. C'est tout. Pas d'analyse-paralysie, 15 min max.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ PLAN B EVERGREEN ═══════════════════ -->
+<section id="planb" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">08 · Plan B</div>
+        <h2 class="section-title">Contenus de secours — quand l'inspiration manque</h2>
+        <p class="section-desc">Semaine sans nouveau produit ? Pas de partenaire à spotlight ? Pas de panique. Pioche dans ce stock de contenus evergreen qui marchent à tous les coups.</p>
+
+        <div class="rotation-grid">
+            <div class="rotation-card">
+                <div class="week-label">Remplace un Reel</div>
+                <h3>🔄 Reels Evergreen</h3>
+                <div class="rotation-item"><span class="day">A</span> Throwback d'un ancien trompe-l'œil avec nouveau montage/musique trending</div>
+                <div class="rotation-item"><span class="day">B</span> "Devinez si c'est vrai ou faux" — 3 objets dont 1 est un dessert</div>
+                <div class="rotation-item"><span class="day">C</span> Compilation "Best of" des 4 dernières semaines (montage rapide)</div>
+                <div class="rotation-item"><span class="day">D</span> Trend du moment adaptée au trompe-l'œil (audio trending + ta création)</div>
+                <div class="rotation-item"><span class="day">E</span> POV : "Tu commandes un café et le sucre est un dessert" (mise en scène)</div>
+            </div>
+
+            <div class="rotation-card">
+                <div class="week-label">Remplace un Carrousel</div>
+                <h3>📚 Carrousels Evergreen</h3>
+                <div class="rotation-item"><span class="day">A</span> FAQ : "Les 5 questions qu'on me pose tout le temps" (conservation, allergènes, prix…)</div>
+                <div class="rotation-item"><span class="day">B</span> "L'histoire du trompe-l'œil en pâtisserie" — contenu culturel/éducatif</div>
+                <div class="rotation-item"><span class="day">C</span> "Mon atelier en 10 photos" — visite guidée visuelle</div>
+                <div class="rotation-item"><span class="day">D</span> "3 erreurs que font les pros qui veulent se lancer dans le trompe-l'œil"</div>
+                <div class="rotation-item"><span class="day">E</span> Avant/Après : même dessert, version amateur vs Atelier Mirage</div>
+            </div>
+
+            <div class="rotation-card">
+                <div class="week-label">Remplace une Photo</div>
+                <h3>📸 Photos Evergreen</h3>
+                <div class="rotation-item"><span class="day">A</span> Flat-lay de tes outils de travail (moules, pinceaux, aérographe)</div>
+                <div class="rotation-item"><span class="day">B</span> Détail macro d'une texture (glaçage, grain, feuille d'or)</div>
+                <div class="rotation-item"><span class="day">C</span> Mise en scène "nature morte" — tes desserts comme un tableau flamand</div>
+                <div class="rotation-item"><span class="day">D</span> Work in progress : pièce non finie avec légende "devinez ce que c'est"</div>
+                <div class="rotation-item"><span class="day">E</span> Photo de tes mains au travail (artisanat, humanité, savoir-faire)</div>
+            </div>
+
+            <div class="rotation-card">
+                <div class="week-label">Remplace des Stories</div>
+                <h3>📱 Stories Evergreen</h3>
+                <div class="rotation-item"><span class="day">A</span> Quiz "Vrai ou Mirage ?" — 5 photos, l'audience vote</div>
+                <div class="rotation-item"><span class="day">B</span> AMA (Ask Me Anything) — boîte à questions sur le métier</div>
+                <div class="rotation-item"><span class="day">C</span> "Ce que j'écoute en travaillant" + lien Spotify (perso, humain)</div>
+                <div class="rotation-item"><span class="day">D</span> Partage d'un post/Reel d'un autre artisan que tu admires (générosité)</div>
+                <div class="rotation-item"><span class="day">E</span> "Lundi inspi" — photo d'un dessert ou objet qui t'inspire cette semaine</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ CROSS-CANAL ═══════════════════ -->
+<section id="crosscanal">
+    <div class="container">
+        <div class="section-label">09 · Synergie</div>
+        <h2 class="section-title">Cross-canal : contenu × prospection terrain</h2>
+        <p class="section-desc">Le vrai multiplicateur de force : chaque action terrain nourrit le contenu, et chaque contenu facilite le terrain. Voici comment les connecter.</p>
+
+        <div class="setup-grid">
+            <div class="setup-card">
+                <h3>🚶 Le terrain qui nourrit le contenu</h3>
+                <div class="setup-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>Visite prospect → Reel "Un jour chez…"</strong> — Quand tu livres un kit dégustation, filme 30s de l'arrivée, la mise en vitrine, la réaction du patron. Avec son accord, c'est un Reel Semaine 2 tout prêt.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>Livraison partenaire → Story BTS</strong> — Filme ta préparation de commande le matin (timelapse) + la livraison l'après-midi. 2 Stories authentiques sans effort supplémentaire.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>Réaction client final → UGC gold</strong> — Demande à tes partenaires de filmer (même au téléphone) la réaction du premier client qui découpe le trompe-l'œil. C'est le contenu le plus viral et il ne te coûte rien.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text"><strong>Témoignage terrain → Carrousel social proof</strong> — Après 2-3 semaines de partenariat, demande 3 lignes de feedback + une photo de la vitrine. Un carrousel Samedi tout fait.</div>
+                </div>
+            </div>
+
+            <div class="setup-card">
+                <h3>📱 Le contenu qui facilite le terrain</h3>
+                <div class="setup-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>Montre ton feed au prospect</strong> — En visite, ouvre ton Instagram sur ton téléphone. "Regarde, voilà comment nos partenaires utilisent nos produits." Le feed bien tenu EST ta carte de visite.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>Reel du jour = outil de vente</strong> — Le mardi, quand tu postes un carrousel B2B, envoie-le par WhatsApp aux prospects tièdes : "Tiens, j'ai fait un post qui explique comment nos partenaires augmentent leur panier moyen 👀"</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>Mentions partenaires = fidélisation</strong> — Chaque fois que tu mentionnes un partenaire dans un post (Semaine 2), c'est un rappel gratuit de ta valeur. Ils reçoivent l'engagement, tu reçois la loyauté.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text"><strong>QR code story → simulateur de marge</strong> — Sur tes flyers de prospection, mets un QR code vers ton meilleur Reel (pas juste le site). Le prospect voit le produit en action AVANT de visiter le simulateur.</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: var(--white); border: 1px solid var(--cream-3); border-radius: var(--radius-sm); padding: 1.25rem 1.5rem; margin-top: 1.5rem;">
+            <p style="font-size: 0.88rem; color: var(--ink-soft); margin: 0;"><strong style="color: var(--gold);">La règle d'or :</strong> Chaque sortie terrain doit générer au minimum 1 Story + 1 photo. Chaque post B2B doit être envoyé à au moins 3 prospects tièdes par WhatsApp. Le contenu et la prospection ne sont pas deux activités séparées — c'est la même machine avec deux sorties.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ INTELLIGENCE CONCURRENTIELLE ═══════════════════ -->
+<section id="veille" style="background: var(--cream-2);">
+    <div class="container">
+        <div class="section-label">10 · Intelligence</div>
+        <h2 class="section-title">Veille concurrentielle — savoir ce qui marche</h2>
+        <p class="section-desc">Le marché du trompe-l'œil explose. Voici les benchmarks à surveiller et les leçons à en tirer pour rester devant.</p>
+
+        <div class="setup-grid">
+            <div class="setup-card">
+                <h3>🏆 Benchmarks clés du marché</h3>
+                <div class="setup-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>Noémie Daunay</strong> — 27 ans, produit 1500 trompe-l'œil/semaine à 6-7€ pièce. Un seul TikTok à 300K vues → file d'attente physique la semaine suivante. <em>Leçon : le contenu viral convertit directement en ventes. Un Reel peut tout changer.</em></div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>Cédric Grolet</strong> — 12.7M followers Instagram. A prouvé que le trompe-l'œil pâtissier est le format visuel le plus addictif de la food. <em>Leçon : le facteur "wow" est intégré dans chaque pièce que tu crées — tu as un avantage structurel.</em></div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>"Is It Cake?"</strong> — Le phénomène Netflix/viral continue de fasciner les algorithmes en 2026. L'"expectation violation" (le cerveau trompé) est psychologiquement addictive. <em>Leçon : ne sous-estime JAMAIS le reveal. C'est ton contenu #1, toujours.</em></div>
+                </div>
+            </div>
+
+            <div class="setup-card">
+                <h3>🔍 Routine de veille hebdo (15 min le dimanche)</h3>
+                <div class="setup-step">
+                    <div class="step-num">1</div>
+                    <div class="step-text"><strong>Recherche hashtags</strong> — Chaque dimanche, scroll 5 min sur #trompeloeilcake #realisticcake #isitcake. Sauvegarde les formats qui marchent (nombre de vues, structure, hooks). Adapte à ta sauce Mirage.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">2</div>
+                    <div class="step-text"><strong>Surveille 5 comptes référents</strong> — Cédric Grolet, Amaury Guichon, Noémie Daunay, Ben Churchill, Koike Ryosuke. Note ce qu'ils postent, quand, et ce qui performe. Ne copie pas — inspire-toi des formats.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">3</div>
+                    <div class="step-text"><strong>Explore les tendances audio</strong> — Dans CapCut et Instagram, regarde les sons trending de la semaine. Un Reel trompe-l'œil + son trending = combo explosif pour l'algo.</div>
+                </div>
+                <div class="setup-step">
+                    <div class="step-num">4</div>
+                    <div class="step-text"><strong>Note les erreurs des concurrents</strong> — Vidéos trop longues (&gt;60s), mauvaise lumière, pas de sous-titres, hooks faibles. Ce qu'ils font mal = ton avantage si toi tu le fais bien. Compare avec tes propres metrics.</div>
+                </div>
+            </div>
+        </div>
+
+        <div style="background: var(--ink); color: var(--cream); border-radius: var(--radius-sm); padding: 1.5rem; margin-top: 1.5rem;">
+            <p style="font-size: 0.88rem; margin: 0; line-height: 1.6;"><strong style="color: var(--gold-light);">Le message clé :</strong> Tu es sur un marché en explosion. Noémie Daunay prouve qu'un artisan solo peut vendre 1500 pièces/semaine grâce au contenu. Cédric Grolet prouve que l'audience food adore le trompe-l'œil plus que tout autre format. Le créneau B2B à Marseille est GRAND OUVERT — personne ne fait ce que tu fais avec un système de prospection aussi structuré. Continue à exécuter, le contenu fera le reste.</p>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer>
+    <div class="brand">Atelier <span>Mirage</span></div>
+    <p>Calendrier Éditorial & Budget Marketing · Avril 2026</p>
+    <p style="margin-top: 0.5rem; font-size: 0.75rem;">L'art du dessert trompe-l'œil · Marseille</p>
+</footer>
+
+<script>
+    // Nav smooth scroll + active state
+    document.querySelectorAll('.nav-links a').forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            var target = document.querySelector(this.getAttribute('href'));
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            document.querySelectorAll('.nav-links a').forEach(function(l) { l.classList.remove('active'); });
+            this.classList.add('active');
+        });
+    });
+
+    var sections = document.querySelectorAll('section[id]');
+    window.addEventListener('scroll', function() {
+        var scrollPos = window.scrollY + 120;
+        sections.forEach(function(section) {
+            if (scrollPos >= section.offsetTop && scrollPos < section.offsetTop + section.offsetHeight) {
+                var id = section.getAttribute('id');
+                document.querySelectorAll('.nav-links a').forEach(function(l) {
+                    l.classList.toggle('active', l.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    });
+
+    // Budget tier interactive highlight
+    document.querySelectorAll('.budget-tier').forEach(function(tier) {
+        tier.addEventListener('click', function() {
+            document.querySelectorAll('.budget-tier').forEach(function(t) { t.classList.remove('active'); });
+            this.classList.add('active');
+        });
+    });
+</script>
+
+</body>
+</html>
