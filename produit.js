@@ -1,5 +1,5 @@
 // ====================================
-// MAISON MIRAGE — JS PARTAGÉ PAGES PRODUIT
+// ATELIER MIRAGE — JS PARTAGÉ PAGES PRODUIT
 // ====================================
 
 document.addEventListener('DOMContentLoaded', () => {
