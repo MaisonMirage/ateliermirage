@@ -516,14 +516,22 @@ select { display: none; }
   filter: saturate(0.7);
   transition: opacity 0.6s;
 }
+.engagements {
+  min-height: 70vh;
+}
+.engagements .parallax-bg {
+  background-size: 52%;
+  background-repeat: no-repeat;
+  background-position: center 65%;
+  opacity: 0.55;
+  filter: saturate(0.8);
+}
 /* Radial gold glow behind text */
 .parallax-section::before {
   content: '';
   position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 600px; height: 400px;
-  background: radial-gradient(ellipse, rgba(168,137,92,0.15) 0%, transparent 70%);
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(26,23,20,0.65) 0%, rgba(26,23,20,0.3) 60%, transparent 100%);
   pointer-events: none; z-index: 1;
 }
 /* Decorative top/bottom gold lines */
@@ -535,6 +543,7 @@ select { display: none; }
   background: linear-gradient(to right, transparent, rgba(168,137,92,0.3), transparent);
   z-index: 1;
 }
+/* ── Engagements — Dark with visible image ── */
 .engagements-overlay { display: none; }
 .engagements-content { position: relative; z-index: 2; max-width: 800px; display: flex; flex-direction: column; align-items: center; }
 .engagements .section-eyebrow.eyebrow-light { color: var(--gold-light); margin-bottom: 2rem; justify-content: center; }
