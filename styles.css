@@ -202,7 +202,7 @@ html { scrollbar-color: var(--gold) var(--cream); scrollbar-width: thin; }
 }
 /* Navbar transparent quand le menu mobile est ouvert */
 #navbar.menu-open { background: transparent; border-color: transparent; box-shadow: none; backdrop-filter: none; -webkit-backdrop-filter: none; }
-#navbar.menu-open .brand-logo { filter: brightness(0) invert(1); }
+#navbar.menu-open .brand-logo { filter: brightness(1.3); }
 #navbar.menu-open .brand-atelier { color: var(--cream); }
 #navbar.menu-open .brand-mirage { color: var(--gold-light); }
 #navbar.menu-open .nav-cta { background: rgba(250,245,239,0.15); border-color: rgba(250,245,239,0.2); }
@@ -225,7 +225,7 @@ html { scrollbar-color: var(--gold) var(--cream); scrollbar-width: thin; }
 
 /* Brand — always centered (column 2) */
 .nav-brand { display: flex; align-items: center; gap: 0.9rem; grid-column: 2; grid-row: 1; justify-self: center; }
-.brand-logo { height: 36px; width: auto; object-fit: contain; transition: opacity 0.3s; }
+.brand-logo { height: 42px; width: auto; object-fit: contain; transition: all 0.3s; }
 .brand-name { display: flex; flex-direction: column; align-items: center; line-height: 1; gap: 2px; }
 .brand-atelier { font-family: var(--sans); font-weight: 300; font-size: 0.48rem; letter-spacing: 0.45em; text-transform: uppercase; color: var(--gold); display: block; }
 .brand-mirage { font-family: var(--serif); font-weight: 300; font-size: 0.85rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); display: block; }
@@ -240,7 +240,7 @@ html { scrollbar-color: var(--gold) var(--cream); scrollbar-width: thin; }
 /* CTA "Devis" inside nav-links-right */
 .nav-cta {
   display: inline-flex; align-items: center; gap: 0.45rem;
-  font-family: var(--serif); font-size: 1.15rem; font-style: italic; font-weight: 300; letter-spacing: 0.05em; text-transform: none; color: var(--white);
+  font-family: var(--serif); font-size: 1.7rem; font-style: italic; font-weight: 300; letter-spacing: 0.05em; text-transform: none; color: var(--white);
   background: var(--gold); padding: 0.5rem 1.2rem; border-radius: 999px; transition: all 0.3s var(--ease-spring);
   border: 1px solid var(--gold); box-shadow: 0 4px 16px rgba(168,137,92,0.25);
   position: relative; z-index: 1005; white-space: nowrap;
@@ -984,7 +984,7 @@ footer::before { content: ''; position: absolute; top: 0; left: 10%; right: 10%;
   .brand-name { margin-left: -5px; }
   .brand-atelier { font-size: 0.38rem; letter-spacing: 0.35em; }
   .brand-mirage { font-size: 0.65rem; letter-spacing: 0.15em; }
-  .brand-logo { height: 28px; }
+  .brand-logo { height: 32px; }
 
   /* Masquer les filtres sur mobile (inutiles en swipe) */
   .boutique-filters { display: none; }
