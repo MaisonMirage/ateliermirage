@@ -142,11 +142,16 @@
             line-height: 1.2;
         }
 
+        /* Nouvelle classe pour Mirage */
+        .brand-mirage {
+            color: var(--cream);
+        }
+
         .tagline-front {
             font-family: 'Cormorant Garamond', serif;
             font-size: 0.7rem;
             font-style: italic;
-            color: var(--gold);
+            color: var(--gold-light);
             opacity: 0.5;
             text-align: center;
         }
@@ -226,9 +231,9 @@
 
         .tagline-back {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 0.42rem;
+            font-size: 0.7rem;
             font-style: italic;
-            color: var(--gold);
+            color: var(--gold-light);
             text-align: center;
             line-height: 1.4;
         }
@@ -322,40 +327,20 @@
             <!-- RECTO (Front) -->
             <div class="card recto">
                 <div class="recto-content">
-                    <img src="assets/logo-am-duotone.png" alt="AM" style="height: 54px; width: auto;">
+                    <img src="assets/logo-am-duotone-gold.png" alt="AM" style="height: 54px; width: auto;">
 
                     <div class="separator"></div>
 
-                    <div class="brand-name">Atelier Mirage</div>
+                    <!-- MODIFICATION ICI -->
+                    <div class="brand-name">
+                        Atelier<br>
+                        <span class="brand-mirage">Mirage</span>
+                    </div>
 
                     <div class="tagline-front">L'art du dessert</div>
 
-                    <div class="qr-placeholder" title="Remplacer par un vrai QR code → lamaisonmirage.com/bienvenue">
-                        <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="0" y="0" width="12" height="12" rx="1" fill="var(--gold)"/>
-                            <rect x="2" y="2" width="8" height="8" rx="0.5" fill="var(--ink)"/>
-                            <rect x="4" y="4" width="4" height="4" fill="var(--gold)"/>
-                            <rect x="24" y="0" width="12" height="12" rx="1" fill="var(--gold)"/>
-                            <rect x="26" y="2" width="8" height="8" rx="0.5" fill="var(--ink)"/>
-                            <rect x="28" y="4" width="4" height="4" fill="var(--gold)"/>
-                            <rect x="0" y="24" width="12" height="12" rx="1" fill="var(--gold)"/>
-                            <rect x="2" y="26" width="8" height="8" rx="0.5" fill="var(--ink)"/>
-                            <rect x="4" y="28" width="4" height="4" fill="var(--gold)"/>
-                            <rect x="14" y="0" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="14" y="8" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="14" y="14" width="4" height="4" fill="var(--gold)"/>
-                            <rect x="18" y="14" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="14" y="18" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="0" y="14" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="8" y="14" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="24" y="16" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="32" y="16" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="24" y="24" width="4" height="4" fill="var(--gold)"/>
-                            <rect x="28" y="28" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="32" y="24" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="16" y="28" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                            <rect x="20" y="32" width="4" height="4" fill="var(--gold)" opacity="0.6"/>
-                        </svg>
+                    <div class="qr-placeholder" title="Remplacer par un vrai QR code → ateliermirage.fr/bienvenue">
+                        <img src="assets/qr-code.svg" alt="QR Code Bienvenue" width="36" height="36">
                     </div>
                 </div>
             </div>
@@ -370,13 +355,13 @@
                     </div>
 
                     <div class="contact-info">
-                        <a href="https://www.lamaisonmirage.com">lamaisonmirage.com</a><br>
-                        <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a><br>
-                        <a href="tel:+33622356575">+33 6 22 35 65 75</a><br>
+                        <a href="https://www.ateliermirage.fr">ateliermirage.fr</a><br>
+                        <a href="mailto:contact@ateliermirage.fr">contact@ateliermirage.fr</a><br>
+                        <a href="tel:+33622356575">+33 7 59 54 04 10</a><br>
                         Marseille, France
                     </div>
 
-                    <div class="tagline-back">Ce que vous voyez n'est jamais ce que vous goûtez.</div>
+                    <div class="tagline-back">L'art du dessert</div>
                 </div>
             </div>
         </div>

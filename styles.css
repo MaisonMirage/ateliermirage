@@ -240,7 +240,7 @@ html { scrollbar-color: var(--gold) var(--cream); scrollbar-width: thin; }
 /* CTA "Devis" inside nav-links-right */
 .nav-cta {
   display: inline-flex; align-items: center; gap: 0.45rem;
-  font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--white);
+  font-family: var(--serif); font-size: 1.15rem; font-style: italic; font-weight: 300; letter-spacing: 0.05em; text-transform: none; color: var(--white);
   background: var(--gold); padding: 0.5rem 1.2rem; border-radius: 999px; transition: all 0.3s var(--ease-spring);
   border: 1px solid var(--gold); box-shadow: 0 4px 16px rgba(168,137,92,0.25);
   position: relative; z-index: 1005; white-space: nowrap;
@@ -249,30 +249,20 @@ html { scrollbar-color: var(--gold) var(--cream); scrollbar-width: thin; }
 .nav-cta:active { transform: scale(0.96); }
 
 @media (min-width: 769px) {
+  /* Burger menu — toujours visible */
+  .nav-burger {
+    display: flex;
+  }
+  /* Masquer les liens desktop — tout passe dans le burger */
   .nav-links-left {
-    grid-column: 1; grid-row: 1; justify-self: start;
-    display: flex; align-items: center; gap: 1.6rem;
+    display: none;
   }
   .nav-links-right {
     grid-column: 3; grid-row: 1; justify-self: end;
     display: flex; align-items: center; gap: 1.6rem;
   }
-  .nav-links-left a:not(.nav-cta),
+  /* Masquer les liens texte, garder seulement le CTA Devis */
   .nav-links-right a:not(.nav-cta) {
-    font-family: var(--mono);
-    font-size: 0.68rem;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--ink-muted);
-    transition: color 0.3s ease;
-    white-space: nowrap;
-  }
-  .nav-links-left a:not(.nav-cta):hover,
-  .nav-links-right a:not(.nav-cta):hover {
-    color: var(--gold);
-  }
-  /* Hide burger on desktop */
-  .nav-burger {
     display: none;
   }
 }

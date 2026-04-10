@@ -7,13 +7,13 @@
 
   <meta name="description" content="Atelier Mirage — Desserts trompe-l'œil haute pâtisserie à Marseille. Le dessert que vos clients filment avant de manger. Livraison réfrigérée 6j/7 en Provence-Alpes-Côte d'Azur. Dégustation gratuite." />
   <meta name="keywords" content="pâtisserie trompe-l'œil, dessert haut de gamme, Marseille, B2B restauration, dessert spectaculaire, événementiel" />
-  <link rel="canonical" href="https://www.lamaisonmirage.com/" />
+  <link rel="canonical" href="https://www.ateliermirage.fr/" />
   <meta property="og:title" content="Atelier Mirage — L'art du dessert" />
   <meta property="og:description" content="Chaque création dissimule un secret. Des desserts spectaculaires et prêts à servir pour booster l'attractivité de votre établissement." />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="fr_FR" />
   <meta property="og:site_name" content="Atelier Mirage" />
-  <meta property="og:image" content="https://www.lamaisonmirage.com/img/og-image-v2.png" />
+  <meta property="og:image" content="https://www.ateliermirage.fr/img/og-image-v2.png" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
   <link rel="icon" href="img/favicon.ico" sizes="48x48" />
@@ -28,9 +28,9 @@
     "@type": "LocalBusiness",
     "name": "Atelier Mirage",
     "description": "Desserts trompe-l'œil haute pâtisserie à Marseille. 15+ établissements partenaires. Créations livrées prêtes à servir 6j/7 dans votre établissement.",
-    "url": "https://www.lamaisonmirage.com",
+    "url": "https://www.ateliermirage.fr",
     "telephone": "+33759540410",
-    "email": "contact@lamaisonmirage.com",
+    "email": "contact@ateliermirage.fr",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Marseille",
@@ -211,14 +211,14 @@
     <a href="case-studies.html" class="mobile-nav-item">Résultats</a>
     <a href="evenements.html" class="mobile-nav-item">Événements</a>
     <div class="mobile-nav-footer">
-      <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a>
+      <a href="mailto:contact@ateliermirage.fr">contact@lateliermirage.fr</a>
       <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
     </div>
   </div>
 
   <!-- ═══════ NAVIGATION ═══════ -->
   <nav id="navbar">
-    <!-- Mobile burger (hidden on desktop) -->
+    <!-- Burger menu -->
     <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
       <span></span><span></span><span></span>
     </button>
@@ -697,7 +697,7 @@
       <a href="partenaires.html">Espace Pro</a>
     </nav>
     <div class="footer-contact">
-      <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a><br/>
+      <a href="mailto:contact@ateliermirage.fr">contact@ateliermirage.fr</a><br/>
       <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
     </div>
     <p class="footer-address">Marseille, France · Lun–Sam 8h–18h</p>
@@ -710,7 +710,7 @@
       <a href="https://www.tiktok.com/@maisonmirage" target="_blank" rel="noopener noreferrer" aria-label="TikTok Atelier Mirage">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.8a8.27 8.27 0 0 0 4.76 1.5v-3.4a4.85 4.85 0 0 1-1-.21z"/></svg>
       </a>
-      <a href="mailto:contact@lamaisonmirage.com" aria-label="Email Atelier Mirage">
+      <a href="mailto:contact@ateliermirage.fr" aria-label="Email Atelier Mirage">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
       </a>
     </div>
@@ -1021,7 +1021,7 @@
           addMessage("Transmission en cours...", 'bot');
           const formData = new FormData(); formData.append("Email_Pro", text); formData.append("Historique", conversationHistory.join('\n'));
           try { await fetch('https://formspree.io/f/' + FORMSPREE_CHAT_ID, { method:'POST', body:formData, headers:{'Accept':'application/json'} }); addMessage("Transmis ! Je vous recontacte sous 24h.", 'bot'); gtag('event','generate_lead',{event_category:'Chatbot',event_label:'Email Pro'}); }
-          catch(e) { addMessage("Erreur. Écrivez-moi à contact@lamaisonmirage.com", 'bot'); }
+          catch(e) { addMessage("Erreur. Écrivez-moi à contact@ateliermirage.fr", 'bot'); }
           chatState = 'NORMAL'; renderQuickReplies(); conversationHistory = [];
         } else addMessage("Format d'email invalide.", 'bot');
       } else {
