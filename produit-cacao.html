@@ -60,44 +60,38 @@
 <body>
 <!-- ═══════ MOBILE OVERLAY ═══════ -->
   <div id="mobile-overlay" role="dialog" aria-label="Menu de navigation">
-    <a href="index.html" class="mobile-nav-item">Accueil</a>
-    <a href="index.html#boutique" class="mobile-nav-item">Le Catalogue</a>
-    <a href="atelier.html" class="mobile-nav-item">L'Atelier</a>
-    <a href="notre-histoire.html" class="mobile-nav-item">Notre Histoire</a>
-    <a href="partenaires.html" class="mobile-nav-item">Espace Pro</a>
-    <a href="case-studies.html" class="mobile-nav-item">Résultats</a>
-    <a href="evenements.html" class="mobile-nav-item">Événements</a>
+    <div class="menu-links">
+      <a href="index.html" class="mobile-nav-item"><span class="menu-num">01</span><span class="menu-label">Accueil</span></a>
+      <a href="index.html#boutique" class="mobile-nav-item"><span class="menu-num">02</span><span class="menu-label">Le Catalogue</span></a>
+      <a href="atelier.html" class="mobile-nav-item"><span class="menu-num">03</span><span class="menu-label">L'Atelier</span></a>
+      <a href="notre-histoire.html" class="mobile-nav-item"><span class="menu-num">04</span><span class="menu-label">Notre Histoire</span></a>
+      <a href="partenaires.html" class="mobile-nav-item"><span class="menu-num">05</span><span class="menu-label">Espace Pro</span></a>
+      <a href="case-studies.html" class="mobile-nav-item"><span class="menu-num">06</span><span class="menu-label">Résultats</span></a>
+      <a href="evenements.html" class="mobile-nav-item"><span class="menu-num">07</span><span class="menu-label">Événements</span></a>
+    </div>
     <div class="mobile-nav-footer">
-      <a href="mailto:contact@ateliermirage.fr">contact@ateliermirage.fr</a>
-      <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
+      <div class="menu-footer-col">
+        <span class="menu-footer-label">Contact</span>
+        <a href="mailto:contact@ateliermirage.fr">contact@ateliermirage.fr</a>
+        <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
+      </div>
+      <div class="menu-footer-col">
+        <span class="menu-footer-label">Suivez-nous</span>
+        <a href="https://www.instagram.com/atelier.mirage/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@atelier.mirage" target="_blank" rel="noopener">TikTok</a>
+      </div>
     </div>
   </div>
 
   <!-- ═══════ NAVIGATION ═══════ -->
   <nav id="navbar" class="visible">
-    <!-- Burger menu -->
-    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
-      <span></span><span></span><span></span>
-    </button>
-    <!-- Desktop links — left of brand -->
-    <div class="nav-links-left">
-      <a href="index.html#boutique">Catalogue</a>
-      <a href="atelier.html">L'Atelier</a>
-      <a href="notre-histoire.html">Notre Histoire</a>
-    </div>
     <a href="index.html" class="nav-brand" aria-label="Retour à l'accueil">
       <img src="img/octopus-gold.webp" alt="Atelier Mirage" class="brand-logo" width="40" height="40" />
       <span class="brand-name"><span class="brand-atelier">Atelier</span><span class="brand-mirage">Mirage</span></span>
     </a>
-    <!-- Desktop links — right of brand + CTA -->
-    <div class="nav-links-right">
-      <a href="case-studies.html">Résultats</a>
-      <a href="evenements.html">Événements</a>
-      <a href="partenaires.html" class="nav-cta">
-        <span>Devis</span>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
 

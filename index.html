@@ -172,7 +172,7 @@
 
   <!-- Accessibility: skip to content -->
   <a href="#boutique" class="skip-to-content">Aller au contenu</a>
-  <noscript><style>#navbar{opacity:1;translate:0 0;}.reveal{opacity:1;transform:none;}.hero-headline,.hero-h1,.hero-hook,.hero-actions,.hero-showcase-img,.hero-showcase-reflection,.hero-bottom,.hero-video-trigger{opacity:1;transform:none;}</style></noscript>
+  <noscript><style>#navbar{opacity:1;translate:0 0;}.reveal{opacity:1;transform:none;}.hero-headline,.hero-h1,.hero-hook,.hero-actions,.hero-showcase-img,.hero-showcase-reflection,.hero-bottom{opacity:1;transform:none;}</style></noscript>
 
   <!-- ═══════ ORDER GATEWAY (inchangé) ═══════ -->
   <div id="order-gateway" role="dialog" aria-label="Options de contact">
@@ -202,46 +202,40 @@
     </div>
   </div>
 
-  <!-- ═══════ MOBILE OVERLAY ═══════ -->
+  <!-- ═══════ MENU OVERLAY — Style Salur ═══════ -->
   <div id="mobile-overlay" role="dialog" aria-label="Menu de navigation">
-    <a href="index.html" class="mobile-nav-item">Accueil</a>
-    <a href="index.html#boutique" class="mobile-nav-item">Le Catalogue</a>
-    <a href="atelier.html" class="mobile-nav-item">L'Atelier</a>
-    <a href="notre-histoire.html" class="mobile-nav-item">Notre Histoire</a>
-    <a href="partenaires.html" class="mobile-nav-item">Espace Pro</a>
-    <a href="case-studies.html" class="mobile-nav-item">Résultats</a>
-    <a href="evenements.html" class="mobile-nav-item">Événements</a>
+    <div class="menu-links">
+      <a href="index.html" class="mobile-nav-item"><span class="menu-num">01</span><span class="menu-label">Accueil</span></a>
+      <a href="index.html#boutique" class="mobile-nav-item"><span class="menu-num">02</span><span class="menu-label">Le Catalogue</span></a>
+      <a href="atelier.html" class="mobile-nav-item"><span class="menu-num">03</span><span class="menu-label">L'Atelier</span></a>
+      <a href="notre-histoire.html" class="mobile-nav-item"><span class="menu-num">04</span><span class="menu-label">Notre Histoire</span></a>
+      <a href="partenaires.html" class="mobile-nav-item"><span class="menu-num">05</span><span class="menu-label">Espace Pro</span></a>
+      <a href="case-studies.html" class="mobile-nav-item"><span class="menu-num">06</span><span class="menu-label">Résultats</span></a>
+      <a href="evenements.html" class="mobile-nav-item"><span class="menu-num">07</span><span class="menu-label">Événements</span></a>
+    </div>
     <div class="mobile-nav-footer">
-      <a href="mailto:contact@ateliermirage.fr">contact@ateliermirage.fr</a>
-      <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
+      <div class="menu-footer-col">
+        <span class="menu-footer-label">Contact</span>
+        <a href="mailto:contact@ateliermirage.fr">contact@ateliermirage.fr</a>
+        <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
+      </div>
+      <div class="menu-footer-col">
+        <span class="menu-footer-label">Suivez-nous</span>
+        <a href="https://www.instagram.com/atelier.mirage/" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.tiktok.com/@atelier.mirage" target="_blank" rel="noopener">TikTok</a>
+      </div>
     </div>
   </div>
 
   <!-- ═══════ NAVIGATION ═══════ -->
   <nav id="navbar">
-    <!-- Burger menu -->
-    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
-      <span></span><span></span><span></span>
-    </button>
-    <!-- Desktop links — left of brand -->
-    <div class="nav-links-left">
-      <a href="#boutique">Catalogue</a>
-      <a href="atelier.html">L'Atelier</a>
-      <a href="notre-histoire.html">Notre Histoire</a>
-    </div>
     <a href="#" class="nav-brand" aria-label="Retour à l'accueil">
       <img src="img/octopus-gold.webp" alt="Atelier Mirage" class="brand-logo" width="40" height="40" />
       <span class="brand-name"><span class="brand-atelier">Atelier</span><span class="brand-mirage">Mirage</span></span>
     </a>
-    <!-- Desktop links — right of brand + CTA -->
-    <div class="nav-links-right">
-      <a href="case-studies.html">Résultats</a>
-      <a href="evenements.html">Événements</a>
-      <a href="partenaires.html" class="nav-cta">
-        <span>Devis</span>
-        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 
   <!-- ═══════════════════════════════════════════
@@ -263,12 +257,6 @@
       <div class="hero-showcase-reflection" aria-hidden="true">
         <img src="img/hero-trio.png" alt="" width="2048" height="1024" />
       </div>
-      <!-- Bouton vidéo flottant -->
-      <button class="hero-video-trigger" id="heroVideoTrigger" aria-label="Voir la vidéo de découpe">
-        <span class="hero-video-trigger-ring"></span>
-        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--cream)" stroke="none"><polygon points="5,3 19,12 5,21"/></svg>
-        <span class="hero-video-trigger-label">Découpe</span>
-      </button>
     </div>
 
     <!-- CTA minimal -->
@@ -290,13 +278,6 @@
       <span class="scroll-hint-label">Défiler</span>
     </div>
 
-    <!-- Video overlay (fullscreen on trigger) -->
-    <div class="hero-video-overlay" id="heroVideoOverlay" aria-hidden="true">
-      <video id="heroMain" src="img/peche-decoupe.mp4" poster="img/peche.png" muted loop playsinline preload="metadata"></video>
-      <button class="hero-video-close" id="heroVideoClose" aria-label="Fermer la vidéo">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-    </div>
   </header>
 
   <!-- ═══════ STICKY CTA BAR (Audit QW2) ═══════ -->
@@ -338,7 +319,7 @@
   ═══════════════════════════════════════════ -->
   <section class="testimonials-section" id="testimonials">
     <div class="testimonials-header reveal">
-      <p class="section-eyebrow">Retours terrain</p>
+      <p class="section-eyebrow"><span class="section-num">01</span>Retours terrain</p>
       <h2 class="section-h2">Ce qu'en disent<br><em>mes partenaires.</em></h2>
     </div>
     <div class="testimonials-grid">
@@ -385,28 +366,41 @@
       </a>
     </div>
 
-    <p class="social-proof-label reveal" style="margin-top:3rem;padding-top:2.5rem;border-top:1px solid rgba(26,23,20,0.06);text-align:center;font-family:var(--mono);font-size:0.6rem;letter-spacing:0.3em;text-transform:uppercase;color:var(--ink-muted);margin-bottom:2.5rem;">Ils me font confiance</p>
-    <div class="social-proof-logos">
-      <div class="sp-logo-wrap" data-name="Full Dessert">
-        <img src="img/fulldessert.webp" alt="Full Dessert" loading="lazy" />
-      </div>
-      <div class="sp-logo-wrap" data-name="Dubai Sweet">
-        <img src="img/dubaisweet.webp" alt="Dubai Sweet" loading="lazy" />
-      </div>
-      <div class="sp-logo-wrap" data-name="Aslan Kadaifs">
-        <img src="img/aslankadaifs.webp" alt="Aslan Kadaifs" loading="lazy" />
-      </div>
-      <div class="sp-logo-wrap" data-name="La Graille Mobile">
-        <img src="img/graillemobile.webp" alt="La Graille Mobile" loading="lazy" />
-      </div>
-      <div class="sp-logo-wrap" data-name="L'Avenue Grill">
-        <img src="img/avenuegrill.webp" alt="L'Avenue Grill" loading="lazy" />
-      </div>
-      <div class="sp-logo-wrap" data-name="Royal Pâtisserie">
-        <img src="img/royalpatisserie.webp" alt="Royal Pâtisserie" loading="lazy" />
-      </div>
-      <div class="sp-logo-wrap" data-name="Magnus Sushi">
-        <img src="img/magnussushi.webp" alt="Magnus Sushi" loading="lazy" />
+    <!-- Marquee infini — logos partenaires -->
+    <div class="marquee-section">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span class="marquee-item">Full Dessert</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Dubai Sweet</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Aslan Kadaifs</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">La Graille Mobile</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">L'Avenue Grill</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Royal Pâtisserie</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Magnus Sushi</span>
+          <span class="marquee-dot"></span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span class="marquee-item">Full Dessert</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Dubai Sweet</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Aslan Kadaifs</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">La Graille Mobile</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">L'Avenue Grill</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Royal Pâtisserie</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Magnus Sushi</span>
+          <span class="marquee-dot"></span>
+        </div>
       </div>
     </div>
 
@@ -419,7 +413,7 @@
   <section class="boutique" id="boutique">
     <div class="boutique-header">
       <div>
-        <p class="section-eyebrow reveal">Catalogue B2B</p>
+        <p class="section-eyebrow reveal"><span class="section-num">02</span>Catalogue B2B</p>
         <h2 class="section-h2 reveal">La<br><em>Collection.</em></h2>
       </div>
       <p class="section-desc reveal">Dix créations trompe-l'œil, fabriquées à la main dans mon atelier à Marseille. Cliquez sur une pièce pour découvrir sa fiche technique et ses allergènes.</p>
@@ -484,7 +478,7 @@
   ═══════════════════════════════════════════ -->
   <section class="pricing-section" id="tarifs">
     <div class="pricing-single reveal">
-      <p class="section-eyebrow pricing-section-eyebrow" style="justify-content:center;">Notre modèle</p>
+      <p class="section-eyebrow pricing-section-eyebrow" style="justify-content:center;"><span class="section-num">03</span>Notre modèle</p>
       <h2 class="pricing-section-title">Vous vendez d'abord,<br><em>vous payez après.</em></h2>
       <div class="pricing-single-perks" style="margin-top:1.5rem;">
         <span>Tarif partenaire : 5€/pièce</span>
@@ -518,7 +512,7 @@
   ═══════════════════════════════════════════ -->
   <section class="video-reveal-section" id="reveal">
     <div class="video-reveal-header reveal">
-      <p class="section-eyebrow">Le Moment Mirage</p>
+      <p class="section-eyebrow"><span class="section-num">04</span>Le Moment Mirage</p>
       <h2>L'illusion se<br><em>révèle.</em></h2>
       <p>Vos clients coupent un fruit parfait… et découvrent un dessert à l'intérieur. Ce moment de surprise, c'est ce qui fait que les gens filment, partagent, et en reparlent.</p>
     </div>
@@ -589,7 +583,7 @@
     <div class="parallax-bg" style="background-image:url('img/trio-moody-800.webp');"></div>
     <div class="engagements-content">
       <p class="section-eyebrow eyebrow-light">
-        <span></span>Mes Engagements
+        <span class="section-num">05</span>Mes Engagements
       </p>
       <blockquote class="engagements-quote">
         « Mes partenaires me le disent :<br>des clients viennent <em>exprès</em> pour ça. »
@@ -612,7 +606,7 @@
   ═══════════════════════════════════════════ -->
   <section class="faq" id="faq">
     <div class="faq-left">
-      <p class="section-eyebrow reveal">Questions B2B</p>
+      <p class="section-eyebrow reveal"><span class="section-num">06</span>Questions B2B</p>
       <h2 class="section-h2 reveal">Vos<br><em>Garanties.</em></h2>
     </div>
     <div class="faq-items reveal">
@@ -854,14 +848,12 @@
     }
 
     document.getElementById('navbar').classList.add('visible');
-    ScrollTrigger.create({ start:'top -60', onEnter:()=>document.getElementById('navbar').classList.add('scrolled'), onLeaveBack:()=>document.getElementById('navbar').classList.remove('scrolled') });
     // ── HERO CINEMATIC — Award-level entrance ──
     gsap.set('.hero-headline', {opacity:0, y:40});
     gsap.set('.hero-hook', {opacity:0, y:20});
     gsap.set('.hero-showcase-img', {opacity:0, scale:1.08, y:30});
     gsap.set('.hero-showcase-reflection', {opacity:0});
     gsap.set('.hero-showcase::after', {scaleX:0});
-    gsap.set('.hero-video-trigger', {opacity:0, scale:0.8});
     gsap.set('.hero-bottom', {opacity:0, y:20});
     gsap.set('.scroll-hint', {opacity:0});
 
@@ -873,23 +865,42 @@
     heroTL.to('.hero-showcase-img', {opacity:1, scale:1, y:0, duration:1.4, ease:'expo.out'}, '-=0.4');
     // 3. Réflection fade in
     heroTL.to('.hero-showcase-reflection', {opacity:1, duration:0.9, ease:'power1.out'}, '-=0.7');
-    // 4. Bouton vidéo pop
-    heroTL.to('.hero-video-trigger', {opacity:1, scale:1, duration:0.6, ease:'back.out(1.8)'}, '-=0.4');
-    // 5. CTAs
+    // 4. CTAs
     heroTL.to('.hero-bottom', {opacity:1, y:0, duration:0.7, ease:'power2.out'}, '-=0.3');
     heroTL.to('.scroll-hint', {opacity:1, duration:0.6}, '-=0.2');
 
-    // ── Parallax subtil au scroll ──
-    gsap.to('.hero-showcase-img img', {
-      y: -30, scale: 0.98,
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.2 }
-    });
-    gsap.to('.hero-headline', {
-      y: -50, opacity: 0.3,
-      scrollTrigger: { trigger: '.hero', start: 'top top', end: '60% top', scrub: 1 }
-    });
-    document.querySelectorAll('.reveal').forEach((el)=>{
-      gsap.to(el,{opacity:1,y:0,duration:0.9,scrollTrigger:{trigger:el,start:'top 88%'}});
+    // ── Parallax désactivé (choix utilisateur) ──
+    // ── Varied scroll reveals — Award-level ──
+    document.querySelectorAll('.reveal').forEach((el, i)=>{
+      // Section titles get a special clip reveal
+      if (el.classList.contains('section-h2') || el.tagName === 'H2') {
+        gsap.fromTo(el,
+          {opacity:0, y:60, clipPath:'inset(0 0 100% 0)'},
+          {opacity:1, y:0, clipPath:'inset(0 0 0% 0)', duration:1.2, ease:'power3.out',
+           scrollTrigger:{trigger:el, start:'top 88%'}});
+      }
+      // Shop cards get stagger
+      else if (el.classList.contains('shop-card')) {
+        gsap.fromTo(el,
+          {opacity:0, y:50, scale:0.97},
+          {opacity:1, y:0, scale:1, duration:0.8, ease:'power2.out',
+           delay: (i % 3) * 0.12,
+           scrollTrigger:{trigger:el, start:'top 90%'}});
+      }
+      // Eyebrows get a horizontal slide
+      else if (el.classList.contains('section-eyebrow')) {
+        gsap.fromTo(el,
+          {opacity:0, x:-20},
+          {opacity:1, x:0, duration:0.7, ease:'power2.out',
+           scrollTrigger:{trigger:el, start:'top 88%'}});
+      }
+      // Default — subtle fade up
+      else {
+        gsap.fromTo(el,
+          {opacity:0, y:30},
+          {opacity:1, y:0, duration:0.9, ease:'power2.out',
+           scrollTrigger:{trigger:el, start:'top 88%'}});
+      }
     });
 
     // KPI counter animation
@@ -904,7 +915,7 @@
     } catch(e) {
       console.error('GSAP init error:', e);
       // Force visibility si GSAP crash
-      document.querySelectorAll('.hero-headline,.hero-h1,.hero-hook,.hero-showcase-img,.hero-showcase-reflection,.hero-bottom,.hero-video-trigger,.hero-actions,#navbar,.scroll-hint').forEach(function(el) { el.style.opacity='1'; el.style.transform='none'; });
+      document.querySelectorAll('.hero-headline,.hero-h1,.hero-hook,.hero-showcase-img,.hero-showcase-reflection,.hero-bottom,.hero-actions,#navbar,.scroll-hint').forEach(function(el) { el.style.opacity='1'; el.style.transform='none'; });
       var nav = document.getElementById('navbar'); if(nav) { nav.style.opacity='1'; nav.classList.add('visible'); }
     }
   }
@@ -1123,7 +1134,7 @@
       gsap.globalTimeline.pause();
     }
     // Forcer la visibilité de tous les éléments reveal
-    document.querySelectorAll('.reveal, .hero-headline, .hero-h1, .hero-hook, .hero-showcase-img, .hero-showcase-reflection, .hero-bottom, .hero-video-trigger, .hero-actions, .scroll-hint').forEach(el => {
+    document.querySelectorAll('.reveal, .hero-headline, .hero-h1, .hero-hook, .hero-showcase-img, .hero-showcase-reflection, .hero-bottom, .hero-actions, .scroll-hint').forEach(el => {
       el.style.opacity = '1';
       el.style.transform = 'none';
     });
@@ -1241,38 +1252,6 @@
     }
 
     // ── 5. VIDEO OVERLAY TRIGGER ──
-    function initHeroVideo() {
-      const trigger = document.getElementById('heroVideoTrigger');
-      const overlay = document.getElementById('heroVideoOverlay');
-      const closeBtn = document.getElementById('heroVideoClose');
-      const video = overlay ? overlay.querySelector('video') : null;
-      if (!trigger || !overlay || !video) return;
-
-      trigger.addEventListener('click', function() {
-        overlay.classList.add('active');
-        overlay.setAttribute('aria-hidden', 'false');
-        video.currentTime = 0;
-        video.play();
-        document.body.style.overflow = 'hidden';
-      });
-
-      function closeVideo() {
-        overlay.classList.remove('active');
-        overlay.setAttribute('aria-hidden', 'true');
-        video.pause();
-        document.body.style.overflow = '';
-      }
-
-      closeBtn.addEventListener('click', closeVideo);
-      overlay.addEventListener('click', function(e) {
-        if (e.target === overlay) closeVideo();
-      });
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && overlay.classList.contains('active')) closeVideo();
-      });
-    }
-    initHeroVideo();
-
     // ── INIT ALL ──
     // Wait for GSAP then init
     const waitAll = setInterval(() => {
@@ -1332,12 +1311,6 @@
       });
     });
     // Track video interactions
-    var heroVideo = document.getElementById('heroMain');
-    if (heroVideo) {
-      heroVideo.addEventListener('play', function() {
-        gtag('event', 'video_play', { event_category: 'Engagement', event_label: 'Hero Video' });
-      });
-    }
     var revealVideo = document.getElementById('revealVideo');
     if (revealVideo) {
       revealVideo.addEventListener('play', function() {
