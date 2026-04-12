@@ -172,7 +172,7 @@
 
   <!-- Accessibility: skip to content -->
   <a href="#boutique" class="skip-to-content">Aller au contenu</a>
-  <noscript><style>#navbar{opacity:1;translate:0 0;}.reveal{opacity:1;transform:none;}.hero-eyebrow,.hero-h1,.hero-hook,.hero-desc,.hero-actions,.hero-reassurance,.hero-img-main{opacity:1;transform:none;}</style></noscript>
+  <noscript><style>#navbar{opacity:1;translate:0 0;}.reveal{opacity:1;transform:none;}.hero-headline,.hero-h1,.hero-hook,.hero-actions,.hero-showcase-img,.hero-showcase-reflection,.hero-bottom,.hero-video-trigger{opacity:1;transform:none;}</style></noscript>
 
   <!-- ═══════ ORDER GATEWAY (inchangé) ═══════ -->
   <div id="order-gateway" role="dialog" aria-label="Options de contact">
@@ -245,31 +245,57 @@
   </nav>
 
   <!-- ═══════════════════════════════════════════
-       1. HERO — Double CTA
+       1. HERO — Cinematic Showcase (Award-winner)
   ═══════════════════════════════════════════ -->
   <header class="hero">
-    <div class="hero-left">
+    <!-- Titre éditorial centré -->
+    <div class="hero-headline">
       <h1 class="hero-h1">L'Art du<br><em>Dessert.</em></h1>
       <p class="hero-hook">Celui pour lequel vos clients se déplacent.</p>
+    </div>
+
+    <!-- Lineup cinématique — pleine largeur -->
+    <div class="hero-showcase">
+      <div class="hero-showcase-img">
+        <img src="img/hero-trio.png" alt="Collection Atelier Mirage — desserts trompe-l'œil artisanaux" width="2048" height="1024" fetchpriority="high" />
+      </div>
+      <!-- Réflection miroir réelle -->
+      <div class="hero-showcase-reflection" aria-hidden="true">
+        <img src="img/hero-trio.png" alt="" width="2048" height="1024" />
+      </div>
+      <!-- Bouton vidéo flottant -->
+      <button class="hero-video-trigger" id="heroVideoTrigger" aria-label="Voir la vidéo de découpe">
+        <span class="hero-video-trigger-ring"></span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="var(--cream)" stroke="none"><polygon points="5,3 19,12 5,21"/></svg>
+        <span class="hero-video-trigger-label">Découpe</span>
+      </button>
+    </div>
+
+    <!-- CTA minimal -->
+    <div class="hero-bottom">
       <div class="hero-actions">
         <a href="partenaires.html" class="btn-primary">
           <span>Devenir partenaire</span>
           <div class="btn-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
         <a href="#boutique" class="btn-secondary">
-          <span>Découvrir la collection</span>
+          <span>Découvrir</span>
           <div class="btn-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
         </a>
       </div>
-      <p class="hero-reassurance">Réponse sous 24h &middot; Dégustation gratuite &middot; Paiement après vente</p>
     </div>
+
     <div class="scroll-hint">
       <div class="scroll-hint-line"></div>
       <span class="scroll-hint-label">Défiler</span>
     </div>
-    <div class="hero-right">
-      <video class="hero-img-main" id="heroMain" src="img/peche-decoupe.mp4" poster="img/collection-lineup-1200.webp" autoplay muted loop playsinline fetchpriority="high"></video>
-      <img src="img/collection-lineup-1200.webp" alt="Collection Atelier Mirage — desserts trompe-l'œil" class="hero-img-fallback" width="1200" height="800" style="display:none;" />
+
+    <!-- Video overlay (fullscreen on trigger) -->
+    <div class="hero-video-overlay" id="heroVideoOverlay" aria-hidden="true">
+      <video id="heroMain" src="img/peche-decoupe.mp4" poster="img/peche.png" muted loop playsinline preload="metadata"></video>
+      <button class="hero-video-close" id="heroVideoClose" aria-label="Fermer la vidéo">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
     </div>
   </header>
 
@@ -829,13 +855,39 @@
 
     document.getElementById('navbar').classList.add('visible');
     ScrollTrigger.create({ start:'top -60', onEnter:()=>document.getElementById('navbar').classList.add('scrolled'), onLeaveBack:()=>document.getElementById('navbar').classList.remove('scrolled') });
-    // Cacher les éléments via JS avant d'animer (CSS les laisse visibles par défaut)
-    gsap.set('.hero-eyebrow,.hero-h1,.hero-hook,.hero-desc,.hero-actions,.hero-reassurance,.scroll-hint', {opacity:0, y:20});
-    gsap.set('.hero-h1', {y:50});
-    gsap.set('#heroMain', {opacity:0});
-    // Hero H1 animated char-by-char in Awwwards upgrade script — skip it here
-    gsap.timeline({delay:0.1}).to('.hero-eyebrow',{opacity:1,y:0,duration:0.9}).to('.hero-hook',{opacity:1,y:0,duration:0.8},'-=0.3').to('.hero-desc',{opacity:1,y:0},'-=0.7').to('.hero-actions',{opacity:1,y:0},'-=0.7').to('.hero-reassurance',{opacity:1,y:0,duration:0.6},'-=0.5').to('.scroll-hint',{opacity:1,duration:0.8},'-=0.3');
-    gsap.to('#heroMain',{opacity:1,duration:1.2,delay:0.4});
+    // ── HERO CINEMATIC — Award-level entrance ──
+    gsap.set('.hero-headline', {opacity:0, y:40});
+    gsap.set('.hero-hook', {opacity:0, y:20});
+    gsap.set('.hero-showcase-img', {opacity:0, scale:1.08, y:30});
+    gsap.set('.hero-showcase-reflection', {opacity:0});
+    gsap.set('.hero-showcase::after', {scaleX:0});
+    gsap.set('.hero-video-trigger', {opacity:0, scale:0.8});
+    gsap.set('.hero-bottom', {opacity:0, y:20});
+    gsap.set('.scroll-hint', {opacity:0});
+
+    const heroTL = gsap.timeline({delay:0.15});
+    // 1. Titre — dramatique
+    heroTL.to('.hero-headline', {opacity:1, y:0, duration:1.1, ease:'power3.out'});
+    heroTL.to('.hero-hook', {opacity:1, y:0, duration:0.8, ease:'power2.out'}, '-=0.5');
+    // 2. Lineup photo — scale down reveal (cinématique)
+    heroTL.to('.hero-showcase-img', {opacity:1, scale:1, y:0, duration:1.4, ease:'expo.out'}, '-=0.4');
+    // 3. Réflection fade in
+    heroTL.to('.hero-showcase-reflection', {opacity:1, duration:0.9, ease:'power1.out'}, '-=0.7');
+    // 4. Bouton vidéo pop
+    heroTL.to('.hero-video-trigger', {opacity:1, scale:1, duration:0.6, ease:'back.out(1.8)'}, '-=0.4');
+    // 5. CTAs
+    heroTL.to('.hero-bottom', {opacity:1, y:0, duration:0.7, ease:'power2.out'}, '-=0.3');
+    heroTL.to('.scroll-hint', {opacity:1, duration:0.6}, '-=0.2');
+
+    // ── Parallax subtil au scroll ──
+    gsap.to('.hero-showcase-img img', {
+      y: -30, scale: 0.98,
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1.2 }
+    });
+    gsap.to('.hero-headline', {
+      y: -50, opacity: 0.3,
+      scrollTrigger: { trigger: '.hero', start: 'top top', end: '60% top', scrub: 1 }
+    });
     document.querySelectorAll('.reveal').forEach((el)=>{
       gsap.to(el,{opacity:1,y:0,duration:0.9,scrollTrigger:{trigger:el,start:'top 88%'}});
     });
@@ -852,7 +904,7 @@
     } catch(e) {
       console.error('GSAP init error:', e);
       // Force visibility si GSAP crash
-      document.querySelectorAll('.hero-eyebrow,.hero-h1,.hero-hook,.hero-desc,.hero-actions,.hero-reassurance,.hero-img-main,video.hero-img-main,#navbar,.scroll-hint').forEach(function(el) { el.style.opacity='1'; el.style.transform='none'; });
+      document.querySelectorAll('.hero-headline,.hero-h1,.hero-hook,.hero-showcase-img,.hero-showcase-reflection,.hero-bottom,.hero-video-trigger,.hero-actions,#navbar,.scroll-hint').forEach(function(el) { el.style.opacity='1'; el.style.transform='none'; });
       var nav = document.getElementById('navbar'); if(nav) { nav.style.opacity='1'; nav.classList.add('visible'); }
     }
   }
@@ -1071,7 +1123,7 @@
       gsap.globalTimeline.pause();
     }
     // Forcer la visibilité de tous les éléments reveal
-    document.querySelectorAll('.reveal, .hero-eyebrow, .hero-h1, .hero-hook, .hero-desc, .hero-actions, .hero-reassurance, .hero-img-main, .scroll-hint').forEach(el => {
+    document.querySelectorAll('.reveal, .hero-headline, .hero-h1, .hero-hook, .hero-showcase-img, .hero-showcase-reflection, .hero-bottom, .hero-video-trigger, .hero-actions, .scroll-hint').forEach(el => {
       el.style.opacity = '1';
       el.style.transform = 'none';
     });
@@ -1166,12 +1218,7 @@
           tagBuffer += c;
           if (c === '>') {
             inTag = false;
-            // Check if it's a br tag
-            if (/^<br\s*\/?>$/i.test(tagBuffer)) {
-              result += tagBuffer;
-            } else {
-              result += tagBuffer; // Pass through opening/closing tags
-            }
+            result += tagBuffer;
             tagBuffer = '';
           }
           continue;
@@ -1184,13 +1231,47 @@
       }
       h1.innerHTML = result;
 
-      // Animate with GSAP
-      gsap.set('.hero-h1', { opacity: 1, y: 0 }); // Override the existing animation
+      // Animate with GSAP — override headline opacity set by heroTL
+      gsap.set('.hero-headline', { opacity: 1, y: 0 });
+      gsap.set('.hero-h1', { opacity: 1, y: 0 });
       gsap.fromTo('.hero-h1 .char',
         { opacity: 0, y: 60, rotateX: -40 },
-        { opacity: 1, y: 0, rotateX: 0, duration: 1, ease: 'back.out(1.4)', stagger: 0.035, delay: 0.3 }
+        { opacity: 1, y: 0, rotateX: 0, duration: 1, ease: 'back.out(1.4)', stagger: 0.035, delay: 0.25 }
       );
     }
+
+    // ── 5. VIDEO OVERLAY TRIGGER ──
+    function initHeroVideo() {
+      const trigger = document.getElementById('heroVideoTrigger');
+      const overlay = document.getElementById('heroVideoOverlay');
+      const closeBtn = document.getElementById('heroVideoClose');
+      const video = overlay ? overlay.querySelector('video') : null;
+      if (!trigger || !overlay || !video) return;
+
+      trigger.addEventListener('click', function() {
+        overlay.classList.add('active');
+        overlay.setAttribute('aria-hidden', 'false');
+        video.currentTime = 0;
+        video.play();
+        document.body.style.overflow = 'hidden';
+      });
+
+      function closeVideo() {
+        overlay.classList.remove('active');
+        overlay.setAttribute('aria-hidden', 'true');
+        video.pause();
+        document.body.style.overflow = '';
+      }
+
+      closeBtn.addEventListener('click', closeVideo);
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closeVideo();
+      });
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && overlay.classList.contains('active')) closeVideo();
+      });
+    }
+    initHeroVideo();
 
     // ── INIT ALL ──
     // Wait for GSAP then init
