@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Awwwards — Atelier Mirage · Avril 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+/* ═══════════════════════════════════════════
+   AUDIT AWWWARDS — EDITORIAL DESIGN
+═══════════════════════════════════════════ */
+:root {
+  --cream: #FAF5EF;
+  --cream-2: #F5F0EA;
+  --ink: #1A1714;
+  --ink-soft: #2C2824;
+  --ink-muted: #6B6560;
+  --gold: #A8895C;
+  --gold-light: #C9AA7C;
+  --gold-pale: #E8D5B8;
+  --red: #C0392B;
+  --red-bg: #FDF2F0;
+  --green: #27AE60;
+  --green-bg: #F0FDF4;
+  --amber: #D4A017;
+  --amber-bg: #FFFBEB;
+  --blue: #2980B9;
+  --blue-bg: #EBF5FB;
+  --serif: 'Cormorant Garamond', Georgia, serif;
+  --sans: 'Outfit', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--sans);
+  background: var(--cream);
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.7;
+}
+::selection { background: rgba(168,137,92,0.18); }
+
+/* ── NAVIGATION ── */
+.audit-nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: rgba(250,245,239,0.92);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(26,23,20,0.06);
+  padding: 0.8rem 4vw;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.audit-nav-brand {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--gold);
+}
+.audit-nav-links {
+  display: flex; gap: 1.5rem; align-items: center;
+}
+.audit-nav-links a {
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-muted); text-decoration: none;
+  transition: color 0.3s;
+}
+.audit-nav-links a:hover { color: var(--gold); }
+
+/* ── HERO ── */
+.audit-hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; justify-content: flex-end;
+  padding: 6rem 8vw 5rem;
+  position: relative;
+  overflow: hidden;
+}
+.audit-hero::before {
+  content: '';
+  position: absolute; top: -20%; right: -10%;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(168,137,92,0.06) 0%, transparent 65%);
+  pointer-events: none;
+}
+.audit-meta {
+  font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 3rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.audit-meta::before { content: ''; width: 40px; height: 1px; background: var(--gold); opacity: 0.5; }
+.audit-hero h1 {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(3rem, 6vw, 6.5rem); line-height: 0.88;
+  letter-spacing: -0.03em; margin-bottom: 2rem;
+}
+.audit-hero h1 em { font-style: italic; color: var(--gold-light); }
+.audit-hero-sub {
+  font-size: 1.1rem; line-height: 1.8; color: var(--ink-muted);
+  max-width: 55ch; margin-bottom: 3rem;
+}
+.audit-verdict-row {
+  display: flex; gap: 3rem; align-items: flex-end; flex-wrap: wrap;
+  padding-top: 3rem; border-top: 1px solid rgba(26,23,20,0.08);
+}
+.verdict-score {
+  display: flex; flex-direction: column; align-items: center;
+}
+.verdict-number {
+  font-family: var(--serif); font-size: 5rem; font-weight: 300;
+  line-height: 1; color: var(--ink);
+}
+.verdict-number em { color: var(--gold-light); font-style: italic; }
+.verdict-label {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--ink-muted); margin-top: 0.5rem;
+}
+.verdict-gauge {
+  flex: 1; max-width: 400px;
+}
+.gauge-row {
+  display: flex; align-items: center; gap: 1rem; margin-bottom: 0.8rem;
+}
+.gauge-label {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink-muted); min-width: 100px;
+}
+.gauge-track {
+  flex: 1; height: 3px; background: rgba(26,23,20,0.08); border-radius: 2px;
+  overflow: hidden;
+}
+.gauge-fill {
+  height: 100%; border-radius: 2px;
+  background: var(--gold); transition: width 1.5s var(--ease-out);
+}
+.gauge-fill[data-score="high"] { background: var(--gold); }
+.gauge-fill[data-score="mid"] { background: var(--amber); }
+.gauge-fill[data-score="low"] { background: var(--red); }
+.gauge-val {
+  font-family: var(--mono); font-size: 0.65rem; color: var(--ink); min-width: 2.5rem; text-align: right;
+}
+
+/* ── SECTION STRUCTURE ── */
+.audit-section {
+  padding: 6rem 8vw;
+  position: relative;
+}
+.audit-section::before {
+  content: ''; position: absolute; top: 0; left: 8vw; right: 8vw;
+  height: 1px; background: linear-gradient(to right, transparent, rgba(26,23,20,0.08) 20%, rgba(26,23,20,0.08) 80%, transparent);
+}
+.section-number {
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.3em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.section-number::after { content: ''; flex: 1; height: 1px; background: rgba(168,137,92,0.2); }
+.audit-section h2 {
+  font-family: var(--serif); font-weight: 300;
+  font-size: clamp(2rem, 3.5vw, 3.8rem); line-height: 1;
+  letter-spacing: -0.02em; margin-bottom: 1.5rem;
+}
+.audit-section h2 em { font-style: italic; color: var(--gold-light); }
+.section-intro {
+  font-size: 1rem; line-height: 1.9; color: var(--ink-muted);
+  max-width: 60ch; margin-bottom: 3rem;
+}
+
+/* ── FINDING CARDS ── */
+.finding {
+  background: var(--cream-2); border-radius: 1.5rem;
+  padding: 2.5rem; margin-bottom: 2rem;
+  border-left: 3px solid transparent;
+  position: relative;
+}
+.finding.critical { border-left-color: var(--red); background: var(--red-bg); }
+.finding.elevate { border-left-color: var(--amber); background: var(--amber-bg); }
+.finding.strength { border-left-color: var(--green); background: var(--green-bg); }
+.finding.idea { border-left-color: var(--blue); background: var(--blue-bg); }
+
+.finding-tag {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em;
+  text-transform: uppercase; margin-bottom: 1rem; display: inline-block;
+  padding: 0.3rem 0.8rem; border-radius: 999px;
+}
+.finding.critical .finding-tag { background: rgba(192,57,43,0.1); color: var(--red); }
+.finding.elevate .finding-tag { background: rgba(212,160,23,0.12); color: #9A7B0A; }
+.finding.strength .finding-tag { background: rgba(39,174,96,0.1); color: var(--green); }
+.finding.idea .finding-tag { background: rgba(41,128,185,0.1); color: var(--blue); }
+
+.finding h3 {
+  font-family: var(--serif); font-size: 1.5rem; font-weight: 300;
+  margin-bottom: 1rem; line-height: 1.2;
+}
+.finding p { font-size: 0.92rem; line-height: 1.85; color: var(--ink-soft); }
+.finding p + p { margin-top: 0.8rem; }
+
+.finding-ref {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em;
+  color: var(--ink-muted); margin-top: 1.2rem;
+  padding-top: 1rem; border-top: 1px solid rgba(26,23,20,0.06);
+}
+
+/* ── COMPARISON TABLE ── */
+.comparison-table {
+  width: 100%; border-collapse: collapse; margin: 2rem 0;
+}
+.comparison-table th {
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--gold); text-align: left;
+  padding: 1rem 1.5rem; border-bottom: 2px solid rgba(168,137,92,0.2);
+}
+.comparison-table td {
+  font-size: 0.9rem; padding: 1rem 1.5rem; color: var(--ink-soft);
+  border-bottom: 1px solid rgba(26,23,20,0.06); vertical-align: top;
+}
+.comparison-table tr:last-child td { border-bottom: none; }
+.comparison-table .col-you { font-weight: 500; color: var(--ink); }
+.comparison-table .col-award { color: var(--gold); }
+
+/* ── IMPACT METER ── */
+.impact-meter {
+  display: flex; gap: 0.3rem; margin-top: 0.5rem;
+}
+.impact-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: rgba(26,23,20,0.1);
+}
+.impact-dot.filled { background: var(--gold); }
+.impact-dot.filled.high { background: var(--red); }
+
+/* ── PRIORITY ROADMAP ── */
+.roadmap {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;
+  margin-top: 2rem;
+}
+.roadmap-phase {
+  background: var(--cream-2); border-radius: 1.5rem; padding: 2.5rem;
+  position: relative;
+}
+.roadmap-phase-label {
+  font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.25em;
+  text-transform: uppercase; color: var(--gold); margin-bottom: 1.5rem;
+  display: flex; align-items: center; gap: 0.8rem;
+}
+.roadmap-phase-label::before {
+  content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--gold);
+}
+.roadmap-item {
+  padding: 0.8rem 0; border-bottom: 1px solid rgba(26,23,20,0.05);
+  font-size: 0.88rem; color: var(--ink-soft);
+}
+.roadmap-item:last-child { border-bottom: none; }
+.roadmap-item strong { color: var(--ink); font-weight: 500; }
+
+/* ── DARK SECTION ── */
+.audit-dark {
+  background: var(--ink); color: var(--cream);
+  padding: 6rem 8vw;
+  position: relative;
+}
+.audit-dark::before {
+  content: ''; position: absolute; top: 0; left: 15%; right: 15%;
+  height: 1px; background: linear-gradient(to right, transparent, rgba(168,137,92,0.3), transparent);
+}
+.audit-dark h2 { color: var(--cream); }
+.audit-dark h2 em { color: var(--gold-light); }
+.audit-dark .section-intro { color: rgba(250,245,239,0.6); }
+.audit-dark .finding {
+  background: rgba(250,245,239,0.04);
+  border: 1px solid rgba(250,245,239,0.08);
+}
+.audit-dark .finding h3 { color: var(--cream); }
+.audit-dark .finding p { color: rgba(250,245,239,0.7); }
+.audit-dark .finding-ref { color: rgba(250,245,239,0.4); border-top-color: rgba(250,245,239,0.08); }
+
+/* ── CODE BLOCK ── */
+.code-hint {
+  font-family: var(--mono); font-size: 0.75rem; line-height: 1.6;
+  background: rgba(26,23,20,0.04); border-radius: 0.75rem;
+  padding: 1.2rem 1.5rem; margin-top: 1rem; color: var(--ink-soft);
+  overflow-x: auto;
+}
+.audit-dark .code-hint { background: rgba(250,245,239,0.06); color: rgba(250,245,239,0.7); }
+
+/* ── QUOTE BLOCK ── */
+.judge-quote {
+  font-family: var(--serif); font-style: italic;
+  font-size: clamp(1.4rem, 2.5vw, 2rem); line-height: 1.4;
+  color: var(--ink); max-width: 50ch;
+  padding: 2rem 0 2rem 2rem; margin: 2rem 0;
+  border-left: 2px solid var(--gold);
+}
+.audit-dark .judge-quote { color: var(--cream); }
+
+/* ── FOOTER ── */
+.audit-footer {
+  padding: 3rem 8vw; text-align: center;
+  border-top: 1px solid rgba(26,23,20,0.06);
+}
+.audit-footer p {
+  font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--ink-muted);
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .audit-hero { padding: 5rem 6vw 3rem; }
+  .audit-section, .audit-dark { padding: 4rem 6vw; }
+  .audit-verdict-row { flex-direction: column; gap: 2rem; }
+  .verdict-gauge { max-width: 100%; }
+  .roadmap { grid-template-columns: 1fr; }
+  .comparison-table { font-size: 0.8rem; }
+  .comparison-table th, .comparison-table td { padding: 0.8rem; }
+  .audit-nav-links { display: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══ NAV ═══ -->
+<nav class="audit-nav">
+  <div class="audit-nav-brand">Audit Awwwards · Avril 2026</div>
+  <div class="audit-nav-links">
+    <a href="#verdict">Verdict</a>
+    <a href="#loading">Loading</a>
+    <a href="#motion">Motion</a>
+    <a href="#typo">Typographie</a>
+    <a href="#storytelling">Storytelling</a>
+    <a href="#cursor">Micro-interactions</a>
+    <a href="#texture">Craft</a>
+    <a href="#roadmap">Roadmap</a>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════
+     HERO — LE VERDICT
+═══════════════════════════════════════════ -->
+<header class="audit-hero" id="verdict">
+  <div class="audit-meta">Revue confidentielle · Perspective Awwwards</div>
+  <h1>Ce qui sépare<br>un beau site<br>d'un <em>Award.</em></h1>
+  <p class="audit-hero-sub">
+    Atelier Mirage a déjà un design system solide, une direction artistique cohérente et un positionnement luxury maîtrisé. Ce n'est pas un site à refaire — c'est un site à <strong>transcender</strong>. Voici ce qu'un juré Awwwards/FWA noterait, ligne par ligne.
+  </p>
+
+  <div class="audit-verdict-row">
+    <div class="verdict-score">
+      <div class="verdict-number">6<em>.8</em></div>
+      <div class="verdict-label">Score Awwwards estimé</div>
+    </div>
+    <div class="verdict-score">
+      <div class="verdict-number" style="font-size:3rem;">8<em>.0</em></div>
+      <div class="verdict-label">Seuil SOTD (Site of the Day)</div>
+    </div>
+    <div class="verdict-gauge">
+      <div class="gauge-row">
+        <span class="gauge-label">Design</span>
+        <div class="gauge-track"><div class="gauge-fill" style="width:78%;" data-score="high"></div></div>
+        <span class="gauge-val">7.8</span>
+      </div>
+      <div class="gauge-row">
+        <span class="gauge-label">Usabilité</span>
+        <div class="gauge-track"><div class="gauge-fill" style="width:75%;" data-score="high"></div></div>
+        <span class="gauge-val">7.5</span>
+      </div>
+      <div class="gauge-row">
+        <span class="gauge-label">Créativité</span>
+        <div class="gauge-track"><div class="gauge-fill" style="width:55%;" data-score="mid"></div></div>
+        <span class="gauge-val">5.5</span>
+      </div>
+      <div class="gauge-row">
+        <span class="gauge-label">Contenu</span>
+        <div class="gauge-track"><div class="gauge-fill" style="width:72%;" data-score="high"></div></div>
+        <span class="gauge-val">7.2</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+     01. L'EXPÉRIENCE DE CHARGEMENT
+═══════════════════════════════════════════ -->
+<section class="audit-section" id="loading">
+  <div class="section-number">01 — Loading Experience</div>
+  <h2>Le premier<br><em>contact.</em></h2>
+  <p class="section-intro">
+    Sur Awwwards, les 2 premières secondes décident de tout. Le preloader est le rideau qui se lève. Chez les meilleurs, c'est un moment de tension narrative. Chez vous, c'est un logo qui pulse puis disparaît. Fonctionnel, mais pas mémorable.
+  </p>
+
+  <div class="finding critical">
+    <span class="finding-tag">Manque critique</span>
+    <h3>Pas de séquence de loading narrative</h3>
+    <p>Votre preloader actuel (#preloader) fait un simple fade-out après 1.2s. C'est invisible. Les SOTD utilisent le preloader comme un <strong>premier acte narratif</strong> : compteur de pourcentage avec typographie cinétique, reveal progressif d'un élément clé (un fruit qui se dévoile ?), ou une animation de la marque qui installe l'ambiance.</p>
+    <p>Imaginez : le logo octopus se dessine trait par trait en or, puis les lettres "Atelier Mirage" apparaissent en split-text, puis le hero se révèle avec un clip-path circulaire qui s'expand depuis le centre. Boom — le visiteur est déjà dans votre monde.</p>
+    <div class="finding-ref">Réf. : #preloader (styles.css L.706-709) · Actuellement : img pulse + line scaleX</div>
+  </div>
+
+  <div class="finding elevate">
+    <span class="finding-tag">Élévation</span>
+    <h3>Le hero appear manque de dramaturgie</h3>
+    <p>Vous avez un beau séquençage GSAP (hero-eyebrow → hero-h1 → hero-hook → hero-desc → hero-actions), mais c'est du translateY+opacity classique. Les SOTD font du <strong>split-text lettre par lettre</strong> sur le H1, avec un overshoot spring sur chaque caractère. Votre H1 "L'Art du Dessert." mérite ce traitement — chaque lettre qui rebondit légèrement en arrivant, c'est 10× plus mémorable.</p>
+    <div class="code-hint">
+      // Avec GSAP SplitText (plugin Club):<br>
+      const split = new SplitText('.hero-h1', { type: 'chars' });<br>
+      gsap.from(split.chars, { y: 80, opacity: 0, rotateX: -90,<br>
+      &nbsp;&nbsp;stagger: 0.03, duration: 1.2, ease: 'back.out(1.7)' });
+    </div>
+    <div class="finding-ref">Réf. : index.html L.835 · Timeline GSAP hero</div>
+  </div>
+
+  <div class="finding idea">
+    <span class="finding-tag">Idée créative</span>
+    <h3>Page transition : le chaînon manquant</h3>
+    <p>Quand un visiteur clique sur une page produit, c'est un hard reload classique. Zéro transition. Sur Awwwards, <strong>chaque navigation est une animation</strong>. Un overlay qui glisse, un clip-path qui contracte, un fade croisé avec GSAP Flip — ça transforme un site multi-pages en une expérience fluide comme une SPA.</p>
+    <p>Sans passer à un framework JS, vous pouvez utiliser l'API <code>View Transitions</code> (supportée Chrome/Edge) ou un wrapper léger type Barba.js pour orchestrer des transitions entre vos pages HTML.</p>
+    <div class="finding-ref">Impact Awwwards : ●●●●● (critère créativité, le plus faible actuellement)</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     02. MOTION DESIGN & SCROLL
+═══════════════════════════════════════════ -->
+<section class="audit-dark" id="motion">
+  <div class="section-number" style="color:var(--gold-light);">02 — Motion Design</div>
+  <h2>Le mouvement<br>comme <em>langage.</em></h2>
+  <p class="section-intro">
+    Vous avez GSAP + ScrollTrigger. Vous avez 5 courbes d'easing custom. Le fondement est là. Mais vous n'exploitez que 10% du potentiel. Voici ce qui manque pour passer de "site animé" à "expérience chorégraphiée".
+  </p>
+
+  <div class="finding elevate" style="background:rgba(212,160,23,0.06); border-color:var(--amber);">
+    <span class="finding-tag" style="background:rgba(212,160,23,0.1); color:#D4A017;">Élévation majeure</span>
+    <h3>Le scroll est passif — il devrait être un instrument</h3>
+    <p>Actuellement, vos animations scroll sont binaires : l'élément entre dans le viewport → il fait un fadeIn+translateY. C'est du 2019. Les SOTD 2025-2026 utilisent le scroll comme une <strong>timeline continue</strong> :</p>
+    <p>• <strong>Parallax différentiel</strong> : votre section .parallax-bg utilise un background-attachment: scroll classique. Les award-winners décalent chaque couche à des vitesses différentes via ScrollTrigger scrub. Imaginez la section "Mes Engagements" où le texte monte plus vite que l'image de fond, créant un effet de profondeur cinématographique.</p>
+    <p>• <strong>Scale + blur sur scroll</strong> : votre vidéo "Le Moment Mirage" devrait grandir de scale(0.85) à scale(1) au fur et à mesure que l'utilisateur scrolle vers elle, avec un léger blur qui s'estompe. L'effet "focus pull" des caméras de cinéma.</p>
+    <p>• <strong>Horizontal scroll section</strong> : votre collection de 10 produits en grille 3×3 est correcte sur desktop. Mais imaginez une section où les cartes défilent horizontalement au scroll vertical, comme un rail de galerie. C'est le pattern le plus récompensé sur Awwwards en 2025.</p>
+    <div class="finding-ref">Réf. : ScrollTrigger.create() (index.html L.821-838) · Actuellement : start/onEnter binaire uniquement</div>
+  </div>
+
+  <div class="finding critical" style="background:rgba(192,57,43,0.06); border-color:var(--red);">
+    <span class="finding-tag" style="background:rgba(192,57,43,0.08); color:var(--red);">Manque critique</span>
+    <h3>Aucune animation de texte avancée</h3>
+    <p>Vos titres de section (section-h2) apparaissent en bloc avec un simple fadeIn. Les sites primés animent le texte <strong>ligne par ligne, mot par mot, ou caractère par caractère</strong>. Votre typographie Cormorant Garamond à 300 weight est magnifique — mais elle mérite un reveal cinétique.</p>
+    <p>Concrètement : chaque section-h2 devrait avoir ses lignes qui glissent depuis le bas avec un masque (overflow:hidden sur un wrapper + translateY sur le contenu), décalées de 0.1s. C'est le pattern "line reveal" et c'est devenu un standard sur les SOTD.</p>
+    <div class="code-hint" style="background:rgba(250,245,239,0.06); color:rgba(250,245,239,0.7);">
+      /* Masque de reveal */<br>
+      .line-wrap { overflow: hidden; }<br>
+      .line-inner { transform: translateY(105%); }<br>
+      /* GSAP */<br>
+      gsap.to('.line-inner', { y: 0, duration: 1, ease: 'power3.out',<br>
+      &nbsp;&nbsp;stagger: 0.12, scrollTrigger: { trigger: el, start: 'top 80%' } });
+    </div>
+  </div>
+
+  <div class="finding idea" style="background:rgba(41,128,185,0.06); border-color:var(--blue);">
+    <span class="finding-tag" style="background:rgba(41,128,185,0.08); color:var(--blue);">Idée créative</span>
+    <h3>Smooth scroll (Lenis) pour l'inertie luxe</h3>
+    <p>Le scroll natif du navigateur est abrupt. Les sites luxury installent <strong>Lenis</strong> (ou Locomotive Scroll) pour un scroll avec inertie — un momentum doux qui prolonge le geste de l'utilisateur. C'est subtil, mais ça change tout le ressenti. C'est ce qui fait qu'on "sent" la qualité dès la première interaction.</p>
+    <p>Lenis est léger (~3KB gzip), compatible avec GSAP ScrollTrigger, et s'installe en 5 lignes de JS.</p>
+    <div class="finding-ref">Impact sur le score créativité : +0.8 à +1.2 points estimé</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     03. TYPOGRAPHIE CINÉTIQUE
+═══════════════════════════════════════════ -->
+<section class="audit-section" id="typo">
+  <div class="section-number">03 — Typographic Craft</div>
+  <h2>La typo comme<br><em>sculpture.</em></h2>
+  <p class="section-intro">
+    Votre choix Cormorant Garamond + Outfit + JetBrains Mono est excellent — c'est un triptyque cohérent. Mais les SOTD ne se contentent pas de choisir de bonnes polices : ils les <strong>mettent en scène</strong>.
+  </p>
+
+  <div class="finding strength">
+    <span class="finding-tag">Force</span>
+    <h3>Le système typographique est solide</h3>
+    <p>La hiérarchie serif (titres) / sans (corps) / mono (eyebrows, labels) est parfaitement exécutée. Le poids 300 sur Cormorant donne une élégance qui colle au luxe artisanal. Le clamp() sur les tailles est bien calibré. Les letter-spacing négatifs sur les H1 (-0.02em) ajoutent la tension visuelle que les jurés apprécient.</p>
+    <div class="finding-ref">Score typographie isolée : 8.5/10 — parmi les meilleurs aspects du site</div>
+  </div>
+
+  <div class="finding elevate">
+    <span class="finding-tag">Élévation</span>
+    <h3>Le H1 du hero mérite un traitement éditorial</h3>
+    <p>Votre H1 "L'Art du Dessert." fait clamp(3.2rem, 5.5vw, 6rem). C'est bien, mais les SOTD poussent les titres hero à <strong>20-30vw</strong> — des typographies massives qui occupent toute la largeur de l'écran. Imaginez "L'Art du" en Outfit light 8vw, et "Dessert." en Cormorant italic 18vw qui descend sous la fold. Ce contraste de scale crée un impact visuel immédiat.</p>
+    <p>Ça ne veut pas dire tout changer — mais le hero est votre vitrine. C'est là que la typographie doit être la plus audacieuse.</p>
+  </div>
+
+  <div class="finding elevate">
+    <span class="finding-tag">Élévation</span>
+    <h3>Les eyebrows manquent de personnalité</h3>
+    <p>Tous vos eyebrows utilisent le même pattern : JetBrains Mono 0.65rem, letter-spacing 0.35em, uppercase, avec une ligne horizontale avant. C'est propre, mais c'est répétitif sur 17 pages. Variez : certains pourraient avoir un numéro (01 —), d'autres un trait vertical, d'autres une icône SVG inline. La variation dans la constance, c'est ce qui rend un design system vivant.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     04. STORYTELLING & FLOW
+═══════════════════════════════════════════ -->
+<section class="audit-section" id="storytelling">
+  <div class="section-number">04 — Narrative Architecture</div>
+  <h2>Raconter,<br>pas <em>lister.</em></h2>
+  <p class="section-intro">
+    Un site Awwwards ne présente pas des sections — il raconte une histoire. Chaque scroll devrait donner envie de voir la suite. C'est le point le plus transformateur pour vous.
+  </p>
+
+  <div class="finding critical">
+    <span class="finding-tag">Manque critique</span>
+    <h3>La homepage est une liste de blocs, pas un voyage</h3>
+    <p>Votre homepage suit une structure classique : Hero → KPI → Testimonials → Collection → Pricing → Video → Guarantees → Engagements → FAQ → CTA. C'est logique d'un point de vue CRO. Mais d'un point de vue narratif, c'est plat.</p>
+    <p>Un SOTD structurerait ça comme un <strong>récit en 3 actes</strong> :</p>
+    <p><strong>Acte 1 — L'Illusion</strong> (Hero + Vidéo) : On montre l'effet "wow" immédiatement. La vidéo de découpe devrait être DANS le hero, pas 5 sections plus bas. Le visiteur doit comprendre le produit en 3 secondes.</p>
+    <p><strong>Acte 2 — La Preuve</strong> (Chiffres + Témoignages + Collection) : Maintenant qu'il est accroché, on prouve. Mais au lieu de sections empilées, imaginez une transition fluide où les KPI se transforment en témoignages via un scroll horizontal.</p>
+    <p><strong>Acte 3 — L'Invitation</strong> (Pricing + CTA) : Simple, direct, élégant. Un seul message : "Essayez gratuitement."</p>
+    <div class="finding-ref">Réf. : Structure actuelle index.html — 11 sections principales empilées verticalement</div>
+  </div>
+
+  <div class="finding elevate">
+    <span class="finding-tag">Élévation</span>
+    <h3>La vidéo "Moment Mirage" est votre atout #1 — utilisez-la mieux</h3>
+    <p>Votre vidéo de découpe de la pêche est extraordinaire. C'est littéralement le moment "wow" de votre produit. Mais elle est enfouie en section 5 avec un simple player dans un cadre. Sur un SOTD, cette vidéo serait :</p>
+    <p>• <strong>Full-screen</strong>, pas dans un cadre 9/14. Elle devrait exploser l'écran.</p>
+    <p>• <strong>Contrôlée par le scroll</strong> : au lieu de tourner en boucle, chaque frame de la vidéo correspondrait à une position de scroll. L'utilisateur "découpe" le fruit en scrollant. C'est le pattern le plus viral de 2025 (Apple l'utilise sur chaque page produit).</p>
+    <p>• Le hashtag #MomentMirage et le tagline "L'illusion se goûte" sont excellents — mais ils devraient apparaître APRÈS la révélation, pas pendant.</p>
+    <div class="finding-ref">Réf. : .video-reveal-section (index.html L.492-521) · .video-reveal-frame (homepage.css)</div>
+  </div>
+
+  <div class="judge-quote">
+    « Le site a tous les ingrédients — la vidéo, le produit, l'esthétique. Mais il les présente comme un catalogue. Un award-winner les présenterait comme un film. »
+  </div>
+
+  <div class="finding idea">
+    <span class="finding-tag">Idée créative</span>
+    <h3>Une page produit = une expérience, pas une fiche</h3>
+    <p>Vos 9 pages produit (produit-vanille.html, produit-fraise.html, etc.) suivent un layout classique : galerie sticky + info à droite. C'est fonctionnel. Mais imaginez : quand l'utilisateur arrive sur "La Pêche", il voit d'abord le fruit en plein écran, parfait, photoréaliste. En scrollant, le fruit se coupe, révélant les couches intérieures (confit, mousse, biscuit), chacune annotée. C'est du <strong>scroll-driven product storytelling</strong>.</p>
+    <p>Ça demande du travail, mais même une seule page produit "showcase" traitée ainsi pourrait être soumise seule à Awwwards.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     05. MICRO-INTERACTIONS & CURSEUR
+═══════════════════════════════════════════ -->
+<section class="audit-dark" id="cursor">
+  <div class="section-number" style="color:var(--gold-light);">05 — Micro-interactions</div>
+  <h2>Les détails qui<br>font la <em>différence.</em></h2>
+  <p class="section-intro">
+    Les micro-interactions sont le sel d'un SOTD. Elles ne servent pas la fonctionnalité — elles servent l'émotion. Voici ce qui manque et ce qui existe déjà.
+  </p>
+
+  <div class="finding critical" style="background:rgba(192,57,43,0.06); border-color:var(--red);">
+    <span class="finding-tag" style="background:rgba(192,57,43,0.08); color:var(--red);">Manque critique</span>
+    <h3>Pas de curseur custom</h3>
+    <p>C'est devenu un <strong>standard non-négociable</strong> sur les sites luxury primés. Un curseur custom (cercle doré qui suit la souris avec un léger retard, qui grossit au survol des éléments cliquables, qui se transforme en "View" sur les cartes produit et en "Play" sur la vidéo) ajoute une couche de polish qui impressionne systématiquement les jurés.</p>
+    <p>Techniquement : un div fixe en position absolute, animé via requestAnimationFrame avec un lerp de 0.1 pour le retard. 30 lignes de JS.</p>
+  </div>
+
+  <div class="finding strength" style="background:rgba(39,174,96,0.06); border-color:var(--green);">
+    <span class="finding-tag" style="background:rgba(39,174,96,0.08); color:var(--green);">Force</span>
+    <h3>Les hover states sont soignés</h3>
+    <p>Le btn-primary avec son ::before qui slide en gold, le shop-card qui fait un translateY(-8px) avec une ombre qui grandit, les FAQ icons qui rotate(45deg) avec un background gold — tout ça est bien exécuté. Les transitions utilisent vos courbes custom (--ease-spring, --ease-out) de manière cohérente. C'est un vrai point fort.</p>
+    <div class="finding-ref">Score micro-interactions hover : 8/10</div>
+  </div>
+
+  <div class="finding elevate" style="background:rgba(212,160,23,0.06); border-color:var(--amber);">
+    <span class="finding-tag" style="background:rgba(212,160,23,0.1); color:#D4A017;">Élévation</span>
+    <h3>Les cartes produit méritent un effet magnétique</h3>
+    <p>Vos shop-cards font un translateY(-8px) au hover. C'est propre, mais c'est du 2020. Les SOTD utilisent un <strong>tilt 3D magnétique</strong> : la carte s'incline légèrement dans la direction du curseur (via JS qui calcule la position relative de la souris), avec un reflet subtil qui se déplace. Vous avez déjà le perspective:1200px sur .shop-grid — l'infrastructure est là, il manque le JS.</p>
+    <div class="code-hint" style="background:rgba(250,245,239,0.06); color:rgba(250,245,239,0.7);">
+      card.addEventListener('mousemove', e => {<br>
+      &nbsp;&nbsp;const rect = card.getBoundingClientRect();<br>
+      &nbsp;&nbsp;const x = (e.clientX - rect.left) / rect.width - 0.5;<br>
+      &nbsp;&nbsp;const y = (e.clientY - rect.top) / rect.height - 0.5;<br>
+      &nbsp;&nbsp;card.style.transform = `perspective(1000px) rotateY(${x*8}deg) rotateX(${-y*8}deg) translateY(-8px)`;<br>
+      });
+    </div>
+  </div>
+
+  <div class="finding idea" style="background:rgba(41,128,185,0.06); border-color:var(--blue);">
+    <span class="finding-tag" style="background:rgba(41,128,185,0.08); color:var(--blue);">Idée créative</span>
+    <h3>Magnetic buttons sur les CTA principaux</h3>
+    <p>Quand le curseur approche d'un bouton "Devenir partenaire", le bouton devrait <strong>se déplacer légèrement vers le curseur</strong>, comme un aimant. C'est un effet subtil (3-5px max) qui rend l'interface vivante. Monzo, Stripe, et la majorité des SOTD l'utilisent.</p>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     06. TEXTURE & CRAFT VISUEL
+═══════════════════════════════════════════ -->
+<section class="audit-section" id="texture">
+  <div class="section-number">06 — Visual Craft & Texture</div>
+  <h2>Le grain,<br>la <em>matière.</em></h2>
+  <p class="section-intro">
+    Un SOTD se reconnaît aux détails qu'on ne voit pas consciemment mais qu'on ressent : la texture, les ombres, les dégradés, le rythme vertical.
+  </p>
+
+  <div class="finding strength">
+    <span class="finding-tag">Force</span>
+    <h3>L'overlay grain est un excellent choix</h3>
+    <p>Votre grain SVG feTurbulence en overlay fixe (body::after) est exactement ce que font les meilleurs studios. L'opacité réduite sur mobile (hover:none) montre une attention à la performance. Le backdrop-filter blur(24px) saturate(1.6) sur la navbar est du même calibre que ce qu'on voit chez les studios comme Locomotive ou Resn.</p>
+  </div>
+
+  <div class="finding strength">
+    <span class="finding-tag">Force</span>
+    <h3>La palette est irréprochable</h3>
+    <p>Cream/Ink/Gold avec les déclinaisons graduées (cream-2, cream-3, ink-soft, ink-muted, gold-light, gold-pale) — c'est un système chromatique digne d'un brand book professionnel. Les gradients (gradient-gold, gradient-glass, gradient-glow) ajoutent de la profondeur sans jamais casser l'harmonie. Le shadow system en 6 niveaux (xs→xl + shadow-gold) est particulièrement bien calibré.</p>
+  </div>
+
+  <div class="finding elevate">
+    <span class="finding-tag">Élévation</span>
+    <h3>Les séparateurs de section sont trop timides</h3>
+    <p>Chaque section utilise le même pattern ::before avec un gradient transparent → rgba(26,23,20,0.08) → transparent. C'est propre mais invisible. Les SOTD utilisent des <strong>éléments de transition</strong> entre les sections : une forme SVG organique, une ligne ondulée, ou même un changement de couleur de fond progressif (cream → cream-2 → ink). Le site devrait "respirer" visuellement entre chaque section, pas juste empiler.</p>
+  </div>
+
+  <div class="finding elevate">
+    <span class="finding-tag">Élévation</span>
+    <h3>Pas d'éléments organiques animés</h3>
+    <p>Votre produit est artisanal, organique, vivant. Mais le design est géométrique : rectangles arrondis, grilles, lignes droites. Ajoutez des <strong>formes blob SVG</strong> animées en arrière-plan — des formes organiques dorées qui pulsent lentement, rappelant la matière vivante de vos créations. Même un seul blob animé derrière la section hero ajouterait de la vie.</p>
+  </div>
+
+  <div class="finding idea">
+    <span class="finding-tag">Idée créative</span>
+    <h3>Le menu overlay est magnifique — exploitez-le plus</h3>
+    <p>Votre choix du burger-only avec le full-screen overlay est un parti pris fort et assumé qui fonctionne parfaitement pour une marque luxury. L'animation staggerée des liens (0.05s→0.3s) et le fond rgba(26,23,20,0.97) avec backdrop-filter:blur(20px) sont excellents. Pour pousser plus loin : ajoutez une image de fond qui change au hover de chaque lien (quand on survole "Catalogue", une photo de la collection apparaît à droite ; quand on survole "L'Atelier", une photo de l'atelier).</p>
+    <div class="finding-ref">Réf. : #mobile-overlay (styles.css L.734-778) · Stagger animation : 6 paliers</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     07. COMPARAISON AWWWARDS
+═══════════════════════════════════════════ -->
+<section class="audit-section">
+  <div class="section-number">07 — Benchmark Awwwards</div>
+  <h2>Vous vs. les<br><em>SOTD.</em></h2>
+  <p class="section-intro">
+    Comparaison point par point avec ce qu'on attend d'un Site of the Day dans la catégorie Food & Drink / Luxury.
+  </p>
+
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Critère</th>
+        <th>Atelier Mirage (actuel)</th>
+        <th>Standard SOTD</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Loading</strong></td>
+        <td class="col-you">Logo pulse + fade (1.2s)</td>
+        <td class="col-award">Séquence narrative 2-4s avec counter, split-text, et reveal chorégraphié</td>
+      </tr>
+      <tr>
+        <td><strong>Scroll</strong></td>
+        <td class="col-you">FadeIn/translateY au viewport entry (binaire)</td>
+        <td class="col-award">Scrub continu, parallax multi-couches, horizontal scroll, scale+blur</td>
+      </tr>
+      <tr>
+        <td><strong>Typographie</strong></td>
+        <td class="col-you">Excellent choix de fonts, animation en bloc</td>
+        <td class="col-award">Split-text char/line, masques de reveal, titres oversized (15-25vw)</td>
+      </tr>
+      <tr>
+        <td><strong>Curseur</strong></td>
+        <td class="col-you">Curseur natif du navigateur</td>
+        <td class="col-award">Custom cursor avec états contextuels (view, play, drag, close)</td>
+      </tr>
+      <tr>
+        <td><strong>Transitions</strong></td>
+        <td class="col-you">Hard reload entre pages</td>
+        <td class="col-award">Page transitions via Barba.js / View Transitions API</td>
+      </tr>
+      <tr>
+        <td><strong>Hover</strong></td>
+        <td class="col-you">TranslateY + shadow + ::before slide ✓</td>
+        <td class="col-award">Tilt 3D, magnetic, parallax interne, color shift</td>
+      </tr>
+      <tr>
+        <td><strong>Vidéo</strong></td>
+        <td class="col-you">Autoplay loop dans un cadre</td>
+        <td class="col-award">Scroll-driven playback, full-bleed, cinematic reveal</td>
+      </tr>
+      <tr>
+        <td><strong>Palette</strong></td>
+        <td class="col-you">Cream/Ink/Gold — 23 tokens ✓✓</td>
+        <td class="col-award">Même niveau — c'est un point fort</td>
+      </tr>
+      <tr>
+        <td><strong>Texture</strong></td>
+        <td class="col-you">Grain overlay + glassmorphism navbar ✓</td>
+        <td class="col-award">Même niveau + éléments organiques animés</td>
+      </tr>
+      <tr>
+        <td><strong>Sound</strong></td>
+        <td class="col-you">Bouton ASMR sur la vidéo</td>
+        <td class="col-award">Sound design subtil : micro-sons au hover, ambient au scroll</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     08. ROADMAP
+═══════════════════════════════════════════ -->
+<section class="audit-dark" id="roadmap">
+  <div class="section-number" style="color:var(--gold-light);">08 — Roadmap Créative</div>
+  <h2>Le plan<br>vers le <em>SOTD.</em></h2>
+  <p class="section-intro">
+    Priorisé par impact Awwwards / effort de développement. Chaque phase vous rapproche du seuil des 8.0.
+  </p>
+
+  <div class="roadmap">
+    <div class="roadmap-phase" style="background:rgba(250,245,239,0.04); border:1px solid rgba(250,245,239,0.08);">
+      <div class="roadmap-phase-label" style="color:var(--gold-light);">Phase 1 — Quick wins (1-2 jours)</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Lenis smooth scroll</strong> — 5 lignes de JS, impact immédiat sur le ressenti</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Custom cursor</strong> — 30 lignes JS + 10 lignes CSS, impression "premium" instantanée</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Line-reveal sur les H2</strong> — Wrapper overflow:hidden + GSAP translateY, 20 lignes</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Magnetic buttons</strong> — Sur les 3 CTA principaux, 15 lignes JS</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Tilt 3D sur les shop-cards</strong> — Vous avez déjà perspective:1200px</div>
+    </div>
+
+    <div class="roadmap-phase" style="background:rgba(250,245,239,0.04); border:1px solid rgba(250,245,239,0.08);">
+      <div class="roadmap-phase-label" style="color:var(--gold-light);">Phase 2 — Animations avancées (3-5 jours)</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Preloader narratif</strong> — Logo draw SVG + split-text "Atelier Mirage" + clip-path reveal</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Hero split-text</strong> — GSAP SplitText sur le H1 "L'Art du Dessert."</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">ScrollTrigger scrub</strong> — Parallax continu sur engagements, vidéo scale+blur</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Menu overlay avec images</strong> — Photo qui change au hover de chaque lien</div>
+    </div>
+
+    <div class="roadmap-phase" style="background:rgba(250,245,239,0.04); border:1px solid rgba(250,245,239,0.08);">
+      <div class="roadmap-phase-label" style="color:var(--gold-light);">Phase 3 — Transformation narrative (1-2 semaines)</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Page transitions</strong> — Barba.js ou View Transitions API entre toutes les pages</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Vidéo scroll-driven</strong> — Le "Moment Mirage" contrôlé frame par frame au scroll</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Restructuration hero</strong> — Vidéo en hero, typo oversized, 3 actes narratifs</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Horizontal scroll collection</strong> — Rail de produits au scroll vertical desktop</div>
+    </div>
+
+    <div class="roadmap-phase" style="background:rgba(250,245,239,0.04); border:1px solid rgba(250,245,239,0.08);">
+      <div class="roadmap-phase-label" style="color:var(--gold-light);">Phase 4 — Polish award (2-3 jours)</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Sound design</strong> — Micro-sons Howler.js sur les interactions clés (toggle, CTA, reveal)</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Page produit showcase</strong> — 1 page "La Pêche" avec scroll-driven layer reveal</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Blob SVG animé</strong> — Forme organique dorée en arrière-plan du hero</div>
+      <div class="roadmap-item" style="color:rgba(250,245,239,0.7);"><strong style="color:var(--cream);">Performance audit</strong> — Lighthouse 90+ pour ne pas perdre de points techniques</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     CONCLUSION
+═══════════════════════════════════════════ -->
+<section class="audit-section">
+  <div class="section-number">Conclusion</div>
+  <h2>Le verdict<br><em>final.</em></h2>
+
+  <div class="judge-quote">
+    « Atelier Mirage a la direction artistique d'un site à 8/10. Mais sans mouvement avancé, sans curseur custom, sans transitions de page, le jury voit un beau template — pas une expérience. La Phase 1 seule suffirait à passer de 6.8 à 7.5. Les Phases 2-3 ouvrent la porte du SOTD. »
+  </div>
+
+  <p class="section-intro" style="max-width:65ch;">
+    Ce qui est remarquable, c'est que la <strong>fondation est déjà là</strong>. Le design system, la palette, la typographie, le grain, le glassmorphism — tout ça est du niveau award. Ce qui manque, c'est la couche d'animation et d'interaction qui transforme un design statique en expérience vivante. La bonne nouvelle : avec GSAP déjà en place, 80% du chemin vers le SOTD est du JS, pas du redesign.
+  </p>
+
+  <table class="comparison-table" style="max-width:500px;">
+    <thead>
+      <tr>
+        <th>État</th>
+        <th>Score estimé</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Actuel</strong></td>
+        <td>6.8 / 10</td>
+      </tr>
+      <tr>
+        <td><strong>Après Phase 1</strong></td>
+        <td>7.5 / 10</td>
+      </tr>
+      <tr>
+        <td><strong>Après Phase 2</strong></td>
+        <td>8.0 / 10</td>
+      </tr>
+      <tr>
+        <td><strong>Après Phase 3-4</strong></td>
+        <td>8.5+ / 10 — candidat SOTD</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer class="audit-footer">
+  <p>Audit confidentiel · Atelier Mirage · Avril 2026</p>
+  <p style="margin-top:0.5rem; opacity:0.5;">Critères basés sur les standards Awwwards/FWA/CSS Design Awards 2025-2026</p>
+</footer>
+
+</body>
+</html>

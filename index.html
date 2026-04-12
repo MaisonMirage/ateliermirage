@@ -164,6 +164,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <!-- Lenis smooth scroll — retiré (hijack scroll natif, risque UX B2B) -->
 
   <link rel="stylesheet" href="homepage.css" />
 </head>
@@ -188,7 +189,7 @@
         <div class="order-path">
           <div class="order-path-num">01 &mdash; Partenariats</div>
           <h3 class="order-path-title">Professionnels</h3>
-          <p class="order-path-desc">Restaurants, lounges, hôtels et concept stores. Restaurants, lounges, hôtels. Je vous apporte une dégustation gratuite, vous décidez.</p>
+          <p class="order-path-desc">Restaurants, lounges, hôtels et concept stores. Je vous apporte une dégustation gratuite, vous décidez.</p>
           <a href="partenaires.html" class="order-path-link">Devenir partenaire<div class="link-line"></div></a>
         </div>
         <div class="order-path">
@@ -211,7 +212,7 @@
     <a href="case-studies.html" class="mobile-nav-item">Résultats</a>
     <a href="evenements.html" class="mobile-nav-item">Événements</a>
     <div class="mobile-nav-footer">
-      <a href="mailto:contact@ateliermirage.fr">contact@lateliermirage.fr</a>
+      <a href="mailto:contact@ateliermirage.fr">contact@ateliermirage.fr</a>
       <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
     </div>
   </div>
@@ -413,34 +414,34 @@
 
     <div class="shop-grid">
       <a href="produit-poulpe.html" class="shop-card reveal" data-cat="signature" style="display:block;">
-        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/poulpe-gold.webp" alt="Le Poulpe" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/poulpe-gold-zoom.webp" alt="Texture Poulpe" loading="lazy"/><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><div class="shop-card-badge-new">Signature</div></div>
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/poulpe-gold.png" alt="Le Poulpe" width="400" height="400" loading="lazy"/><div class="shop-card-badge-new">Signature</div></div>
         <div class="shop-card-name">Le Poulpe</div><div class="shop-card-sub">Sang Bleu · Ganache Vanille</div>      </a>
       <a href="produit-fraise.html" class="shop-card reveal" data-cat="fruit signature" style="display:block;">
-        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/fraise.webp" alt="La Fraise" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/fraise-zoom.webp" alt="Texture Fraise" loading="lazy"/><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><div class="shop-card-badge-new">Bestseller</div></div>
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/fraise.png" alt="La Fraise" width="400" height="400" loading="lazy"/><div class="shop-card-badge-new">Bestseller</div></div>
         <div class="shop-card-name">La Fraise</div><div class="shop-card-sub">Confit Intense · Ganache Montée</div>      </a>
       <a href="produit-mangue.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
-        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/mangue.webp" alt="La Mangue" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/mangue-zoom.webp" alt="Texture Mangue" loading="lazy"/><div class="shop-card-badge-season">Saison été</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/mangue.png" alt="La Mangue" width="400" height="400" loading="lazy"/><div class="shop-card-badge-season">Saison été</div></div>
         <div class="shop-card-name">La Mangue</div><div class="shop-card-sub">Cœur Exotique · Velours</div>      </a>
       <a href="produit-framboise.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
-        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/framboise.webp" alt="La Framboise" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/framboise-zoom.webp" alt="Texture Framboise" loading="lazy"/><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/framboise.png" alt="La Framboise" width="400" height="400" loading="lazy"/></div>
         <div class="shop-card-name">La Framboise</div><div class="shop-card-sub">Velours Rouge · Acidulée</div>      </a>
       <a href="produit-peche.html" class="shop-card reveal" data-cat="fruit signature" style="display:block;">
-        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/peche.webp" alt="La Pêche" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/peche-zoom.webp" alt="Texture Pêche" loading="lazy"/><div class="shop-card-badge-season">Saison été</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/peche.png" alt="La Pêche" width="400" height="400" loading="lazy"/><div class="shop-card-badge-season">Saison été</div></div>
         <div class="shop-card-name">La Pêche</div><div class="shop-card-sub">Signature Fruitée</div>      </a>
       <a href="produit-citron.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
-        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/citron.webp" alt="Le Citron" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/citron-zoom.webp" alt="Texture Citron" loading="lazy"/><div class="shop-card-badge-new">Nouveau</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/citron.png" alt="Le Citron" width="400" height="400" loading="lazy"/><div class="shop-card-badge-new">Nouveau</div></div>
         <div class="shop-card-name">Le Citron</div><div class="shop-card-sub">Zeste Givré · Acidité</div>      </a>
       <a href="produit-passion.html" class="shop-card reveal" data-cat="fruit signature" style="display:block;">
-        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/passion.webp" alt="La Passion" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/passion-zoom.webp" alt="Texture Passion" loading="lazy"/><div class="shop-card-badge-limited">Série limitée</div><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/passion.png" alt="La Passion" width="400" height="400" loading="lazy"/><div class="shop-card-badge-limited">Série limitée</div></div>
         <div class="shop-card-name">La Passion</div><div class="shop-card-sub">Éclat Tropical · Cœur Exotique</div>      </a>
       <a href="produit-cacao.html" class="shop-card reveal" data-cat="chocolat signature" style="display:block;">
-        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/cacao.webp" alt="Le Cacao" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/cacao-zoom.webp" alt="Texture Cacao" loading="lazy"/><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><div class="shop-card-badge-new">Grand Cru</div></div>
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/cacao.png" alt="Le Cacao" width="400" height="400" loading="lazy"/><div class="shop-card-badge-new">Grand Cru</div></div>
         <div class="shop-card-name">Le Cacao</div><div class="shop-card-sub">Fève Intense · Grand Cru</div>      </a>
       <a href="produit-arachide.html" class="shop-card reveal" data-cat="chocolat" style="display:block;">
-        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/cacahuete.webp" alt="L'Arachide" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/cacahuete-zoom.webp" alt="Texture Arachide" loading="lazy"/><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div></div>
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/cacahuete.png" alt="L'Arachide" width="400" height="400" loading="lazy"/></div>
         <div class="shop-card-name">L'Arachide</div><div class="shop-card-sub">Praliné Coulant · Orfèvrerie</div>      </a>
       <a href="produit-vanille.html" class="shop-card reveal" data-cat="signature" style="display:block;">
-        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/vanille.webp" alt="La Vanille" width="400" height="400" loading="lazy"/><img class="shop-card-zoom" src="img/vanille-zoom.webp" alt="Texture Vanille" loading="lazy"/><div class="shop-card-zoom-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div><div class="shop-card-badge-new">Grand Cru</div></div>
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/vanille.png" alt="La Vanille" width="400" height="400" loading="lazy"/><div class="shop-card-badge-new">Grand Cru</div></div>
         <div class="shop-card-name">La Vanille</div><div class="shop-card-sub">Gousse Noire · Madagascar</div>      </a>
     </div>
 
@@ -496,7 +497,7 @@
       <p>Vos clients coupent un fruit parfait… et découvrent un dessert à l'intérieur. Ce moment de surprise, c'est ce qui fait que les gens filment, partagent, et en reparlent.</p>
     </div>
     <div class="video-reveal-frame reveal">
-      <video id="revealVideo" src="img/peche-decoupe.mp4" poster="img/peche.webp" autoplay muted loop playsinline></video>
+      <video id="revealVideo" src="img/peche-decoupe.mp4" poster="img/peche.png" autoplay muted loop playsinline></video>
 
       <!-- Overlay luxe — branding Mirage -->
       <div class="video-luxe-overlay">
@@ -731,11 +732,6 @@
       <button class="pm-close" id="pmClose"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 2l8 8M10 2l-8 8"/></svg></button>
       <div class="pm-img" id="pmImgWrap">
         <img class="pm-img-main" id="pmImg" src="" alt="Photo du produit"/>
-        <img class="pm-img-zoom" id="pmImgZoom" src="" alt="Texture du produit"/>
-        <div class="pm-toggle-wrap" id="pmToggleWrap" style="display:none;">
-          <button class="pm-toggle-btn active" data-view="main">Vue</button>
-          <button class="pm-toggle-btn" data-view="zoom">Texture</button>
-        </div>
       </div>
       <div class="pm-body">
         <div class="pm-name" id="pmName"></div>
@@ -782,26 +778,23 @@
 
   // 1. DONNÉES PRODUITS
   const productData = {
-    'La Fraise': { img:'img/fraise.webp', zoom:'img/fraise-coupe.webp', sub:'Confit Intense · Ganache Montée', desc:'Sous une coque rouge vif réalisée à l\'aérographe, un confit de fraise gariguette, une ganache montée vanille et un biscuit amande moelleux.', allergens:['Lait','Oeufs','Gluten','Fruits à coque'] },
-    'La Mangue': { img:'img/mangue.webp', zoom:'img/mangue-zoom.webp', sub:'Cœur Exotique · Velours', desc:'Un cœur coulant mangue alphonso, une mousse légère au fruit de la passion et un croustillant coco.', allergens:['Lait','Oeufs','Gluten','Coco'] },
-    'La Framboise': { img:'img/framboise.webp', zoom:'img/framboise-zoom.webp', sub:'Velours Rouge · Acidulée', desc:'Un insert framboise, un crémeux framboise-litchi, et une mousse vanille.', allergens:['Lait','Oeufs','Gluten'] },
-    'La Pêche': { img:'img/peche.webp', zoom:'img/peche-zoom.webp', sub:'Signature Fruitée', desc:'Un confit de pêche blanche, une mousse pêche-verveine et un biscuit financier noisette.', allergens:['Lait','Oeufs','Gluten','Noisette'] },
-    'Le Citron': { img:'img/citron.webp', zoom:'img/citron-zoom.webp', sub:'Zeste Givré · Acidité', desc:'Un crémeux citron de Menton, une meringue italienne, et un confit citron-basilic.', allergens:['Lait','Oeufs','Gluten'] },
-    'Le Cacao': { img:'img/cacao.webp', zoom:'img/cacao-zoom.webp', sub:'Fève Intense · Grand Cru', desc:'Une ganache chocolat noir Tanzanie 75%, un croustillant praliné, et un biscuit chocolat sans farine.', allergens:['Lait','Oeufs','Fruits à coque'] },
-    "L'Arachide": { img:'img/cacahuete.webp', zoom:'img/cacahuete-zoom.webp', sub:'Praliné Coulant · Orfèvre', desc:'Un praliné cacahuète coulant, caramel beurre salé, mousse chocolat lait.', allergens:['Lait','Oeufs','Gluten','Arachide'] },
-    'La Passion': { img:'img/passion.webp', zoom:'img/passion-zoom.webp', sub:'Éclat Tropical', desc:'Un insert passion-mangue, crémeux chocolat blanc-passion.', allergens:['Lait','Oeufs','Gluten'] },
-    'La Vanille': { img:'img/vanille.webp', zoom:'img/vanille-zoom.webp', sub:'Bourbon · Madagascar', desc:'Une crème vanille bourbon de Madagascar infusée 48h, un caramel vanille.', allergens:['Lait','Oeufs','Gluten'] }
+    'La Fraise': { img:'img/fraise.png', sub:'Confit Intense · Ganache Montée', desc:'Sous une coque rouge vif réalisée à l\'aérographe, un confit de fraise gariguette, une ganache montée vanille et un biscuit amande moelleux.', allergens:['Lait','Oeufs','Gluten','Fruits à coque'] },
+    'La Mangue': { img:'img/mangue.png', sub:'Cœur Exotique · Velours', desc:'Un cœur coulant mangue alphonso, une mousse légère au fruit de la passion et un croustillant coco.', allergens:['Lait','Oeufs','Gluten','Coco'] },
+    'La Framboise': { img:'img/framboise.png', sub:'Velours Rouge · Acidulée', desc:'Un insert framboise, un crémeux framboise-litchi, et une mousse vanille.', allergens:['Lait','Oeufs','Gluten'] },
+    'La Pêche': { img:'img/peche.png', sub:'Signature Fruitée', desc:'Un confit de pêche blanche, une mousse pêche-verveine et un biscuit financier noisette.', allergens:['Lait','Oeufs','Gluten','Noisette'] },
+    'Le Citron': { img:'img/citron.png', sub:'Zeste Givré · Acidité', desc:'Un crémeux citron de Menton, une meringue italienne, et un confit citron-basilic.', allergens:['Lait','Oeufs','Gluten'] },
+    'Le Cacao': { img:'img/cacao.png', sub:'Fève Intense · Grand Cru', desc:'Une ganache chocolat noir Tanzanie 75%, un croustillant praliné, et un biscuit chocolat sans farine.', allergens:['Lait','Oeufs','Fruits à coque'] },
+    "L'Arachide": { img:'img/cacahuete.png', sub:'Praliné Coulant · Orfèvre', desc:'Un praliné cacahuète coulant, caramel beurre salé, mousse chocolat lait.', allergens:['Lait','Oeufs','Gluten','Arachide'] },
+    'La Passion': { img:'img/passion.png', sub:'Éclat Tropical', desc:'Un insert passion-mangue, crémeux chocolat blanc-passion.', allergens:['Lait','Oeufs','Gluten'] },
+    'La Vanille': { img:'img/vanille.png', sub:'Bourbon · Madagascar', desc:'Une crème vanille bourbon de Madagascar infusée 48h, un caramel vanille.', allergens:['Lait','Oeufs','Gluten'] }
   };
 
   // 2. MODAL PRODUITS
   const pmModal = document.getElementById('product-modal');
-  const pmImgWrap = document.getElementById('pmImgWrap');
-  const pmToggleWrap = document.getElementById('pmToggleWrap');
 
   function openProduct(name) {
     const d = productData[name]; if (!d) return;
     const pmImg = document.getElementById('pmImg');
-    const pmImgZoom = document.getElementById('pmImgZoom');
     const pmName = document.getElementById('pmName');
     const pmSub = document.getElementById('pmSub');
     const pmDesc = document.getElementById('pmDesc');
@@ -811,24 +804,12 @@
     if (pmSub) pmSub.textContent = d.sub;
     if (pmDesc) pmDesc.textContent = d.desc;
     if (ac) { ac.innerHTML = ''; d.allergens.forEach(a => { const tag = document.createElement('span'); tag.className = 'pm-allergen-tag'; tag.textContent = a; ac.appendChild(tag); }); }
-    if (pmImgWrap) pmImgWrap.classList.remove('zoom-active');
-    if (d.zoom && pmImgZoom) {
-      pmImgZoom.src = d.zoom; pmImgZoom.alt = 'Texture ' + name;
-      if (pmToggleWrap) { pmToggleWrap.style.display = 'flex'; pmToggleWrap.querySelectorAll('.pm-toggle-btn').forEach(b => b.classList.toggle('active', b.dataset.view === 'main')); }
-    } else if (pmToggleWrap) { pmToggleWrap.style.display = 'none'; }
     if (pmModal) pmModal.classList.add('open');
   }
 
-  if (pmToggleWrap) pmToggleWrap.addEventListener('click', (e) => {
-    const btn = e.target.closest('.pm-toggle-btn'); if (!btn) return;
-    pmToggleWrap.querySelectorAll('.pm-toggle-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    if (pmImgWrap) pmImgWrap.classList.toggle('zoom-active', btn.dataset.view === 'zoom');
-  });
-
   const pmCloseBtn = document.getElementById('pmClose');
-  if (pmCloseBtn) pmCloseBtn.addEventListener('click', () => { if (pmModal) pmModal.classList.remove('open'); if (pmImgWrap) pmImgWrap.classList.remove('zoom-active'); });
-  if (pmModal) pmModal.addEventListener('click', (e) => { if (e.target === pmModal) { pmModal.classList.remove('open'); if (pmImgWrap) pmImgWrap.classList.remove('zoom-active'); } });
+  if (pmCloseBtn) pmCloseBtn.addEventListener('click', () => { if (pmModal) pmModal.classList.remove('open'); });
+  if (pmModal) pmModal.addEventListener('click', (e) => { if (e.target === pmModal) { pmModal.classList.remove('open'); } });
 
   // 3. GSAP & ANIMATIONS
   function initGSAP() {
@@ -852,7 +833,8 @@
     gsap.set('.hero-eyebrow,.hero-h1,.hero-hook,.hero-desc,.hero-actions,.hero-reassurance,.scroll-hint', {opacity:0, y:20});
     gsap.set('.hero-h1', {y:50});
     gsap.set('#heroMain', {opacity:0});
-    gsap.timeline({delay:0.1}).to('.hero-eyebrow',{opacity:1,y:0,duration:0.9}).to('.hero-h1',{opacity:1,y:0,duration:1.1},'-=0.7').to('.hero-hook',{opacity:1,y:0,duration:0.8},'-=0.6').to('.hero-desc',{opacity:1,y:0},'-=0.7').to('.hero-actions',{opacity:1,y:0},'-=0.7').to('.hero-reassurance',{opacity:1,y:0,duration:0.6},'-=0.5').to('.scroll-hint',{opacity:1,duration:0.8},'-=0.3');
+    // Hero H1 animated char-by-char in Awwwards upgrade script — skip it here
+    gsap.timeline({delay:0.1}).to('.hero-eyebrow',{opacity:1,y:0,duration:0.9}).to('.hero-hook',{opacity:1,y:0,duration:0.8},'-=0.3').to('.hero-desc',{opacity:1,y:0},'-=0.7').to('.hero-actions',{opacity:1,y:0},'-=0.7').to('.hero-reassurance',{opacity:1,y:0,duration:0.6},'-=0.5').to('.scroll-hint',{opacity:1,duration:0.8},'-=0.3');
     gsap.to('#heroMain',{opacity:1,duration:1.2,delay:0.4});
     document.querySelectorAll('.reveal').forEach((el)=>{
       gsap.to(el,{opacity:1,y:0,duration:0.9,scrollTrigger:{trigger:el,start:'top 88%'}});
@@ -878,7 +860,7 @@
   // Timeout: si GSAP ne charge jamais, on stop le polling et on force
   setTimeout(function() { clearInterval(waitGSAP); }, 5000);
 
-  window.addEventListener('load', () => { setTimeout(() => { const preloader = document.getElementById('preloader'); if(preloader) preloader.classList.add('done'); },1200); });
+  // Preloader dismissal — retiré (pas de preloader HTML)
 
   // 4. MENU OVERLAY & UI
   const orderGateway = document.getElementById('order-gateway');
@@ -966,13 +948,8 @@
     }
   }, 25000);
 
-  // GATEWAY AUTO-SHOW: segmentation B2B/Événementiel au premier visit
-  setTimeout(() => {
-    if (!sessionStorage.getItem('mm_gateway_shown')) {
-      orderGateway.classList.add('open');
-      sessionStorage.setItem('mm_gateway_shown', '1');
-    }
-  }, 2500);
+  // GATEWAY AUTO-SHOW: désactivé (audit design avril 2026 — trop intrusif à 2.5s)
+  // Le gateway s'ouvre uniquement au clic sur les CTA dédiés.
 
   const quickReplies = [
     { label:'Tarifs & Volumes', key:'prix' }, { label:'Livraison Pro', key:'livraison' },
@@ -1107,6 +1084,131 @@
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
     </a>
   </div>
+
+  <!-- ═══════ AWWWARDS UPGRADE — Phase 1+2 JS ═══════ -->
+  <script>
+  (function() {
+    'use strict';
+
+    // ── 1. LINE REVEAL ON SECTION TITLES ──
+    function initLineReveal() {
+      if (!window.gsap || !window.ScrollTrigger) return;
+      document.querySelectorAll('.section-h2').forEach(h2 => {
+        // Skip if already processed
+        if (h2.querySelector('.line-wrap')) return;
+        // Wrap each line in overflow-hidden container
+        const html = h2.innerHTML;
+        const lines = html.split(/<br\s*\/?>/i);
+        h2.innerHTML = lines.map(line =>
+          '<span class="line-wrap"><span class="line-inner">' + line.trim() + '</span></span>'
+        ).join('');
+        // Animate
+        gsap.to(h2.querySelectorAll('.line-inner'), {
+          y: 0, duration: 1, ease: 'power3.out',
+          stagger: 0.12,
+          scrollTrigger: { trigger: h2, start: 'top 85%' }
+        });
+      });
+    }
+
+    // ── 2. TILT 3D ON SHOP CARDS ──
+    function initTilt() {
+      if (window.matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.shop-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = 'perspective(1000px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg) translateY(-8px)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+          setTimeout(() => card.style.transition = '', 500);
+        });
+      });
+    }
+
+    // ── 3. MAGNETIC BUTTONS ──
+    function initMagnetic() {
+      if (window.matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.btn-primary, .btn-gold-filled, .nav-cta').forEach(btn => {
+        btn.classList.add('btn-magnetic');
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15) + 'px)';
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = '';
+        });
+      });
+    }
+
+    // ── 4. HERO SPLIT-TEXT (char by char) ──
+    function initHeroSplitText() {
+      if (!window.gsap) return;
+      const h1 = document.querySelector('.hero-h1');
+      if (!h1 || h1.dataset.split === 'done') return;
+      h1.dataset.split = 'done';
+
+      // Parse HTML preserving <br> and <em>
+      const html = h1.innerHTML;
+      let result = '';
+      let inTag = false;
+      let tagBuffer = '';
+
+      for (let i = 0; i < html.length; i++) {
+        const c = html[i];
+        if (c === '<') { inTag = true; tagBuffer = '<'; continue; }
+        if (inTag) {
+          tagBuffer += c;
+          if (c === '>') {
+            inTag = false;
+            // Check if it's a br tag
+            if (/^<br\s*\/?>$/i.test(tagBuffer)) {
+              result += tagBuffer;
+            } else {
+              result += tagBuffer; // Pass through opening/closing tags
+            }
+            tagBuffer = '';
+          }
+          continue;
+        }
+        if (c === ' ') {
+          result += ' ';
+        } else {
+          result += '<span class="char">' + c + '</span>';
+        }
+      }
+      h1.innerHTML = result;
+
+      // Animate with GSAP
+      gsap.set('.hero-h1', { opacity: 1, y: 0 }); // Override the existing animation
+      gsap.fromTo('.hero-h1 .char',
+        { opacity: 0, y: 60, rotateX: -40 },
+        { opacity: 1, y: 0, rotateX: 0, duration: 1, ease: 'back.out(1.4)', stagger: 0.035, delay: 0.3 }
+      );
+    }
+
+    // ── INIT ALL ──
+    // Wait for GSAP then init
+    const waitAll = setInterval(() => {
+      if (window.gsap && window.ScrollTrigger) {
+        clearInterval(waitAll);
+        // Small delay to let existing GSAP init run first
+        setTimeout(() => {
+          initLineReveal();
+          initTilt();
+          initMagnetic();
+          initHeroSplitText();
+        }, 100);
+      }
+    }, 50);
+    setTimeout(() => clearInterval(waitAll), 5000);
+  })();
+  </script>
 
   <!-- ═══════ GA4 CONVERSION EVENTS ═══════ -->
   <script>
