@@ -140,13 +140,14 @@
   justify-content: center;
   gap: 0;
   margin: 0;
-  padding: 4rem 6vw;
+  padding: 5rem 6vw;
+  background: var(--white);
   border-top: 1px solid rgba(26,23,20,0.06);
   border-bottom: 1px solid rgba(26,23,20,0.06);
 }
 .kpi-item {
   flex: 1;
-  padding: 1.5rem 2rem;
+  padding: 2rem 2.5rem;
   text-align: center;
   position: relative;
 }
@@ -158,11 +159,11 @@
 }
 .kpi-number {
   font-family: var(--serif);
-  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
   font-weight: 300;
   color: var(--ink);
   line-height: 1;
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
 }
 .kpi-number em { font-style: italic; color: var(--gold-light); }
 .kpi-label {
@@ -212,25 +213,8 @@
   max-width: 45ch;
   margin: 0 auto;
 }
-.video-reveal-frame {
-  position: relative;
-  max-width: 720px;
-  margin: 0 auto;
-  border-radius: 1.2rem;
-  overflow: hidden;
-  aspect-ratio: 9/14;
-  background: var(--ink);
-}
-@media (max-width: 768px) {
-  .video-reveal-frame { aspect-ratio: 3/4; max-width: 90vw; border-radius: 0.8rem; }
-}
-.video-reveal-frame video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: center 15%;
-  transform: scale(1.02);
-}
+/* legacy frame hidden — replaced by social-phones */
+.video-reveal-frame { display: none; }
 .video-sound-toggle {
   position: absolute;
   top: 1rem;
@@ -268,37 +252,384 @@
   transform: translateY(16px);
 }
 
-/* --- VIDEO LUXE OVERLAY — Replaces Reel/TikTok overlay --- */
-.video-luxe-overlay {
+/* ═══════════════════════════════════════════
+   SOCIAL PHONES — Faithful platform mockups
+   ═══════════════════════════════════════════ */
+.social-phones {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  padding: 0 6vw;
+}
+.social-phone {
+  width: 290px;
+  flex-shrink: 0;
+  border-radius: 2.4rem;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.04);
+  background: #000;
+  position: relative;
+}
+.social-phone-screen {
+  position: relative;
+  aspect-ratio: 9/16;
+  overflow: hidden;
+}
+.social-phone-screen video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.sp-ui {
   position: absolute;
   inset: 0;
-  z-index: 3;
+  z-index: 2;
   pointer-events: none;
   display: flex;
-  align-items: flex-end;
-  background: linear-gradient(to top, rgba(0,0,0,0.55) 0%, transparent 35%);
+  flex-direction: column;
+  justify-content: space-between;
 }
-.video-luxe-bottom {
+
+/* ══════════════════════════════════
+   SNAPCHAT — fidèle au design réel
+   ══════════════════════════════════ */
+.snap-top {
+  padding: 1rem 0.8rem 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, transparent 100%);
+  padding-bottom: 2rem;
+}
+.snap-user-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+}
+.snap-username {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0,0,0,0.6);
+}
+.snap-star-icon {
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+.snap-time {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.58rem;
+  color: rgba(255,255,255,0.6);
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+.snap-top-right {
+  position: absolute;
+  top: 1rem;
+  right: 0.8rem;
+  opacity: 0.85;
+}
+
+.snap-bottom {
+  padding: 0 0.6rem 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+  padding-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.snap-reply-bar {
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 2rem;
+  padding: 0.6rem 1rem;
+  text-align: center;
+}
+.snap-reply-bar span {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.55);
+}
+.snap-reactions {
+  display: flex;
+  justify-content: center;
+  gap: 1.2rem;
+  font-size: 1.3rem;
+}
+
+/* ══════════════════════════════════
+   INSTAGRAM STORY — fidèle au design réel
+   ══════════════════════════════════ */
+.ig-progress {
+  display: flex;
+  gap: 3px;
+  padding: 0.6rem 0.6rem 0;
+}
+.ig-progress-bar {
+  flex: 1;
+  height: 2px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.ig-progress-fill {
+  height: 100%;
+  background: #fff;
+  border-radius: 2px;
+}
+.ig-progress-active {
+  width: 60%;
+  animation: igProgressAnim 5s linear infinite;
+}
+@keyframes igProgressAnim { from { width: 0; } to { width: 100%; } }
+
+.ig-story-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding: 0.5rem 0.8rem;
+}
+.ig-story-user {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.ig-story-avatar {
+  width: 32px;
+  height: 32px;
+}
+.ig-story-avatar-ring {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #FCAF45, #FD1D1D, #833AB4);
+  padding: 2px;
+}
+.ig-story-avatar-inner {
   width: 100%;
-  padding: 1.4rem 1.6rem;
-}
-.video-luxe-hashtag {
-  font-family: var(--mono);
+  height: 100%;
+  border-radius: 50%;
+  background: #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.65rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+  font-weight: 700;
+  color: #fff;
 }
-.video-luxe-tagline {
-  font-family: var(--serif);
-  font-size: 0.85rem;
-  font-style: italic;
-  color: rgba(255,255,255,0.8);
-  text-shadow: 0 1px 6px rgba(0,0,0,0.5);
+.ig-story-name {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+.ig-story-verified-badge {
+  display: flex;
+  align-items: center;
+}
+.ig-story-time {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.6);
+  margin-left: 0.1rem;
+}
+.ig-story-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  opacity: 0.85;
+}
+
+.ig-story-bottom {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0 0.6rem 1rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.35) 0%, transparent 100%);
+  padding-top: 3rem;
+}
+.ig-story-reply-bar {
+  flex: 1;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  border-radius: 2rem;
+  padding: 0.55rem 1rem;
+}
+.ig-story-reply-bar span {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.55);
+}
+.ig-story-bottom-actions {
+  display: flex;
+  gap: 0.6rem;
+  align-items: center;
+  opacity: 0.9;
+}
+
+/* ══════════════════════════════════
+   TIKTOK — fidèle au design réel
+   ══════════════════════════════════ */
+.tt-top {
+  padding: 1rem 0.8rem 0;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, transparent 100%);
+  padding-bottom: 2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+.tt-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(255,255,255,0.12);
+  border-radius: 0.5rem;
+  padding: 0.45rem 0.8rem;
+  flex: 1;
+}
+.tt-search-bar span {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.5);
+}
+
+.tt-side {
+  position: absolute;
+  right: 0.6rem;
+  bottom: 7rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  z-index: 3;
+}
+.tt-avatar-wrap {
+  position: relative;
+  margin-bottom: 0.3rem;
+}
+.tt-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #555;
+  border: 2px solid #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #fff;
+}
+.tt-avatar-plus {
+  position: absolute;
+  bottom: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #FE2C55;
+  color: #fff;
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+.tt-act {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+}
+.tt-act svg {
+  filter: drop-shadow(0 1px 3px rgba(0,0,0,0.4));
+}
+.tt-act span {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.6rem;
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+}
+.tt-disc {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #333;
+  border: 8px solid #222;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: igSpin 3s linear infinite;
+}
+@keyframes igSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.tt-disc-inner { font-size: 0.6rem; }
+
+.tt-bottom {
+  padding: 0.6rem 3.5rem 0.8rem 0.8rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.5) 0%, transparent 100%);
+  padding-top: 3rem;
+}
+.tt-music-row {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.3rem;
+}
+.tt-music-marquee {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.6rem;
+  color: rgba(255,255,255,0.7);
+}
+.tt-username {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+.tt-caption {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.9);
+  line-height: 1.4;
+  margin-bottom: 0.5rem;
+}
+.tt-comment-bar {
+  background: rgba(255,255,255,0.1);
+  border-radius: 2rem;
+  padding: 0.5rem 1rem;
+}
+.tt-comment-bar span {
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.65rem;
+  color: rgba(255,255,255,0.45);
+}
+
+/* ── Responsive social phones ── */
+@media (max-width: 1024px) {
+  .social-phones { gap: 1.5rem; }
+  .social-phone { width: 250px; }
+}
+@media (max-width: 768px) {
+  .social-phones {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 1rem;
+    padding: 0 4vw;
+    justify-content: flex-start;
+  }
+  .social-phone {
+    width: 78vw;
+    flex-shrink: 0;
+    scroll-snap-align: center;
+  }
 }
 
 /* --- STICKY CTA — SVG Icon styling --- */
@@ -351,6 +682,7 @@
 /* --- TESTIMONIAL SECTION — Épuré Salur --- */
 .testimonials-section {
   padding: 8rem 6vw;
+  background: var(--white);
 }
 @media (max-width: 768px) {
   .testimonials-section { padding: 4rem 5vw; }
@@ -371,23 +703,26 @@
 .testimonial-card {
   background: transparent;
   border-radius: 0;
-  padding: 2.5rem 2rem;
+  padding: 2.5rem 2.5rem;
   border: none;
   box-shadow: none;
   transition: none;
   position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .testimonial-card::before { display: none; }
 /* Séparateur vertical entre les cartes */
 .testimonial-card + .testimonial-card { border-left: 1px solid rgba(26,23,20,0.06); }
-/* Metric en haut */
+/* Metric en haut — éditorial, grande typo */
 .testimonial-metric {
   font-family: var(--serif);
-  font-size: 2rem;
+  font-size: clamp(2.8rem, 4vw, 3.6rem);
   font-weight: 300;
   color: var(--ink);
-  line-height: 1;
-  margin-bottom: 1rem;
+  line-height: 0.9;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.02em;
 }
 .testimonial-metric span {
   display: block;
@@ -395,8 +730,8 @@
   font-size: 0.55rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--gold);
-  margin-top: 0.4rem;
+  color: var(--ink-muted);
+  margin-top: 0.6rem;
 }
 .testimonial-card:hover {
   transform: none;
@@ -404,37 +739,39 @@
 }
 .testimonial-quote {
   font-family: var(--serif);
-  font-size: 1.05rem;
+  font-size: 1rem;
   font-style: italic;
-  line-height: 1.8;
+  line-height: 1.85;
   color: var(--ink-muted);
   margin-bottom: 2rem;
   position: relative;
   padding-left: 0;
   border-left: none;
+  flex: 1;
 }
 .testimonial-quote::before { display: none; }
 .testimonial-author {
   display: flex;
   align-items: center;
   gap: 0.8rem;
+  margin-top: auto;
 }
 .testimonial-author-img {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
   object-fit: cover;
-  border: 1px solid rgba(26,23,20,0.08);
+  border: 1px solid rgba(26,23,20,0.06);
 }
 .testimonial-author-name {
   font-family: var(--sans);
   font-weight: 500;
-  font-size: 0.82rem;
+  font-size: 0.8rem;
   color: var(--ink);
 }
 .testimonial-author-role {
   font-family: var(--mono);
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--ink-muted);
@@ -446,46 +783,42 @@
   justify-content: center;
   gap: 0;
   margin: 0;
-  padding: 4rem 6vw;
+  padding: 5rem 6vw;
   border-top: 1px solid rgba(26,23,20,0.06);
   border-bottom: 1px solid rgba(26,23,20,0.06);
 }
 .guarantee-item {
   flex: 1;
-  padding: 1.5rem 2rem;
+  padding: 2rem 2.5rem;
   text-align: center;
   position: relative;
 }
 .guarantee-item + .guarantee-item::before {
   content: '';
-  position: absolute; left: 0; top: 15%; bottom: 15%;
+  position: absolute; left: 0; top: 20%; bottom: 20%;
   width: 1px;
   background: rgba(26,23,20,0.08);
 }
 .guarantee-item:hover { background: transparent; }
-.guarantee-icon {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 1rem;
-  color: var(--gold);
-}
+.guarantee-icon { display: none; }
 .guarantee-title {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 0.88rem;
+  font-family: var(--serif);
+  font-weight: 300;
+  font-size: 1.15rem;
   color: var(--ink);
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.6rem;
+  letter-spacing: -0.01em;
 }
 .guarantee-desc {
   font-family: var(--mono);
   font-size: 0.55rem;
   letter-spacing: 0.1em;
   color: var(--ink-muted);
-  line-height: 1.6;
+  line-height: 1.7;
 }
 @media (max-width: 768px) {
-  .guarantees-bar { flex-wrap: wrap; padding: 2.5rem 5vw; }
-  .guarantee-item { flex: 1 1 45%; }
+  .guarantees-bar { flex-wrap: wrap; padding: 3rem 5vw; }
+  .guarantee-item { flex: 1 1 45%; padding: 1.5rem 1.2rem; }
   .guarantee-item + .guarantee-item::before { display: none; }
 }
 @media (max-width: 480px) {
@@ -651,7 +984,7 @@
 
 /* --- PRICING SECTION — Design System compliant (no inline styles) --- */
 .pricing-section {
-  padding: 2.5rem 6vw;
+  padding: 6rem 6vw;
   text-align: center;
 }
 .pricing-section-header {
@@ -664,9 +997,10 @@
 .pricing-section-title {
   font-family: var(--serif);
   font-weight: 300;
-  font-size: clamp(2rem, 4vw, 3rem);
+  font-size: clamp(2.4rem, 5vw, 4rem);
   text-align: center;
-  line-height: 0.95;
+  line-height: 0.92;
+  letter-spacing: -0.02em;
   margin-bottom: 2.5rem;
 }
 .pricing-section-title em {
@@ -695,7 +1029,7 @@
   overflow: hidden;
 }
 .pricing-tier {
-  background: var(--cream);
+  background: #F8F6F3;
   padding: 2rem 1.5rem;
   text-align: center;
 }
