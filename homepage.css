@@ -303,6 +303,17 @@
   flex-direction: column;
   gap: 0.1rem;
 }
+.snap-story-avatar {
+  width: 32px;
+  height: 32px;
+}
+
+.snap-story-avatar-ring {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+}
+
 .snap-username {
   font-family: -apple-system, BlinkMacSystemFont, sans-serif;
   font-size: 0.72rem;
