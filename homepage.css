@@ -882,7 +882,7 @@
   content: '';
   position: absolute; left: 0; top: 20%; bottom: 20%;
   width: 1px;
-  background: rgba(26,23,20,0.08);
+  background: rgba(26,23,20,0.13);
 }
 .guarantee-item:hover { background: transparent; }
 .guarantee-icon { display: none; }
