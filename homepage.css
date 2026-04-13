@@ -1443,6 +1443,11 @@ a.cta-fine:hover { color: var(--gold); }
   .atelier-teaser-inner { grid-template-columns: 1fr; gap: 2rem; padding: 2rem 0; }
   .atelier-teaser-img { aspect-ratio: 16/9; }
 
+  /* Testimonials: 1 colonne sur mobile */
+  .testimonials-grid { grid-template-columns: 1fr; gap: 0; }
+  .testimonial-card + .testimonial-card { border-left: none; border-top: 1px solid rgba(26,23,20,0.06); }
+  .testimonial-card { padding: 2rem 1.5rem; }
+
   /* Paddings mobile serrés */
   .atelier { padding: 2.5rem 0 2rem !important; }
   .philosophy { padding: 2.5rem 5vw !important; }
@@ -1450,17 +1455,25 @@ a.cta-fine:hover { color: var(--gold); }
   .video-reveal-section { padding: 2rem 0 !important; }
   .faq { padding: 2.5rem 5vw !important; }
 
-  /* CTA banner mobile: full width, single column */
+  /* CTA banner mobile: full width, single column, compact */
   .cta-banner {
     grid-template-columns: 1fr !important;
     text-align: center;
-    margin: 0 3vw 2rem;
-    padding: 2.5rem 5vw;
+    margin: 0 !important;
+    padding: 4rem 6vw !important;
+    gap: 1.5rem !important;
+    border-radius: 0 !important;
   }
+  .cta-banner-h { font-size: clamp(2.2rem, 8vw, 3rem) !important; }
   .cta-banner-action {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 0.8rem;
+    gap: 0.6rem;
+  }
+  .cta-banner-action .btn-gold-filled,
+  .cta-banner-action .btn-outline {
+    padding: 0.85rem 1.8rem;
+    font-size: 0.65rem;
   }
 }
