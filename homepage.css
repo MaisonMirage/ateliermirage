@@ -644,6 +644,7 @@
   left: 0.8rem;
   right: 3.5rem;
   z-index: 3;
+  text-align: left;
 }
 .tt-music-row {
   display: flex;
