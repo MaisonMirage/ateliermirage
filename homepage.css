@@ -393,7 +393,7 @@
   border: 1.5px solid rgba(255,255,255,0.2);
   border-radius: 2rem;
   padding: 0.5rem 0.9rem;
-  text-align: center;
+  text-align: left;
 }
 .snap-bar-emoji {
   font-size: 1.2rem;
@@ -709,7 +709,9 @@
     gap: 1rem;
     padding: 0 4vw;
     justify-content: flex-start;
+    scrollbar-width: none;
   }
+  .social-phones::-webkit-scrollbar { display: none; }
   .social-phone {
     width: 78vw;
     flex-shrink: 0;
