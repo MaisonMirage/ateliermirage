@@ -261,6 +261,7 @@
   justify-content: center;
   gap: 2.5rem;
   padding: 0 6vw;
+  max-width: 100%;
 }
 .social-phone {
   width: 290px;
