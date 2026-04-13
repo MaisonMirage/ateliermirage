@@ -1070,7 +1070,7 @@
 
 /* --- PRICING SECTION — Design System compliant (no inline styles) --- */
 .pricing-section {
-  padding: 6rem 6vw;
+  padding: 3rem 6vw 6rem;
   text-align: center;
 }
 .pricing-section-header {

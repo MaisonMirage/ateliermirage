@@ -495,7 +495,7 @@ select { display: none; }
   transform: scale(1.05);
 }
 
-.boutique { padding: 8rem 6vw 6rem; position: relative; }
+.boutique { padding: 8rem 6vw 3rem; position: relative; }
 .boutique::before { content:''; position:absolute; top:0; left:6vw; right:6vw; height:1px; background: linear-gradient(to right, transparent, rgba(26,23,20,0.08) 30%, rgba(26,23,20,0.08) 70%, transparent); }
 .boutique-header { display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:end; margin-bottom:3.5rem; }
 .boutique-filters { display:flex; gap:0.6rem; flex-wrap:wrap; margin-bottom:4rem; }
@@ -2282,12 +2282,12 @@ summary:focus-visible {
    AUDIT 3.3: Mobile spacing reduction (-50%)
 ══════════════════════════════════════ */
 @media (max-width: 768px) {
-  .hero { padding: 5rem 0 1.5rem; min-height: 100dvh; }
-  .hero-headline { margin-bottom: 1rem; }
+  .hero { padding: 4rem 0 0; min-height: auto; }
+  .hero-headline { margin-bottom: 0.8rem; }
   .hero-h1 { font-size: clamp(2.6rem, 9vw, 3.8rem); }
   .hero-hook { font-size: 0.82rem; margin-top: 0.5rem; }
-  .hero-showcase { flex: 1 1 auto; }
-  .hero-showcase-img { width: 100%; flex: 1 1 auto; }
+  .hero-showcase { flex: 0 0 auto; }
+  .hero-showcase-img { width: 100%; flex: 0 0 auto; }
   .hero-showcase-img img { width: 100%; height: 100%; object-fit: cover; }
   .hero-showcase-reflection { width: 100%; height: clamp(25px, 4vw, 50px); }
   .hero-bottom { margin-top: 1rem; }
