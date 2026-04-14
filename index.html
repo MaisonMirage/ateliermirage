@@ -251,7 +251,13 @@
     <!-- Lineup cinématique — pleine largeur -->
     <div class="hero-showcase">
       <div class="hero-showcase-img">
-        <img src="img/hero-trio.png" alt="Collection Atelier Mirage — desserts trompe-l'œil artisanaux" width="2048" height="1024" fetchpriority="high" />
+        <picture>
+          <source media="(max-width: 640px)" srcset="img/hero-trio-mobile.webp" type="image/webp" />
+          <source media="(max-width: 960px)" srcset="img/hero-trio-960w.webp" type="image/webp" />
+          <source media="(max-width: 1280px)" srcset="img/hero-trio-1280w.webp" type="image/webp" />
+          <source srcset="img/hero-trio.webp" type="image/webp" />
+          <img src="img/hero-trio.webp" alt="Collection Atelier Mirage — desserts trompe-l'œil artisanaux" width="1536" height="1024" fetchpriority="high" />
+        </picture>
       </div>
     </div>
 
