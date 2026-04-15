@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Atelier Mirage · Planche de validation intérieurs</title>
+<style>
+  :root {
+    --ink: #1a1a1a;
+    --soft: #6e6e6e;
+    --rule: #c9c2b6;
+    --surface: #f5f2ec;
+    --accent: #b03a2e;
+    --bg: #eae4d7;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    padding: 48px 32px 96px;
+    min-height: 100vh;
+  }
+  header {
+    max-width: 1680px;
+    margin: 0 auto 56px;
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 24px;
+  }
+  .brand {
+    font-size: 11px;
+    letter-spacing: 0.4em;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .title {
+    font-size: 28px;
+    font-style: italic;
+    font-weight: 300;
+    letter-spacing: 0.02em;
+  }
+  .meta {
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--soft);
+    text-transform: uppercase;
+  }
+
+  .grid {
+    max-width: 1680px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 1200px) {
+    .grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 720px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+
+  .card {
+    background: #fff;
+    border: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+  }
+  .card .frame {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    background: var(--surface);
+    overflow: hidden;
+  }
+  .card img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .card .info {
+    padding: 20px 24px 24px;
+    border-top: 2px solid var(--accent);
+  }
+  .kicker {
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 6px;
+  }
+  .name {
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+  .sub {
+    font-size: 13px;
+    color: var(--soft);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  .checklist {
+    max-width: 1680px;
+    margin: 80px auto 0;
+    background: #fff;
+    border: 1px solid var(--rule);
+    padding: 40px 48px;
+  }
+  .checklist h2 {
+    font-size: 10px;
+    letter-spacing: 0.4em;
+    color: var(--accent);
+    font-weight: 600;
+    margin-bottom: 24px;
+  }
+  .checklist ol {
+    list-style: none;
+    counter-reset: item;
+    columns: 2;
+    column-gap: 48px;
+  }
+  @media (max-width: 720px) {
+    .checklist ol { columns: 1; }
+  }
+  .checklist li {
+    counter-increment: item;
+    padding: 14px 0 14px 44px;
+    border-bottom: 1px solid var(--surface);
+    position: relative;
+    font-size: 14px;
+    line-height: 1.5;
+    break-inside: avoid;
+  }
+  .checklist li::before {
+    content: counter(item, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 14px;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    font-weight: 600;
+  }
+  .checklist li:last-child { border-bottom: none; }
+
+  footer {
+    max-width: 1680px;
+    margin: 64px auto 0;
+    text-align: center;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--soft);
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <div class="brand">ATELIER MIRAGE</div>
+    <div class="title">Planche de validation · intérieurs</div>
+  </div>
+  <div class="meta">Six pièces · v1 · 15 avril 2026</div>
+</header>
+
+<div class="grid">
+
+  <article class="card">
+    <div class="frame"><img src="img/photos produits HD/produits interieur/intérieurs-retouchés/export/passion-int.webp" alt="Coupe intérieure Passion, trompe-l'œil pâtisserie moderne — Atelier Mirage"></div>
+    <div class="info">
+      <div class="kicker">PIÈCE 01</div>
+      <div class="name">Passion</div>
+      <div class="sub">Dôme violet · curd doré · pépins noirs · sablé breton</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="frame"><img src="img/photos produits HD/produits interieur/intérieurs-retouchés/export/mangue-int.webp" alt="Coupe intérieure Mangue, trompe-l'œil pâtisserie moderne — Atelier Mirage"></div>
+    <div class="info">
+      <div class="kicker">PIÈCE 02</div>
+      <div class="name">Mangue</div>
+      <div class="sub">Velours orange-rouge · crémeux caviar · dés suspendus · coulant</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="frame"><img src="img/photos produits HD/produits interieur/intérieurs-retouchés/export/vanille-int.webp" alt="Coupe intérieure Vanille, trompe-l'œil pâtisserie moderne — Atelier Mirage"></div>
+    <div class="info">
+      <div class="kicker">PIÈCE 03</div>
+      <div class="name">Vanille</div>
+      <div class="sub">Gousse noire · caviar Madagascar · bille caramel · feuilletine</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="frame"><img src="img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int.webp" alt="Coupe intérieure Framboise, trompe-l'œil pâtisserie moderne — Atelier Mirage"></div>
+    <div class="info">
+      <div class="kicker">PIÈCE 04</div>
+      <div class="name">Framboise</div>
+      <div class="sub">Drupelets · compotée rustique · chunks de pulpe · sablé pâle</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="frame"><img src="img/photos produits HD/produits interieur/intérieurs-retouchés/export/arachide-int.webp" alt="Coupe intérieure Arachide, trompe-l'œil pâtisserie moderne — Atelier Mirage"></div>
+    <div class="info">
+      <div class="kicker">PIÈCE 05</div>
+      <div class="name">Arachide</div>
+      <div class="sub">Coque cabossée · crémeux caviar · demi-cacahuètes · coulant</div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="frame"><img src="img/photos produits HD/produits interieur/intérieurs-retouchés/export/cacahuete-int.webp" alt="Coupe intérieure Cacahuète, trompe-l'œil pâtisserie moderne — Atelier Mirage"></div>
+    <div class="info">
+      <div class="kicker">PIÈCE 06</div>
+      <div class="name">Cacahuète</div>
+      <div class="sub">Glaçage miroir caramel · plateau aplati · sablé éclats</div>
+    </div>
+  </article>
+
+</div>
+
+<section class="checklist">
+  <h2>CHECKLIST DE COHÉRENCE SÉRIE · 8 POINTS</h2>
+  <ol>
+    <li>Architecture lisible sur chaque coupe — crémeux, insert et sablé nettement séparés.</li>
+    <li>Caviar vanille visible sur Passion, Mangue, Vanille, Framboise — les points noirs ne sont pas écrasés.</li>
+    <li>Chaque insert est saturé à environ 90 % mais jamais cartoon ni fluo.</li>
+    <li>Coulant crédible sur Arachide et Mangue — forme de goutte ou de flaque, pas de gicle Photoshop.</li>
+    <li>Zéro artefact Pomelli résiduel — pas de praliné parasite, pas de double sablé, pas de paillette baladeuse.</li>
+    <li>Fond homogène sans halos de sélection ni bords en escalier.</li>
+    <li>Grain naturel — aucune pièce ne paraît sur-retouchée au Dodge & Burn ni sur-accentuée.</li>
+    <li>Lecture identique entre les six — même densité, même tonalité pastel, même palette chaude.</li>
+  </ol>
+</section>
+
+<footer>
+  ATELIER MIRAGE · TROMPE-L'ŒIL PÂTISSERIE MODERNE · MARSEILLE
+</footer>
+
+</body>
+</html>

@@ -4,18 +4,34 @@
 
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Galerie d'images — switch entre les vues
+  // 1. Galerie d'images — switch packshot ↔ intérieur + legacy src swap
   document.querySelectorAll('.product-thumb').forEach(thumb => {
     thumb.addEventListener('click', () => {
       document.querySelectorAll('.product-thumb').forEach(t => t.classList.remove('active'));
       thumb.classList.add('active');
+      const mainContainer = document.querySelector('.product-img-main');
       const mainImg = document.getElementById('mainImg');
-      mainImg.style.opacity = '0';
-      setTimeout(() => {
-        mainImg.src = thumb.dataset.src;
-        mainImg.alt = thumb.dataset.alt;
-        mainImg.style.opacity = '1';
-      }, 200);
+      const view = thumb.dataset.view;
+
+      if (mainContainer && mainContainer.classList.contains('has-interior') && (view === 'interior' || view === 'packshot')) {
+        // Mode double-calque : toggle crossfade
+        if (view === 'interior') {
+          mainContainer.classList.add('show-interior');
+        } else {
+          mainContainer.classList.remove('show-interior');
+        }
+        return;
+      }
+
+      // Mode legacy : swap src
+      if (mainImg && thumb.dataset.src) {
+        mainImg.style.opacity = '0';
+        setTimeout(() => {
+          mainImg.src = thumb.dataset.src;
+          if (thumb.dataset.alt) mainImg.alt = thumb.dataset.alt;
+          mainImg.style.opacity = '1';
+        }, 200);
+      }
     });
   });
 
