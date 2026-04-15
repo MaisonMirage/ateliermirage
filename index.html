@@ -150,7 +150,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
 
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=3" />
   <link rel="preload" as="image" href="img/collection-lineup-1200.webp" />
 
   <!-- Google tag (gtag.js) -->
@@ -167,6 +167,9 @@
   <!-- Lenis smooth scroll — retiré (hijack scroll natif, risque UX B2B) -->
 
   <link rel="stylesheet" href="homepage.css" />
+  <link rel="stylesheet" href="produit.css" />
+  <link rel="stylesheet" href="shop-modal.css?v=12" />
+  <link rel="stylesheet" href="storytelling.css?v=5" />
 </head>
 <body>
 
@@ -1344,5 +1347,43 @@
     }
   });
   </script>
+
+  <!-- ═══════ MODAL PRODUIT (Desktop uniquement — mobile navigue) ═══════ -->
+  <div id="shop-modal" class="shop-modal" role="dialog" aria-modal="true" aria-label="Fiche produit" aria-hidden="true">
+    <div class="shop-modal-backdrop" aria-hidden="true"></div>
+    <button type="button" class="shop-modal-arrow prev" aria-label="Produit précédent">
+      <span class="shop-modal-arrow-circle">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg>
+      </span>
+      <span class="shop-modal-arrow-preview" aria-hidden="true">
+        <img class="shop-modal-arrow-thumb" alt="" width="52" height="52" />
+        <span class="shop-modal-arrow-meta">
+          <span class="shop-modal-arrow-eyebrow">Précédent</span>
+          <span class="shop-modal-arrow-name"></span>
+        </span>
+      </span>
+    </button>
+    <button type="button" class="shop-modal-arrow next" aria-label="Produit suivant">
+      <span class="shop-modal-arrow-preview" aria-hidden="true">
+        <span class="shop-modal-arrow-meta">
+          <span class="shop-modal-arrow-eyebrow">Suivant</span>
+          <span class="shop-modal-arrow-name"></span>
+        </span>
+        <img class="shop-modal-arrow-thumb" alt="" width="52" height="52" />
+      </span>
+      <span class="shop-modal-arrow-circle">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg>
+      </span>
+    </button>
+    <div class="shop-modal-panel">
+      <button type="button" class="shop-modal-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+      </button>
+      <div class="shop-modal-body" aria-live="polite"></div>
+    </div>
+  </div>
+  <script src="products-data.js?v=10"></script>
+  <script src="shop-modal.js?v=13" defer></script>
+  <script src="servi-chez.js?v=1" defer></script>
 </body>
 </html>

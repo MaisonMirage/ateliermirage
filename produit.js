@@ -2,28 +2,75 @@
 // ATELIER MIRAGE — JS PARTAGÉ PAGES PRODUIT
 // ====================================
 
+// Expose carousel init pour pouvoir l'appeler depuis le modal catalogue
+window.AtelierMirage = window.AtelierMirage || {};
+window.AtelierMirage.initCarousels = function(root) {
+  const scope = root || document;
+  scope.querySelectorAll('.product-img-main.is-carousel:not([data-carousel-inited])').forEach(carousel => {
+    carousel.setAttribute('data-carousel-inited', 'true');
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    const dots = Array.from(carousel.querySelectorAll('.carousel-dot'));
+    const prev = carousel.querySelector('.carousel-arrow.prev');
+    const next = carousel.querySelector('.carousel-arrow.next');
+    if (!track || slides.length < 2) return;
+
+    let current = 0;
+
+    const updateCaption = (idx) => {
+      const caption = carousel.parentElement.querySelector('.product-gallery-caption');
+      if (!caption) return;
+      const slideCaption = slides[idx].dataset.caption || '';
+      caption.textContent = slideCaption;
+    };
+
+    const setActive = (idx) => {
+      current = Math.max(0, Math.min(slides.length - 1, idx));
+      dots.forEach((d, i) => d.classList.toggle('active', i === current));
+      if (prev) prev.toggleAttribute('disabled', current === 0);
+      if (next) next.toggleAttribute('disabled', current === slides.length - 1);
+      updateCaption(current);
+    };
+
+    const goTo = (idx) => {
+      current = Math.max(0, Math.min(slides.length - 1, idx));
+      slides[current].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
+      setActive(current);
+    };
+
+    let scrollTimeout;
+    track.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      scrollTimeout = setTimeout(() => {
+        const idx = Math.round(track.scrollLeft / track.clientWidth);
+        if (idx !== current) setActive(idx);
+      }, 80);
+    });
+
+    if (prev) prev.addEventListener('click', () => goTo(current - 1));
+    if (next) next.addEventListener('click', () => goTo(current + 1));
+    dots.forEach((dot, i) => dot.addEventListener('click', () => goTo(i)));
+
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft')  { e.preventDefault(); goTo(current - 1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); goTo(current + 1); }
+    });
+
+    setActive(0);
+  });
+};
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  // 1. Galerie d'images — switch packshot ↔ intérieur + legacy src swap
+  // 1bis. Carousels produit (Grolet-style) sur page produit
+  window.AtelierMirage.initCarousels(document);
+
+  // 1. Galerie legacy — swap src si thumb clic (compat pages sans carousel)
   document.querySelectorAll('.product-thumb').forEach(thumb => {
     thumb.addEventListener('click', () => {
       document.querySelectorAll('.product-thumb').forEach(t => t.classList.remove('active'));
       thumb.classList.add('active');
-      const mainContainer = document.querySelector('.product-img-main');
       const mainImg = document.getElementById('mainImg');
-      const view = thumb.dataset.view;
-
-      if (mainContainer && mainContainer.classList.contains('has-interior') && (view === 'interior' || view === 'packshot')) {
-        // Mode double-calque : toggle crossfade
-        if (view === 'interior') {
-          mainContainer.classList.add('show-interior');
-        } else {
-          mainContainer.classList.remove('show-interior');
-        }
-        return;
-      }
-
-      // Mode legacy : swap src
       if (mainImg && thumb.dataset.src) {
         mainImg.style.opacity = '0';
         setTimeout(() => {

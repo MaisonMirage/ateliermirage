@@ -104,20 +104,30 @@
 
     <section class="product-hero">
       <div class="product-gallery">
-        <div class="product-img-main has-interior">
-          <img src="img/framboise.webp" alt="La Framboise — Trompe-l'œil Atelier Mirage" id="mainImg" />
-          <img class="product-img-interior"
-               src="img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int-800.webp"
-               srcset="img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int-400.webp 400w, img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int-800.webp 800w, img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int.webp 1500w"
-               sizes="(max-width: 900px) 100vw, 45vw"
-               alt="Coupe intérieure Framboise, trompe-l'œil pâtisserie moderne — Atelier Mirage"
-               loading="lazy" decoding="async" />
+        <div class="product-img-main is-carousel" tabindex="0" role="region" aria-roledescription="carousel" aria-label="Galerie La Framboise">
+          <div class="carousel-track">
+            <div class="carousel-slide" data-caption="Vue d'ensemble" aria-roledescription="slide" aria-label="1 sur 2">
+              <img src="img/framboise.webp" alt="La Framboise — Trompe-l'œil Atelier Mirage" id="mainImg" />
+            </div>
+            <div class="carousel-slide" data-caption="La coupe · Drupelets · compotée rustique · chunks de pulpe · sablé pâle" aria-roledescription="slide" aria-label="2 sur 2">
+              <img src="img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int-800.webp"
+                   srcset="img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int-400.webp 400w, img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int-800.webp 800w, img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int.webp 1500w"
+                   sizes="(max-width: 900px) 100vw, 45vw"
+                   alt="Coupe intérieure Framboise, trompe-l'œil pâtisserie moderne — Atelier Mirage"
+                   loading="lazy" decoding="async" />
+            </div>
+          </div>
+          <button type="button" class="carousel-arrow prev" aria-label="Image précédente"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg></button>
+          <button type="button" class="carousel-arrow next" aria-label="Image suivante"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg></button>
+          <div class="carousel-dots" role="tablist" aria-label="Pagination galerie">
+            <button type="button" class="carousel-dot active" role="tab" aria-label="Vue d'ensemble"></button>
+            <button type="button" class="carousel-dot" role="tab" aria-label="Coupe intérieure"></button>
+          </div>
         </div>
-        <div class="product-thumbnails">
-          <div class="product-thumb active" data-view="packshot" data-src="img/framboise.webp" data-alt="La Framboise — Vue d'ensemble"><img src="img/framboise.webp" alt="Vue d'ensemble" /></div>
-          <div class="product-thumb" data-view="interior" data-src="img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int.webp" data-alt="Coupe intérieure Framboise, trompe-l'œil pâtisserie moderne — Atelier Mirage"><img src="img/photos produits HD/produits interieur/intérieurs-retouchés/export/framboise-int-400.webp" alt="Coupe intérieure Framboise" loading="lazy" /></div>
-        </div>
+        <p class="product-gallery-caption">Vue d'ensemble</p>
       </div>
+      
+      
 
       <div class="product-info">
         <p class="product-category">Fruit</p>

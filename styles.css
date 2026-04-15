@@ -3,6 +3,26 @@
 /* L'art du dessert · Marseille                                               */
 /* ══════════════════════════════════════════════════════════════════════════ */
 
+/* ─── Cross-page View Transitions (MPA) ─── */
+@view-transition { navigation: auto; }
+#navbar { view-transition-name: am-navbar; }
+::view-transition-group(am-navbar) { animation-duration: .5s; }
+::view-transition-old(root) { animation: am-xpage-out .42s cubic-bezier(.64,0,.78,0) both; }
+::view-transition-new(root) { animation: am-xpage-in  .55s cubic-bezier(.22,1,.36,1) both; }
+@keyframes am-xpage-out {
+  from { opacity: 1; transform: translateY(0)   scale(1);    filter: blur(0); }
+  to   { opacity: 0; transform: translateY(-22px) scale(.995); filter: blur(2px); }
+}
+@keyframes am-xpage-in {
+  from { opacity: 0; transform: translateY(16px) scale(1.005); filter: blur(3px); }
+  to   { opacity: 1; transform: translateY(0)    scale(1);     filter: blur(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation: am-xpage-fade .2s linear both; }
+  @keyframes am-xpage-fade { from { opacity: 0; } to { opacity: 1; } }
+}
+
 /* ══════════════════════════════════════
    0. ACCESSIBILITY UTILITIES
 ══════════════════════════════════════ */
@@ -579,6 +599,42 @@ select { display: none; }
 .shop-card-price { font-family:var(--mono); font-size:0.75rem; font-weight:300; color:var(--ink-muted); letter-spacing: 0.03em; }
 .shop-card-price em { font-family:var(--serif); font-size:1.4rem; font-weight:300; color:var(--ink); font-style: normal; margin: 0 0.15rem; }
 .shop-card-price span { font-family:var(--mono); font-size:0.62rem; color:var(--gold); letter-spacing:0.08em; margin-left:0.1rem; }
+
+/* ── AWARD · "Servi chez" chip — preuve sociale locale, discrète ── */
+.shop-card-servi {
+  display: inline-flex; align-items: baseline; flex-wrap: wrap; gap: 0.35em;
+  margin: 0 0.6rem 1rem;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid rgba(45, 42, 38, 0.09);
+  border-radius: 999px;
+  background: rgba(255, 252, 245, 0.5);
+  font-family: var(--mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+  line-height: 1.2;
+  transition: border-color .35s ease, background .35s ease, color .35s ease;
+  max-width: calc(100% - 1.2rem);
+}
+.shop-card-servi-label { opacity: 0.55; font-weight: 400; }
+.shop-card-servi-name {
+  font-family: var(--serif);
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+  text-transform: none;
+  color: var(--ink);
+}
+.shop-card-servi-city { opacity: 0.6; }
+.shop-card:hover .shop-card-servi {
+  border-color: rgba(45, 42, 38, 0.22);
+  background: rgba(255, 252, 245, 0.85);
+}
+@media (max-width: 768px) {
+  .shop-card-servi { margin-left: 3vw; margin-right: 3vw; font-size: 0.52rem; }
+  .shop-card-servi-name { font-size: 0.76rem; }
+}
 
 /* ── KPI, Testimonials, Video Reveal, Guarantees — Desktop base rules ── */
 /* Base paddings — overridden in homepage.css */
