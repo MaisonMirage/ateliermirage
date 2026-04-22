@@ -482,17 +482,42 @@
 
   <script>
     /* ---- NAV ---- */
-    const burger = document.getElementById('navBurger');
-    const overlay = document.getElementById('mobile-overlay');
-    function toggleMenu(open) {
-      overlay.classList.toggle('active', open);
-      burger.classList.toggle('active', open);
-      burger.setAttribute('aria-expanded', open);
-      document.body.style.overflow = open ? 'hidden' : '';
-    }
-    if (burger && overlay) {
-      burger.addEventListener('click', () => toggleMenu(!overlay.classList.contains('active')));
-      overlay.querySelectorAll('a').forEach(a => a.addEventListener('click', () => toggleMenu(false)));
+    document.addEventListener('click', (e) => {
+        document.querySelectorAll('.custom-select.open').forEach(s => {
+          if (!e.target.closest('.custom-select-wrapper')) { s.classList.remove('open'); s.setAttribute('aria-expanded','false'); }
+        });
+      });
+    ;
+
+    document.getElementById('navbar').classList.add('visible');
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    const navBurger = document.getElementById('navBurger');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const navbar = document.getElementById('navbar');
+    if(navBurger && mobileOverlay) {
+      function closeMenu() {
+        navBurger.classList.remove('open');
+        navBurger.setAttribute('aria-expanded', 'false');
+        mobileOverlay.classList.remove('open');
+        if(navbar) navbar.classList.remove('menu-open');
+        document.body.style.overflow = '';
+        document.body.classList.remove('menu-active');
+      }
+      navBurger.addEventListener('click', function() {
+        const opening = !this.classList.contains('open');
+        this.classList.toggle('open');
+        this.setAttribute('aria-expanded', opening);
+        mobileOverlay.classList.toggle('open');
+        if(navbar) navbar.classList.toggle('menu-open');
+        document.body.style.overflow = opening ? 'hidden' : '';
+        document.body.classList.toggle('menu-active', opening);
+      });
+      document.querySelectorAll('.mobile-nav-item').forEach(l => l.addEventListener('click', closeMenu));
+      document.addEventListener('keydown', e => { if(e.key === 'Escape' && mobileOverlay.classList.contains('open')) closeMenu(); });
+      mobileOverlay.addEventListener('click', e => { if(e.target === mobileOverlay) closeMenu(); });
     }
 
     /* ---- GSAP REVEALS ---- */
