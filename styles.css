@@ -114,40 +114,6 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
 }
-
-/* ══════════════════════════════════════
-   3. GRAIN OVERLAY & MASQUE FONDU
-══════════════════════════════════════ */
-body::before {
-  content: '';
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  height: 5.5rem;
-  background: linear-gradient(to bottom, #FAF5EF 40%, transparent);
-  z-index: 700;
-  pointer-events: none;
-  transition: opacity 0.3s;
-}
-/* Masquer le gradient et le grain quand le menu mobile est ouvert */
-body.menu-active::before,
-body.menu-active::after { opacity: 0; }
-
-/* Audit Perf: grain overlay — z-index réduit, will-change pour GPU compositing,
-   opacity réduite sur mobile pour performance batterie */
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  z-index: 9998;
-  pointer-events: none;
-  will-change: auto;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
-}
-/* Disable grain on low-power devices / mobile for perf */
-@media (hover: none) and (pointer: coarse) {
-  body::after { opacity: 0.5; }
-}
-
 /* ══════════════════════════════════════
    4. BASE ELEMENT RESETS & SCROLLBAR
 ══════════════════════════════════════ */
