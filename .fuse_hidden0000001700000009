@@ -1,0 +1,488 @@
+/* ====================================
+   ATELIER MIRAGE — MODAL PRODUIT (Grolet-style)
+   Desktop uniquement. Mobile = navigation classique.
+   ==================================== */
+
+body.shop-modal-open { overflow: hidden; }
+
+.shop-modal {
+  position: fixed; inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.shop-modal[aria-hidden="false"] { display: flex; }
+
+.shop-modal-backdrop {
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 30% 20%, color-mix(in oklab, var(--ambient-c1, #1a1714) 55%, transparent) 0%, transparent 55%),
+    radial-gradient(circle at 80% 80%, color-mix(in oklab, var(--ambient-c2, #3a2e1f) 50%, transparent) 0%, transparent 60%),
+    rgba(16, 12, 10, 0.72);
+  backdrop-filter: blur(14px) saturate(1.15);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  animation: shop-modal-fade 0.55s cubic-bezier(0.2,0.8,0.2,1) both;
+  transition: background 0.6s ease;
+}
+/* Fallback browsers sans color-mix (Safari <16.4) */
+@supports not (background: color-mix(in oklab, red, blue)) {
+  .shop-modal-backdrop {
+    background:
+      radial-gradient(circle at 30% 20%, var(--ambient-c1, #1a1714) 0%, transparent 55%),
+      radial-gradient(circle at 80% 80%, var(--ambient-c2, #3a2e1f) 0%, transparent 60%),
+      rgba(16, 12, 10, 0.75);
+  }
+}
+@keyframes shop-modal-fade {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* ====================================
+   Flèches navigation PRODUIT → PRODUIT (extérieures, bords viewport)
+   Disque au repos, à l'hover révèle vignette + nom du produit adjacent.
+   ==================================== */
+.shop-modal-arrow {
+  position: absolute;
+  top: 50%; transform: translateY(-50%);
+  height: 56px;
+  background: transparent;
+  border: none; padding: 0;
+  display: flex; align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  z-index: 2;
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 0.25s ease;
+}
+.shop-modal-arrow.prev { left: 1.8rem; flex-direction: row; }
+.shop-modal-arrow.next { right: 1.8rem; flex-direction: row; }
+.shop-modal-arrow[disabled] { opacity: 0; pointer-events: none; }
+.shop-modal-arrow:focus-visible { outline: none; }
+.shop-modal-arrow:focus-visible .shop-modal-arrow-circle {
+  outline: 2px solid var(--gold, #c5a572);
+  outline-offset: 3px;
+}
+
+/* Le disque circulaire (chevron) */
+.shop-modal-arrow-circle {
+  flex: none;
+  width: 56px; height: 56px; border-radius: 50%;
+  background: rgba(255,255,255,0.92);
+  box-shadow: 0 6px 28px rgba(0,0,0,0.22), 0 0 0 1px rgba(26,23,20,0.06);
+  display: flex; align-items: center; justify-content: center;
+  transition: transform 0.35s cubic-bezier(0.2,0.8,0.2,1),
+              background 0.3s ease;
+}
+.shop-modal-arrow:hover .shop-modal-arrow-circle {
+  transform: scale(1.08);
+  background: #fff;
+}
+.shop-modal-arrow-circle svg {
+  width: 18px; height: 18px;
+  stroke: #1a1714; fill: none; stroke-width: 1.8;
+  stroke-linecap: round; stroke-linejoin: round;
+}
+
+/* Preview (vignette + nom) — cachée au repos, slide-in à l'hover */
+.shop-modal-arrow-preview {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.5rem 0.85rem 0.5rem 0.5rem;
+  background: rgba(255,255,255,0.92);
+  border-radius: 999px;
+  box-shadow: 0 6px 28px rgba(0,0,0,0.18), 0 0 0 1px rgba(26,23,20,0.05);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s cubic-bezier(0.2,0.8,0.2,1),
+              transform 0.45s cubic-bezier(0.22,1,0.36,1);
+}
+.shop-modal-arrow.prev .shop-modal-arrow-preview {
+  transform: translateX(-16px);
+  padding: 0.5rem 0.85rem 0.5rem 0.5rem;
+}
+.shop-modal-arrow.next .shop-modal-arrow-preview {
+  transform: translateX(16px);
+  padding: 0.5rem 0.5rem 0.5rem 0.85rem;
+}
+.shop-modal-arrow:hover .shop-modal-arrow-preview {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Décale le disque en sens inverse à l'hover pour faire de la place à la preview */
+.shop-modal-arrow.prev:hover .shop-modal-arrow-circle { transform: scale(1.08) translateX(0); }
+.shop-modal-arrow.next:hover .shop-modal-arrow-circle { transform: scale(1.08) translateX(0); }
+
+/* Vignette du produit adjacent */
+.shop-modal-arrow-thumb {
+  width: 52px; height: 52px;
+  border-radius: 50%;
+  object-fit: cover;
+  display: block;
+  flex: none;
+  box-shadow: inset 0 0 0 1px rgba(26,23,20,0.08);
+}
+
+/* Bloc texte (eyebrow + nom) */
+.shop-modal-arrow-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+  min-width: 0;
+}
+.shop-modal-arrow.next .shop-modal-arrow-meta { align-items: flex-end; }
+.shop-modal-arrow-eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(26,23,20,0.55);
+  font-weight: 500;
+}
+.shop-modal-arrow-name {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1a1714;
+  font-family: var(--font-serif, 'Cormorant Garamond', serif);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .shop-modal-arrow-preview,
+  .shop-modal-arrow-circle {
+    transition: opacity 0.01ms !important;
+  }
+}
+
+/* Panneau */
+.shop-modal-panel {
+  position: relative;
+  width: min(90vw, 1200px);
+  max-height: 90vh;
+  background: var(--cream, #f7f3ed);
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+  animation: shop-modal-rise 0.45s cubic-bezier(0.2,0.8,0.2,1) both;
+  z-index: 2;
+  isolation: isolate; /* Empêche toute img morphée d'échapper au clip du modal */
+}
+@keyframes shop-modal-rise {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.shop-modal-close {
+  position: absolute;
+  top: 1.2rem; right: 1.2rem;
+  width: 40px; height: 40px; border-radius: 50%;
+  background: rgba(255,255,255,0.9);
+  border: none; padding: 0;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.12);
+  transition: transform 0.25s, background 0.25s;
+}
+.shop-modal-close:hover { transform: scale(1.08); background: #fff; }
+.shop-modal-close:focus-visible {
+  outline: 2px solid var(--gold, #c5a572);
+  outline-offset: 3px;
+}
+.shop-modal-close svg {
+  width: 16px; height: 16px;
+  stroke: #1a1714; fill: none; stroke-width: 1.8;
+  stroke-linecap: round;
+}
+
+/* Corps : on réutilise le markup .product-hero injecté depuis la fiche */
+.shop-modal-body {
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem 2rem 2.5rem;
+}
+.shop-modal-body .product-hero {
+  padding: 1rem 0 0 !important;
+  grid-template-columns: 1.05fr 1fr !important;
+  gap: 3rem !important;
+  align-items: start;
+}
+.shop-modal-body .product-gallery { position: static !important; top: auto !important; }
+.shop-modal-body .product-img-main {
+  border-radius: 1.2rem;
+}
+.shop-modal-body .product-img-main .carousel-slide img { border-radius: 0; }
+.shop-modal-body .breadcrumb { display: none; }
+.shop-modal-body .related-products { display: none; }
+
+/* Flèches internes du carousel supprimées dans le modal — dots + swipe + ← → suffisent.
+   Évite la confusion avec les flèches produit-à-produit extérieures. */
+.shop-modal-body .carousel-arrow { display: none !important; }
+
+/* ====================================
+   AWARD · Bloc tarif éditorial (Maison-style)
+   Remplace la grille 3-colonnes vide par un bloc compact et luxueux.
+   Scopé au modal — la page produit standalone garde son style actuel.
+   ==================================== */
+.shop-modal-body .product-pricing {
+  margin-bottom: 2.2rem;
+}
+.shop-modal-body .pricing-grid {
+  display: flex !important;
+  grid-template-columns: none !important;
+  align-items: stretch;
+  gap: 0;
+  padding: 1.25rem 1.4rem;
+  background: linear-gradient(
+    135deg,
+    rgba(168,137,92,0.06) 0%,
+    rgba(168,137,92,0.02) 100%
+  );
+  border: 1px solid rgba(168,137,92,0.18);
+  border-radius: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+/* Filet or en bord gauche, signature visuelle */
+.shop-modal-body .pricing-grid::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 14%; bottom: 14%;
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--gold, #c5a572), transparent);
+}
+.shop-modal-body .pricing-tier {
+  flex: 1 1 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1.5rem;
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  text-align: left !important;
+}
+.shop-modal-body .pricing-tier-qty {
+  font-family: var(--mono, 'Space Mono', monospace);
+  font-size: 0.62rem !important;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(26,23,20,0.55);
+  margin-bottom: 0 !important;
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+.shop-modal-body .pricing-tier-price {
+  font-family: var(--serif, 'Cormorant Garamond', serif);
+  font-style: italic;
+  font-size: 2rem !important;
+  font-weight: 300;
+  color: var(--gold, #c5a572) !important;
+  line-height: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex: 1 1 auto;
+  justify-content: flex-end;
+}
+.shop-modal-body .pricing-tier-price span {
+  font-family: var(--mono, 'Space Mono', monospace);
+  font-style: normal;
+  font-size: 0.6rem !important;
+  letter-spacing: 0.08em;
+  color: rgba(26,23,20,0.5) !important;
+  text-transform: uppercase;
+  text-align: right;
+  white-space: nowrap;
+  line-height: 1.4;
+}
+
+/* Masque le label "TARIF B2B" juste avant la pricing-grid pour éviter la
+   redondance visuelle avec "TARIF PARTENAIRE" à l'intérieur du bloc. */
+.shop-modal-body .product-section-label:has(+ .product-pricing),
+.shop-modal-body .product-pricing + .product-section-label {
+  display: none;
+}
+/* Fallback pour browsers sans :has() — on masque le section-label qui précède
+   directement la pricing-grid via règle spécifique. */
+.shop-modal-body .product-section-label {
+  /* Laisse les autres labels visibles (Composition, Allergènes) */
+}
+
+/* Responsive : empile sur petit écran */
+@media (max-width: 600px) {
+  .shop-modal-body .pricing-tier {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+  .shop-modal-body .pricing-tier-price {
+    justify-content: flex-start;
+    font-size: 1.75rem !important;
+  }
+  .shop-modal-body .pricing-tier-price span {
+    text-align: left;
+  }
+}
+
+/* ====================================
+   AWARD · Staggered reveal du contenu du modal
+   Chaque élément s'anime en cascade 12px + fade, 60ms d'écart entre frères.
+   Déclenché par la classe .is-revealing sur .shop-modal-body.
+   ==================================== */
+.shop-modal-body.is-revealing .product-category,
+.shop-modal-body.is-revealing .product-name,
+.shop-modal-body.is-revealing .product-subtitle,
+.shop-modal-body.is-revealing .product-desc,
+.shop-modal-body.is-revealing .product-section-label,
+.shop-modal-body.is-revealing .product-layer,
+.shop-modal-body.is-revealing .product-allergens,
+.shop-modal-body.is-revealing .product-pricing,
+.shop-modal-body.is-revealing .product-cta-group,
+.shop-modal-body.is-revealing .product-divider {
+  opacity: 0;
+  transform: translateY(14px);
+  animation: shop-reveal-rise 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+.shop-modal-body.is-revealing .product-category     { animation-delay: 0.08s; }
+.shop-modal-body.is-revealing .product-name         { animation-delay: 0.14s; }
+.shop-modal-body.is-revealing .product-subtitle     { animation-delay: 0.22s; }
+.shop-modal-body.is-revealing .product-divider      { animation-delay: 0.28s; }
+.shop-modal-body.is-revealing .product-desc         { animation-delay: 0.34s; }
+.shop-modal-body.is-revealing .product-section-label{ animation-delay: 0.42s; }
+.shop-modal-body.is-revealing .product-layer:nth-child(1) { animation-delay: 0.48s; }
+.shop-modal-body.is-revealing .product-layer:nth-child(2) { animation-delay: 0.54s; }
+.shop-modal-body.is-revealing .product-layer:nth-child(3) { animation-delay: 0.60s; }
+.shop-modal-body.is-revealing .product-layer:nth-child(4) { animation-delay: 0.66s; }
+.shop-modal-body.is-revealing .product-layer:nth-child(5) { animation-delay: 0.72s; }
+.shop-modal-body.is-revealing .product-layer:nth-child(n+6) { animation-delay: 0.78s; }
+.shop-modal-body.is-revealing .product-allergens    { animation-delay: 0.80s; }
+.shop-modal-body.is-revealing .product-pricing      { animation-delay: 0.86s; }
+.shop-modal-body.is-revealing .product-cta-group    { animation-delay: 0.94s; }
+
+@keyframes shop-reveal-rise {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shop-modal-body.is-revealing * {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+  }
+}
+
+/* Loading state */
+.shop-modal-panel.is-loading::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: var(--cream, #f7f3ed);
+  z-index: 5;
+}
+.shop-modal-panel.is-loading::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 32px; height: 32px; margin: -16px 0 0 -16px;
+  border: 2px solid rgba(26,23,20,0.15);
+  border-top-color: var(--gold, #c5a572);
+  border-radius: 50%;
+  animation: shop-modal-spin 0.7s linear infinite;
+  z-index: 6;
+}
+@keyframes shop-modal-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ====================================
+   VIEW TRANSITION — shared-element morph (Chrome 111+ / Safari TP)
+   L'image de la carte se transforme physiquement en première slide du carousel.
+   FLIP natif : le browser interpole position + taille automatiquement.
+   ==================================== */
+::view-transition-old(shop-hero-morph),
+::view-transition-new(shop-hero-morph) {
+  animation-duration: 0.65s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1); /* easeOutQuint */
+  mix-blend-mode: normal;
+}
+/* L'ancienne image (sur la carte) s'estompe légèrement pendant le voyage */
+::view-transition-old(shop-hero-morph) {
+  animation-name: shop-hero-fade-out;
+}
+/* La nouvelle image (dans le modal) apparaît */
+::view-transition-new(shop-hero-morph) {
+  animation-name: shop-hero-fade-in;
+}
+@keyframes shop-hero-fade-out { to { opacity: 0; } }
+@keyframes shop-hero-fade-in  { from { opacity: 0; } to { opacity: 1; } }
+
+/* Le reste du layout (cartes environnantes, modal chrome) fade doucement */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.55s;
+  animation-timing-function: cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* ====================================
+   AWARD · Morph entre produits dans le modal (flèches ← →)
+   Slide directionnel : next = entre par la droite, prev = par la gauche.
+   ==================================== */
+::view-transition-old(shop-step-hero),
+::view-transition-new(shop-step-hero) {
+  animation-duration: 0.5s;
+  animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  mix-blend-mode: normal;
+}
+/* Direction NEXT : ancien part à gauche, nouveau entre de la droite */
+.shop-modal[data-step-direction="next"] ::view-transition-old(shop-step-hero) {
+  animation-name: step-exit-left;
+}
+.shop-modal[data-step-direction="next"] ::view-transition-new(shop-step-hero) {
+  animation-name: step-enter-right;
+}
+/* Direction PREV : ancien part à droite, nouveau entre de la gauche */
+.shop-modal[data-step-direction="prev"] ::view-transition-old(shop-step-hero) {
+  animation-name: step-exit-right;
+}
+.shop-modal[data-step-direction="prev"] ::view-transition-new(shop-step-hero) {
+  animation-name: step-enter-left;
+}
+@keyframes step-exit-left   { to   { opacity: 0; transform: translateX(-8%); } }
+@keyframes step-enter-right { from { opacity: 0; transform: translateX(8%); } to { opacity: 1; transform: translateX(0); } }
+@keyframes step-exit-right  { to   { opacity: 0; transform: translateX(8%); } }
+@keyframes step-enter-left  { from { opacity: 0; transform: translateX(-8%); } to { opacity: 1; transform: translateX(0); } }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(shop-step-hero),
+  ::view-transition-new(shop-step-hero) {
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Reduced motion : on désactive le morph pour les utilisateurs qui le demandent */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(shop-hero-morph),
+  ::view-transition-new(shop-hero-morph),
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Focus visible sur les cartes devenues button (desktop) */
+.boutique .shop-card[role="button"]:focus-visible {
+  outline: 2px solid var(--gold, #c5a572);
+  outline-offset: 4px;
+  border-radius: 0.6rem;
+}
+
+/* Mobile : le modal ne s'ouvre jamais en dessous de 900px (gated en JS),
+   mais fallback style au cas où */
+@media (max-width: 900px) {
+  .shop-modal { display: none !important; }
+  .shop-modal-panel { width: 100vw; height: 100vh; max-height: none; border-radius: 0; }
+  .shop-modal-body .product-hero { grid-template-columns: 1fr !important; gap: 1.5rem !important; }
+  .shop-modal-arrow { display: none; }
+}

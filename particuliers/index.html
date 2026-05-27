@@ -14,7 +14,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
 
   <link rel="stylesheet" href="styles.css" />
 
@@ -84,9 +84,10 @@
   <div id="cart-toast"><div class="cart-toast-dot"></div><span id="cart-toast-text">Ajouté au panier</span></div>
 
   <nav id="navbar">
-    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
-        <span></span><span></span><span></span>
-    </button>
+    <button id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay" style="display:flex;flex-direction:column;justify-content:space-between;width:17px;height:7px;padding:0;margin:0;border:0;background:transparent;cursor:pointer;">
+        <span style="display:block;width:100%;height:1.5px;background:#6D4833;"></span>
+        <span style="display:block;width:100%;height:1.5px;background:#6D4833;"></span>
+      </button>
     <a href="#" class="nav-brand" aria-label="Retour à l'accueil">
       <img src="img/logo-am-ink.png" alt="Atelier Mirage" class="brand-logo" />
       <span class="brand-name">Atelier Mirage</span>
@@ -745,7 +746,7 @@
           const formData = new FormData(); formData.append("Email_Client", text); formData.append("Historique", conversationHistory.join('\n'));
           try { await fetch('https://formspree.io/f/' + FORMSPREE_CHAT_ID, { method: 'POST', body: formData, headers: { 'Accept': 'application/json' } });
             addMessage("Transmis ! Réponse sous 24h.", 'bot');
-          } catch(e) { addMessage("Erreur. Écrivez à contact@lamaisonmirage.com", 'bot'); }
+          } catch(e) { addMessage("Erreur. Écrivez à contact@ateliermirage.fr", 'bot'); }
           chatState = 'NORMAL'; renderQuickReplies(); conversationHistory = [];
         } else addMessage("Email invalide.", 'bot');
       } else {

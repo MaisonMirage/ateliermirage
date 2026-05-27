@@ -428,7 +428,7 @@ Camera: across the street, 35mm. Blue hour contrast (cool blue sky / warm golden
 ## NOTES TECHNIQUES POMELLI
 
 ### Le principe directeur
-**La boutique = le site web en 3D.** Si tu ouvres lamaisonmirage.com, tu vois crème #FAF5EF partout, de l'or en accents, du noir pour le texte seulement. La boutique doit produire la même SENSATION. Si le render sort trop sombre → refaire. Si les murs sont noirs → refaire. Si l'ambiance est froide → refaire.
+**La boutique = le site web en 3D.** Si tu ouvres ateliermirage.fr, tu vois crème #FAF5EF partout, de l'or en accents, du noir pour le texte seulement. La boutique doit produire la même SENSATION. Si le render sort trop sombre → refaire. Si les murs sont noirs → refaire. Si l'ambiance est froide → refaire.
 
 ### Les matériaux à préciser (Pomelli génère mieux avec des noms de matériaux réels)
 - Murs : "lime plaster in warm cream, hand-applied, subtle texture" (pas "painted white")

@@ -1,0 +1,9 @@
+{
+  "name": "ateliermirage",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Atelier Mirage — site et fonctions serverless (paiement Stripe).",
+  "dependencies": {
+    "stripe": "^17.7.0"
+  }
+}

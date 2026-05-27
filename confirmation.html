@@ -6,17 +6,23 @@
   <title>Commande confirmée — Atelier Mirage</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;300;400&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Outfit:wght@200;300;400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
+    /* Geometria — police de l'identité (ex-site YC) */
+    @font-face { font-family:'Geometria'; src:url('geometria/Geometria-Light.woff2') format('woff2'); font-weight:300; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Geometria'; src:url('geometria/Geometria.woff2') format('woff2'); font-weight:400; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Geometria'; src:url('geometria/Geometria-Italic.woff2') format('woff2'); font-weight:400; font-style:italic; font-display:swap; }
+    @font-face { font-family:'Geometria'; src:url('geometria/Geometria-Medium.woff2') format('woff2'); font-weight:500; font-style:normal; font-display:swap; }
+    @font-face { font-family:'Geometria'; src:url('geometria/Geometria-Bold.woff2') format('woff2'); font-weight:600 700; font-style:normal; font-display:swap; }
     :root {
       --cream: #F8E8D6;
-      --ink: #1A1714;
+      --ink: #6D4833;
       --ink-muted: #6B6560;
-      --gold: #A8895C;
-      --gold-light: #C9AA7C;
-      --serif: 'Cormorant Garamond', Georgia, serif;
-      --sans: 'Outfit', system-ui, sans-serif;
-      --mono: 'JetBrains Mono', monospace;
+      --gold: #A3781B;
+      --gold-light: #C9A158;
+      --serif: 'Geometria', 'Cormorant Garamond', Georgia, serif;
+      --sans: 'Geometria', 'Outfit', system-ui, sans-serif;
+      --mono: 'Geometria', 'Jost', system-ui, sans-serif;
     }
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     body {
@@ -51,7 +57,7 @@
       background: var(--ink);
       display: flex; align-items: center; justify-content: center;
       margin: 0 auto 2.5rem;
-      box-shadow: 0 12px 40px rgba(26,23,20,0.12);
+      box-shadow: 0 12px 40px rgba(109,72,51,0.12);
     }
     .confirm-check svg {
       stroke: var(--gold-light);
@@ -86,7 +92,7 @@
       text-transform: uppercase;
       color: var(--ink-muted);
       padding: 0.6rem 1.2rem;
-      border: 1px solid rgba(26,23,20,0.1);
+      border: 1px solid rgba(109,72,51,0.1);
       border-radius: 999px;
       display: inline-block;
       margin: 1.5rem 0 2.5rem;
@@ -155,6 +161,11 @@
     if (sessionId) {
       // Show last 8 chars as reference
       refEl.textContent = 'Réf. ' + sessionId.slice(-8).toUpperCase();
+      // Paiement réussi — on vide le panier et la note
+      try {
+        localStorage.removeItem('am_cart_v1');
+        localStorage.removeItem('am_cart_note_v1');
+      } catch (e) {}
     } else {
       refEl.textContent = 'Commande enregistrée';
     }

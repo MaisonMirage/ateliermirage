@@ -25,10 +25,10 @@ DETAILED FINDINGS BY CATEGORY
    No instances of "Maison Mirage" or "La Maison Mirage" found.
    
    However, EMAIL INCONSISTENCY DETECTED:
-   - Email domain uses: contact@lamaisonmirage.com
+   - Email domain uses: contact@ateliermirage.fr
    - Brand name uses: Atelier Mirage
    
-   ⚠ ISSUE: Email address "contact@lamaisonmirage.com" contradicts the brand 
+   ⚠ ISSUE: Email address "contact@ateliermirage.fr" contradicts the brand 
    transition to "Atelier Mirage". This appears in 11 files.
    ACTION REQUIRED: Update email to contact@ateliermirage.com for consistency
 
@@ -167,10 +167,10 @@ DETAILED FINDINGS BY CATEGORY
    Status: ⚠ CRITICAL - Email domain inconsistency
    
    EMAIL CONSISTENCY:
-   Primary email found: contact@lamaisonmirage.com
+   Primary email found: contact@ateliermirage.fr
    Location: Used in 11 files consistently
    
-   ✗ CRITICAL ISSUE: Email domain "lamaisonmirage.com" contradicts brand name 
+   ✗ CRITICAL ISSUE: Email domain "ateliermirage.fr" contradicts brand name 
    "Atelier Mirage". This appears intentional but creates brand confusion.
    
    ACTION REQUIRED: Clarify if email should be updated to 
@@ -196,7 +196,7 @@ PRIORITY ACTION ITEMS
 ================================================================================
 
 🔴 CRITICAL (Must fix before launch):
-1. Update email domain inconsistency (contact@lamaisonmirage.com vs Atelier Mirage)
+1. Update email domain inconsistency (contact@ateliermirage.fr vs Atelier Mirage)
 2. Add "L'art du dessert" tagline to 4 files (Offres, audit-correction, 
    audit-prospection, simulateur-marge)
 
@@ -273,7 +273,7 @@ RECOMMENDATIONS
 ================================================================================
 
 1. IMMEDIATE (Before next review cycle):
-   - Verify email domain strategy (lamaisonmirage.com vs ateliermirage.com)
+   - Verify email domain strategy (ateliermirage.fr vs ateliermirage.com)
    - Add missing taglines to 4 files
    - Update old logo reference in audit-correction file
 
@@ -290,7 +290,7 @@ RECOMMENDATIONS
 
 4. BRAND ALIGNMENT:
    - Consider updating email to contact@ateliermirage.com for full brand 
-     consistency, OR clearly document that lamaisonmirage.com is a legacy 
+     consistency, OR clearly document that ateliermirage.fr is a legacy 
      domain being maintained for continuity
 
 ================================================================================

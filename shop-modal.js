@@ -73,6 +73,9 @@ const ATELIER_PALETTE = {
   'produit-peche.html':     { c1: '#F4A692', c2: '#9B3A1A', name: 'Pêche' },
   'produit-pistache.html':  { c1: '#84CC16', c2: '#365314', name: 'Pistache' },
   'produit-poulpe.html':    { c1: '#3A6FB0', c2: '#0F2A4A', name: 'Poulpe' },
+  'produit-baklava.html':       { c1: '#C9892E', c2: '#4A2C0E', name: 'Baklava' },
+  'produit-boule-cristal.html': { c1: '#F59E0B', c2: '#3A1E08', name: 'Boule de Cristal' },
+  'produit-nigiri.html':        { c1: '#F4855E', c2: '#5A2E1E', name: 'Nigiri' },
 };
 
 (function() {
@@ -338,6 +341,7 @@ const ATELIER_PALETTE = {
   document.addEventListener('click', (e) => {
     const card = e.target.closest('.boutique .shop-card');
     if (!card) return;
+    if (e.target.closest('.shop-card-add')) return; // bouton « Ajouter au panier » : laisser passer le clic
     if (!BP.matches) return;                        // mobile → navigation normale (href présent)
     if (e.metaKey || e.ctrlKey || e.shiftKey || e.button === 1) {
       // Open-in-new-tab : on restaure href le temps du clic via data-href

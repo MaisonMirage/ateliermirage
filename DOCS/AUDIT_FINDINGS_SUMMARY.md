@@ -19,7 +19,7 @@
 
 ### 1. EMAIL DOMAIN INCONSISTENCY (CRITICAL)
 **Impact:** Brand confusion and deliverability concerns
-- **Current Email:** `contact@lamaisonmirage.com`
+- **Current Email:** `contact@ateliermirage.fr`
 - **Brand Name:** `Atelier Mirage`
 - **Files Affected:** 11 of 12
 - **Status:** Consistent usage but contradicts brand transition
@@ -50,7 +50,7 @@
 **Status:** ✓ EXCELLENT
 - All files correctly use "Atelier Mirage"
 - No instances of "Maison Mirage" or "La Maison Mirage"
-- Note: Email domain "lamaisonmirage.com" contradicts this transition
+- Note: Email domain "ateliermirage.fr" contradicts this transition
 
 ### Design System Colors
 **Status:** ✓ EXCELLENT (100% Implementation)
@@ -93,7 +93,7 @@
 **Status:** ⚠ CRITICAL (Phone Issues)
 
 **Email:** Consistent across 11 files ✓
-- contact@lamaisonmirage.com (used consistently)
+- contact@ateliermirage.fr (used consistently)
 
 **Phone:** Inconsistent formats ✗
 - Proper format: +33622356575 (found in Carte-Visite, Catalogue-B2B)
@@ -126,7 +126,7 @@
 ## Action Items Priority Matrix
 
 ### CRITICAL (Address Before Launch)
-1. [ ] Clarify email domain strategy (lamaisonmirage.com vs ateliermirage.com)
+1. [ ] Clarify email domain strategy (ateliermirage.fr vs ateliermirage.com)
 2. [ ] Add "L'art du dessert" tagline to 4 files
 
 ### HIGH PRIORITY (Next 2 Weeks)
@@ -194,7 +194,7 @@ Before publishing any document:
 ### 3. Email Strategy Decision
 Choose one:
 - Option A: Update all emails to contact@ateliermirage.com (recommended for full brand alignment)
-- Option B: Keep contact@lamaisonmirage.com but document it as legacy domain
+- Option B: Keep contact@ateliermirage.fr but document it as legacy domain
 - Document decision and communicate to team
 
 ### 4. Regular Audits

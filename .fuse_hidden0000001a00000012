@@ -1,0 +1,47 @@
+/* ═══════════════════════════════════════════════════════════════════
+   ATELIER MIRAGE — Scroll-driven storytelling
+   Native CSS view() timeline. No JS. Progressive enhancement.
+   Cross-page View Transitions live in styles.css (shared rule).
+   ═══════════════════════════════════════════════════════════════════ */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+
+    /* Catalogue cards — subtle parallax + scale as they pass through viewport.
+       Serves editorial rhythm; doesn't override existing GSAP entry reveal. */
+    .shop-grid .shop-card .shop-card-img-wrap {
+      animation: am-card-parallax linear;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    @keyframes am-card-parallax {
+      0%   { transform: translateY(6%)  scale(1.03); }
+      50%  { transform: translateY(0)   scale(1); }
+      100% { transform: translateY(-6%) scale(1.02); }
+    }
+
+    /* Section headlines — clip reveal driven by scroll */
+    .section-h2.reveal,
+    h2.section-h2 {
+      animation: am-section-clip linear both;
+      animation-timeline: view();
+      animation-range: entry 0% cover 30%;
+    }
+    @keyframes am-section-clip {
+      from { clip-path: inset(0 0 100% 0); opacity: 0; }
+      to   { clip-path: inset(0 0 0% 0);   opacity: 1; }
+    }
+
+    /* Testimonials — subtle vertical drift */
+    .testimonial-card {
+      animation: am-tcard linear;
+      animation-timeline: view();
+      animation-range: cover 0% cover 100%;
+    }
+    @keyframes am-tcard {
+      0%   { transform: translateY(4%); }
+      100% { transform: translateY(-4%); }
+    }
+
+  }
+}

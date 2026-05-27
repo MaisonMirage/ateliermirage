@@ -22,7 +22,7 @@ CRITICAL ISSUES BY CATEGORY:
 ================================================================================
 
 BRAND & MESSAGING (2 critical):
-  [1] Email domain conflict: contact@lamaisonmirage.com vs "Atelier Mirage"
+  [1] Email domain conflict: contact@ateliermirage.fr vs "Atelier Mirage"
   [2] Missing tagline "L'art du dessert" in 4 files
 
 DESIGN SYSTEM:

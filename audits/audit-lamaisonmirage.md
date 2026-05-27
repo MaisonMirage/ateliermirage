@@ -1,8 +1,8 @@
-# Audit UI/UX & Marketing — lamaisonmirage.com
+# Audit UI/UX & Marketing — ateliermirage.fr
 
 **Date :** 10 mars 2026
 **Réalisé par :** Expert Front-End UI/UX & Marketing
-**Site analysé :** [lamaisonmirage.com](https://lamaisonmirage.com)
+**Site analysé :** [ateliermirage.fr](https://ateliermirage.fr)
 
 ---
 

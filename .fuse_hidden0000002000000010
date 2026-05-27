@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Atelier Mirage — Le goût pour seul langage · Marseille</title>
+
+  <meta name="description" content="Atelier Mirage — Desserts trompe-l'œil haute pâtisserie à Marseille. Le dessert que vos clients filment avant de manger. Livraison réfrigérée 6j/7 en Provence-Alpes-Côte d'Azur. Dégustation gratuite." />
+  <meta name="keywords" content="pâtisserie trompe-l'œil, dessert haut de gamme, Marseille, B2B restauration, dessert spectaculaire, événementiel" />
+  <link rel="canonical" href="https://www.ateliermirage.fr/" />
+  <meta property="og:title" content="Atelier Mirage — Le goût pour seul langage" />
+  <meta property="og:description" content="Chaque création dissimule un secret. Des desserts spectaculaires et prêts à servir pour booster l'attractivité de votre établissement." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="fr_FR" />
+  <meta property="og:site_name" content="Atelier Mirage" />
+  <meta property="og:image" content="https://www.ateliermirage.fr/img/og-image-v2.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <link rel="icon" href="img/favicon.ico" sizes="48x48" />
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon-16x16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="img/apple-touch-icon.png" />
+
+  <!-- Structured Data: LocalBusiness + Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Atelier Mirage",
+    "description": "Desserts trompe-l'œil haute pâtisserie à Marseille. 15+ établissements partenaires. Créations livrées prêtes à servir 6j/7 dans votre établissement.",
+    "url": "https://www.ateliermirage.fr",
+    "telephone": "+33759540410",
+    "email": "contact@ateliermirage.fr",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Marseille",
+      "addressCountry": "FR"
+    },
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "Provence-Alpes-Côte d'Azur"
+      },
+      { "@type": "City", "name": "Marseille" },
+      { "@type": "City", "name": "Aix-en-Provence" },
+      { "@type": "City", "name": "Toulon" },
+      { "@type": "City", "name": "La Seyne-sur-Mer" },
+      { "@type": "City", "name": "Cabriès" },
+      { "@type": "City", "name": "Aubagne" },
+      { "@type": "City", "name": "Martigues" },
+      { "@type": "City", "name": "Salon-de-Provence" },
+      { "@type": "City", "name": "Avignon" },
+      { "@type": "City", "name": "Vitrolles" },
+      { "@type": "City", "name": "La Ciotat" },
+      { "@type": "City", "name": "Cassis" },
+      { "@type": "City", "name": "Bandol" },
+      { "@type": "City", "name": "Hyères" },
+      { "@type": "City", "name": "Fréjus" },
+      { "@type": "City", "name": "Cannes" },
+      { "@type": "City", "name": "Nice" }
+    ],
+    "priceRange": "€€€",
+    "openingHours": "Mo-Sa 08:00-18:00"
+  }
+  </script>
+
+  <!-- Structured Data: FAQ Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Quels sont vos volumes de production ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mon atelier est dimensionné pour fournir les restaurants et l'événementiel avec une régularité absolue, même sur de gros volumes."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment gérez-vous la livraison des trompe-l'œil ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Je dispose de mon propre réseau de coursiers spécialisés dans la manipulation de pièces fragiles. La livraison est effectuée en réfrigéré, directement dans votre établissement, sur toute la Provence-Alpes-Côte d'Azur."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Est-il possible de créer un dessert signature exclusif ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Absolument. Je propose un service de création sur-mesure — sculpture du moule, développement de recette — pour coller parfaitement à l'ADN de votre établissement ou au thème de votre événement."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quel est le délai de mise en place ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pour intégrer la collection existante à votre carte, comptez 1 semaine. Pour une création signature exclusive, comptez 2 à 3 semaines de développement incluant les essais et ajustements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Quels sont vos tarifs pour les professionnels ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Tarif partenaire : 5€/pièce. Pas de minimum, pas de palier. Et vous ne payez qu'après avoir vendu."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Combien de temps se conservent vos créations ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "5 jours en chambre froide (0-4°C). Les créations sont livrées prêtes à servir. Il suffit de les sortir 15 minutes avant le service pour un rendu visuel et gustatif optimal."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Et si mes clients n'aiment pas le concept trompe-l'œil ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "100% de mes partenaires ont renouvelé après le premier mois. L'effet de surprise est universel. Et j'offre une dégustation gratuite pour votre équipe avant tout engagement — zéro risque."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Comment justifier le prix sur ma carte ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mes partenaires revendent entre 7,90€ et 14€ selon leur positionnement. À 5€ la pièce, même à 7,90€ en vitrine vous gagnez presque 3€ par pièce sans rien faire."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Que se passe-t-il si une livraison est endommagée ?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Remplacement immédiat et gratuit. Mes coursiers sont formés à la manipulation de pièces fragiles. En cas de dommage constaté, je relance une livraison de remplacement dans les 24h, à mes frais."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Outfit:wght@200;300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css?v=3" />
+  <link rel="preload" as="image" href="img/collection-lineup-1200.webp" />
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JCL4B8SJY0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JCL4B8SJY0');
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
+  <!-- Lenis smooth scroll — retiré (hijack scroll natif, risque UX B2B) -->
+
+  <link rel="stylesheet" href="homepage.css" />
+  <link rel="stylesheet" href="produit.css" />
+  <link rel="stylesheet" href="shop-modal.css?v=12" />
+  <link rel="stylesheet" href="storytelling.css?v=5" />
+</head>
+<body>
+
+  <!-- Accessibility: skip to content -->
+  <a href="#boutique" class="skip-to-content">Aller au contenu</a>
+  <noscript><style>#navbar{opacity:1;translate:0 0;}.reveal{opacity:1;transform:none;}.hero-headline,.hero-h1,.hero-hook,.hero-actions,.hero-showcase-img,.hero-showcase-reflection,.hero-bottom{opacity:1;transform:none;}</style></noscript>
+
+  <!-- ═══════ ORDER GATEWAY (inchangé) ═══════ -->
+  <div id="order-gateway" role="dialog" aria-label="Options de contact">
+    <button class="order-close" id="closeGateway" aria-label="Fermer">
+      <span>Fermer</span>
+      <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M1 1l12 12M13 1L1 13"/></svg>
+    </button>
+    <div class="order-gateway-inner">
+      <div class="order-header">
+        <p class="order-eyebrow">Collaborations</p>
+        <h2 class="order-h2">Votre<br><em>Demande.</em></h2>
+      </div>
+      <div class="order-grid" style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); max-width: 1100px;">
+        <div class="order-path">
+          <div class="order-path-num">01 &mdash; Partenariats</div>
+          <h3 class="order-path-title">Professionnels</h3>
+          <p class="order-path-desc">Restaurants, lounges, hôtels et concept stores. Je vous apporte une dégustation gratuite, vous décidez.</p>
+          <a href="partenaires.html" class="order-path-link">Devenir partenaire<div class="link-line"></div></a>
+        </div>
+        <div class="order-path">
+          <div class="order-path-num">02 &mdash; À domicile</div>
+          <h3 class="order-path-title">Particuliers</h3>
+          <p class="order-path-desc">Désormais en livraison sur Marseille. Commandez en ligne, retirez à notre véhicule mobile dans votre quartier ou faites-vous livrer chez vous.</p>
+          <a href="particuliers.html" class="order-path-link">Découvrir le service<div class="link-line"></div></a>
+        </div>
+        <div class="order-path">
+          <div class="order-path-num">03 &mdash; Sur-mesure</div>
+          <h3 class="order-path-title">Événements</h3>
+          <p class="order-path-desc">Mariages, anniversaires, réceptions et scénographies comestibles. Une étude personnalisée de vos envies pour créer le spectacle le jour J.</p>
+          <a href="evenements.html" class="order-path-link">Demander un devis<div class="link-line"></div></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ MENU OVERLAY — Style Salur ═══════ -->
+  <div id="mobile-overlay" role="dialog" aria-label="Menu de navigation">
+    <div class="menu-links">
+      <a href="index.html" class="mobile-nav-item"><span class="menu-num">01</span><span class="menu-label">Accueil</span></a>
+      <a href="index.html#boutique" class="mobile-nav-item"><span class="menu-num">02</span><span class="menu-label">Le Catalogue</span></a>
+      <a href="atelier.html" class="mobile-nav-item"><span class="menu-num">03</span><span class="menu-label">L'Atelier</span></a>
+      <a href="notre-histoire.html" class="mobile-nav-item"><span class="menu-num">04</span><span class="menu-label">Notre Histoire</span></a>
+      <a href="particuliers.html" class="mobile-nav-item"><span class="menu-num">05</span><span class="menu-label">Particuliers</span></a>
+      <a href="partenaires.html" class="mobile-nav-item"><span class="menu-num">06</span><span class="menu-label">Espace Pro</span></a>
+      <a href="case-studies.html" class="mobile-nav-item"><span class="menu-num">07</span><span class="menu-label">Résultats</span></a>
+      <a href="evenements.html" class="mobile-nav-item"><span class="menu-num">08</span><span class="menu-label">Événements</span></a>
+    </div>
+    <div class="mobile-nav-footer">
+      <div class="menu-footer-col">
+        <span class="menu-footer-label">Contact</span>
+        <a href="mailto:contact@ateliermirage.fr">contact@ateliermirage.fr</a>
+        <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════ NAVIGATION ═══════ -->
+  <nav id="navbar">
+    <a href="#" class="nav-brand" aria-label="Retour à l'accueil">
+      <img src="img/am-browngold.png" alt="Atelier Mirage" class="brand-logo" width="40" height="40" />
+      <img src="img/am-wordmark.png" alt="Atelier Mirage" class="brand-wordmark" />
+    </a>
+    <button class="nav-burger" id="navBurger" aria-label="Menu" aria-expanded="false" aria-controls="mobile-overlay">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ═══════════════════════════════════════════
+       1. HERO — Cinematic Showcase (Award-winner)
+  ═══════════════════════════════════════════ -->
+  <header class="hero">
+    <!-- Identité visuelle centrée — logo AM + wordmark -->
+    <div class="hero-headline hero-headline--brand">
+      <h1 class="hero-h1 hero-brand-mark">
+        <img src="img/am-browngold.png" alt="" class="hero-brand-icon" aria-hidden="true" width="220" height="220" fetchpriority="high" />
+        <img src="img/am-wordmark.png" alt="Atelier Mirage" class="hero-brand-wordmark" width="846" height="276" fetchpriority="high" />
+      </h1>
+      <p class="hero-hook">Celui pour lequel vos clients se déplacent.</p>
+    </div>
+
+    <!-- Lineup cinématique — pleine largeur -->
+    <div class="hero-showcase">
+      <div class="hero-showcase-img">
+        <picture>
+          <source media="(max-width: 640px)" srcset="img/hero-trio-mobile.webp" type="image/webp" />
+          <source media="(max-width: 960px)" srcset="img/hero-trio-960w.webp" type="image/webp" />
+          <source media="(max-width: 1280px)" srcset="img/hero-trio-1280w.webp" type="image/webp" />
+          <source srcset="img/hero-trio.webp" type="image/webp" />
+          <img src="img/hero-trio.webp" alt="Collection Atelier Mirage — desserts trompe-l'œil artisanaux" width="1536" height="1024" fetchpriority="high" />
+        </picture>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- ═══════ STICKY CTA BAR (Audit QW2) ═══════ -->
+  <div id="sticky-cta-bar" class="sticky-cta-bar" aria-hidden="true">
+    <div class="sticky-cta-inner">
+      <div class="sticky-cta-reassurance">
+        <span><svg class="sticky-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg> Dégustation gratuite</span>
+        <span><svg class="sticky-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> Réponse 24h</span>
+        <span><svg class="sticky-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1z"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg> Livraison 6j/7</span>
+      </div>
+      <a href="partenaires.html" class="sticky-cta-btn">
+        <span>Dégustation gratuite</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       2. KPI BAR — Chiffres clés (impact immédiat)
+  ═══════════════════════════════════════════ -->
+  <!-- KPI orientés résultat (audit recommandation) -->
+  <section class="kpi-bar reveal">
+    <div class="kpi-item">
+      <div class="kpi-number" style="font-size:clamp(1.4rem,2.5vw,2rem);line-height:1.2;">« On vient<br>pour ça »</div>
+      <div class="kpi-label">Retour terrain<br>de mes partenaires</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-number">15<em>+</em></div>
+      <div class="kpi-label">Établissements partenaires<br>en quelques mois</div>
+    </div>
+    <div class="kpi-item">
+      <div class="kpi-number">0<em> chef</em></div>
+      <div class="kpi-label">Requis en cuisine<br>Prêt à servir · Livré 6j/7</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       4. TESTIMONIALS & SOCIAL PROOF — Vraie preuve sociale
+  ═══════════════════════════════════════════ -->
+  <section class="testimonials-section" id="testimonials">
+    <div class="testimonials-header reveal">
+      <h2 class="section-h2">Ce qu'en disent<br><em>mes partenaires.</em></h2>
+    </div>
+    <div class="testimonials-grid">
+      <!-- QW5: Témoignages enrichis avec métriques business mises en avant -->
+      <div class="testimonial-card reveal">
+        <div class="testimonial-metric">×3 <span>commandes dessert</span></div>
+        <p class="testimonial-quote">Franchement, avant personne prenait de dessert chez nous. Maintenant les gens viennent exprès pour ça. Y'a des clients qui commandent le dessert avant le plat.</p>
+        <div class="testimonial-author">
+          <img class="testimonial-author-img" src="img/avenuegrill.webp" alt="L'Avenue Grill — Partenaire Atelier Mirage" />
+          <div>
+            <div class="testimonial-author-name">Lyes B.</div>
+            <div class="testimonial-author-role">Gérant · L'Avenue Grill, Marseille</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-metric">80+ <span>pièces/semaine</span></div>
+        <p class="testimonial-quote">On les met en vitrine et les gens s'arrêtent dans la rue pour regarder. Ça nous ramène une clientèle qu'on avait pas avant. Et nous on a rien à faire en cuisine, c'est prêt.</p>
+        <div class="testimonial-author">
+          <img class="testimonial-author-img" src="img/fulldessert.webp" alt="Full Dessert — Partenaire Atelier Mirage" />
+          <div>
+            <div class="testimonial-author-name">Mickael M.</div>
+            <div class="testimonial-author-role">Fondateur · Full Dessert, Marseille</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonial-card reveal">
+        <div class="testimonial-metric">Rentable <span>dès le 1er mois</span></div>
+        <p class="testimonial-quote">Moi je suis pâtissier, je connais le travail que ça demande. Quand j'ai vu la qualité de ses pièces, j'ai pas hésité. Ça complète ma vitrine et mes clients adorent.</p>
+        <div class="testimonial-author">
+          <img class="testimonial-author-img" src="img/royalpatisserie.webp" alt="Royal Pâtisserie" loading="lazy" />
+          <div>
+            <div class="testimonial-author-name">Talip A.</div>
+            <div class="testimonial-author-role">Chef Pâtissier · Royal Pâtisserie, Marignane</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Marquee infini — logos partenaires -->
+    <div class="marquee-section">
+      <div class="marquee-track">
+        <div class="marquee-content">
+          <span class="marquee-item">Full Dessert</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Dubai Sweet</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Aslan Kadaifs</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">La Graille Mobile</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">L'Avenue Grill</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Royal Pâtisserie</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Magnus Sushi</span>
+          <span class="marquee-dot"></span>
+        </div>
+        <div class="marquee-content" aria-hidden="true">
+          <span class="marquee-item">Full Dessert</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Dubai Sweet</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Aslan Kadaifs</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">La Graille Mobile</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">L'Avenue Grill</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Royal Pâtisserie</span>
+          <span class="marquee-dot"></span>
+          <span class="marquee-item">Magnus Sushi</span>
+          <span class="marquee-dot"></span>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       5. COLLECTION — Grille 3×3 au lieu du carousel
+  ═══════════════════════════════════════════ -->
+  <section class="boutique" id="boutique">
+    <div class="boutique-header">
+      <div>
+        <h2 class="section-h2 reveal">La<br><em>Collection.</em></h2>
+      </div>
+      <p class="section-desc reveal">Dix créations trompe-l'œil, fabriquées à la main dans mon atelier à Marseille. Cliquez sur une pièce pour découvrir sa fiche technique et ses allergènes.</p>
+    </div>
+
+    <div class="boutique-filters reveal">
+      <button class="filter-pill active" data-filter="all">Toute la collection</button>
+      <button class="filter-pill" data-filter="fruit">Fruits</button>
+      <button class="filter-pill" data-filter="chocolat">Chocolat &amp; Praliné</button>
+      <button class="filter-pill" data-filter="signature">Signatures</button>
+    </div>
+
+    <div class="mobile-swipe-hint">
+      <span>Glisser pour explorer</span>
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h16"/><path d="m14 6 6 6-6 6"/></svg>
+    </div>
+
+    <div class="shop-grid">
+      <a href="produit-poulpe.html" class="shop-card reveal" data-cat="signature" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/poulpe-gold.webp" alt="Le Poulpe" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Le Poulpe</div><div class="shop-card-sub">Sang Bleu · Ganache Vanille</div>      </a>
+      <a href="produit-fraise.html" class="shop-card reveal" data-cat="fruit signature" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/fraise.webp" alt="La Fraise" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">La Fraise</div><div class="shop-card-sub">Confit Intense · Ganache Montée</div>      </a>
+      <a href="produit-mangue.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/mangue.webp" alt="La Mangue" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">La Mangue</div><div class="shop-card-sub">Cœur Exotique · Velours</div>      </a>
+      <a href="produit-framboise.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/framboise.webp" alt="La Framboise" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">La Framboise</div><div class="shop-card-sub">Velours Rouge · Acidulée</div>      </a>
+      <a href="produit-peche.html" class="shop-card reveal" data-cat="fruit signature" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/peche.webp" alt="La Pêche" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">La Pêche</div><div class="shop-card-sub">Signature Fruitée</div>      </a>
+      <a href="produit-citron.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/citron.webp" alt="Le Citron" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Le Citron</div><div class="shop-card-sub">Zeste Givré · Acidité</div>      </a>
+      <a href="produit-passion.html" class="shop-card reveal" data-cat="fruit signature" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/passion.webp" alt="La Passion" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">La Passion</div><div class="shop-card-sub">Éclat Tropical · Cœur Exotique</div>      </a>
+      <a href="produit-pistache.html" class="shop-card reveal" data-cat="fruit signature" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/pistache.webp" alt="La Pistache" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">La Pistache</div><div class="shop-card-sub">Sicile · Insert Framboise</div>      </a>
+      <a href="produit-cacao.html" class="shop-card reveal" data-cat="chocolat signature" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/cacao.webp" alt="Le Cacao" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">Le Cacao</div><div class="shop-card-sub">Fève Intense · Grand Cru</div>      </a>
+      <a href="produit-arachide.html" class="shop-card reveal" data-cat="chocolat" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/arachide.webp" alt="L'Arachide" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">L'Arachide</div><div class="shop-card-sub">Praliné Coulant · Orfèvrerie</div>      </a>
+      <a href="produit-cacahuete.html" class="shop-card reveal" data-cat="caramel" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/cacahuete.webp" alt="La Cacahuète" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">La Cacahuète</div><div class="shop-card-sub">Caramel Blond · Orfèvrerie</div>      </a>
+      <a href="produit-datte.html" class="shop-card reveal" data-cat="caramel signature" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/datte.webp" alt="La Datte" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">La Datte</div><div class="shop-card-sub">Medjool · Caramel Fleur de Sel</div>      </a>
+      <a href="produit-vanille.html" class="shop-card reveal" data-cat="signature" style="display:block;">
+        <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/vanille.webp" alt="La Vanille" width="400" height="400" loading="lazy"/></div>
+        <div class="shop-card-name">La Vanille</div><div class="shop-card-sub">Gousse Noire · Madagascar</div>      </a>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       5b. PRICING — Transparence tarifaire (Audit CRO: réduire friction)
+  ═══════════════════════════════════════════ -->
+  <section class="pricing-section" id="tarifs">
+    <div class="pricing-single reveal">
+      <h2 class="pricing-section-title">Vous vendez d'abord,<br><em>vous payez après.</em></h2>
+      <div class="pricing-single-perks" style="margin-top:2rem;">
+        <span>Tarif partenaire : 5€/pièce</span>
+        <span class="pricing-single-dot"></span>
+        <span>Livraison incluse région PACA</span>
+        <span class="pricing-single-dot"></span>
+        <span>Dégustation gratuite</span>
+      </div>
+      <a href="partenaires.html" class="btn-primary" style="margin-top:3rem;">
+        <span>Devenir partenaire</span>
+        <div class="btn-arrow"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       5c. COLLECTION BANNER — Full-width Lineup visuelle
+  ═══════════════════════════════════════════ -->
+
+  <!-- ═══════════════════════════════════════════
+       3. VIDEO REVEAL — Le moment "wow"
+  ═══════════════════════════════════════════ -->
+  <section class="video-reveal-section" id="reveal">
+    <div class="video-reveal-header reveal">
+      <h2>Ils en<br><em>parlent.</em></h2>
+      <p>Vos clients coupent un fruit parfait… et découvrent un dessert à l'intérieur. Ce moment de surprise, c'est ce qui fait que les gens filment, partagent, et en reparlent.</p>
+    </div>
+
+    <div class="social-phones reveal">
+
+      <!-- ── SNAPCHAT ── -->
+      <div class="social-phone social-phone--snap">
+        <div class="social-phone-video">
+          <video src="img/story-snap.mp4" autoplay muted loop playsinline></video>
+          <!-- Progress dots -->
+          <div class="snap-dots"><span class="done"></span><span class="done"></span><span class="active"></span><span></span><span></span></div>
+          <!-- Header -->
+          <div class="snap-header">
+            <div class="snap-user-row">
+              <img src="img/avatar-bebeta.jpg" alt="" class="snap-pp"/>
+              <div class="snap-meta">
+                <span class="snap-name">BEBETA 🌈🦞🌺🌴 <img src="img/etoile-snap.png" alt="" class="snap-star-icon"/></span>
+                <span class="snap-time">il y a 14h</span>
+              </div>
+            </div>
+            <svg class="snap-bell" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+          </div>
+          <!-- Floating actions bas droite -->
+          <div class="snap-float-actions">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="white" opacity="0.9"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" opacity="0.9"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          </div>
+        </div>
+        <!-- Barre noire solide -->
+        <div class="snap-bar">
+          <span class="snap-bar-reply">Répondre...</span>
+          <span class="snap-bar-emoji">❤️</span>
+          <span class="snap-bar-emoji">😂</span>
+          <span class="snap-bar-emoji-btn">😊</span>
+          <div class="snap-bar-more">•••</div>
+        </div>
+      </div>
+
+      <!-- ── INSTAGRAM STORY ── -->
+      <div class="social-phone social-phone--ig">
+        <div class="social-phone-video">
+          <video src="img/story-ig.mp4" autoplay muted loop playsinline></video>
+          <!-- Progress bars -->
+          <div class="ig-bars">
+            <div class="ig-bar"><div class="ig-bar-fill" style="width:100%"></div></div>
+            <div class="ig-bar"><div class="ig-bar-fill" style="width:100%"></div></div>
+            <div class="ig-bar"><div class="ig-bar-fill ig-bar-active"></div></div>
+            <div class="ig-bar"><div class="ig-bar-fill" style="width:0%"></div></div>
+          </div>
+          <!-- User row -->
+          <div class="ig-header">
+            <div class="ig-pp-ring"><img src="img/avatar-lenamahfouf.jpg" alt="" class="ig-pp"/></div>
+            <span class="ig-name">lenamahfouf</span>
+            <svg class="ig-verified" width="12" height="12" viewBox="0 0 24 24" fill="#3897F0"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            <span class="ig-time">6 h</span>
+            <div class="ig-actions">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><circle cx="12" cy="5" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="12" cy="19" r="1"/></svg>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </div>
+          </div>
+        </div>
+        <!-- Barre noire solide -->
+        <div class="ig-bar-bottom">
+          <div class="ig-reply-bar"><span>Envoyer un message...</span></div>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </div>
+      </div>
+
+      <!-- ── TIKTOK ── -->
+      <div class="social-phone social-phone--tt">
+        <div class="social-phone-video">
+          <video src="img/story-tt.mp4" autoplay muted loop playsinline></video>
+          <!-- Search bar -->
+          <div class="tt-header">
+            <svg class="tt-back" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            <div class="tt-search">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <span>Trouver du contenu ass...</span>
+            </div>
+            <span class="tt-rechercher">Rechercher</span>
+          </div>
+          <!-- Right side actions -->
+          <div class="tt-side">
+            <div class="tt-avatar-wrap">
+              <img src="img/avatar-lennavivas.jpeg" alt="" class="tt-pp"/>
+              <div class="tt-avatar-plus">+</div>
+            </div>
+            <div class="tt-act"><svg width="28" height="28" viewBox="0 0 24 24" fill="#FE2C55"><path d="M16.792 3.904A4.989 4.989 0 0 1 21.5 9.122c0 3.072-2.652 4.959-5.197 7.222-2.512 2.243-3.865 3.469-4.303 3.752-.477-.309-1.834-1.536-4.303-3.752C5.152 14.08 2.5 12.194 2.5 9.122a4.989 4.989 0 0 1 4.708-5.218 4.21 4.21 0 0 1 3.675 1.941c.84 1.175.98 1.763 1.12 1.763s.278-.588 1.11-1.766a4.17 4.17 0 0 1 3.679-1.938z"/></svg><span>41,2 K</span></div>
+            <div class="tt-act"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><circle cx="9" cy="10" r="1" fill="#333"/><circle cx="12" cy="10" r="1" fill="#333"/><circle cx="15" cy="10" r="1" fill="#333"/></svg><span>105</span></div>
+            <div class="tt-act"><svg width="24" height="24" viewBox="0 0 24 24" fill="white"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg><span>1870</span></div>
+            <div class="tt-act"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 002 2h12a2 2 0 002-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg><span>818</span></div>
+            <div class="tt-disc"><div class="tt-disc-inner">🎵</div></div>
+          </div>
+          <!-- Bottom info -->
+          <div class="tt-info">
+            <div class="tt-music-row"><svg width="10" height="10" viewBox="0 0 24 24" fill="white"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg><span>Essaie un modèle TikTok</span></div>
+            <div class="tt-user">Lenna Vivas <svg width="12" height="12" viewBox="0 0 24 24" fill="#20D5EC"><path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg> · il y a 9 h</div>
+            <div class="tt-cap">Mon coup de coeur !! Je vous partage l'adresse dans les commentaires 🥰</div>
+          </div>
+        </div>
+        <!-- Barre noire solide -->
+        <div class="tt-bar-bottom">
+          <span class="tt-bar-input">Ajouter un commentaire...</span>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"><circle cx="12" cy="12" r="4"/><path d="M16 8v5a3 3 0 006 0v-1a10 10 0 10-3.92 7.94"/></svg>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.45)" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       7b. BLOC GARANTIES — Réassurance avant conversion (audit)
+  ═══════════════════════════════════════════ -->
+  <section class="guarantees-bar reveal">
+    <div class="guarantee-item">
+      <div class="guarantee-title">Dégustation gratuite</div>
+      <div class="guarantee-desc">Pour vous et votre équipe, sans engagement.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-title">Réponse sous 24h</div>
+      <div class="guarantee-desc">Chaque demande reçoit une réponse personnalisée.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-title">Livraison réfrigérée</div>
+      <div class="guarantee-desc">Coursier dédié, Marseille et région, 6j/7.</div>
+    </div>
+    <div class="guarantee-item">
+      <div class="guarantee-title">Remplacement garanti</div>
+      <div class="guarantee-desc">Pièce endommagée ? Remplacement immédiat.</div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       7c. PARALLAX — Section immersive dark (engagements)
+  ═══════════════════════════════════════════ -->
+  <section class="engagements-section reveal">
+    <div class="engagements-content">
+      <blockquote class="engagements-quote">
+        « Mes partenaires me le disent :<br>des clients viennent <em>exprès</em> pour ça. »
+      </blockquote>
+      <p class="engagements-sub">
+        Fait main à Marseille, livré chez vous, remplacé sans condition.
+        Ce n'est pas un dessert que vous ajoutez à la carte — c'est un aimant à clientèle.
+      </p>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       8. FAQ — Vos Garanties
+  ═══════════════════════════════════════════ -->
+  <section class="faq" id="faq">
+    <div class="faq-left">
+      <h2 class="section-h2 reveal">Vos<br><em>Questions.</em></h2>
+    </div>
+    <div class="faq-items reveal">
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Quels sont vos volumes de production ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Mon atelier est dimensionné pour fournir les restaurants et l'événementiel avec une régularité absolue, même sur de gros volumes. J'étudie chaque demande pour garantir un approvisionnement fluide.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Comment gérez-vous la livraison des trompe-l'œil ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Je dispose de mon propre réseau de coursiers spécialisés dans la manipulation de pièces fragiles. La livraison est effectuée en réfrigéré, directement dans votre établissement, sur toute la Provence-Alpes-Côte d'Azur.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Est-il possible de créer un dessert signature exclusif ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Absolument. Je propose un service de création sur-mesure — sculpture du moule, développement de recette — pour coller parfaitement à l'ADN de votre établissement ou au thème de votre événement.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Quel est le délai de mise en place ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Pour intégrer la collection existante à votre carte, comptez 1 semaine. Pour une création signature exclusive, comptez 2 à 3 semaines de développement incluant les essais et ajustements.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Quels sont vos tarifs pour les professionnels ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Tarif partenaire : 5€/pièce. Pas de minimum, pas de palier. Et vous ne payez qu'après avoir vendu — je vous fais confiance.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Combien de temps se conservent vos créations ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>5 jours en chambre froide (0-4°C). Les créations sont livrées prêtes à servir. Il suffit de les sortir 15 minutes avant le service pour un rendu visuel et gustatif optimal.</p></div>
+      </div>
+      <!-- Audit: FAQ orientées objections psychologiques -->
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Et si mes clients n'aiment pas le concept trompe-l'œil ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>100% de mes partenaires ont renouvelé après le premier mois. L'effet de surprise est universel : tout le monde craque. Et j'offre une dégustation gratuite pour votre équipe avant tout engagement — zéro risque.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Comment justifier le prix sur ma carte ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Mes partenaires revendent entre 7,90€ et 14€ selon leur positionnement. À 5€ la pièce, même à 7,90€ en vitrine vous gagnez presque 3€ par pièce sans rien faire. C'est un dessert qui se vend tout seul — les clients le voient, ils le veulent.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" aria-expanded="false">
+          <span class="faq-q-text">Que se passe-t-il si une livraison est endommagée ?</span>
+          <div class="faq-icon"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 2v8M2 6h8"/></svg></div>
+        </button>
+        <div class="faq-answer"><p>Remplacement immédiat et gratuit. Mes coursiers sont formés à la manipulation de pièces fragiles, et chaque livraison est contrôlée avant remise. En cas de dommage constaté, je relance une livraison de remplacement dans les 24h, à mes frais.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       11. CTA BANNER FINAL — Double action
+  ═══════════════════════════════════════════ -->
+  <div class="cta-banner reveal">
+    <div>
+      <p class="cta-banner-eyebrow">Pôle Professionnel</p>
+      <h3 class="cta-banner-h">Travaillons<br><em>ensemble.</em></h3>
+    </div>
+    <div class="cta-banner-action">
+      <a href="partenaires.html" class="btn-gold-filled">
+        <span>Demander ma dégustation gratuite</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="evenements.html" class="btn-ghost cta-banner-second">
+        <span>Événements sur-mesure</span>
+        <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="tel:+33759540410" class="cta-fine" style="transition:color 0.3s;">+33 (0)7 59 54 04 10</a>
+      <p class="cta-fine">Réponse sous 24h ouvrées</p>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════
+       12. FOOTER — Avec réseaux sociaux
+  ═══════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-brand-block">
+      <div class="footer-logo-wrap">
+        <img src="img/am-browngold.png" alt="Atelier Mirage" class="footer-logo-img" />
+      </div>
+      <img src="img/am-wordmark.png" alt="Atelier Mirage" class="footer-brand-wordmark" />
+      <div class="footer-tagline">Le goût pour seul langage</div>
+    </div>
+
+    <nav class="footer-nav">
+      <a href="index.html#boutique">Le Catalogue</a>
+      <a href="atelier.html">L'Atelier</a>
+      <a href="notre-histoire.html">Notre Histoire</a>
+      <a href="particuliers.html">Particuliers</a>
+      <a href="partenaires.html">Espace Pro</a>
+      <a href="evenements.html">Événements</a>
+      <a href="case-studies.html">Résultats</a>
+    </nav>
+    <div class="footer-contact">
+      <a href="mailto:contact@ateliermirage.fr">contact@ateliermirage.fr</a><br/>
+      <a href="tel:+33759540410">+33 (0)7 59 54 04 10</a>
+    </div>
+    <p class="footer-address">Marseille, France · Lun–Sam 8h–18h</p>
+
+    <!-- Audit: Réseaux sociaux dans le footer pour viralité -->
+    <div class="footer-social">
+  
+      <a href="mailto:contact@ateliermirage.fr" aria-label="Email Atelier Mirage">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+      </a>
+    </div>
+
+    <div class="footer-bottom">
+      <span>&copy; 2026 Atelier Mirage</span>
+      <a href="mentions-legales.html">Mentions légales</a>
+      <a href="cgv-pro.html">CGV Pro</a>
+    </div>
+  </footer>
+
+  <!-- ═══════ PRODUCT MODAL (inchangé) ═══════ -->
+  <div id="product-modal" role="dialog" aria-label="Fiche Technique Produit" aria-modal="true">
+    <div class="pm-inner">
+      <button class="pm-close" id="pmClose"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 2l8 8M10 2l-8 8"/></svg></button>
+      <div class="pm-img" id="pmImgWrap">
+        <img class="pm-img-main" id="pmImg" src="" alt="Photo du produit"/>
+      </div>
+      <div class="pm-body">
+        <div class="pm-name" id="pmName"></div>
+        <div class="pm-sub" id="pmSub"></div>
+        <p class="pm-desc" id="pmDesc"></p>
+        <div class="pm-section-label">Allergènes déclarés</div>
+        <div class="pm-allergens" id="pmAllergens"></div>
+        <a href="partenaires.html" class="pm-add-cart">
+          <span>Demander un devis Pro</span>
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6h8M6 2l4 4-4 4" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Audit: duplicate Cloudflare email-decode removed (injected server-side by CF) -->
+  <script>
+  // ═══════════════════════════════════════════════════════════════
+  // JAVASCRIPT — V2 ENHANCED
+  // ═══════════════════════════════════════════════════════════════
+
+  // 1. DONNÉES PRODUITS
+  const productData = {
+    'La Fraise': { img:'img/fraise.webp', sub:'Confit Intense · Ganache Montée', desc:'Sous une coque rouge vif réalisée à l\'aérographe, un confit de fraise gariguette, une ganache montée vanille et un biscuit amande moelleux.', allergens:['Lait','Oeufs','Gluten','Fruits à coque'] },
+    'La Mangue': { img:'img/mangue.webp', sub:'Cœur Exotique · Velours', desc:'Un cœur coulant mangue alphonso, une mousse légère au fruit de la passion et un croustillant coco.', allergens:['Lait','Oeufs','Gluten','Coco'] },
+    'La Framboise': { img:'img/framboise.webp', sub:'Velours Rouge · Acidulée', desc:'Un insert framboise, un crémeux framboise-litchi, et une mousse vanille.', allergens:['Lait','Oeufs','Gluten'] },
+    'La Pêche': { img:'img/peche.webp', sub:'Signature Fruitée', desc:'Un confit de pêche blanche, une mousse pêche-verveine et un biscuit financier noisette.', allergens:['Lait','Oeufs','Gluten','Noisette'] },
+    'Le Citron': { img:'img/citron.webp', sub:'Zeste Givré · Acidité', desc:'Un crémeux citron de Menton, une meringue italienne, et un confit citron-basilic.', allergens:['Lait','Oeufs','Gluten'] },
+    'Le Cacao': { img:'img/cacao.webp', sub:'Fève Intense · Grand Cru', desc:'Une ganache chocolat noir Tanzanie 75%, un croustillant praliné, et un biscuit chocolat sans farine.', allergens:['Lait','Oeufs','Fruits à coque'] },
+    "L'Arachide": { img:'img/arachide.webp', sub:'Praliné Coulant · Orfèvre', desc:'Un praliné cacahuète coulant, caramel beurre salé, mousse chocolat lait.', allergens:['Lait','Oeufs','Gluten','Arachide'] },
+    'La Passion': { img:'img/passion.webp', sub:'Éclat Tropical', desc:'Un insert passion-mangue, crémeux chocolat blanc-passion.', allergens:['Lait','Oeufs','Gluten'] },
+    'La Vanille': { img:'img/vanille.webp', sub:'Bourbon · Madagascar', desc:'Une crème vanille bourbon de Madagascar infusée 48h, un caramel vanille.', allergens:['Lait','Oeufs','Gluten'] }
+  };
+
+  // 2. MODAL PRODUITS
+  const pmModal = document.getElementById('product-modal');
+
+  function openProduct(name) {
+    const d = productData[name]; if (!d) return;
+    const pmImg = document.getElementById('pmImg');
+    const pmName = document.getElementById('pmName');
+    const pmSub = document.getElementById('pmSub');
+    const pmDesc = document.getElementById('pmDesc');
+    const ac = document.getElementById('pmAllergens');
+    if (pmImg) { pmImg.src = d.img; pmImg.alt = name; }
+    if (pmName) pmName.textContent = name;
+    if (pmSub) pmSub.textContent = d.sub;
+    if (pmDesc) pmDesc.textContent = d.desc;
+    if (ac) { ac.innerHTML = ''; d.allergens.forEach(a => { const tag = document.createElement('span'); tag.className = 'pm-allergen-tag'; tag.textContent = a; ac.appendChild(tag); }); }
+    if (pmModal) pmModal.classList.add('open');
+  }
+
+  const pmCloseBtn = document.getElementById('pmClose');
+  if (pmCloseBtn) pmCloseBtn.addEventListener('click', () => { if (pmModal) pmModal.classList.remove('open'); });
+  if (pmModal) pmModal.addEventListener('click', (e) => { if (e.target === pmModal) { pmModal.classList.remove('open'); } });
+
+  // 3. GSAP & ANIMATIONS
+  function initGSAP() {
+    try {
+    gsap.registerPlugin(ScrollTrigger);
+
+    // QW2: Sticky CTA bar
+    const stickyBar = document.getElementById('sticky-cta-bar');
+    if (stickyBar) {
+      ScrollTrigger.create({
+        trigger: '.hero',
+        start: 'bottom top',
+        onEnter: () => stickyBar.classList.add('visible'),
+        onLeaveBack: () => stickyBar.classList.remove('visible'),
+      });
+    }
+
+    document.getElementById('navbar').classList.add('visible');
+    // ── HERO CINEMATIC — Award-level entrance ──
+    gsap.set('.hero-headline', {opacity:0, y:40});
+    gsap.set('.hero-hook', {opacity:0, y:20});
+    gsap.set('.hero-showcase-img', {opacity:0, scale:1.08, y:30});
+    gsap.set('.hero-showcase-reflection', {opacity:0});
+    gsap.set('.hero-showcase::after', {scaleX:0});
+    gsap.set('.hero-bottom', {opacity:0, y:20});
+    gsap.set('.scroll-hint', {opacity:0});
+
+    const heroTL = gsap.timeline({delay:0.15});
+    // 1. Titre — dramatique
+    heroTL.to('.hero-headline', {opacity:1, y:0, duration:1.1, ease:'power3.out'});
+    heroTL.to('.hero-hook', {opacity:1, y:0, duration:0.8, ease:'power2.out'}, '-=0.5');
+    // 2. Lineup photo — scale down reveal (cinématique)
+    heroTL.to('.hero-showcase-img', {opacity:1, scale:1, y:0, duration:1.4, ease:'expo.out'}, '-=0.4');
+    // 3. Réflection fade in
+    heroTL.to('.hero-showcase-reflection', {opacity:1, duration:0.9, ease:'power1.out'}, '-=0.7');
+    // 4. CTAs
+    heroTL.to('.hero-bottom', {opacity:1, y:0, duration:0.7, ease:'power2.out'}, '-=0.3');
+    heroTL.to('.scroll-hint', {opacity:1, duration:0.6}, '-=0.2');
+
+    // ── Parallax désactivé (choix utilisateur) ──
+    // ── Varied scroll reveals — Award-level ──
+    document.querySelectorAll('.reveal').forEach((el, i)=>{
+      // Section titles get a special clip reveal
+      if (el.classList.contains('section-h2') || el.tagName === 'H2') {
+        gsap.fromTo(el,
+          {opacity:0, y:60, clipPath:'inset(0 0 100% 0)'},
+          {opacity:1, y:0, clipPath:'inset(0 0 0% 0)', duration:1.2, ease:'power3.out',
+           scrollTrigger:{trigger:el, start:'top 88%'}});
+      }
+      // Shop cards get stagger
+      else if (el.classList.contains('shop-card')) {
+        gsap.fromTo(el,
+          {opacity:0, y:50, scale:0.97},
+          {opacity:1, y:0, scale:1, duration:0.8, ease:'power2.out',
+           delay: (i % 3) * 0.12,
+           scrollTrigger:{trigger:el, start:'top 90%'}});
+      }
+      // Eyebrows get a horizontal slide
+      else if (el.classList.contains('section-eyebrow')) {
+        gsap.fromTo(el,
+          {opacity:0, x:-20},
+          {opacity:1, x:0, duration:0.7, ease:'power2.out',
+           scrollTrigger:{trigger:el, start:'top 88%'}});
+      }
+      // Default — subtle fade up
+      else {
+        gsap.fromTo(el,
+          {opacity:0, y:30},
+          {opacity:1, y:0, duration:0.9, ease:'power2.out',
+           scrollTrigger:{trigger:el, start:'top 88%'}});
+      }
+    });
+
+    // KPI counter animation
+    document.querySelectorAll('.kpi-number').forEach(el => {
+      ScrollTrigger.create({
+        trigger: el,
+        start: 'top 90%',
+        once: true,
+        onEnter: () => el.style.opacity = '1'
+      });
+    });
+    } catch(e) {
+      console.error('GSAP init error:', e);
+      // Force visibility si GSAP crash
+      document.querySelectorAll('.hero-headline,.hero-h1,.hero-hook,.hero-showcase-img,.hero-showcase-reflection,.hero-bottom,.hero-actions,#navbar,.scroll-hint').forEach(function(el) { el.style.opacity='1'; el.style.transform='none'; });
+      var nav = document.getElementById('navbar'); if(nav) { nav.style.opacity='1'; nav.classList.add('visible'); }
+    }
+  }
+  const waitGSAP = setInterval(() => { if (window.gsap && window.ScrollTrigger) { clearInterval(waitGSAP); initGSAP(); } }, 50);
+  // Timeout: si GSAP ne charge jamais, on stop le polling et on force
+  setTimeout(function() { clearInterval(waitGSAP); }, 5000);
+
+  // Preloader dismissal — retiré (pas de preloader HTML)
+
+  // 4. MENU OVERLAY & UI
+  const orderGateway = document.getElementById('order-gateway');
+  document.querySelectorAll('.order-trigger').forEach(btn => {
+    btn.addEventListener('click', e => { e.preventDefault(); orderGateway.classList.add('open'); document.getElementById('mobile-overlay').classList.remove('open'); document.getElementById('navBurger').classList.remove('open'); });
+  });
+  document.getElementById('closeGateway').addEventListener('click', () => orderGateway.classList.remove('open'));
+
+  // a11y: Add aria-controls + ids dynamically
+  document.querySelectorAll('.faq-item').forEach((item, idx) => {
+    const btn = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const answerId = 'faq-answer-' + idx;
+    answer.id = answerId;
+    answer.setAttribute('role', 'region');
+    answer.setAttribute('aria-labelledby', 'faq-q-' + idx);
+    btn.id = 'faq-q-' + idx;
+    btn.setAttribute('aria-controls', answerId);
+  });
+
+  document.querySelectorAll('.faq-question').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.parentElement; const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => { i.classList.remove('open'); i.querySelector('.faq-question').setAttribute('aria-expanded','false'); });
+      if(!isOpen){ item.classList.add('open'); btn.setAttribute('aria-expanded','true'); }
+    });
+  });
+
+  // 4. BURGER MENU
+  const navBurger = document.getElementById('navBurger');
+  const mobileOverlay = document.getElementById('mobile-overlay');
+  const navbar = document.getElementById('navbar');
+
+  function toggleMenu() {
+    const opening = !navBurger.classList.contains('open');
+    navBurger.classList.toggle('open');
+    navBurger.setAttribute('aria-expanded', opening);
+    mobileOverlay.classList.toggle('open');
+    navbar.classList.toggle('menu-open');
+    document.body.style.overflow = opening ? 'hidden' : '';
+    document.body.classList.toggle('menu-active', opening);
+  }
+  function closeMenu() {
+    navBurger.classList.remove('open');
+    navBurger.setAttribute('aria-expanded', 'false');
+    mobileOverlay.classList.remove('open');
+    navbar.classList.remove('menu-open');
+    document.body.style.overflow = '';
+    document.body.classList.remove('menu-active');
+  }
+
+  navBurger.addEventListener('click', toggleMenu);
+  document.querySelectorAll('.mobile-nav-item').forEach(l => l.addEventListener('click', closeMenu));
+  // Fermer avec Escape
+  document.addEventListener('keydown', e => { if (e.key === 'Escape' && mobileOverlay.classList.contains('open')) closeMenu(); });
+  // Fermer au clic sur le fond (pas sur un lien)
+  mobileOverlay.addEventListener('click', e => { if (e.target === mobileOverlay) closeMenu(); });
+
+  // 5. FILTERS
+  const filterBtns = document.querySelectorAll('.filter-pill');
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active')); btn.classList.add('active');
+      const filter = btn.dataset.filter;
+      document.querySelectorAll('.shop-card').forEach(card => {
+        if(filter === 'all' || card.dataset.cat.includes(filter)) { card.style.display='block'; setTimeout(()=>card.style.opacity='1',50); }
+        else { card.style.opacity='0'; setTimeout(()=>card.style.display='none',300); }
+      });
+    });
+  });
+
+   // 7. VIDEO REVEAL — Son toggle
+  const revealVideo = document.getElementById('revealVideo');
+  const revealSoundBtn = document.getElementById('revealSoundBtn');
+  if (revealVideo && revealSoundBtn) {
+    revealSoundBtn.addEventListener('click', () => {
+      if (revealVideo.muted) {
+        revealVideo.muted = false;
+        revealVideo.currentTime = 0;
+        revealSoundBtn.querySelector('.icon-muted').style.display = 'none';
+        revealSoundBtn.querySelector('.icon-sound').style.display = 'block';
+        revealSoundBtn.style.borderColor = 'var(--gold)';
+      } else {
+        revealVideo.muted = true;
+        revealSoundBtn.querySelector('.icon-muted').style.display = 'block';
+        revealSoundBtn.querySelector('.icon-sound').style.display = 'none';
+        revealSoundBtn.style.borderColor = 'rgba(255,255,255,0.15)';
+      }
+    });
+  }
+
+  // 8. LEAD MAGNET — (supprimé : formulaire retiré du HTML)
+
+  // 9. FOCUS TRAP — Menu mobile overlay (Audit a11y: WCAG 2.4.3)
+  function setupFocusTrap() {
+    const overlay = document.getElementById('mobile-overlay');
+    if (!overlay) return;
+    overlay.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab' || !overlay.classList.contains('open')) return;
+      const focusable = overlay.querySelectorAll('a[href], button, input, [tabindex]:not([tabindex="-1"])');
+      if (focusable.length === 0) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey) {
+        if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+      } else {
+        if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+      }
+    });
+  }
+  setupFocusTrap();
+
+  // 10. PREFERS-REDUCED-MOTION — Disable GSAP animations
+  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    if (window.gsap) {
+      gsap.globalTimeline.pause();
+    }
+    // Forcer la visibilité de tous les éléments reveal
+    document.querySelectorAll('.reveal, .hero-headline, .hero-h1, .hero-hook, .hero-showcase-img, .hero-showcase-reflection, .hero-bottom, .hero-actions, .scroll-hint').forEach(el => {
+      el.style.opacity = '1';
+      el.style.transform = 'none';
+    });
+  }
+  </script>
+
+  <!-- ═══════ STICKY WHATSAPP CTA ═══════ -->
+  <div style="position:fixed;bottom:2rem;right:2rem;z-index:800;">
+    <a href="https://wa.me/33759540410?text=Bonjour%20Atelier%20Mirage%2C%20je%20suis%20un%20professionnel%20et%20je%20souhaite%20%C3%A9changer%20sur%20un%20partenariat." target="_blank" rel="noopener" style="display:flex;align-items:center;justify-content:center;width:3.2rem;height:3.2rem;border-radius:50%;background:var(--ink);border:1px solid rgba(255,255,255,0.08);box-shadow:0 8px 32px rgba(26,23,20,0.18);transition:transform 0.3s,background 0.3s;" aria-label="WhatsApp" onclick="gtag('event','click_whatsapp',{event_category:'CTA',event_label:'Sticky WhatsApp - Homepage'});">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--cream)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+    </a>
+  </div>
+
+  <!-- ═══════ AWWWARDS UPGRADE — Phase 1+2 JS ═══════ -->
+  <script>
+  (function() {
+    'use strict';
+
+    // ── 1. LINE REVEAL ON SECTION TITLES ──
+    function initLineReveal() {
+      if (!window.gsap || !window.ScrollTrigger) return;
+      document.querySelectorAll('.section-h2').forEach(h2 => {
+        // Skip if already processed
+        if (h2.querySelector('.line-wrap')) return;
+        // Wrap each line in overflow-hidden container
+        const html = h2.innerHTML;
+        const lines = html.split(/<br\s*\/?>/i);
+        h2.innerHTML = lines.map(line =>
+          '<span class="line-wrap"><span class="line-inner">' + line.trim() + '</span></span>'
+        ).join('');
+        // Animate
+        gsap.to(h2.querySelectorAll('.line-inner'), {
+          y: 0, duration: 1, ease: 'power3.out',
+          stagger: 0.12,
+          scrollTrigger: { trigger: h2, start: 'top 85%' }
+        });
+      });
+    }
+
+    // ── 2. TILT 3D ON SHOP CARDS ──
+    function initTilt() {
+      if (window.matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.shop-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          const x = (e.clientX - rect.left) / rect.width - 0.5;
+          const y = (e.clientY - rect.top) / rect.height - 0.5;
+          card.style.transform = 'perspective(1000px) rotateY(' + (x * 6) + 'deg) rotateX(' + (-y * 6) + 'deg) translateY(-8px)';
+        });
+        card.addEventListener('mouseleave', () => {
+          card.style.transform = '';
+          card.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+          setTimeout(() => card.style.transition = '', 500);
+        });
+      });
+    }
+
+    // ── 3. MAGNETIC BUTTONS ──
+    function initMagnetic() {
+      if (window.matchMedia('(hover: none)').matches) return;
+      document.querySelectorAll('.btn-primary, .btn-gold-filled, .nav-cta').forEach(btn => {
+        btn.classList.add('btn-magnetic');
+        btn.addEventListener('mousemove', (e) => {
+          const rect = btn.getBoundingClientRect();
+          const x = e.clientX - rect.left - rect.width / 2;
+          const y = e.clientY - rect.top - rect.height / 2;
+          btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15) + 'px)';
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = '';
+        });
+      });
+    }
+
+    // ── 4. HERO SPLIT-TEXT (char by char) ──
+    function initHeroSplitText() {
+      if (!window.gsap) return;
+      const h1 = document.querySelector('.hero-h1');
+      if (!h1 || h1.dataset.split === 'done') return;
+      h1.dataset.split = 'done';
+
+      // Parse HTML preserving <br> and <em>
+      const html = h1.innerHTML;
+      let result = '';
+      let inTag = false;
+      let tagBuffer = '';
+
+      for (let i = 0; i < html.length; i++) {
+        const c = html[i];
+        if (c === '<') { inTag = true; tagBuffer = '<'; continue; }
+        if (inTag) {
+          tagBuffer += c;
+          if (c === '>') {
+            inTag = false;
+            result += tagBuffer;
+            tagBuffer = '';
+          }
+          continue;
+        }
+        if (c === ' ') {
+          result += ' ';
+        } else {
+          result += '<span class="char">' + c + '</span>';
+        }
+      }
+      h1.innerHTML = result;
+
+      // Animate with GSAP — override headline opacity set by heroTL
+      gsap.set('.hero-headline', { opacity: 1, y: 0 });
+      gsap.set('.hero-h1', { opacity: 1, y: 0 });
+      gsap.fromTo('.hero-h1 .char',
+        { opacity: 0, y: 60, rotateX: -40 },
+        { opacity: 1, y: 0, rotateX: 0, duration: 1, ease: 'back.out(1.4)', stagger: 0.035, delay: 0.25 }
+      );
+    }
+
+    // ── 5. VIDEO OVERLAY TRIGGER ──
+    // ── INIT ALL ──
+    // Wait for GSAP then init
+    const waitAll = setInterval(() => {
+      if (window.gsap && window.ScrollTrigger) {
+        clearInterval(waitAll);
+        // Small delay to let existing GSAP init run first
+        setTimeout(() => {
+          initLineReveal();
+          initTilt();
+          initMagnetic();
+          initHeroSplitText();
+        }, 100);
+      }
+    }, 50);
+    setTimeout(() => clearInterval(waitAll), 5000);
+  })();
+  </script>
+
+  <!-- ═══════ GA4 CONVERSION EVENTS ═══════ -->
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Track all WhatsApp clicks
+    document.querySelectorAll('a[href*="wa.me"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        gtag('event', 'click_whatsapp', { event_category: 'CTA', event_label: el.closest('section')?.id || 'global' });
+      });
+    });
+    // Track all tel: clicks
+    document.querySelectorAll('a[href^="tel:"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        gtag('event', 'click_phone', { event_category: 'CTA', event_label: 'Phone call' });
+      });
+    });
+    // Track CTA clicks to partenaires.html
+    document.querySelectorAll('a[href*="partenaires"]').forEach(function(el) {
+      el.addEventListener('click', function() {
+        gtag('event', 'click_cta_partenaire', { event_category: 'Navigation', event_label: el.textContent.trim().substring(0, 50) });
+      });
+    });
+    // Track scroll depth
+    var scrollThresholds = [25, 50, 75, 90];
+    var scrollFired = {};
+    window.addEventListener('scroll', function() {
+      var pct = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+      scrollThresholds.forEach(function(t) {
+        if (pct >= t && !scrollFired[t]) {
+          scrollFired[t] = true;
+          gtag('event', 'scroll_depth', { event_category: 'Engagement', event_label: t + '%', value: t });
+        }
+      });
+    });
+    // Track product card clicks
+    document.querySelectorAll('.shop-card').forEach(function(el) {
+      el.addEventListener('click', function() {
+        var name = el.querySelector('.shop-card-name')?.textContent || 'unknown';
+        gtag('event', 'view_product', { event_category: 'Product', event_label: name });
+      });
+    });
+    // Track video interactions
+    var revealVideo = document.getElementById('revealVideo');
+    if (revealVideo) {
+      revealVideo.addEventListener('play', function() {
+        gtag('event', 'video_play', { event_category: 'Engagement', event_label: 'Reveal Video' });
+      });
+    }
+  });
+  </script>
+
+  <!-- ═══════ MODAL PRODUIT (Desktop uniquement — mobile navigue) ═══════ -->
+  <div id="shop-modal" class="shop-modal" role="dialog" aria-modal="true" aria-label="Fiche produit" aria-hidden="true">
+    <div class="shop-modal-backdrop" aria-hidden="true"></div>
+    <button type="button" class="shop-modal-arrow prev" aria-label="Produit précédent">
+      <span class="shop-modal-arrow-circle">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6 L9 12 L15 18"/></svg>
+      </span>
+      <span class="shop-modal-arrow-preview" aria-hidden="true">
+        <img class="shop-modal-arrow-thumb" alt="" width="52" height="52" />
+        <span class="shop-modal-arrow-meta">
+          <span class="shop-modal-arrow-eyebrow">Précédent</span>
+          <span class="shop-modal-arrow-name"></span>
+        </span>
+      </span>
+    </button>
+    <button type="button" class="shop-modal-arrow next" aria-label="Produit suivant">
+      <span class="shop-modal-arrow-preview" aria-hidden="true">
+        <span class="shop-modal-arrow-meta">
+          <span class="shop-modal-arrow-eyebrow">Suivant</span>
+          <span class="shop-modal-arrow-name"></span>
+        </span>
+        <img class="shop-modal-arrow-thumb" alt="" width="52" height="52" />
+      </span>
+      <span class="shop-modal-arrow-circle">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6 L15 12 L9 18"/></svg>
+      </span>
+    </button>
+    <div class="shop-modal-panel">
+      <button type="button" class="shop-modal-close" aria-label="Fermer">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6 L18 18 M18 6 L6 18"/></svg>
+      </button>
+      <div class="shop-modal-body" aria-live="polite"></div>
+    </div>
+  </div>
+  <script src="products-data.js?v=10"></script>
+  <script src="shop-modal.js?v=13" defer></script>
+  <script src="servi-chez.js?v=1" defer></script>
+</body>
+</html>

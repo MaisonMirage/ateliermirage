@@ -2420,7 +2420,7 @@
     <div class="footer-divider"></div>
 
     <div class="footer-contact">
-      <a href="mailto:contact@lamaisonmirage.com">contact@lamaisonmirage.com</a><br/>
+      <a href="mailto:contact@ateliermirage.fr">contact@ateliermirage.fr</a><br/>
       <a href="tel:+33622356575">+33 (0)6 22 35 65 75</a>
     </div>
 
@@ -2811,7 +2811,7 @@
       const recap = cart.map(i => `• ${i.name} x${i.qty} — ${(i.price * i.qty).toFixed(2)}€`).join('\n');
       const total = cart.reduce((s, i) => s + i.price * i.qty, 0).toFixed(2);
       const body = `Bonjour Atelier Mirage,\n\nJe souhaite commander :\n\n${recap}\n\nTotal : ${total}€\n\nCordialement`;
-      window.location.href = `mailto:contact@lamaisonmirage.com?subject=${encodeURIComponent('Commande Atelier Mirage')}&body=${encodeURIComponent(body)}`;
+      window.location.href = `mailto:contact@ateliermirage.fr?subject=${encodeURIComponent('Commande Atelier Mirage')}&body=${encodeURIComponent(body)}`;
       return;
     }
 
@@ -3427,9 +3427,9 @@
                 method: 'POST', body: formData, headers: { 'Accept': 'application/json' }
               });
               if (response.ok) { addMessage("Demande transmise à l'atelier. Réponse sous 24h sur " + userEmail + ".", 'bot'); } 
-              else { addMessage("Erreur réseau. Écrivez-nous à contact@lamaisonmirage.com.", 'bot'); }
+              else { addMessage("Erreur réseau. Écrivez-nous à contact@ateliermirage.fr.", 'bot'); }
             } catch(e) {
-              addMessage("Erreur réseau. Écrivez-nous à contact@lamaisonmirage.com.", 'bot');
+              addMessage("Erreur réseau. Écrivez-nous à contact@ateliermirage.fr.", 'bot');
             }
             
             chatState = 'NORMAL';

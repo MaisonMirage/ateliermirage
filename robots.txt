@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.lamaisonmirage.com/sitemap.xml
+Sitemap: https://www.ateliermirage.fr/sitemap.xml
