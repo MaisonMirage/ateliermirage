@@ -173,7 +173,11 @@
       transform: scale(1.06);
     }
     /* Vue dense — grille compacte uniforme (la vedette redevient normale) */
-    .shop-grid.view-dense { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 1fr; gap: 2rem 1.4rem; }
+    .shop-grid.view-dense { grid-template-columns: repeat(6, 1fr); grid-auto-rows: 1fr; gap: 0.35rem; }
+    /* Vue dense = mosaïque d'images plein cadre, sans texte (façon Yann Couvreur) */
+    .shop-grid.view-dense .shop-card-name,
+    .shop-grid.view-dense .shop-card-price { display: none; }
+    .shop-grid.view-dense .shop-card .shop-card-img-wrap { aspect-ratio: 4 / 5; margin-bottom: 0; }
     .shop-grid.view-dense .shop-card.is-featured { grid-column: span 1 !important; grid-row: span 1 !important; }
     .shop-grid.view-dense .shop-card.is-featured .shop-card-img-wrap { aspect-ratio: 4/5 !important; flex: 0 0 auto !important; min-height: 0; }
     .shop-grid.view-dense .shop-card.is-featured .shop-card-name { font-size: 0.8rem; letter-spacing: 0.15em; font-weight: 500; }
@@ -240,6 +244,62 @@
     .shop-grid .shop-card.is-featured .shop-card-sub {
       font-size: 0.82rem;
     }
+    /* Prix sous le nom — façon Yann Couvreur */
+    .collection-page .shop-card-price {
+      font-family: var(--sans);
+      font-size: 0.74rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      color: var(--ink);
+      margin-top: 0.3rem;
+    }
+    .shop-grid .shop-card.is-featured .shop-card-price { font-size: 0.82rem; margin-top: 0.35rem; }
+
+    /* ── Bannière hero de catégorie (façon Yann Couvreur) ── */
+    .collection-hero {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 520px;
+      overflow: hidden;
+      margin-bottom: 2.4rem;
+      background: #ece5db;
+    }
+    .collection-hero-img { width: 100%; height: 100%; object-fit: cover; object-position: center; display: block; }
+    .collection-hero-overlay {
+      position: absolute; left: 0; right: 0; bottom: 0;
+      padding: 2.4rem 2.6rem;
+      background: linear-gradient(to top, rgba(45,30,20,0.62), rgba(45,30,20,0.12) 55%, rgba(45,30,20,0) 82%);
+      color: #fff;
+    }
+    .collection-hero-eyebrow {
+      font-family: var(--sans);
+      text-transform: uppercase; letter-spacing: 0.26em;
+      font-size: 0.62rem; font-weight: 400; opacity: 0.92; margin: 0 0 0.5rem;
+    }
+    .collection-hero-title {
+      font-family: 'Geometria', sans-serif;
+      text-transform: uppercase; letter-spacing: 0.16em;
+      font-size: clamp(1.6rem, 3vw, 2.6rem); font-weight: 300;
+      color: #fff; margin: 0; line-height: 1;
+    }
+
+    /* ── Bouton flottant Filtrer & trier + volet (mobile uniquement) ── */
+    .filter-fab { display: none; }
+    .filter-sheet { position: fixed; inset: 0; z-index: 300; visibility: hidden; }
+    .filter-sheet-backdrop { position: absolute; inset: 0; background: rgba(40,28,20,0.45); opacity: 0; transition: opacity .35s var(--ease-out); }
+    .filter-sheet-panel { position: absolute; left: 0; right: 0; bottom: 0; background: var(--white); border-radius: 1.3rem 1.3rem 0 0; padding: 1.1rem 1.5rem calc(1.6rem + env(safe-area-inset-bottom)); transform: translateY(101%); transition: transform .4s var(--ease-out); box-shadow: 0 -20px 50px rgba(40,28,20,0.18); }
+    .filter-sheet.open { visibility: visible; }
+    .filter-sheet.open .filter-sheet-backdrop { opacity: 1; }
+    .filter-sheet.open .filter-sheet-panel { transform: translateY(0); }
+    .filter-sheet-grip { width: 38px; height: 4px; border-radius: 2px; background: rgba(109,72,51,0.18); margin: 0 auto 1.1rem; }
+    .filter-sheet-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem; }
+    .filter-sheet-head span { font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.18em; font-size: 0.74rem; color: var(--ink); }
+    .filter-sheet-close { background: none; border: none; color: var(--ink-muted); cursor: pointer; padding: 0.3rem; line-height: 0; }
+    .filter-sheet-label { font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.16em; font-size: 0.62rem; color: var(--ink-muted); margin: 1.2rem 0 0.65rem; }
+    .filter-sheet-group { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+    .filter-sheet-group button { font-family: var(--sans); font-size: 0.72rem; letter-spacing: 0.03em; color: var(--ink); background: rgba(109,72,51,0.05); border: 1px solid transparent; border-radius: 999px; padding: 0.55rem 1.05rem; cursor: pointer; transition: background .25s, color .25s; }
+    .filter-sheet-group button.active { background: var(--ink); color: var(--white); }
 
     @media (max-width: 1024px) {
       .shop-grid { grid-template-columns: repeat(3, 1fr); }
@@ -249,12 +309,12 @@
 
     /* ═══════ MOBILE — barre filtre collée en bas, carte vedette pleine largeur ═══════ */
     @media (max-width: 768px) {
-      .collection-page { padding: 6rem 6vw 2.5rem; } /* haut : dégage la navbar/marque */
+      .collection-page { padding: 5.5rem 2vw 2rem; } /* marges latérales très resserrées (façon YC) */
       footer { padding-top: 3.5rem; }                  /* réduit le vide avant le footer */
 
-      /* Grille mobile — rangées à hauteur automatique (sinon 1fr étire tout) */
-      .shop-grid { grid-template-columns: repeat(2, 1fr); gap: 2.2rem 1.3rem; grid-auto-rows: auto; }
-      .shop-grid.view-dense { grid-template-columns: repeat(3, 1fr); gap: 1.5rem 1rem; grid-auto-rows: auto; }
+      /* Grille mobile — gouttières fines, images plus grandes (façon YC) */
+      .shop-grid { grid-template-columns: repeat(2, 1fr); gap: 1rem 0.3rem; grid-auto-rows: auto; }
+      .shop-grid.view-dense { grid-template-columns: repeat(3, 1fr); gap: 0.3rem 0.2rem; grid-auto-rows: auto; }
       .shop-grid .shop-card { align-self: start; }
 
       /* Carte vedette — pleine largeur, grand format portrait */
@@ -279,7 +339,7 @@
 
       /* Barre filtre/tri — une seule ligne façon Yann Couvreur */
       .collection-bar {
-        padding: 1rem 0;
+        padding: 0.5rem 0;
         margin-bottom: 0.5rem;
         border-bottom: none;       /* retire la ligne grise sous la barre */
       }
@@ -288,6 +348,50 @@
       .sort-toggle { font-size: 0.68rem; }        /* aligné sur la taille des catégories mobile */
       /* Filtrer et trier (à gauche) · sélecteur de vue (à droite) */
       .collection-tools { width: 100%; justify-content: space-between; gap: 1rem; flex-direction: row-reverse; }
+
+      /* Évite tout débordement horizontal dû au bord-à-bord */
+      .collection-page { overflow-x: hidden; }
+
+      /* Bannière hero — pleine largeur bord à bord, format portrait (façon YC) */
+      .collection-hero {
+        width: 100%; margin-left: 0;        /* aligné sur la grille — 2vw des bords comme les produits */
+        aspect-ratio: 4 / 5; max-height: none;
+        margin-bottom: 0.3rem;
+      }
+      .collection-hero-overlay { padding: 1.6rem 1.4rem; }
+      .collection-hero-eyebrow { font-size: 0.6rem; letter-spacing: 0.22em; }
+      .collection-hero-title { font-size: 1.8rem; letter-spacing: 0.13em; }
+
+      /* Vedette — image pleine largeur bord à bord (hero façon Yann Couvreur) */
+      .shop-grid .shop-card.is-featured .shop-card-img-wrap {
+        width: calc(100% + 12vw);
+        margin-left: -6vw;
+        aspect-ratio: 1 / 1;
+        margin-bottom: 1rem;
+      }
+      .shop-grid .shop-card.is-featured .shop-card-name,
+      .shop-grid .shop-card.is-featured .shop-card-sub { padding: 0; }
+      /* En vue dense, la vedette redevient une carte normale (pas de bleed) */
+      .shop-grid.view-dense .shop-card.is-featured .shop-card-img-wrap {
+        width: 100%; margin-left: 0; aspect-ratio: 4/5; margin-bottom: 0.7rem;
+      }
+
+      /* Bouton flottant « Filtrer et trier » */
+      .filter-fab {
+        display: inline-flex; align-items: center; gap: 0.55rem;
+        position: fixed; left: 50%; bottom: calc(1.1rem + env(safe-area-inset-bottom));
+        transform: translateX(-50%);
+        background: #9c8568; color: #fff;
+        font-family: var(--sans); text-transform: uppercase; letter-spacing: 0.16em;
+        font-size: 0.68rem; font-weight: 500;
+        padding: 0.85rem 1.7rem; border: none; border-radius: 999px;
+        box-shadow: 0 12px 30px rgba(40,28,20,0.28);
+        z-index: 200; cursor: pointer; white-space: nowrap;
+        transition: opacity .3s var(--ease-out), transform .3s var(--ease-out);
+      }
+      .filter-fab svg { width: 14px; height: 14px; }
+      .filter-fab .filter-fab-count { opacity: 0.7; }
+      .filter-fab.is-hidden { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(24px); }
     }
 
     /* Burger — deux traits fins et resserrés (inline : insensible au cache) */
@@ -390,93 +494,134 @@
         </div>
       </div>
 
+      <!-- ═══════ Bannière hero de catégorie (façon Yann Couvreur) ═══════ -->
+      <section class="collection-hero" id="collectionHero" aria-hidden="true">
+        <img class="collection-hero-img" id="collectionHeroImg" src="img/misc/collection-hero.webp" alt="Découvrez nos Pâtisseries — Atelier Mirage" decoding="async" />
+        <div class="collection-hero-overlay">
+          <p class="collection-hero-eyebrow">Découvrez nos</p>
+          <h2 class="collection-hero-title" id="collectionHeroTitle">Pâtisseries</h2>
+        </div>
+      </section>
+
       <div class="shop-grid">
+        <a href="produit-gomu-gomu.html" class="shop-card reveal" data-cat="demon" style="display:block;">
+          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/gomu-gomu.webp" alt="Gomu Gomu no Mi" width="400" height="400" loading="lazy"decoding="async" /></div>
+          <div class="shop-card-name">Gomu Gomu no Mi</div><div class="shop-card-price">9,90 €</div>
+        </a>
+        <a href="produit-mera-mera.html" class="shop-card reveal" data-cat="demon" style="display:block;">
+          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/mera-mera.webp" alt="Mera Mera no Mi" width="400" height="400" loading="lazy"decoding="async" /></div>
+          <div class="shop-card-name">Mera Mera no Mi</div><div class="shop-card-price">9,90 €</div>
+        </a>
+        <a href="produit-ito-ito.html" class="shop-card reveal" data-cat="demon" style="display:block;">
+          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/ito-ito.webp" alt="Ito Ito no Mi" width="400" height="400" loading="lazy"decoding="async" /></div>
+          <div class="shop-card-name">Ito Ito no Mi</div><div class="shop-card-price">9,90 €</div>
+        </a>
+        <a href="produit-paw-paw.html" class="shop-card reveal" data-cat="demon" style="display:block;">
+          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/paw-paw.webp" alt="Paw Paw no Mi" width="400" height="400" loading="lazy"decoding="async" /></div>
+          <div class="shop-card-name">Paw Paw no Mi</div><div class="shop-card-price">9,90 €</div>
+        </a>
+        <a href="produit-moku-moku.html" class="shop-card reveal" data-cat="demon" style="display:block;">
+          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/moku-moku.webp" alt="Moku Moku no Mi" width="400" height="400" loading="lazy"decoding="async" /></div>
+          <div class="shop-card-name">Moku Moku no Mi</div><div class="shop-card-price">9,90 €</div>
+        </a>
         <a href="produit-poulpe.html" class="shop-card reveal" data-cat="signature" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/poulpe-gold.webp" alt="Poulpe" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Poulpe</div><div class="shop-card-sub">Sang Bleu · Ganache Vanille</div>
+          <div class="shop-card-name">Poulpe</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-fraise.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/fraise.webp" alt="Fraise" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Fraise</div><div class="shop-card-sub">Confit Intense · Ganache Montée</div>
+          <div class="shop-card-name">Fraise</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-mangue.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/mangue.webp" alt="Mangue" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Mangue</div><div class="shop-card-sub">Cœur Exotique · Velours</div>
+          <div class="shop-card-name">Mangue</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-framboise.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/framboise.webp" alt="Framboise" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Framboise</div><div class="shop-card-sub">Velours Rouge · Acidulée</div>
+          <div class="shop-card-name">Framboise</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-peche.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/peche.webp" alt="Pêche" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Pêche</div><div class="shop-card-sub">Signature Fruitée</div>
+          <div class="shop-card-name">Pêche</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-citron.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/citron.webp" alt="Citron" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Citron</div><div class="shop-card-sub">Zeste Givré · Acidité</div>
+          <div class="shop-card-name">Citron</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-passion.html" class="shop-card reveal" data-cat="fruit" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/passion.webp" alt="Passion" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Passion</div><div class="shop-card-sub">Éclat Tropical · Cœur Exotique</div>
+          <div class="shop-card-name">Passion</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-baklava.html" class="shop-card reveal" data-cat="gourmand signature" style="display:block;">
-          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/baklava.webp" alt="Baklava" width="400" height="500" loading="lazy"decoding="async" /><div class="shop-card-badge-new">Nouveau</div></div>
-          <div class="shop-card-name">Baklava</div><div class="shop-card-sub">Phyllo Doré · Miel &amp; Pistache</div>
+          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/baklava.webp" alt="Baklava" width="400" height="500" loading="lazy"decoding="async" /></div>
+          <div class="shop-card-name">Baklava</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-pistache.html" class="shop-card reveal" data-cat="gourmand" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/pistache.webp" alt="Pistache" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Pistache</div><div class="shop-card-sub">Sicile · Insert Framboise</div>
+          <div class="shop-card-name">Pistache</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-cacao.html" class="shop-card reveal" data-cat="chocolat" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/cacao.webp" alt="Cacao" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Cacao</div><div class="shop-card-sub">Fève Intense · Grand Cru</div>
+          <div class="shop-card-name">Cacao</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-arachide.html" class="shop-card reveal" data-cat="chocolat" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/arachide.webp" alt="Arachide" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Arachide</div><div class="shop-card-sub">Praliné Coulant · Orfèvrerie</div>
+          <div class="shop-card-name">Arachide</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-cacahuete.html" class="shop-card reveal" data-cat="caramel" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/cacahuete.webp" alt="Cacahuète" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Cacahuète</div><div class="shop-card-sub">Caramel Blond · Orfèvrerie</div>
+          <div class="shop-card-name">Cacahuète</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-datte.html" class="shop-card reveal" data-cat="caramel" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/datte.webp" alt="Datte" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Datte</div><div class="shop-card-sub">Medjool · Caramel Fleur de Sel</div>
+          <div class="shop-card-name">Datte</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-vanille.html" class="shop-card reveal" data-cat="gourmand" style="display:block;">
           <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/vanille.webp" alt="Vanille" width="400" height="400" loading="lazy"decoding="async" /></div>
-          <div class="shop-card-name">Vanille</div><div class="shop-card-sub">Gousse Noire · Madagascar</div>
+          <div class="shop-card-name">Vanille</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-boule-cristal.html" class="shop-card reveal" data-cat="signature" style="display:block;">
-          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/boule-cristal.webp" alt="Boule de Cristal" width="400" height="500" loading="lazy"decoding="async" /><div class="shop-card-badge-new">Nouveau</div></div>
-          <div class="shop-card-name">Boule de Cristal</div><div class="shop-card-sub">Sphère Ambrée · Vanille &amp; Orange</div>
+          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/boule-cristal.webp" alt="Boule de Cristal" width="400" height="500" loading="lazy"decoding="async" /></div>
+          <div class="shop-card-name">Boule de Cristal</div><div class="shop-card-price">9,90 €</div>
         </a>
         <a href="produit-nigiri.html" class="shop-card reveal" data-cat="signature" style="display:block;">
-          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/nigiri.webp" alt="Nigiri" width="400" height="500" loading="lazy"decoding="async" /><div class="shop-card-badge-new">Nouveau</div></div>
-          <div class="shop-card-name">Nigiri</div><div class="shop-card-sub">Sushi Trompe-l'œil · Coco &amp; Mangue</div>
-        </a>
-        <a href="produit-gomu-gomu.html" class="shop-card reveal" data-cat="demon" style="display:block;">
-          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/gomu-gomu.webp" alt="Gomu Gomu no Mi" width="400" height="400" loading="lazy"decoding="async" /><div class="shop-card-badge-new">Nouveau</div></div>
-          <div class="shop-card-name">Gomu Gomu no Mi</div><div class="shop-card-sub">Cassis · Violette</div>
-        </a>
-        <a href="produit-mera-mera.html" class="shop-card reveal" data-cat="demon" style="display:block;">
-          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/mera-mera.webp" alt="Mera Mera no Mi" width="400" height="400" loading="lazy"decoding="async" /><div class="shop-card-badge-new">Nouveau</div></div>
-          <div class="shop-card-name">Mera Mera no Mi</div><div class="shop-card-sub">Mangue · Passion · Note Flammée</div>
-        </a>
-        <a href="produit-ito-ito.html" class="shop-card reveal" data-cat="demon" style="display:block;">
-          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/ito-ito.webp" alt="Ito Ito no Mi" width="400" height="400" loading="lazy"decoding="async" /><div class="shop-card-badge-new">Nouveau</div></div>
-          <div class="shop-card-name">Ito Ito no Mi</div><div class="shop-card-sub">Poire · Spéculoos</div>
-        </a>
-        <a href="produit-paw-paw.html" class="shop-card reveal" data-cat="demon" style="display:block;">
-          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/paw-paw.webp" alt="Paw Paw no Mi" width="400" height="400" loading="lazy"decoding="async" /><div class="shop-card-badge-new">Nouveau</div></div>
-          <div class="shop-card-name">Paw Paw no Mi</div><div class="shop-card-sub">Fraise · Litchi · Rose</div>
-        </a>
-        <a href="produit-moku-moku.html" class="shop-card reveal" data-cat="demon" style="display:block;">
-          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/moku-moku.webp" alt="Moku Moku no Mi" width="400" height="400" loading="lazy"decoding="async" /><div class="shop-card-badge-new">Nouveau</div></div>
-          <div class="shop-card-name">Moku Moku no Mi</div><div class="shop-card-sub">Vanille Fumée · Caramel</div>
+          <div class="shop-card-img-wrap"><img class="shop-card-main" src="img/products/nigiri.webp" alt="Nigiri" width="400" height="500" loading="lazy"decoding="async" /></div>
+          <div class="shop-card-name">Nigiri</div><div class="shop-card-price">9,90 €</div>
         </a>
       </div>
 
+    </div>
+
+    <!-- ═══════ Bouton flottant + volet Filtrer/Trier (mobile) ═══════ -->
+    <button type="button" class="filter-fab" id="filterFab" aria-haspopup="dialog" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+      <span>Filtrer et trier</span>
+      <span class="filter-fab-count" id="filterFabCount">(5)</span>
+    </button>
+
+    <div class="filter-sheet" id="filterSheet" role="dialog" aria-modal="true" aria-label="Filtrer et trier">
+      <div class="filter-sheet-backdrop" data-close></div>
+      <div class="filter-sheet-panel">
+        <div class="filter-sheet-grip"></div>
+        <div class="filter-sheet-head">
+          <span>Filtrer et trier</span>
+          <button class="filter-sheet-close" data-close aria-label="Fermer"><svg width="14" height="14" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M2 2l8 8M10 2l-8 8"/></svg></button>
+        </div>
+        <p class="filter-sheet-label">Catégorie</p>
+        <div class="filter-sheet-group">
+          <button type="button" data-filter="all" class="active">Toute la collection</button>
+          <button type="button" data-filter="fruit">Fruités</button>
+          <button type="button" data-filter="gourmand">Gourmands</button>
+          <button type="button" data-filter="signature">Signatures</button>
+          <button type="button" data-filter="demon">Fruits du Démon</button>
+        </div>
+        <p class="filter-sheet-label">Trier</p>
+        <div class="filter-sheet-group">
+          <button type="button" data-sort="default" class="active">Mise en avant</button>
+          <button type="button" data-sort="az">Ordre A → Z</button>
+          <button type="button" data-sort="za">Ordre Z → A</button>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -610,8 +755,26 @@
       const FILTER_MAP = {
         fruit: ['fruit'],
         gourmand: ['chocolat', 'caramel', 'gourmand'],
-        signature: ['signature']
+        signature: ['signature'],
+        demon: ['demon']
       };
+
+      // Bannière hero par catégorie : image + titre (« Découvrez nos … »)
+      const HERO = {
+        all:       { img: 'img/misc/collection-hero.webp',        title: 'Pâtisseries' },
+        fruit:     { img: 'img/heroes/hero-fruite.webp',          title: 'Fruités' },
+        gourmand:  { img: 'img/heroes/hero-gourmand.webp',        title: 'Gourmands' },
+        signature: { img: 'img/heroes/hero-signatures.webp',      title: 'Signatures' },
+        demon:     { img: 'img/misc/demon-hero.webp',             title: 'Fruits du Démon' }
+      };
+      const heroImg = document.getElementById('collectionHeroImg');
+      const heroTitle = document.getElementById('collectionHeroTitle');
+      function updateHero() {
+        const h = HERO[currentFilter] || HERO.all;
+        if (heroImg && !heroImg.getAttribute('src').endsWith(h.img)) heroImg.setAttribute('src', h.img);
+        if (heroImg) heroImg.setAttribute('alt', 'Découvrez nos ' + h.title + ' — Atelier Mirage');
+        if (heroTitle) heroTitle.textContent = h.title;
+      }
 
       const render = () => {
         // 1. Filtrer
@@ -636,24 +799,29 @@
           card.style.display = 'none';
           card.classList.remove('is-featured');
         });
-        visible.forEach((card, i) => {
+        visible.forEach((card) => {
           card.style.display = 'flex';
           grid.appendChild(card); // réordonne dans le DOM
-          if (i === 0) card.classList.add('is-featured'); // 1ʳᵉ carte visible = vedette
         });
+        updateHero(); // bannière de catégorie (remplace la carte vedette)
 
-        // 4. Compteurs (texte desktop + bouton mobile)
+        // 4. Compteurs (texte desktop + bouton mobile + bouton flottant)
         if (countEl) countEl.textContent = visible.length;
         if (sortCountEl) sortCountEl.textContent = '(' + visible.length + ')';
+        var fc = document.getElementById('filterFabCount');
+        if (fc) fc.textContent = '(' + visible.length + ')';
       };
 
       // ── Sélecteur de vue : confort / dense ──
       const viewBtns = document.querySelectorAll('.view-btn');
+      const collHero = document.getElementById('collectionHero');
       viewBtns.forEach(btn => {
         btn.addEventListener('click', () => {
           viewBtns.forEach(b => b.classList.remove('active'));
           btn.classList.add('active');
-          grid.classList.toggle('view-dense', btn.dataset.view === 'dense');
+          const dense = btn.dataset.view === 'dense';
+          grid.classList.toggle('view-dense', dense);
+          if (collHero) collHero.style.display = dense ? 'none' : '';  // hero masqué en vue dense (façon YC)
         });
       });
 
@@ -673,6 +841,8 @@
       if (sortToggle && sortMenu) {
         sortToggle.addEventListener('click', (e) => {
           e.stopPropagation();
+          // Sur mobile, le bouton du haut ouvre le même volet que le bouton flottant
+          if (window.matchMedia('(max-width: 768px)').matches) { openSheet(); return; }
           const open = sortMenu.classList.toggle('open');
           sortToggle.setAttribute('aria-expanded', open);
         });
@@ -694,9 +864,55 @@
         });
       }
 
+      // ── Volet filtres/tri (bottom sheet) + bouton flottant — mobile ──
+      const filterSheet = document.getElementById('filterSheet');
+      const filterFab = document.getElementById('filterFab');
+      function syncSheetActive() {
+        if (!filterSheet) return;
+        filterSheet.querySelectorAll('[data-filter]').forEach(b => b.classList.toggle('active', b.dataset.filter === currentFilter));
+        filterSheet.querySelectorAll('[data-sort]').forEach(b => b.classList.toggle('active', b.dataset.sort === currentSort));
+      }
+      function openSheet() {
+        if (!filterSheet) return;
+        syncSheetActive();
+        filterSheet.classList.add('open');
+        document.body.style.overflow = 'hidden';
+        if (filterFab) filterFab.setAttribute('aria-expanded', 'true');
+      }
+      function closeSheet() {
+        if (!filterSheet) return;
+        filterSheet.classList.remove('open');
+        document.body.style.overflow = '';
+        if (filterFab) filterFab.setAttribute('aria-expanded', 'false');
+      }
+      if (filterFab) filterFab.addEventListener('click', openSheet);
+      if (filterSheet) {
+        filterSheet.querySelectorAll('[data-close]').forEach(el => el.addEventListener('click', closeSheet));
+        filterSheet.querySelectorAll('[data-filter]').forEach(btn => btn.addEventListener('click', () => {
+          currentFilter = btn.dataset.filter;
+          catTabs.forEach(t => t.classList.toggle('active', t.dataset.filter === currentFilter));
+          render(); syncSheetActive(); closeSheet();
+        }));
+        filterSheet.querySelectorAll('[data-sort]').forEach(btn => btn.addEventListener('click', () => {
+          currentSort = btn.dataset.sort;
+          if (sortMenu) sortMenu.querySelectorAll('button').forEach(b => b.classList.toggle('active', b.dataset.sort === currentSort));
+          render(); syncSheetActive(); closeSheet();
+        }));
+      }
+      // Bouton flottant visible seulement quand la barre du haut ET le footer sont hors écran
+      if (filterFab && 'IntersectionObserver' in window) {
+        const bar = document.querySelector('.collection-bar');
+        const foot = document.querySelector('footer');
+        let barVisible = true, footVisible = false;
+        const updFab = () => filterFab.classList.toggle('is-hidden', barVisible || footVisible);
+        if (bar) new IntersectionObserver(([e]) => { barVisible = e.isIntersecting; updFab(); }, { threshold: 0 }).observe(bar);
+        if (foot) new IntersectionObserver(([e]) => { footVisible = e.isIntersecting; updFab(); }, { threshold: 0 }).observe(foot);
+        updFab();
+      }
+
       // Lecture du filtre depuis l'URL (collection.html?filter=fruit)
       const urlFilter = new URLSearchParams(window.location.search).get('filter');
-      const validFilters = ['all', 'fruit', 'gourmand', 'signature'];
+      const validFilters = ['all', 'fruit', 'gourmand', 'signature', 'demon'];
       if (urlFilter && validFilters.includes(urlFilter)) {
         currentFilter = urlFilter;
         catTabs.forEach(t => t.classList.toggle('active', t.dataset.filter === urlFilter));
