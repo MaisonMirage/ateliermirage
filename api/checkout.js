@@ -30,7 +30,12 @@ const PRODUITS = {
   'datte': 'La Datte',
   'vanille': 'La Vanille',
   'boule-cristal': 'La Boule de Cristal',
-  'nigiri': 'Le Nigiri'
+  'nigiri': 'Le Nigiri',
+  'gomu-gomu': 'Gomu Gomu no Mi',
+  'mera-mera': 'Mera Mera no Mi',
+  'ito-ito': 'Ito Ito no Mi',
+  'paw-paw': 'Paw Paw no Mi',
+  'moku-moku': 'Moku Moku no Mi'
 };
 
 const FRAIS_LIVRAISON_CENTS = 490;   // 4,90 € — livraison par coursier

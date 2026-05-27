@@ -14,22 +14,27 @@
 
   /* Catalogue — pour les recommandations « Vous aimerez aussi » */
   var CATALOG = [
-    { id: 'poulpe',        name: 'Poulpe',         img: 'img/poulpe-gold.webp', url: 'produit-poulpe.html' },
-    { id: 'fraise',        name: 'Fraise',         img: 'img/fraise.webp',      url: 'produit-fraise.html' },
-    { id: 'mangue',        name: 'Mangue',         img: 'img/mangue.webp',      url: 'produit-mangue.html' },
-    { id: 'framboise',     name: 'Framboise',      img: 'img/framboise.webp',   url: 'produit-framboise.html' },
-    { id: 'peche',         name: 'Pêche',          img: 'img/peche.webp',       url: 'produit-peche.html' },
-    { id: 'citron',        name: 'Citron',         img: 'img/citron.webp',      url: 'produit-citron.html' },
-    { id: 'passion',       name: 'Passion',        img: 'img/passion.webp',     url: 'produit-passion.html' },
-    { id: 'baklava',       name: 'Baklava',        img: 'img/baklava.webp',     url: 'produit-baklava.html' },
-    { id: 'pistache',      name: 'Pistache',       img: 'img/pistache.webp',    url: 'produit-pistache.html' },
-    { id: 'cacao',         name: 'Cacao',          img: 'img/cacao.webp',       url: 'produit-cacao.html' },
-    { id: 'arachide',      name: "Arachide",        img: 'img/arachide.webp',    url: 'produit-arachide.html' },
-    { id: 'cacahuete',     name: 'Cacahuète',      img: 'img/cacahuete.webp',   url: 'produit-cacahuete.html' },
-    { id: 'datte',         name: 'Datte',          img: 'img/datte.webp',       url: 'produit-datte.html' },
-    { id: 'vanille',       name: 'Vanille',        img: 'img/vanille.webp',     url: 'produit-vanille.html' },
-    { id: 'boule-cristal', name: 'Boule de Cristal', img: 'img/boule-cristal.webp', url: 'produit-boule-cristal.html' },
-    { id: 'nigiri',        name: 'Nigiri',         img: 'img/nigiri.webp',      url: 'produit-nigiri.html' }
+    { id: 'poulpe',        name: 'Poulpe',         img: 'img/products/poulpe-gold.webp', url: 'produit-poulpe.html' },
+    { id: 'fraise',        name: 'Fraise',         img: 'img/products/fraise.webp',      url: 'produit-fraise.html' },
+    { id: 'mangue',        name: 'Mangue',         img: 'img/products/mangue.webp',      url: 'produit-mangue.html' },
+    { id: 'framboise',     name: 'Framboise',      img: 'img/products/framboise.webp',   url: 'produit-framboise.html' },
+    { id: 'peche',         name: 'Pêche',          img: 'img/products/peche.webp',       url: 'produit-peche.html' },
+    { id: 'citron',        name: 'Citron',         img: 'img/products/citron.webp',      url: 'produit-citron.html' },
+    { id: 'passion',       name: 'Passion',        img: 'img/products/passion.webp',     url: 'produit-passion.html' },
+    { id: 'baklava',       name: 'Baklava',        img: 'img/products/baklava.webp',     url: 'produit-baklava.html' },
+    { id: 'pistache',      name: 'Pistache',       img: 'img/products/pistache.webp',    url: 'produit-pistache.html' },
+    { id: 'cacao',         name: 'Cacao',          img: 'img/products/cacao.webp',       url: 'produit-cacao.html' },
+    { id: 'arachide',      name: "Arachide",        img: 'img/products/arachide.webp',    url: 'produit-arachide.html' },
+    { id: 'cacahuete',     name: 'Cacahuète',      img: 'img/products/cacahuete.webp',   url: 'produit-cacahuete.html' },
+    { id: 'datte',         name: 'Datte',          img: 'img/products/datte.webp',       url: 'produit-datte.html' },
+    { id: 'vanille',       name: 'Vanille',        img: 'img/products/vanille.webp',     url: 'produit-vanille.html' },
+    { id: 'boule-cristal', name: 'Boule de Cristal', img: 'img/products/boule-cristal.webp', url: 'produit-boule-cristal.html' },
+    { id: 'nigiri',        name: 'Nigiri',         img: 'img/products/nigiri.webp',      url: 'produit-nigiri.html' },
+    { id: 'gomu-gomu',     name: 'Gomu Gomu no Mi', img: 'img/products/gomu-gomu.webp',  url: 'produit-gomu-gomu.html' },
+    { id: 'mera-mera',     name: 'Mera Mera no Mi', img: 'img/products/mera-mera.webp',  url: 'produit-mera-mera.html' },
+    { id: 'ito-ito',       name: 'Ito Ito no Mi',   img: 'img/products/ito-ito.webp',    url: 'produit-ito-ito.html' },
+    { id: 'paw-paw',       name: 'Paw Paw no Mi',   img: 'img/products/paw-paw.webp',    url: 'produit-paw-paw.html' },
+    { id: 'moku-moku',     name: 'Moku Moku no Mi', img: 'img/products/moku-moku.webp',  url: 'produit-moku-moku.html' }
   ];
 
   /* ---------- État ---------- */

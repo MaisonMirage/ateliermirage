@@ -476,9 +476,9 @@
           <p class="hf-note">*Livraison par coursier depuis notre atelier marseillais.</p>
         </article>
 
-        <!-- Volet 2 — Les Fruits du Démon -->
+        <!-- Volet 2 — Fruits du Démon -->
         <article class="hf-slide" data-title="Les Fruits du Démon">
-          <img class="hf-bg" src="img/misc/fruit-demon.webp" alt="Les Fruits du Démon — entremets trompe-l'œil Atelier Mirage" loading="lazy" decoding="async" />
+          <img class="hf-bg" src="img/misc/fruit-demon.webp" alt="Fruits du Démon — entremets trompe-l'œil Atelier Mirage" loading="lazy" decoding="async" />
           <div class="hf-scrim" aria-hidden="true"></div>
           <div class="hf-inner">
             <p class="hf-eyebrow">La sélection du moment</p>
@@ -718,15 +718,15 @@
 
   // 1. DONNÉES PRODUITS
   const productData = {
-    'Fraise': { img:'img/fraise.webp', sub:'Confit Intense · Ganache Montée', desc:'Sous une coque rouge vif réalisée à l\'aérographe, un confit de fraise gariguette, une ganache montée vanille et un biscuit amande moelleux.', allergens:['Lait','Oeufs','Gluten','Fruits à coque'] },
-    'Mangue': { img:'img/mangue.webp', sub:'Cœur Exotique · Velours', desc:'Un cœur coulant mangue alphonso, une mousse légère au fruit de la passion et un croustillant coco.', allergens:['Lait','Oeufs','Gluten','Coco'] },
-    'Framboise': { img:'img/framboise.webp', sub:'Velours Rouge · Acidulée', desc:'Un insert framboise, un crémeux framboise-litchi, et une mousse vanille.', allergens:['Lait','Oeufs','Gluten'] },
-    'Pêche': { img:'img/peche.webp', sub:'Signature Fruitée', desc:'Un confit de pêche blanche, une mousse pêche-verveine et un biscuit financier noisette.', allergens:['Lait','Oeufs','Gluten','Noisette'] },
-    'Citron': { img:'img/citron.webp', sub:'Zeste Givré · Acidité', desc:'Un crémeux citron de Menton, une meringue italienne, et un confit citron-basilic.', allergens:['Lait','Oeufs','Gluten'] },
-    'Cacao': { img:'img/cacao.webp', sub:'Fève Intense · Grand Cru', desc:'Une ganache chocolat noir Tanzanie 75%, un croustillant praliné, et un biscuit chocolat sans farine.', allergens:['Lait','Oeufs','Fruits à coque'] },
-    "Arachide": { img:'img/arachide.webp', sub:'Praliné Coulant · Orfèvre', desc:'Un praliné cacahuète coulant, caramel beurre salé, mousse chocolat lait.', allergens:['Lait','Oeufs','Gluten','Arachide'] },
-    'Passion': { img:'img/passion.webp', sub:'Éclat Tropical', desc:'Un insert passion-mangue, crémeux chocolat blanc-passion.', allergens:['Lait','Oeufs','Gluten'] },
-    'Vanille': { img:'img/vanille.webp', sub:'Bourbon · Madagascar', desc:'Une crème vanille bourbon de Madagascar infusée 48h, un caramel vanille.', allergens:['Lait','Oeufs','Gluten'] }
+    'Fraise': { img:'img/products/fraise.webp', sub:'Confit Intense · Ganache Montée', desc:'Sous une coque rouge vif réalisée à l\'aérographe, un confit de fraise gariguette, une ganache montée vanille et un biscuit amande moelleux.', allergens:['Lait','Oeufs','Gluten','Fruits à coque'] },
+    'Mangue': { img:'img/products/mangue.webp', sub:'Cœur Exotique · Velours', desc:'Un cœur coulant mangue alphonso, une mousse légère au fruit de la passion et un croustillant coco.', allergens:['Lait','Oeufs','Gluten','Coco'] },
+    'Framboise': { img:'img/products/framboise.webp', sub:'Velours Rouge · Acidulée', desc:'Un insert framboise, un crémeux framboise-litchi, et une mousse vanille.', allergens:['Lait','Oeufs','Gluten'] },
+    'Pêche': { img:'img/products/peche.webp', sub:'Signature Fruitée', desc:'Un confit de pêche blanche, une mousse pêche-verveine et un biscuit financier noisette.', allergens:['Lait','Oeufs','Gluten','Noisette'] },
+    'Citron': { img:'img/products/citron.webp', sub:'Zeste Givré · Acidité', desc:'Un crémeux citron de Menton, une meringue italienne, et un confit citron-basilic.', allergens:['Lait','Oeufs','Gluten'] },
+    'Cacao': { img:'img/products/cacao.webp', sub:'Fève Intense · Grand Cru', desc:'Une ganache chocolat noir Tanzanie 75%, un croustillant praliné, et un biscuit chocolat sans farine.', allergens:['Lait','Oeufs','Fruits à coque'] },
+    "Arachide": { img:'img/products/arachide.webp', sub:'Praliné Coulant · Orfèvre', desc:'Un praliné cacahuète coulant, caramel beurre salé, mousse chocolat lait.', allergens:['Lait','Oeufs','Gluten','Arachide'] },
+    'Passion': { img:'img/products/passion.webp', sub:'Éclat Tropical', desc:'Un insert passion-mangue, crémeux chocolat blanc-passion.', allergens:['Lait','Oeufs','Gluten'] },
+    'Vanille': { img:'img/products/vanille.webp', sub:'Bourbon · Madagascar', desc:'Une crème vanille bourbon de Madagascar infusée 48h, un caramel vanille.', allergens:['Lait','Oeufs','Gluten'] }
   };
 
   // 2. MODAL PRODUITS
@@ -899,7 +899,7 @@
       if (past !== solid) {
         solid = past;
         nav.classList.toggle('nav-solid', solid);
-        if (sig) sig.src = solid ? 'img/am-signature.png' : 'img/am-signature-cream.png';
+        if (sig) sig.src = solid ? 'img/brand/am-signature.png' : 'img/brand/am-signature-cream.png';
         // Wordmark = SVG mask CSS — couleur gérée via .navbar--yc-dark:not(.nav-solid) background-color
       }
       if (y > 20 && y > lastY + 5) {

@@ -3,6 +3,9 @@
 # Dossier d'archivage local (orphelins, doublons, parasites)
 _inutilise/
 
+# Boîte de dépôt photos (sources à traiter, non servies par le site)
+photos en attente/
+
 # Artefacts système macOS
 .DS_Store
 **/.DS_Store
