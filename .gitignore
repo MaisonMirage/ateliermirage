@@ -1,0 +1,26 @@
+# ── Atelier Mirage — fichiers à ne jamais versionner ──
+
+# Dossier d'archivage local (orphelins, doublons, parasites)
+_inutilise/
+
+# Artefacts système macOS
+.DS_Store
+**/.DS_Store
+
+# Artefacts FUSE (fichiers ouverts puis supprimés sur montage réseau)
+.fuse_hidden*
+**/.fuse_hidden*
+
+# Fichiers temporaires d'éditeurs / uploads partiels
+XX*
+*.tmp
+*.swp
+*~
+
+# Dépendances Node (réinstallables via package.json)
+node_modules/
+
+# Variables d'environnement / secrets (ex: clé Stripe)
+.env
+.env.*
+.vercel
