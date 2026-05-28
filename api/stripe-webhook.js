@@ -35,15 +35,16 @@ function euro(cents) {
   return (cents / 100).toFixed(2).replace('.', ',') + ' €';
 }
 
-async function sendEmail(subject, text, html) {
+async function sendEmail(to, subject, text, html, replyTo) {
   var key = process.env.RESEND_API_KEY;
-  var to = process.env.ORDER_EMAIL;
   var from = process.env.ORDER_FROM || 'Atelier Mirage <onboarding@resend.dev>';
-  if (!key || !to) { console.error('RESEND_API_KEY ou ORDER_EMAIL manquant'); return false; }
+  if (!key || !to) { console.error('RESEND_API_KEY ou destinataire manquant'); return false; }
+  var payload = { from: from, to: [to], subject: subject, text: text, html: html };
+  if (replyTo) payload.reply_to = replyTo;
   var r = await fetch('https://api.resend.com/emails', {
     method: 'POST',
     headers: { 'Authorization': 'Bearer ' + key, 'Content-Type': 'application/json' },
-    body: JSON.stringify({ from: from, to: [to], subject: subject, text: text, html: html })
+    body: JSON.stringify(payload)
   });
   if (!r.ok) { console.error('Resend error', await r.text()); return false; }
   return true;
@@ -124,7 +125,37 @@ module.exports = async function (req, res) {
         '<p style="font-size:11px;color:#b3a18d;margin-top:18px;">Réf. Stripe : ' + session.id + '</p>' +
         '</div>';
 
-      await sendEmail('🧁 Nouvelle commande — ' + total + ' (' + mode + ')', text, html);
+      /* 2a. Notification à l'atelier */
+      await sendEmail(process.env.ORDER_EMAIL, '🧁 Nouvelle commande — ' + total + ' (' + mode + ')', text, html);
+
+      /* 2b. Confirmation au client (en plus du reçu Stripe) — à la charte Atelier Mirage */
+      if (mail && mail !== '—' && mail.indexOf('@') !== -1) {
+        var prenom = (nom && nom !== '—') ? nom : '';
+        var custText =
+          'Merci ' + prenom + ' pour votre commande chez Atelier Mirage.\n\n' +
+          'Récapitulatif :\n' + lignes + '\n\n' +
+          'Total : ' + total + '\n' +
+          'Mode : ' + mode + '\n' +
+          (md.mode === 'livraison' ? 'Adresse : ' + adresse + '\n' : '') +
+          '\nNous préparons votre commande avec soin.\n' +
+          'Une question ? contact@ateliermirage.fr · +33 7 59 54 04 10\n\n' +
+          'Atelier Mirage — Le goût pour seul langage';
+        var custHtml =
+          '<div style="font-family:Georgia,\'Times New Roman\',serif;color:#2d1e14;max-width:520px;margin:0 auto;padding:8px;">' +
+          '<p style="text-transform:uppercase;letter-spacing:.28em;font-size:11px;color:#9b8568;text-align:center;margin:0 0 4px;">Atelier Mirage</p>' +
+          '<p style="text-align:center;font-size:12px;color:#9b8568;letter-spacing:.12em;margin:0 0 26px;">Le goût pour seul langage</p>' +
+          '<h2 style="font-weight:normal;color:#6d4833;font-size:22px;margin:0 0 12px;">Merci ' + prenom + '</h2>' +
+          '<p style="font-size:15px;line-height:1.6;margin:0 0 18px;">Nous avons bien reçu votre commande et nous la préparons avec soin. Voici votre récapitulatif&nbsp;:</p>' +
+          '<div style="border-top:1px solid #ece5db;border-bottom:1px solid #ece5db;padding:14px 0;margin:0 0 14px;">' +
+          '<pre style="font-family:inherit;font-size:14px;white-space:pre-wrap;margin:0;">' + lignes + '</pre>' +
+          '</div>' +
+          '<p style="font-size:16px;margin:0 0 16px;"><strong>Total&nbsp;: ' + total + '</strong></p>' +
+          '<p style="font-size:14px;line-height:1.6;margin:0 0 6px;"><span style="color:#9b8568;">Mode&nbsp;:</span> ' + mode + '</p>' +
+          (md.mode === 'livraison' ? '<p style="font-size:14px;line-height:1.6;margin:0 0 6px;"><span style="color:#9b8568;">Adresse&nbsp;:</span> ' + adresse + '</p>' : '') +
+          '<p style="font-size:13px;line-height:1.7;color:#6d4833;margin:24px 0 0;">Une question&nbsp;? <a href="mailto:contact@ateliermirage.fr" style="color:#6d4833;">contact@ateliermirage.fr</a> · +33&nbsp;7&nbsp;59&nbsp;54&nbsp;04&nbsp;10</p>' +
+          '</div>';
+        await sendEmail(mail, 'Merci pour votre commande — Atelier Mirage', custText, custHtml, 'contact@ateliermirage.fr');
+      }
     } catch (e) {
       console.error('Erreur traitement commande :', e);
       /* On renvoie 200 quand même : la commande est payée, inutile que
