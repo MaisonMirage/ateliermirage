@@ -44,9 +44,45 @@
   if (MQ.addEventListener) { MQ.addEventListener('change', onChange); }
   else if (MQ.addListener) { MQ.addListener(onChange); }
 
+  /* ─────────────────────────────────────────────────────────────
+     NEWSLETTER (footer) → Formspree
+     Les champs n'avaient pas de back-end (onsubmit="return false").
+     On intercepte l'envoi et on POST vers Formspree, sans quitter la page.
+  ───────────────────────────────────────────────────────────── */
+  var NEWSLETTER_ENDPOINT = 'https://formspree.io/f/mreanzqp';
+  function wireNewsletter() {
+    var forms = document.querySelectorAll('.footer-newsletter');
+    Array.prototype.forEach.call(forms, function (form) {
+      if (form.dataset.nlBound === '1') return;
+      form.dataset.nlBound = '1';
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var input = form.querySelector('input[type="email"]');
+        if (!input || !input.value || !input.checkValidity()) { if (input) input.focus(); return; }
+        var btn = form.querySelector('button');
+        var orig = btn ? btn.textContent : '';
+        if (btn) { btn.disabled = true; btn.textContent = '…'; }
+        var data = new FormData();
+        data.append('email', input.value);
+        data.append('_subject', 'Nouvelle inscription newsletter — Atelier Mirage');
+        data.append('source', 'newsletter-footer');
+        fetch(NEWSLETTER_ENDPOINT, { method: 'POST', body: data, headers: { 'Accept': 'application/json' } })
+          .then(function (r) {
+            if (!r.ok) throw new Error('fail');
+            form.innerHTML = '<p class="footer-newsletter-ok" style="font-size:.8rem;color:inherit;margin:0;">Merci, votre inscription est bien prise en compte.</p>';
+          })
+          .catch(function () {
+            if (btn) { btn.disabled = false; btn.textContent = orig; }
+            alert('Inscription momentanément indisponible. Réessayez ou écrivez-nous à contact@ateliermirage.fr.');
+          });
+      });
+    });
+  }
+
+  function boot() { setup(); wireNewsletter(); }
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setup);
+    document.addEventListener('DOMContentLoaded', boot);
   } else {
-    setup();
+    boot();
   }
 })();
