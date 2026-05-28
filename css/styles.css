@@ -1907,7 +1907,9 @@ select { display: none; }
 .shop-card-add:hover { background:var(--ink); color:var(--cream); }
 .shop-card-add.is-added { background:var(--gold); color:var(--cream); }
 @media (hover: none) {
-  .shop-card-add { opacity:1; transform:none; }
+  /* Sur tactile (pas de survol), on n'affiche PAS le bouton en surimpression —
+     façon Yann Couvreur : image + nom + prix, on tape la carte pour ouvrir la fiche. */
+  .shop-card-add { display: none; }
 }
 .shop-card-name { font-family: 'Geometria', sans-serif; font-size:0.8rem; font-weight:500; letter-spacing: 0.15em; text-transform:uppercase; margin-bottom:0.4rem; padding: 0 0.6rem; color: var(--ink); }
 .shop-card-sub { font-family: 'Geometria', sans-serif; font-size:0.6rem; letter-spacing: 0.15em; text-transform:uppercase; color:var(--ink-muted); margin-bottom:1rem; padding: 0 0.6rem; }

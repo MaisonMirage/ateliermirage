@@ -195,7 +195,8 @@
 .hc-add:hover { background: var(--tan); color: var(--cream); border: 1px solid var(--tan); }
 .hc-add.is-added { background: var(--gold); color: var(--cream); }
 @media (hover: none) {
-  .hc-add { opacity: 1; transform: none; }
+  /* Tactile : pas de bouton en surimpression (on tape la carte pour ouvrir la fiche) */
+  .hc-add { display: none; }
 }
 
 /* --- VIDEO REVEAL SECTION — Audit v4: paddings réduits pour continuité visuelle --- */
